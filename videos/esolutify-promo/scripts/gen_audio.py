@@ -211,7 +211,14 @@ def crash(dur=2.4):
 
 
 # ---------------------------------------------------------------- music
-def music():
+def configure(bpm, total):
+    """Retarget tempo and length (module globals read by music())."""
+    global BPM, BEAT, BAR, TOTAL
+    BPM, BEAT, BAR, TOTAL = bpm, 60 / bpm, 4 * 60 / bpm, total
+
+
+def music(drop=7, outro=31, intro=3, out="music.wav", fade_out=4.0):
+    """intro: heartbeat bars; intro..drop: build + riser; drop..outro: groove; outro: ring-out."""
     n = int(TOTAL * SR)
     drums = np.zeros((2, n))
     bass = np.zeros((2, n))
@@ -227,7 +234,7 @@ def music():
         ([55, 59, 62, 67], 31, [67, 71, 74, 79]),  # G
     ]
     n_bars = int(np.ceil(TOTAL / BAR))
-    DROP, OUTRO = 7, 31
+    DROP, OUTRO = drop, outro
 
     for b in range(n_bars):
         t0 = b * BAR
@@ -235,7 +242,7 @@ def music():
         grooving = DROP <= b < OUTRO
 
         # pads: dark in the intro, open after the drop, soft in the outro
-        bright = 900 if b < 3 else 1400 if b < DROP else 2600 if grooving else 1500
+        bright = 900 if b < intro else 1400 if b < DROP else 2600 if grooving else 1500
         if b == n_bars - 1:
             continue
         pad_len = BAR + 0.6 if b < OUTRO else (TOTAL - t0 if b == OUTRO else 0)
@@ -245,21 +252,21 @@ def music():
             place(pads, pad_chord(chord, pad_len, bright), t0, 0.9 if b < DROP else 0.75)
 
         # heartbeat pulse in the hook
-        if b < 3:
+        if b < intro:
             place(drums, kick(0.5, 90, 42, 0.2), t0, 0.55)
             place(drums, kick(0.5, 90, 42, 0.2), t0 + BEAT * 0.75, 0.35)
             place(drums, kick(0.5, 90, 42, 0.2), t0 + BEAT * 2, 0.55)
             place(drums, kick(0.5, 90, 42, 0.2), t0 + BEAT * 2.75, 0.35)
 
         # problem: ticking clock hats + quiet filtered arp + sub pulse
-        if 3 <= b < DROP:
+        if intro <= b < DROP:
             for s in range(16):
                 place(drums, hat(), t0 + s * BEAT / 4, 0.35 if s % 2 else 0.6, pan=0.25 if s % 2 else -0.25)
             for q in range(4):
                 place(drums, kick(0.5, 100, 42, 0.3), t0 + q * BEAT, 0.5)
             for s in range(8):
                 note = arp_tones[s % 4] - 12
-                place(arps, pluck(note, 0.25, 900 + 300 * (b - 3)), t0 + s * BEAT / 2, 0.35, pan=-0.3 if s % 2 else 0.3)
+                place(arps, pluck(note, 0.25, 900 + 300 * (b - intro)), t0 + s * BEAT / 2, 0.35, pan=-0.3 if s % 2 else 0.3)
             place(bass, bass_note(root, BAR * 0.95, 300), t0, 0.5)
 
         if b == DROP - 1:
@@ -331,9 +338,9 @@ def music():
     # fade in / fade out
     fi = int(0.4 * SR)
     mix[:, :fi] *= np.linspace(0, 1, fi)
-    fo = int(4.0 * SR)
+    fo = int(fade_out * SR)
     mix[:, -fo:] *= np.linspace(1, 0, fo) ** 1.5
-    write_wav(OUT / "music.wav", mix, -1.0)
+    write_wav(OUT / out, mix, -1.0)
 
 
 # ---------------------------------------------------------------- SFX kit
@@ -419,6 +426,18 @@ def sfx():
 
 
 if __name__ == "__main__":
-    sfx()
-    music()
-    print("wrote", sorted(p.name for p in (OUT).rglob("*.wav")))
+    import sys
+
+    if len(sys.argv) > 1 and sys.argv[1] == "ad":
+        # python3 scripts/gen_audio.py ad <bpm> <seconds> <drop_bar> <outro_bar> [intro_bars] [fade_out_s]
+        bpm, secs, drop, outro = float(sys.argv[2]), float(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5])
+        intro = int(sys.argv[6]) if len(sys.argv) > 6 else 0
+        fade = float(sys.argv[7]) if len(sys.argv) > 7 else 1.5
+        RNG = np.random.default_rng(11)
+        configure(bpm, secs)
+        music(drop=drop, outro=outro, intro=intro, out="ad-music.wav", fade_out=fade)
+        print("wrote ad-music.wav", bpm, "bpm", secs, "s")
+    else:
+        sfx()
+        music()
+        print("wrote", sorted(p.name for p in (OUT).rglob("*.wav")))
