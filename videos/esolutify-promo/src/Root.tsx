@@ -1,8 +1,9 @@
 import "./fonts";
 import React from "react";
-import { Composition, Folder } from "remotion";
+import { Composition, Folder, Still } from "remotion";
 import { Stage } from "./components/Stage";
 import { MetaAd } from "./ad/MetaAd";
+import { StoryImage } from "./ad/StoryImage";
 import { Main } from "./Main";
 import { S01Hook } from "./scenes/S01Hook";
 import { S02Outcomes } from "./scenes/S02Outcomes";
@@ -74,6 +75,20 @@ export const RemotionRoot: React.FC = () => {
           width={1080}
           height={1920}
           defaultProps={{ variant: "21" as const, safeZones: true }}
+        />
+        <Still
+          id="StoryImageOffer"
+          component={StoryImage}
+          width={1080}
+          height={1920}
+          defaultProps={{ variant: "offer" as const }}
+        />
+        <Still
+          id="StoryImageWall"
+          component={StoryImage}
+          width={1080}
+          height={1920}
+          defaultProps={{ variant: "wall" as const }}
         />
       </Folder>
       <Folder name="Scenes">
