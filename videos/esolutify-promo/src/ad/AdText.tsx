@@ -108,46 +108,23 @@ export const TopLogo: React.FC<{ t: Timing }> = ({ t }) => {
   );
 };
 
-// S1 — the offer on frame 0.
+// S1 — the whole offer is readable on frame 0 and holds for 3 s.
 const Hook: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const collapse = interpolate(frame, [24, 31], [0, 1], {
-    ...clamp,
-    easing: theme.ease.inOut,
-  });
+  // sticker is already landed on frame 0 (virtual start at f-12)
   const sticker = spring({
-    frame: frame - 34,
+    frame: frame + 12,
     fps,
     config: theme.spring.bouncy,
   });
-  const stickerOut = interpolate(frame, [54, 60], [0, 1], {
+  const stickerOut = interpolate(frame, [90, 96], [0, 1], {
     ...clamp,
     easing: theme.ease.in,
   });
   return (
     <>
-      <Window from={-10} until={54}>
-        {/* phase 1: big two-line lead, collapses into a small kicker */}
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            top: 392,
-            opacity: 1 - collapse,
-            scale: 1 - 0.35 * collapse,
-            transformOrigin: "50% 0%",
-          }}
-        >
-          <WordReveal words={["See", "your"]} delay={-12} per={3} size={112} />
-          <WordReveal
-            words={["new", "website"]}
-            delay={-7}
-            per={3}
-            size={112}
-          />
-        </div>
+      <Window from={-10} until={90}>
         <div
           style={{
             position: "absolute",
@@ -159,7 +136,6 @@ const Hook: React.FC = () => {
             fontWeight: 600,
             fontSize: 52,
             color: theme.colors.muted,
-            opacity: collapse,
           }}
         >
           See your new website
@@ -167,7 +143,7 @@ const Hook: React.FC = () => {
         <Line top={466}>
           <WordReveal
             words={["before", "you", "pay"]}
-            delay={26}
+            delay={-12}
             per={3}
             size={104}
           />
@@ -176,17 +152,17 @@ const Hook: React.FC = () => {
               { text: "a", tone: "gold" },
               { text: "dollar.", tone: "gold" },
             ]}
-            delay={32}
+            delay={-9}
             per={3}
             size={104}
           />
         </Line>
       </Window>
-      {frame < 60 ? (
+      {frame < 96 ? (
         <div
           style={{
             position: "absolute",
-            left: 170,
+            left: 450,
             top: 712,
             width: 480,
             height: 72,
@@ -217,25 +193,25 @@ const Hook: React.FC = () => {
 // S2/S3 — a demo, not a mockup.
 const DemoNotMockup: React.FC = () => {
   const frame = useCurrentFrame();
-  const roll = interpolate(frame, [120, 127], [0, 1], {
+  const roll = interpolate(frame, [132, 139], [0, 1], {
     ...clamp,
     easing: theme.ease.inOut,
   });
   return (
-    <Window from={58} until={174}>
+    <Window from={94} until={174}>
       <Line top={392}>
         <WordReveal
           words={[
             { text: "A", tone: "gold" },
             { text: "demo,", tone: "gold" },
           ]}
-          delay={60}
+          delay={96}
           per={3}
           size={100}
         />
         <WordReveal
           words={["not", "a", "mockup."]}
-          delay={66}
+          delay={102}
           per={3}
           size={100}
         />
@@ -251,7 +227,7 @@ const DemoNotMockup: React.FC = () => {
         }}
       >
         <div style={{ translate: `0px ${-64 * roll}px`, opacity: 1 - roll }}>
-          <Sub text="A working site you can click through." at={72} top={4} />
+          <Sub text="A working site you can click through." at={106} top={4} />
         </div>
         <div
           style={{

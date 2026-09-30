@@ -217,8 +217,26 @@ def configure(bpm, total):
     BPM, BEAT, BAR, TOTAL = bpm, 60 / bpm, 4 * 60 / bpm, total
 
 
-def music(drop=7, outro=31, intro=3, out="music.wav", fade_out=4.0):
-    """intro: heartbeat bars; intro..drop: build + riser; drop..outro: groove; outro: ring-out."""
+def music(
+    drop=7,
+    outro=31,
+    intro=3,
+    out="music.wav",
+    fade_out=4.0,
+    fade_in=0.4,
+    drop_crash=0.5,
+    drop_clap=0.0,
+    riser_gain=0.55,
+    hp_hz=28,
+    roll_gain=1.0,
+    intro_bright=900,
+    presence=1.0,
+):
+    """intro: heartbeat bars; intro..drop: build + riser; drop..outro: groove; outro: ring-out.
+
+    The keyword defaults reproduce the brand film's music.wav exactly. The ad
+    passes phone-speaker-friendly values: the bed is present from frame 0, and
+    the drop gains presence (crash + clap) instead of only sub bass."""
     n = int(TOTAL * SR)
     drums = np.zeros((2, n))
     bass = np.zeros((2, n))
@@ -242,7 +260,7 @@ def music(drop=7, outro=31, intro=3, out="music.wav", fade_out=4.0):
         grooving = DROP <= b < OUTRO
 
         # pads: dark in the intro, open after the drop, soft in the outro
-        bright = 900 if b < intro else 1400 if b < DROP else 2600 if grooving else 1500
+        bright = intro_bright if b < intro else 1400 if b < DROP else 2600 if grooving else 1500
         if b == n_bars - 1:
             continue
         pad_len = BAR + 0.6 if b < OUTRO else (TOTAL - t0 if b == OUTRO else 0)
@@ -270,9 +288,9 @@ def music(drop=7, outro=31, intro=3, out="music.wav", fade_out=4.0):
             place(bass, bass_note(root, BAR * 0.95, 300), t0, 0.5)
 
         if b == DROP - 1:
-            place(fx, riser(BAR), t0, 0.55)
+            place(fx, riser(BAR), t0, riser_gain)
             for s in range(8):  # snare roll into the drop
-                place(drums, clap(0.15), t0 + BAR / 2 + s * BEAT / 4, 0.12 + 0.06 * s)
+                place(drums, clap(0.15), t0 + BAR / 2 + s * BEAT / 4, (0.12 + 0.06 * s) * roll_gain)
 
         if grooving:
             fill = (b - DROP) % 8 == 7
@@ -280,15 +298,15 @@ def music(drop=7, outro=31, intro=3, out="music.wav", fade_out=4.0):
                 place(drums, kick(), t0 + q * BEAT, 0.7)
                 if q in (1, 3):
                     place(drums, clap(), t0 + q * BEAT, 0.55)
-                place(drums, hat(open_=True), t0 + q * BEAT + BEAT / 2, 0.28, pan=0.2)
+                place(drums, hat(open_=True), t0 + q * BEAT + BEAT / 2, 0.28 * presence, pan=0.2)
             for s in range(16):
                 if s % 2 == 0:
-                    place(drums, hat(), t0 + s * BEAT / 4, 0.22, pan=-0.3)
+                    place(drums, hat(), t0 + s * BEAT / 4, 0.22 * presence, pan=-0.3)
             if fill:
                 for s in range(4):
                     place(drums, clap(0.15), t0 + 3 * BEAT + s * BEAT / 4, 0.25 + 0.08 * s)
             if (b - DROP) % 8 == 0:
-                place(fx, crash(), t0, 0.5)
+                place(fx, crash(), t0, drop_crash if b == DROP else 0.5)
             # offbeat pumping bass
             for e in range(8):
                 note = root + (12 if e in (3, 7) else 0)
@@ -297,8 +315,10 @@ def music(drop=7, outro=31, intro=3, out="music.wav", fade_out=4.0):
             up = 12 if (b // 2) % 2 else 0
             for s in range(16):
                 note = arp_tones[[0, 2, 1, 3, 2, 0, 3, 1][s % 8]] + up - 12
-                place(arps, pluck(note, 0.22, 2800), t0 + s * BEAT / 4, 0.28 if s % 4 else 0.38, pan=0.35 if s % 2 else -0.35)
+                place(arps, pluck(note, 0.22, 2800), t0 + s * BEAT / 4, (0.28 if s % 4 else 0.38) * presence, pan=0.35 if s % 2 else -0.35)
 
+        if b == DROP and drop_clap:
+            place(drums, clap(), t0, drop_clap)
         if b == DROP:
             place(fx, kick(1.6, 120, 36, 0.6), t0, 0.9)  # impact
         if b >= OUTRO:
@@ -332,11 +352,11 @@ def music(drop=7, outro=31, intro=3, out="music.wav", fade_out=4.0):
         + reverb(arps_d * pump, 0.3) * 2.4
         + reverb(fx, 0.4) * 0.7
     )
-    mix = hp(mix, 28)
+    mix = hp(mix, hp_hz)
     # gentle glue + soft clip
     mix = np.tanh(mix * 1.25) / np.tanh(1.25)
     # fade in / fade out
-    fi = int(0.4 * SR)
+    fi = max(1, int(fade_in * SR))
     mix[:, :fi] *= np.linspace(0, 1, fi)
     fo = int(fade_out * SR)
     mix[:, -fo:] *= np.linspace(1, 0, fo) ** 1.5
@@ -435,7 +455,21 @@ if __name__ == "__main__":
         fade = float(sys.argv[7]) if len(sys.argv) > 7 else 1.5
         RNG = np.random.default_rng(11)
         configure(bpm, secs)
-        music(drop=drop, outro=outro, intro=intro, out="ad-music.wav", fade_out=fade)
+        music(
+            drop=drop,
+            outro=outro,
+            intro=intro,
+            out="ad-music.wav",
+            fade_out=fade,
+            fade_in=0.02,
+            drop_crash=1.0,
+            drop_clap=0.6,
+            riser_gain=0.4,
+            hp_hz=40,
+            roll_gain=0.5,
+            intro_bright=2200,
+            presence=1.3,
+        )
         print("wrote ad-music.wav", bpm, "bpm", secs, "s")
     else:
         sfx()

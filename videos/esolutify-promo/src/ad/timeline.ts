@@ -24,13 +24,19 @@ export const CUTS = [180, 210, 240, 270] as const;
 export const WALL = 300;
 export const PROCESS = 356;
 
-const m = (slug: string, clipCss: number, sticky: number): Capture => ({
+const m = (
+  slug: string,
+  clipCss: number,
+  sticky: number,
+  statusBg: string,
+): Capture => ({
   slug,
   device: "mobile",
   cssWidth: 390,
   clipCss,
   sticky,
   file: "ad-mobile.jpg",
+  statusBg,
 });
 const d = (slug: string, clipCss: number, sticky: number): Capture => ({
   slug,
@@ -44,31 +50,31 @@ const d = (slug: string, clipCss: number, sticky: number): Capture => ({
 // Crops (scripts/crop_ad_sites.py) double as content guards.
 export const SITES = {
   greersmiles: {
-    mobile: m("greersmiles", 3100, 69),
+    mobile: m("greersmiles", 3100, 69, "#FBFBFB"),
     desktop: d("greersmiles", 2700, 77),
     url: "esolutify.com/demo/greersmiles",
     chip: "Family dental clinic",
   },
   sutebel: {
-    mobile: m("sutebel", 2400, 73),
+    mobile: m("sutebel", 2400, 73, "#0A0A0A"),
     desktop: d("sutebel", 2000, 85),
     url: "esolutify.com/demo/sutebel",
     chip: "Luxury fashion house",
   },
   newpc: {
-    mobile: m("newpc", 2900, 64),
+    mobile: m("newpc", 2900, 64, "#0A1117"),
     desktop: d("newpc", 1800, 64),
     url: "esolutify.com/demo/pc",
     chip: "Custom PC studio",
   },
   rielbuild: {
-    mobile: m("rielbuild", 4800, 0),
+    mobile: m("rielbuild", 4800, 0, "#2B3E4F"),
     desktop: d("rielbuild", 1800, 0),
     url: "esolutify.com/demo/rielbuild",
     chip: "Renovation contractor",
   },
   gincoaluminium: {
-    mobile: m("gincoaluminium", 1688, 0),
+    mobile: m("gincoaluminium", 1688, 0, "#172231"),
     desktop: d("gincoaluminium", 1838, 0),
     url: "esolutify.com/demo/gincoaluminium",
     chip: "Façade contractor · UAE",
@@ -134,29 +140,37 @@ export const activeFlick = (frame: number, segs: Seg[]) =>
       frame <= s.f0 + (s.f1 - s.f0) * (s.release ?? 0.3) + 6,
   ) as Extract<Seg, { type: "flick" }> | undefined;
 
-// Hero phone (Greer Smiles) — S1 thumb flick, S2 two flicks, S3 docked read.
+// Hero phone (Greer Smiles): S1 thumb flick, S2 two flicks. The desktop
+// then catches up, so both devices hold the same section from f156 to f177.
 export const GREER_PHONE: Seg[] = [
   { type: "flick", f0: 12, f1: 40, y0: 0, y1: 480 },
   { type: "flick", f0: 64, f1: 90, y0: 480, y1: 960 },
   { type: "flick", f0: 98, f1: 126, y0: 960, y1: 1840 },
-  { type: "glide", f0: 150, f1: 174, y0: 1840, y1: 2150 },
 ];
 export const GREER_DESKTOP: Seg[] = [
-  { type: "glide", f0: 144, f1: 174, y0: 0, y1: 1700 },
+  { type: "glide", f0: 128, f1: 156, y0: 0, y1: 1700 },
 ];
 
-// Montage phone + ghost browser, one entry per cut.
+// Montage phone + ghost browser, one entry per cut. Each page enters already
+// scrolled so its hero headline sits above the Reels UI (y < 1250), flicks,
+// then HOLDS on the section it landed on for 6+ frames before the next swap.
+export const MONTAGE_START: Record<string, number> = {
+  sutebel: 180,
+  newpc: 210,
+  rielbuild: 260,
+  gincoaluminium: 0,
+};
 export const MONTAGE_PHONE: Record<string, Seg[]> = {
-  sutebel: [{ type: "flick", f0: 192, f1: 207, y0: 0, y1: 880 }],
-  newpc: [{ type: "flick", f0: 222, f1: 237, y0: 0, y1: 935 }],
-  rielbuild: [{ type: "snap", f0: 254, f1: 266, y0: 0, y1: 844 }],
-  gincoaluminium: [{ type: "snap", f0: 284, f1: 294, y0: 0, y1: 844 }],
+  sutebel: [{ type: "flick", f0: 188, f1: 200, y0: 180, y1: 1060 }],
+  newpc: [{ type: "flick", f0: 218, f1: 230, y0: 210, y1: 1090 }],
+  rielbuild: [{ type: "snap", f0: 248, f1: 258, y0: 260, y1: 844 }],
+  gincoaluminium: [{ type: "snap", f0: 278, f1: 288, y0: 0, y1: 844 }],
 };
 export const MONTAGE_DESKTOP: Record<string, Seg[]> = {
-  sutebel: [{ type: "glide", f0: 192, f1: 206, y0: 0, y1: 913 }],
-  newpc: [{ type: "glide", f0: 222, f1: 236, y0: 0, y1: 900 }],
-  rielbuild: [{ type: "glide", f0: 254, f1: 266, y0: 0, y1: 900 }],
-  gincoaluminium: [{ type: "glide", f0: 284, f1: 294, y0: 0, y1: 938 }],
+  sutebel: [{ type: "glide", f0: 188, f1: 200, y0: 0, y1: 913 }],
+  newpc: [{ type: "glide", f0: 218, f1: 230, y0: 0, y1: 900 }],
+  rielbuild: [{ type: "glide", f0: 248, f1: 258, y0: 0, y1: 900 }],
+  gincoaluminium: [{ type: "glide", f0: 278, f1: 288, y0: 0, y1: 938 }],
 };
 
 // Wall phones keep reading slowly (S5), then drift once sunk (S6/S7).

@@ -33,15 +33,31 @@ Chosen by a judged panel of three concepts: offer-led 49.5/60, objection-led 48,
 
 | # | Time | On screen | Showcase | Why |
 | - | ---- | --------- | -------- | --- |
-| 1 | 0–2s | **See your new website / before you pay a dollar.** + gold "FREE · NO OBLIGATION" sticker | Phone rises with Greer Smiles (dental) mobile; one thumb flick with a touch dot | The offer is readable on frame 0 |
-| 2 | 2–4s | **A demo, not a mockup.** / "A working site you can click through." | Two more flicks down the real page; sticky header stays pinned, scrollbar moves | Answers "is it real?" |
-| 3 | 4–6s | Chip: "Family dental clinic · demo" | Browser `esolutify.com/demo/greersmiles` glides to the cosmetic-services accordion; the phone docks at its corner and reads the same section | Mobile **and** desktop, the same site |
-| 4 | 6–10s | **We build websites like this.** + a sector chip that flips on each beat | On the drop the phone re-centres; the page swaps on every 2 beats: Sutebel (luxury fashion) → New PC (custom PC studio) → Riel Build (renovation) → Ginco (façade contractor, UAE). A ghost browser behind shows each site's desktop view | Range across industries, cut on the beat |
+| 1 | 0–3s | See your new website / **before you pay a dollar.** + gold "FREE · NO OBLIGATION" sticker, all landed on frame 0 | Phone rises with Greer Smiles (dental) mobile; thumb flicks with a touch dot; iOS status bar, so no client logo sits under the island | The whole offer is readable on frame 0 and holds for 3s |
+| 2 | 3–4.5s | **A demo, not a mockup.** / "A working site you can click through." | A long flick down the real page; sticky header stays pinned, scrollbar moves | Answers "is it real?" |
+| 3 | 4.5–6s | Chip: "Family dental clinic · demo" | Browser `esolutify.com/demo/greersmiles` glides to "Premium cosmetic services"; the phone docks at its corner on the same section. Both hold f156–177 | Mobile **and** desktop, the same site |
+| 4 | 6–10s | **We build websites like this.** + a sector chip that flips on each beat | On the drop the phone re-centres; the page swaps every 2 beats: Sutebel (luxury fashion) → New PC (custom PC studio) → Riel Build (renovation) → Ginco (façade contractor, UAE). Each page enters with its hero above the Reels UI, flicks, then holds on the section it landed on. A faint, blurred ghost browser behind shows each site's desktop view | Range across industries, cut on the beat |
 | 5 | 10–12s | **Your brand, not a theme.** / "Your logo · your colours · your customers" | Wall of 5 phones, each still scrolling its own site | Every demo looks like its own brand |
 | 6 | 12–16s | **Your demo in about a week.** 1 Apply in 2 minutes · 2 A 10-minute call · 3 We build your demo (usually within 5–7 days) · 4 Love it? Buy it. Don't? Walk away. | Wall sinks into the bottom UI zone as texture | Removes the risk; the process in 4 beats |
-| 7 | 16–21s | Logo → **Apply for your free demo** → [Apply now →] → esolutify.com/free-demo → "We take on 5 free demos a week." → ★ 5.0 on Google · 500+ projects → ⌄ | Sunk wall drifts; tap ripple presses the button | One action, same words as Meta's button |
+| 7 | 16–21s | Logo → **Apply for a free demo.** → [Apply now →] → esolutify.com/free-demo → "We take on 5 free demos a week." → ★ 5.0 on Google · 500+ projects → ⌄ | Sunk wall drifts; tap ripple presses the button | One action, same words as Meta's button |
 
-**15s cutdown (`MetaAdFreeDemo15`):** scenes 1–4 unchanged (0–10s). The CTA starts at 10s, the wall and process are dropped, and the trust line becomes "Your demo in about a week."
+**15s cutdown (`MetaAdFreeDemo15`):** scenes 1–4 unchanged (0–10s). The CTA starts at 10s, the wall and process are dropped, the sunk phone is dimmed and blurred to texture, and the trust line becomes "No obligation. Don't love it? Walk away."
+
+## Review pass
+
+Five independent reviewers checked the first render: Meta placement, motion craft, copy truth, showcase quality, and audio (measured). An adversarial triage kept 12 findings and rejected 14. All 12 are fixed in this version:
+
+- The offer is held on frame 0.
+- The phone has a status bar, so the island no longer clips client logos.
+- The montage lands and holds on each section.
+- The CTA copy matches the site ("Apply for a free demo").
+- The desktop and mobile views are synced.
+- The ghost browser is quieter, and its URL bar is legible.
+- The wall glint is clipped to each phone's glass.
+- The whooshes peak on the cuts.
+- The drop and hook hold their level on phone speakers.
+- The 15s end card has a quieter background.
+- The files are tagged BT.709 (tv range).
 
 ## Truth guards
 

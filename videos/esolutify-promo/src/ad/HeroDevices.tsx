@@ -10,7 +10,7 @@ import {
   Browser,
   PageLayer,
   PhoneShell,
-  phoneScreenHeight,
+  phoneViewportHeight,
   type Capture,
 } from "../components/Devices";
 import { LightSweep } from "../components/Motion";
@@ -22,6 +22,7 @@ import {
   MONTAGE,
   MONTAGE_DESKTOP,
   MONTAGE_PHONE,
+  MONTAGE_START,
   PROCESS,
   SITES,
   WALL,
@@ -37,7 +38,7 @@ import {
 // Hero phone is always rendered at a 470px screen and scaled, so the page
 // texture stays identical through dock/undock/wall moves.
 const BASE_W = 470;
-const BASE_H = phoneScreenHeight(BASE_W); // 1017
+const BASE_H = phoneViewportHeight(BASE_W); // page viewport under the status bar
 const K = BASE_W / 390; // px per css px on the hero phone
 const HANDOFF = 4; // half-width of the page-swap window (8 frames total)
 
@@ -86,8 +87,9 @@ const useHeroPose = (t: Timing) => {
       interpolate(enter, [0, 1], [10, 0]) +
       Math.sin(frame / 24) * 1.2 * (1 - sink),
     opacity: interpolate(enter, [0, 0.35], [0, 1], clamp),
-    dim: mix(1, t.wall ? 0.45 : 0.5, sink),
-    blur: mix(0, 2, sink),
+    // 15s: the sunk phone is texture under the CTA, not a second message
+    dim: mix(1, t.wall ? 0.45 : 0.28, sink),
+    blur: mix(0, t.wall ? 2 : 6, sink),
     glow:
       frame < 60
         ? 0.35
@@ -108,18 +110,28 @@ const heroPages = (): { key: SiteKey; page: Page; from: number }[] => [
   },
   ...MONTAGE.map((key, i) => ({
     key,
-    page: { cap: SITES[key].mobile, segs: MONTAGE_PHONE[key], start: 0 },
+    page: {
+      cap: SITES[key].mobile,
+      segs: MONTAGE_PHONE[key],
+      start: MONTAGE_START[key],
+    },
     from: CUTS[i],
   })),
 ];
 
-const HeroScreen: React.FC<{ glowBlur: number }> = ({ glowBlur }) => {
-  const frame = useCurrentFrame();
+// index of the page on screen (the incoming one once its cut has started)
+const heroIndex = (frame: number) => {
   const pages = heroPages();
-  // index of the page on screen (the incoming one once its cut has started)
   let idx = 0;
   for (let i = 1; i < pages.length; i++)
     if (frame >= pages[i].from - HANDOFF) idx = i;
+  return idx;
+};
+
+const HeroScreen: React.FC<{ glowBlur: number }> = ({ glowBlur }) => {
+  const frame = useCurrentFrame();
+  const pages = heroPages();
+  const idx = heroIndex(frame);
   const cur = pages[idx];
   const layers: React.ReactNode[] = [];
 
@@ -239,6 +251,7 @@ const TouchDot: React.FC<{ segs: Seg[] }> = ({ segs }) => {
 };
 
 const HeroPhone: React.FC<{ t: Timing }> = ({ t }) => {
+  const frame = useCurrentFrame();
   const pose = useHeroPose(t);
   return (
     <div
@@ -256,7 +269,11 @@ const HeroPhone: React.FC<{ t: Timing }> = ({ t }) => {
             : undefined,
       }}
     >
-      <PhoneShell width={BASE_W} glow={pose.glow}>
+      <PhoneShell
+        width={BASE_W}
+        glow={pose.glow}
+        statusBg={heroPages()[heroIndex(frame)].page.cap.statusBg}
+      >
         <HeroScreen glowBlur={0} />
       </PhoneShell>
     </div>
@@ -270,11 +287,11 @@ const BROWSER_H = 540;
 const Cursor: React.FC = () => {
   const frame = useCurrentFrame();
   if (frame < 120 || frame > 182) return null;
-  const x = interpolate(frame, [120, 144, 172], [640, 610, 300], {
+  const x = interpolate(frame, [120, 128, 156], [640, 610, 300], {
     ...clamp,
     easing: theme.ease.soft,
   });
-  const y = interpolate(frame, [120, 144, 172], [24, 30, 330], {
+  const y = interpolate(frame, [120, 128, 156], [24, 30, 330], {
     ...clamp,
     easing: theme.ease.soft,
   });
@@ -305,7 +322,7 @@ const Cursor: React.FC = () => {
 const HeroBrowser: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  if (frame < 112 || frame > WALL + 14) return null;
+  if (frame < 112 || frame > WALL + 2) return null;
   const enter = spring({
     frame: frame - 116,
     fps,
@@ -316,7 +333,7 @@ const HeroBrowser: React.FC = () => {
     fps,
     config: theme.spring.smooth,
   });
-  const out = interpolate(frame, [WALL, WALL + 12], [1, 0], {
+  const out = interpolate(frame, [WALL - 8, WALL + 2], [1, 0], {
     ...clamp,
     easing: theme.ease.in,
   });
@@ -350,13 +367,13 @@ const HeroBrowser: React.FC = () => {
         perspective: 1400,
         opacity:
           interpolate(enter, [0, 0.4], [0, 1], clamp) *
-          mix(1, 0.35, ghost) *
+          mix(1, 0.18, ghost) *
           out,
         translate: `0px ${interpolate(enter, [0, 1], [260, 0])}px`,
         scale: mix(1, 1.08, ghost),
         filter:
           ghost > 0.01
-            ? `blur(${2 * ghost}px) brightness(${mix(1, 0.8, ghost)})`
+            ? `blur(${8 * ghost}px) brightness(${mix(1, 0.8, ghost)})`
             : undefined,
       }}
     >
@@ -388,6 +405,7 @@ const HeroBrowser: React.FC = () => {
                 scroll={scroll}
                 url={SITES[l.key].url}
                 blur={v}
+                barPx={64}
               >
                 {l.key === "greersmiles" ? <Cursor /> : null}
               </Browser>
@@ -412,7 +430,7 @@ const WallPhones: React.FC<{ t: Timing }> = ({ t }) => {
   const outerW = w + Math.round(w * 0.035) * 2;
   return (
     <AbsoluteFill style={{ perspective: 1600 }}>
-      {WALL_PHONES.map((p) => {
+      {WALL_PHONES.map((p, i) => {
         const inP = spring({
           frame: frame - p.at,
           fps,
@@ -438,31 +456,26 @@ const WallPhones: React.FC<{ t: Timing }> = ({ t }) => {
                   : undefined,
             }}
           >
-            <PhoneShell width={w}>
+            <PhoneShell width={w} statusBg={SITES[p.key].mobile.statusBg}>
               <PageLayer
                 id={`wall-${p.key}`}
                 cap={SITES[p.key].mobile}
                 width={w}
-                height={phoneScreenHeight(w)}
+                height={phoneViewportHeight(w)}
                 scroll={scroll}
                 blur={v}
+              />
+              {/* glint clipped to each phone's glass */}
+              <LightSweep
+                start={326 + i * 4}
+                duration={22}
+                width={120}
+                opacity={0.18}
               />
             </PhoneShell>
           </div>
         );
       })}
-      {/* one light sweep across the whole wall */}
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 700,
-          height: 760,
-        }}
-      >
-        <LightSweep start={328} duration={22} width={220} opacity={0.18} />
-      </div>
     </AbsoluteFill>
   );
 };

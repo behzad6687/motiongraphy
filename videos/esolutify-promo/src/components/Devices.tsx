@@ -13,11 +13,88 @@ export type Capture = {
   clipCss: number; // captured page height in css px
   sticky: number; // sticky header height in css px (0 = none)
   file?: string; // defaults to `${device}.jpg`
+  statusBg?: string; // phone status-bar colour (matches the site's header)
 };
 
 // Viewport height in css px for a device of a given rendered size.
+// iOS-style status bar: the page starts below it, so the island never clips
+// a client's header or logo.
+export const phoneStatusInset = (width: number) => Math.round(width * 0.12);
+
 export const phoneScreenHeight = (width: number) =>
   Math.round((width * 844) / 390);
+
+// Height of the page viewport under the status bar.
+export const phoneViewportHeight = (width: number) =>
+  phoneScreenHeight(width) - phoneStatusInset(width);
+
+const isLight = (hex: string) => {
+  const n = parseInt(hex.slice(1), 16);
+  const [r, g, b] = [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b > 140;
+};
+
+const StatusBar: React.FC<{ width: number; bg: string }> = ({ width, bg }) => {
+  const h = phoneStatusInset(width);
+  const fg = isLight(bg) ? "#111" : "#F5F5F5";
+  const fs = Math.round(width * 0.04);
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 0,
+        top: 0,
+        width,
+        height: h,
+        background: bg,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: `${Math.round(h * 0.12)}px ${Math.round(width * 0.085)}px 0`,
+        fontFamily: theme.fonts.body,
+        fontWeight: 600,
+        fontSize: fs,
+        color: fg,
+      }}
+    >
+      <span>9:41</span>
+      <span style={{ display: "flex", alignItems: "center", gap: fs * 0.35 }}>
+        <svg viewBox="0 0 18 12" width={fs * 1.1} height={fs * 0.75} fill={fg}>
+          <rect x="0" y="8" width="3" height="4" rx="1" />
+          <rect x="5" y="5.5" width="3" height="6.5" rx="1" />
+          <rect x="10" y="3" width="3" height="9" rx="1" />
+          <rect x="15" y="0" width="3" height="12" rx="1" />
+        </svg>
+        <svg
+          viewBox="0 0 26 12"
+          width={fs * 1.55}
+          height={fs * 0.75}
+          fill="none"
+        >
+          <rect
+            x="0.5"
+            y="0.5"
+            width="22"
+            height="11"
+            rx="3"
+            stroke={fg}
+            opacity={0.5}
+          />
+          <rect x="2.5" y="2.5" width="16" height="7" rx="1.5" fill={fg} />
+          <rect
+            x="24"
+            y="4"
+            width="1.5"
+            height="4"
+            rx="0.7"
+            fill={fg}
+            opacity={0.5}
+          />
+        </svg>
+      </span>
+    </div>
+  );
+};
 
 // One page inside a screen. `offsetY` slides the whole page (page-swap
 // hand-offs); `blur` is a vertical motion blur in px (velocity blur).
@@ -109,8 +186,9 @@ export const PageLayer: React.FC<{
 export const PhoneShell: React.FC<{
   width: number; // screen width in px
   glow?: number;
+  statusBg?: string;
   children: React.ReactNode;
-}> = ({ width, glow = 0, children }) => {
+}> = ({ width, glow = 0, statusBg = "#0A0A0A", children }) => {
   const screenH = phoneScreenHeight(width);
   const bezel = Math.round(width * 0.035);
   const r = Math.round(width * 0.14);
@@ -159,7 +237,19 @@ export const PhoneShell: React.FC<{
           background: "#0A0A0A",
         }}
       >
-        {children}
+        <StatusBar width={width} bg={statusBg} />
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            top: phoneStatusInset(width),
+            width,
+            height: phoneViewportHeight(width),
+            overflow: "hidden",
+          }}
+        >
+          {children}
+        </div>
         <div
           style={{
             position: "absolute",
@@ -187,11 +277,11 @@ export const Phone: React.FC<{
   id: string;
   children?: React.ReactNode;
 }> = ({ cap, width, scroll, glow, blur, id, children }) => (
-  <PhoneShell width={width} glow={glow}>
+  <PhoneShell width={width} glow={glow} statusBg={cap.statusBg}>
     <PageLayer
       cap={cap}
       width={width}
-      height={phoneScreenHeight(width)}
+      height={phoneViewportHeight(width)}
       scroll={scroll}
       blur={blur}
       id={id}
@@ -209,9 +299,10 @@ export const Browser: React.FC<{
   url: string;
   blur?: number;
   id: string;
+  barPx?: number; // URL-bar height (default 4.5% of width)
   children?: React.ReactNode;
-}> = ({ cap, width, height, scroll, url, blur, id, children }) => {
-  const bar = Math.round(width * 0.045);
+}> = ({ cap, width, height, scroll, url, blur, id, barPx, children }) => {
+  const bar = barPx ?? Math.round(width * 0.045);
   return (
     <div
       style={{

@@ -10,3 +10,6 @@ import { Config } from "@remotion/cli/config";
 Config.setRspack(true);
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
+// yuv420p, tv range, BT.709 tags: survives Meta/Instagram transcoding without
+// crushing the dark brand palette or shifting the red/gold
+Config.setColorSpace("bt709");

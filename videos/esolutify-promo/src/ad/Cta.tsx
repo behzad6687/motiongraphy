@@ -53,7 +53,7 @@ export const Cta: React.FC<{ t: Timing }> = ({ t }) => {
     <AbsoluteFill>
       <div style={{ position: "absolute", left: 90, right: 90, top: 466 }}>
         <WordReveal
-          words={["Apply", "for", "your"]}
+          words={["Apply", "for", "a"]}
           delay={c + 4}
           per={3}
           size={100}
@@ -61,7 +61,7 @@ export const Cta: React.FC<{ t: Timing }> = ({ t }) => {
         <WordReveal
           words={[
             { text: "free", tone: "gold" },
-            { text: "demo", tone: "gold" },
+            { text: "demo.", tone: "gold" },
           ]}
           delay={c + 12}
           per={3}
@@ -163,7 +163,7 @@ export const Cta: React.FC<{ t: Timing }> = ({ t }) => {
             5.0 on Google · 500+ projects
           </>
         ) : (
-          "Your demo in about a week."
+          "No obligation. Don’t love it? Walk away."
         )}
       </div>
       <div

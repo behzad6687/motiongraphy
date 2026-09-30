@@ -10,6 +10,8 @@ This covers the deliverables in `renders/meta-ad/` and how to set them up in Ads
 | `meta-ad-free-demo-9x16-15s.mp4` | **Stories** (Instagram + Facebook). 15s cutdown of the same ad |
 | `meta-ad-thumb.jpg` | Cover image (frame 50: the offer, the sticker and the scrolling site) |
 
+Both files are H.264 yuv420p, tv range, tagged BT.709 (set in `remotion.config.ts`), so Meta's transcode keeps the dark palette intact.
+
 Both cuts keep every word, the logo and the in-video button inside the area Meta leaves clear. Critical content sits in y 290–1160. The bottom third is imagery that sits under a dark gradient, so Meta's caption and **Apply Now** button land on dark.
 
 ## Ads Manager setup
@@ -28,8 +30,8 @@ The Reels caption truncates after the first line, so the offer comes first.
 **Primary text** (test 2–3):
 
 1. See your new website before you pay a dollar. Tell us about your business. If it's a fit, our team designs a working demo of your new site, free and with no obligation. Love it? Buy it outright or in installments. Don't? Walk away.
-2. A demo, not a mockup. Your logo, your colours and copy written for your customers, on mobile and desktop. Apply in 2 minutes and click through your new site in about a week.
-3. Every site in this video is a working demo our team built. Want to see yours before you pay a dollar? We take on 5 free demos a week. Apply in 2 minutes.
+2. Free website demo: a working site, not a mockup. Your logo, your colours and copy written for your customers, on mobile and desktop. Apply in 2 minutes; from application to a demo you can click through in about a week.
+3. See your new website before you pay a dollar. We take on 5 free demos a week in Canada, the USA and the UAE. Every site in this video is a demo our team built. Apply in 2 minutes.
 
 **Headlines:**
 - See your new site before you pay
