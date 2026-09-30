@@ -1,0 +1,71 @@
+{
+  "url": "https://esolutify.com/demo/pc/",
+  "mobile": {
+    "cssHeight": 17192,
+    "stickyHeader": 64,
+    "title": "Custom Water-Cooled Gaming and Workstation PCs | Coldloop",
+    "brokenImages": 0,
+    "clipCssHeight": 6400,
+    "dpr": 2.5,
+    "cssWidth": 390
+  },
+  "desktop": {
+    "cssHeight": 10204,
+    "stickyHeader": 64,
+    "title": "Custom Water-Cooled Gaming and Workstation PCs | Coldloop",
+    "brokenImages": 0,
+    "clipCssHeight": 10204,
+    "dpr": 1.25,
+    "cssWidth": 1440,
+    "composite": true,
+    "sourceCssHeight": 24396,
+    "note": "Hero is a 14400px scroll-pinned film; image = 5 viewport frames of the film (chapters 01,02,05,07,09; 900 css each, nav only on frame 1) + full-page clip of the page from #build (y=14400) to the end of #proof (y=20104). Layer-stack 'press and hold' completed.",
+    "layout": [
+      {
+        "part": "film 01 The studio (nav + 'A few machines a month')",
+        "yStartCss": 0,
+        "yEndCss": 900
+      },
+      {
+        "part": "film 02 The machine",
+        "yStartCss": 900,
+        "yEndCss": 1800
+      },
+      {
+        "part": "film 05 The GPU block",
+        "yStartCss": 1800,
+        "yEndCss": 2700
+      },
+      {
+        "part": "film 07 The CPU block",
+        "yStartCss": 2700,
+        "yEndCss": 3600
+      },
+      {
+        "part": "film 09 headline + CTA",
+        "yStartCss": 3600,
+        "yEndCss": 4500
+      },
+      {
+        "part": "#build (what we build, pricing tiers)",
+        "yStartCss": 4500,
+        "yEndCss": 6228
+      },
+      {
+        "part": "#process (7-stage timeline)",
+        "yStartCss": 6228,
+        "yEndCss": 7559
+      },
+      {
+        "part": "#layers (exploded layer stack)",
+        "yStartCss": 7559,
+        "yEndCss": 8998
+      },
+      {
+        "part": "#proof (stat cards + testimonials)",
+        "yStartCss": 8998,
+        "yEndCss": 10204
+      }
+    ]
+  }
+}

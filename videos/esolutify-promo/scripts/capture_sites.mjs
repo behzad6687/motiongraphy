@@ -38,6 +38,7 @@ const DEVICES = {
 
 // hide chat launchers, cookie banners and similar overlays that would stamp every frame
 const HIDE_CSS = `
+  html { scroll-behavior: auto !important; }
   [id*="cookie" i], [class*="cookie" i], [id*="consent" i], [class*="consent" i],
   [class*="chat-widget" i], [id*="chat-widget" i], [class*="ask-sol" i], [id*="ask-sol" i],
   iframe[src*="chat" i], [class*="intercom" i], [id*="intercom" i], #hubspot-messages-iframe-container,
@@ -92,21 +93,24 @@ async function capture(slug, url, kind) {
   // re-request images that came back broken (the bot check can eat a few), then
   // wait until every image above the capture limit has decoded
   for (let pass = 0; pass < 3; pass++) {
-    const broken = await page.evaluate((maxY) => {
-      let n = 0;
-      for (const img of document.images) {
-        const top = img.getBoundingClientRect().top + window.scrollY;
-        if (top > maxY) continue;
-        img.loading = "eager";
-        if (img.complete && img.naturalWidth === 0 && img.currentSrc) {
-          const src = img.currentSrc;
-          img.removeAttribute("srcset");
-          img.src = src + (src.includes("?") ? "&" : "?") + "r=" + pass;
-          n++;
+    const broken = await page.evaluate(
+      ({ maxY, pass }) => {
+        let n = 0;
+        for (const img of document.images) {
+          const top = img.getBoundingClientRect().top + window.scrollY;
+          if (top > maxY) continue;
+          img.loading = "eager";
+          if (img.complete && img.naturalWidth === 0 && img.currentSrc) {
+            const src = img.currentSrc;
+            img.removeAttribute("srcset");
+            img.src = src + (src.includes("?") ? "&" : "?") + "r=" + pass;
+            n++;
+          }
         }
-      }
-      return n;
-    }, MAX_CSS_H);
+        return n;
+      },
+      { maxY: MAX_CSS_H, pass },
+    );
     await page
       .waitForFunction(
         (maxY) =>
@@ -173,7 +177,11 @@ async function capture(slug, url, kind) {
 
 for (const arg of process.argv.slice(2)) {
   const [slug, url] = arg.split("=");
-  const result = { url };
+  // merge with an earlier run so a single-device re-capture keeps the other entry
+  const metaPath = path.join(OUT, slug, "meta.json");
+  const result = fs.existsSync(metaPath)
+    ? { ...JSON.parse(fs.readFileSync(metaPath, "utf8")), url }
+    : { url };
   for (const kind of which === "both" ? ["mobile", "desktop"] : [which]) {
     for (let attempt = 1; attempt <= RETRIES; attempt++) {
       try {

@@ -1,0 +1,138 @@
+{
+  "url": "https://esolutify.com/demo/gincoaluminium/",
+  "mobile": {
+    "cssHeight": 8651,
+    "stickyHeader": 0,
+    "fixedHeaderCss": 64,
+    "title": "Façade & Curtain Wall Contractor in the UAE | National Aluminium (Ginco)",
+    "brokenImages": 0,
+    "clipCssHeight": 8651,
+    "dpr": 2.5,
+    "cssWidth": 390,
+    "composite": true,
+    "sourceCssHeight": 23199,
+    "note": "Hero is a 700vh scroll-pinned canvas film (5 text chapters). Image = 4 viewport frames of the film (chapters 01,02,04,05; 844 css each; header only on frame 1; chapter 03 skipped - it is a grey motion-blur transition) + full-page clip of the page after the film from 'Who we are' (source y=844 with film collapsed) to the end of the 2nd project card (y=6119). Product grid trimmed to the first 3 of 15 cards; 'press and hold' unit forced to its assembled state with all 4 steps lit; reveal animations forced visible; mobile thumb bar hidden. Fixed header is 64 css and transparent over the hero, so stickyHeader is 0 (do not overlay).",
+    "layout": [
+      {
+        "part": "film 01 hero: \"We build the skin of the skyline.\" (header + first film frame)",
+        "yStartCss": 0,
+        "yEndCss": 844
+      },
+      {
+        "part": "film 02 \"Curtain walls. Cladding. Glass.\"",
+        "yStartCss": 844,
+        "yEndCss": 1688
+      },
+      {
+        "part": "film 04 \"200+ projects. 600+ people.\" + 432,000 / 20,000 stats over Dubai skyline",
+        "yStartCss": 1688,
+        "yEndCss": 2532
+      },
+      {
+        "part": "film 05 \"Building the innovation.\" + Request a quote / See our projects (lobby)",
+        "yStartCss": 2532,
+        "yEndCss": 3376
+      },
+      {
+        "part": "Who we are: \"Façades for the UAE, made in Ajman since 1983.\" + factory photo + 40+/600+/200+/432,000 stats",
+        "yStartCss": 3376,
+        "yEndCss": 4838,
+        "sourceYCss": 844
+      },
+      {
+        "part": "\"15 systems. One standard.\" filter chips + first 3 product cards (cards 4-15 hidden)",
+        "yStartCss": 4838,
+        "yEndCss": 6263,
+        "sourceYCss": 2306
+      },
+      {
+        "part": "\"Hold to build a unit.\" assembled curtain-wall unit (forced complete) + 4 lit steps",
+        "yStartCss": 6263,
+        "yEndCss": 7582,
+        "sourceYCss": 3731
+      },
+      {
+        "part": "Selected projects: \"Built for Emaar, Miral, Aldar and Select Group.\" + Jumeirah Living Marina Gate + The Cove cards",
+        "yStartCss": 7582,
+        "yEndCss": 8651,
+        "sourceYCss": 5050
+      }
+    ]
+  },
+  "desktop": {
+    "cssHeight": 11938,
+    "stickyHeader": 0,
+    "title": "Façade & Curtain Wall Contractor in the UAE | National Aluminium (Ginco)",
+    "brokenImages": 0,
+    "clipCssHeight": 11938,
+    "dpr": 1.25,
+    "cssWidth": 1440,
+    "composite": true,
+    "sourceCssHeight": 17477,
+    "note": "Hero is a 700vh scroll-pinned canvas film (5 text chapters). Image = film frames 01 (938 css: announce bar + nav + hero), 02, 04, 05 (900 css each, no nav; chapter 03 skipped - grey motion-blur transition) + full-page clip after the film from 'Who we are' (source y=938 with film collapsed) through the end of 'Robots on site' (y=8594), then the CTA band (y=10802-11445). 'Press and hold' unit forced assembled with steps lit; reveal animations forced visible; 'Skip intro' pill hidden. Header is not sticky-overlaid (stickyHeader 0).",
+    "layout": [
+      {
+        "part": "film 01 hero with announce bar + nav: \"We build the skin of the skyline.\" (tower above clouds)",
+        "yStartCss": 0,
+        "yEndCss": 938
+      },
+      {
+        "part": "film 02 \"Curtain walls. Cladding. Glass.\" (tower + sunrise clouds)",
+        "yStartCss": 938,
+        "yEndCss": 1838
+      },
+      {
+        "part": "film 04 \"200+ projects. 600+ people.\" + stats over Dubai skyline",
+        "yStartCss": 1838,
+        "yEndCss": 2738
+      },
+      {
+        "part": "film 05 \"Building the innovation.\" + Request a quote (golden lobby)",
+        "yStartCss": 2738,
+        "yEndCss": 3638
+      },
+      {
+        "part": "Who we are + factory photo + 4 stat counters",
+        "yStartCss": 3638,
+        "yEndCss": 4925,
+        "sourceYCss": 938
+      },
+      {
+        "part": "\"15 systems. One standard.\" 15 product cards (4-col grid)",
+        "yStartCss": 4925,
+        "yEndCss": 6647,
+        "sourceYCss": 2225
+      },
+      {
+        "part": "\"Hold to build a unit.\" assembled unit (forced complete) + 4 lit steps",
+        "yStartCss": 6647,
+        "yEndCss": 7664,
+        "sourceYCss": 3947
+      },
+      {
+        "part": "Selected projects grid (7 photo cards: Marina Gate, The Cove, Warner Bros. World, Mövenpick, Creek Horizon, SeaWorld, The 9 Tower)",
+        "yStartCss": 7664,
+        "yEndCss": 9759,
+        "sourceYCss": 4964
+      },
+      {
+        "part": "\"Certified by the systems your consultant specifies.\" partner logo strip",
+        "yStartCss": 9759,
+        "yEndCss": 10281,
+        "sourceYCss": 7059
+      },
+      {
+        "part": "\"Robots on site. Fire-safe by design.\" photo + 30% stat + checklist",
+        "yStartCss": 10281,
+        "yEndCss": 11294,
+        "sourceYCss": 7581
+      },
+      {
+        "part": "CTA band \"Send us the drawings. We will send you a price.\" + Request a quote",
+        "yStartCss": 11294,
+        "yEndCss": 11937,
+        "sourceYCss": 10802
+      }
+    ]
+  }
+}

@@ -1,5 +1,10 @@
 import React from "react";
-import { AbsoluteFill, random, useCurrentFrame } from "remotion";
+import {
+  AbsoluteFill,
+  random,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 import { theme } from "../theme";
 
 // Layer 1 — drifting gold/red mesh, dot grid and slow gold dust.
@@ -45,21 +50,26 @@ const BgMesh: React.FC = () => {
 };
 
 const DUST = new Array(38).fill(true).map((_, i) => ({
-  x: random(`dx${i}`) * 1920,
-  y: random(`dy${i}`) * 1080,
+  x: random(`dx${i}`),
+  y: random(`dy${i}`),
   r: 1 + random(`dr${i}`) * 2.6,
   speed: 0.15 + random(`ds${i}`) * 0.45,
   phase: random(`dp${i}`) * Math.PI * 2,
   alpha: 0.12 + random(`da${i}`) * 0.35,
 }));
 
+// Positions are normalised, so the dust fills any canvas (16:9 film, 9:16 ad).
 const GoldDust: React.FC = () => {
   const frame = useCurrentFrame();
+  const { width, height } = useVideoConfig();
+  const count = Math.round((DUST.length * width * height) / (1920 * 1080));
   return (
     <AbsoluteFill>
-      {DUST.map((p, i) => {
-        const y = ((((p.y - frame * p.speed) % 1180) + 1180) % 1180) - 50;
-        const x = p.x + Math.sin(frame / 50 + p.phase) * 18;
+      {DUST.slice(0, count).map((p, i) => {
+        const span = height + 100;
+        const y =
+          ((((p.y * height - frame * p.speed) % span) + span) % span) - 50;
+        const x = p.x * width + Math.sin(frame / 50 + p.phase) * 18;
         const twinkle = 0.6 + 0.4 * Math.sin(frame / 20 + p.phase);
         return (
           <div

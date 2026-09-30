@@ -1,0 +1,21 @@
+{
+  "url": "https://esolutify.com/demo/greersmiles/",
+  "mobile": {
+    "cssHeight": 9660,
+    "stickyHeader": 69,
+    "title": "Greer Smiles | Dentist in Greer, SC | Dr. J. Todd Brown, DMD",
+    "brokenImages": 0,
+    "clipCssHeight": 6400,
+    "dpr": 2.5,
+    "cssWidth": 390
+  },
+  "desktop": {
+    "cssHeight": 7937,
+    "stickyHeader": 77,
+    "title": "Greer Smiles | Dentist in Greer, SC | Dr. J. Todd Brown, DMD",
+    "brokenImages": 1,
+    "clipCssHeight": 7490,
+    "dpr": 1.25,
+    "cssWidth": 1440
+  }
+}

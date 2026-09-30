@@ -2,6 +2,7 @@ import "./fonts";
 import React from "react";
 import { Composition, Folder } from "remotion";
 import { Stage } from "./components/Stage";
+import { MetaAd } from "./ad/MetaAd";
 import { Main } from "./Main";
 import { S01Hook } from "./scenes/S01Hook";
 import { S02Outcomes } from "./scenes/S02Outcomes";
@@ -46,6 +47,35 @@ export const RemotionRoot: React.FC = () => {
         width={1920}
         height={1080}
       />
+      <Folder name="MetaAd">
+        <Composition
+          id="MetaAdFreeDemo"
+          component={MetaAd}
+          durationInFrames={630}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ variant: "21" as const }}
+        />
+        <Composition
+          id="MetaAdFreeDemo15"
+          component={MetaAd}
+          durationInFrames={450}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ variant: "15" as const }}
+        />
+        <Composition
+          id="MetaAdFreeDemo-SZ"
+          component={MetaAd}
+          durationInFrames={630}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ variant: "21" as const, safeZones: true }}
+        />
+      </Folder>
       <Folder name="Scenes">
         <Composition
           id="S01-Hook"

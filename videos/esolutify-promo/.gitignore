@@ -5,3 +5,8 @@ dist
 
 # Ignore the output video from Git but not videos you import into src/.
 out
+
+# full-page captures are regenerable (scripts/capture_sites.mjs); the ad uses the ad-*.jpg crops
+public/sites/*/mobile.jpg
+public/sites/*/desktop.jpg
+public/sites/*/preview.jpg
