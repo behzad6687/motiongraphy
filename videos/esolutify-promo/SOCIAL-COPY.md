@@ -5,6 +5,7 @@
 | Main promo (70s, 16:9) | `renders/esolutify-promo.mp4` | YouTube (standard video) |
 | Short (21s, 9:16) | `renders/meta-ad/meta-ad-free-demo-9x16-21s.mp4` | YouTube Shorts + Instagram Reel |
 | Story (15s, 9:16) | `renders/meta-ad/meta-ad-free-demo-9x16-15s.mp4` | Instagram Story (+ Facebook Story) |
+| AI Voice Receptionist (24s, 9:16) | `renders/voice/ai-voice-receptionist-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 
 Every claim below comes from esolutify.com.
 
@@ -142,6 +143,48 @@ Stories don't show a caption. The text that matters is the **link sticker** and 
 - **Highlight:** save it to a "Free Demo" highlight so it stays on the profile.
 
 As a **paid** Story (Meta Ads), use the copy in `META-AD-GUIDE.md` with the Apply Now button.
+
+---
+
+## 5. AI Voice Receptionist: Reel + Short (24s)
+
+The cover is `renders/voice/ai-voice-receptionist-cover.jpg`.
+
+**Instagram Reel caption:**
+
+```
+It's 9:42 pm and your phone is ringing. Who answers? 📞
+
+Most callers won't leave a voicemail. They just call the next name on the list.
+
+Our AI receptionist answers on the first ring, 24/7, in the caller's language. It books the appointment into your calendar, texts the confirmation and sends you the summary.
+
+Don't believe it? Call Sol, our own AI receptionist: +1 365 360 3545
+Or try it on your business (link in bio) 🔗
+
+#aireceptionist #smallbusiness #aivoiceagent #missedcalls #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- Your Phone, Answered on the First Ring. Even at 9:42 pm 📞 #Shorts
+- Missed Calls Cost You Customers. This AI Answers Them #Shorts
+- Call Our AI Receptionist Yourself: +1 365 360 3545 #Shorts
+
+**Shorts description:**
+
+```
+Most callers won't leave a voicemail. They call the next name on the list.
+
+eSolutify's AI voice receptionist answers every call on the first ring, day and night, in the caller's language (English, French, Arabic, Farsi, Spanish and more). It books into your real calendar, texts the confirmation, and puts urgent callers through to you with a summary first.
+
+📞 Call Sol, our own AI receptionist: +1 365 360 3545
+🎧 Try it on your business: https://esolutify.com/ai-voice-receptionist/
+
+#AIReceptionist #SmallBusiness #AIVoiceAgent
+```
+
+**Settings:** point the link in bio at `esolutify.com/ai-voice-receptionist`. Pin a comment that says "Call it and try to stump it: +1 365 360 3545".
 
 ---
 

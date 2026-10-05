@@ -4,6 +4,7 @@ import { Composition, Folder, Still } from "remotion";
 import { Stage } from "./components/Stage";
 import { MetaAd } from "./ad/MetaAd";
 import { StoryImage } from "./ad/StoryImage";
+import { VoiceReel } from "./voice/VoiceReel";
 import { Main } from "./Main";
 import { S01Hook } from "./scenes/S01Hook";
 import { S02Outcomes } from "./scenes/S02Outcomes";
@@ -89,6 +90,25 @@ export const RemotionRoot: React.FC = () => {
           width={1080}
           height={1920}
           defaultProps={{ variant: "wall" as const }}
+        />
+      </Folder>
+      <Folder name="VoiceReceptionist">
+        <Composition
+          id="VoiceReceptionistReel"
+          component={VoiceReel}
+          durationInFrames={720}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="VoiceReceptionistReel-SZ"
+          component={VoiceReel}
+          durationInFrames={720}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
         />
       </Folder>
       <Folder name="Scenes">

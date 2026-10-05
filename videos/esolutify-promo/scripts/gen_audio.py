@@ -444,6 +444,15 @@ def sfx():
     # riser (for the CTA swell)
     write_wav(OUT / "sfx" / "riser.wav", reverb(riser(1.5), 0.3), -4)
 
+    # ring: classic phone trill, "ring-ring". Pure tones, no RNG, so adding it
+    # leaves every other SFX and the music byte-identical.
+    t = t_axis(1.25)
+    trill = (np.sin(2 * np.pi * 20 * t) > 0).astype(float)
+    tone = np.sin(2 * np.pi * 1320 * t) * 0.6 + np.sin(2 * np.pi * 1650 * t) * 0.4
+    gate = ((t < 0.42) | ((t > 0.62) & (t < 1.04))).astype(float)
+    env = np.minimum(1, t / 0.01) * gate
+    write_wav(OUT / "sfx" / "ring.wav", reverb(lp(tone * trill * env, 6000), 0.15), -5)
+
 
 if __name__ == "__main__":
     import sys

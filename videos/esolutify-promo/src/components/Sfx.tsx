@@ -9,6 +9,7 @@ export type SfxName =
   | "ping"
   | "pop"
   | "riser"
+  | "ring"
   | "shimmer"
   | "thud"
   | "tick"
