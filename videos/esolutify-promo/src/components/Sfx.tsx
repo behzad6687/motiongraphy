@@ -9,6 +9,7 @@ export type SfxName =
   | "pencil"
   | "ping"
   | "pop"
+  | "rewind"
   | "riser"
   | "ring"
   | "shimmer"

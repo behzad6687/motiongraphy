@@ -7,6 +7,7 @@ import { StoryImage } from "./ad/StoryImage";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
 import { SeoReel } from "./seo/SeoReel";
+import { BotReel } from "./bot/BotReel";
 import { Main } from "./Main";
 import { S01Hook } from "./scenes/S01Hook";
 import { S02Outcomes } from "./scenes/S02Outcomes";
@@ -144,6 +145,25 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="LocalSeoReel-SZ"
           component={SeoReel}
+          durationInFrames={720}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+      </Folder>
+      <Folder name="AiChatbots">
+        <Composition
+          id="AiChatbotsReel"
+          component={BotReel}
+          durationInFrames={720}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="AiChatbotsReel-SZ"
+          component={BotReel}
           durationInFrames={720}
           fps={30}
           width={1080}

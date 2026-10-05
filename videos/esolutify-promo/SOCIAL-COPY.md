@@ -8,6 +8,7 @@
 | AI Voice Receptionist (24s, 9:16) | `renders/voice/ai-voice-receptionist-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Mobile App Development (24s, 9:16) | `renders/app/mobile-app-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Local SEO (24s, 9:16) | `renders/seo/local-seo-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
+| AI Chatbots & Lead Automation (24s, 9:16) | `renders/bot/ai-chatbots-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 
 Every claim below comes from esolutify.com.
 
@@ -281,6 +282,52 @@ eSolutify gets your business to the top of local search and Google Maps: Google 
 ```
 
 **Settings:** point the link in bio at `esolutify.com/local-seo`. Pin a comment: "Type your business + city into Google right now. Are you in the top 3? 👇"
+
+---
+
+## 8. AI Chatbots & Lead Automation: Reel + Short (24s)
+
+The cover is `renders/bot/ai-chatbots-cover.jpg` (the "14 h 33 min to your first reply" frame).
+
+**Instagram Reel caption:**
+
+```
+Someone DMs you at 9:42 pm. When do they hear back? ⏱️
+
+Without a system: 14 h 33 min. By then, they went with someone else.
+With an AI agent: 5 seconds, and they're booked before bed.
+
+We build a conversational agent trained on your business. It replies instantly on WhatsApp, Instagram, Messenger, SMS, email, your website and missed calls, books into your real calendar, and follows up until there's a yes or a no. Your team can step in at any moment.
+
+Meet Sol, the agent that answers for us. Chat with it, talk to it, or call +1 365 360 3545 🔗 link in bio
+
+#aichatbot #leadgeneration #automation #smallbusiness #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- 14 Hours vs 5 Seconds: Who Gets the Customer? ⏱️ #Shorts
+- Your Leads Are Waiting 14 Hours for a Reply #Shorts
+- This AI Agent Answers Every Lead in 5 Seconds #Shorts
+
+**Shorts description:**
+
+```
+Most businesses don't have a lead problem. They have a follow-up problem.
+
+A lead messages at 9:42 pm. Without a system, the first reply comes 14 h 33 min later, and they've already gone with someone else. With your own AI agent, they're answered in 5 seconds and booked into your calendar.
+
+One AI agent across 7 channels: WhatsApp, Instagram DMs, Messenger, SMS, website chat, missed-call text-back and email. It qualifies, books, reminds and follows up on day 1 · 3 · 7… until a yes or a no.
+
+💬 Meet Sol, our own AI agent: call +1 365 360 3545
+🤖 Try it on your business: https://esolutify.com/ai-chatbots-automation/
+
+#AIChatbot #LeadGeneration #Automation
+```
+
+**Settings:** point the link in bio at `esolutify.com/ai-chatbots-automation`. Pin a comment: "How long does your business take to answer a new DM? Be honest 👇"
+
+The 9:42 pm conversation is the page's own illustrative example.
 
 ---
 
