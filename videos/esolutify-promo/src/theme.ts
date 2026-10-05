@@ -36,6 +36,7 @@ export const theme = {
   fonts: {
     display: "Red Hat Display",
     body: "DM Sans",
+    hand: "Caveat", // sketches only (app reel step 1)
   },
   // THE easing curves. Linear is forbidden.
   ease: {

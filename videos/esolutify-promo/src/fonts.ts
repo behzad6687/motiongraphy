@@ -14,3 +14,9 @@ loadFont({
   url: staticFile("fonts/DMSans-Variable.woff2"),
   weight: "100 1000",
 });
+// Caveat (SIL OFL, latin subset): the hand-drawn sketch in the app reel.
+loadFont({
+  family: theme.fonts.hand,
+  url: staticFile("fonts/Caveat-Variable.woff2"),
+  weight: "400 700",
+});

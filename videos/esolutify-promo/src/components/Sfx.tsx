@@ -6,6 +6,7 @@ export type SfxName =
   | "blip"
   | "chime"
   | "impact"
+  | "pencil"
   | "ping"
   | "pop"
   | "riser"

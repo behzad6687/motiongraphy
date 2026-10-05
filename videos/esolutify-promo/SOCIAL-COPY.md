@@ -6,6 +6,7 @@
 | Short (21s, 9:16) | `renders/meta-ad/meta-ad-free-demo-9x16-21s.mp4` | YouTube Shorts + Instagram Reel |
 | Story (15s, 9:16) | `renders/meta-ad/meta-ad-free-demo-9x16-15s.mp4` | Instagram Story (+ Facebook Story) |
 | AI Voice Receptionist (24s, 9:16) | `renders/voice/ai-voice-receptionist-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
+| Mobile App Development (24s, 9:16) | `renders/app/mobile-app-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 
 Every claim below comes from esolutify.com.
 
@@ -185,6 +186,54 @@ eSolutify's AI voice receptionist answers every call on the first ring, day and 
 ```
 
 **Settings:** point the link in bio at `esolutify.com/ai-voice-receptionist`. Pin a comment that says "Call it and try to stump it: +1 365 360 3545".
+
+---
+
+## 6. Mobile App Development: Reel + Short (24s)
+
+The cover is `renders/app/mobile-app-cover.jpg` (the sketch frame).
+
+**Instagram Reel caption:**
+
+```
+Got an app idea? It's 3 steps for you. 📱
+
+1️⃣ We sketch every screen with you, before a single line of code
+2️⃣ We design, build and test a real app on iPhone & Android
+3️⃣ We launch it in the App Store & Google Play, and handle the whole submission
+
+50+ apps delivered · 5.0 on Google · you own 100% of the source code.
+
+Don't imagine it, tap it: two of our apps are live on our site. No account needed. Link in bio 🔗
+
+#appdevelopment #mobileapp #startup #smallbusiness #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- From a Sketch to the App Store in 3 Steps 📱 #Shorts
+- Got an App Idea? Here's How It Becomes Real #Shorts
+- We Turn App Ideas Into Real iPhone & Android Apps #Shorts
+
+**Shorts description:**
+
+```
+An app sounds complicated. For you, it's three steps.
+
+1. Your idea on paper: we sketch every screen with you, before a single line of code.
+2. A real app you can tap: designed, built and tested on iPhone and Android.
+3. In the App Store & Google Play: we handle the submission, and your customers download it.
+
+50+ apps delivered · 15+ years · 5.0 on Google · you own the source code.
+Offices in Toronto, Montréal, Los Angeles and Dubai.
+
+📱 Try two of our apps live (no account needed): https://esolutify.com/mobile-app-development/
+🆓 Get a free app demo for your business: https://esolutify.com/free-demo/?demo=app
+
+#AppDevelopment #MobileApp #Startup
+```
+
+**Settings:** point the link in bio at `esolutify.com/mobile-app-development`. Pin a comment: "What would your app do? Tell us in one line 👇 and try our live demo apps at the link in bio."
 
 ---
 
