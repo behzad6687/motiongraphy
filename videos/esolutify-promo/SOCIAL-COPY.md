@@ -7,6 +7,7 @@
 | Story (15s, 9:16) | `renders/meta-ad/meta-ad-free-demo-9x16-15s.mp4` | Instagram Story (+ Facebook Story) |
 | AI Voice Receptionist (24s, 9:16) | `renders/voice/ai-voice-receptionist-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Mobile App Development (24s, 9:16) | `renders/app/mobile-app-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
+| Local SEO (24s, 9:16) | `renders/seo/local-seo-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 
 Every claim below comes from esolutify.com.
 
@@ -234,6 +235,52 @@ Offices in Toronto, Montréal, Los Angeles and Dubai.
 ```
 
 **Settings:** point the link in bio at `esolutify.com/mobile-app-development`. Pin a comment: "What would your app do? Tell us in one line 👇 and try our live demo apps at the link in bio."
+
+---
+
+## 7. Local SEO: Reel + Short (24s)
+
+The cover is `renders/seo/local-seo-cover.jpg` (the "to the top" frame with your business at #1).
+
+**Instagram Reel caption:**
+
+```
+Someone nearby just searched for what you do. Did they find you? 📍
+
+If you're on page two, they didn't. Nobody looks there.
+
+We get local businesses to the top of Google and Google Maps: your Google Business Profile, reviews, citations, site speed and content, all white-hat.
+
+📈 300% more organic traffic on average within 6 months
+🥇 Page 1 for primary keywords in about 90 days, on average
+🌍 500+ websites ranked across Canada, the USA and the UAE
+
+See who outranks you, and why. Free, in about two minutes. Link in bio 🔗
+
+#localseo #seo #googlemaps #smallbusiness #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- Are You on Page Two of Google? Here's the Fix 📍 #Shorts
+- When Neighbours Search, Do They Find You First? #Shorts
+- How Local Businesses Get to #1 on Google Maps #Shorts
+
+**Shorts description:**
+
+```
+People nearby type what they need, and Google shows them a short list. If you're not at the top, they call someone else.
+
+eSolutify gets your business to the top of local search and Google Maps: Google Business Profile, reviews, citations, technical fixes and content written for the searches people make in your area. White-hat only, a report in plain language every month.
+
+300% average increase in organic traffic within 6 months · 500+ websites ranked · 15+ years · 5.0 on Google
+
+🔍 See who outranks you, free: https://esolutify.com/local-seo/
+
+#LocalSEO #SEO #SmallBusiness
+```
+
+**Settings:** point the link in bio at `esolutify.com/local-seo`. Pin a comment: "Type your business + city into Google right now. Are you in the top 3? 👇"
 
 ---
 

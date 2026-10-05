@@ -286,7 +286,17 @@ type Mark = {
 // Laid out over the real app below, so the drop reads as "the sketch, built".
 const MARKS: Mark[] = [
   { kind: "rect", x: 30, y: 24, w: 56, h: 56, at: 3, dur: 7 },
-  { kind: "text", x: 102, y: 20, w: 170, h: 56, at: 9, dur: 8, text: "Your App", size: 50 },
+  {
+    kind: "text",
+    x: 102,
+    y: 20,
+    w: 170,
+    h: 56,
+    at: 9,
+    dur: 8,
+    text: "Your App",
+    size: 50,
+  },
   { kind: "rect", x: 30, y: 100, w: 400, h: 52, at: 18, dur: 8 },
   { kind: "line", x: 30, y: 206, w: 330, h: 8, at: 26, dur: 7 },
   { kind: "line", x: 30, y: 254, w: 390, h: 3, at: 32, dur: 5 },
@@ -296,15 +306,66 @@ const MARKS: Mark[] = [
   { kind: "line", x: 52, y: 446, w: 220, h: 6, at: 54, dur: 4 },
   { kind: "line", x: 52, y: 476, w: 340, h: 3, at: 57, dur: 4 },
   { kind: "rect", x: 30, y: 544, w: 120, h: 56, at: 62, dur: 4 },
-  { kind: "text", x: 52, y: 546, w: 80, h: 50, at: 65, dur: 4, text: "9:30", size: 40 },
+  {
+    kind: "text",
+    x: 52,
+    y: 546,
+    w: 80,
+    h: 50,
+    at: 65,
+    dur: 4,
+    text: "9:30",
+    size: 40,
+  },
   { kind: "rect", x: 170, y: 544, w: 120, h: 56, at: 68, dur: 4 },
-  { kind: "text", x: 190, y: 546, w: 84, h: 50, at: 71, dur: 4, text: "11:00", size: 40 },
+  {
+    kind: "text",
+    x: 190,
+    y: 546,
+    w: 84,
+    h: 50,
+    at: 71,
+    dur: 4,
+    text: "11:00",
+    size: 40,
+  },
   { kind: "rect", x: 310, y: 544, w: 120, h: 56, at: 74, dur: 4 },
-  { kind: "text", x: 336, y: 546, w: 70, h: 50, at: 77, dur: 4, text: "2:15", size: 40 },
+  {
+    kind: "text",
+    x: 336,
+    y: 546,
+    w: 70,
+    h: 50,
+    at: 77,
+    dur: 4,
+    text: "2:15",
+    size: 40,
+  },
   { kind: "rect", x: 30, y: 626, w: 400, h: 74, at: 82, dur: 8 },
-  { kind: "text", x: 186, y: 630, w: 90, h: 64, at: 89, dur: 6, text: "Book", size: 54 },
+  {
+    kind: "text",
+    x: 186,
+    y: 630,
+    w: 90,
+    h: 64,
+    at: 89,
+    dur: 6,
+    text: "Book",
+    size: 54,
+  },
   { kind: "line", x: 20, y: 834, w: 420, h: 3, at: 96, dur: 5 },
-  { kind: "text", x: 118, y: 712, w: 300, h: 56, at: 104, dur: 10, text: "← one tap, booked!", size: 42, gold: true },
+  {
+    kind: "text",
+    x: 118,
+    y: 712,
+    w: 300,
+    h: 56,
+    at: 104,
+    dur: 10,
+    text: "← one tap, booked!",
+    size: 42,
+    gold: true,
+  },
 ];
 
 const markPath = (m: Mark, seed: number) => {
@@ -318,7 +379,8 @@ const markPath = (m: Mark, seed: number) => {
 
 // Where the pencil tip is while it draws a mark.
 const tipOf = (m: Mark, p: number): [number, number] => {
-  if (m.kind !== "rect") return [m.x + m.w * p, m.y + m.h * (m.kind === "text" ? 0.75 : 0)];
+  if (m.kind !== "rect")
+    return [m.x + m.w * p, m.y + m.h * (m.kind === "text" ? 0.75 : 0)];
   const per = 2 * (m.w + m.h);
   let d = p * per;
   if (d < m.w) return [m.x + d, m.y];
@@ -365,11 +427,16 @@ const SketchScreen: React.FC = () => {
   const last = MARKS[MARKS.length - 1];
   const idle = frame >= last.at + last.dur;
   const tip = active
-    ? tipOf(active, ease(frame, active.at, active.at + active.dur, theme.ease.soft))
+    ? tipOf(
+        active,
+        ease(frame, active.at, active.at + active.dur, theme.ease.soft),
+      )
     : idle
       ? tipOf(last, 1)
       : tipOf(MARKS[0], 0);
-  const lift = idle ? ease(frame, last.at + last.dur, last.at + last.dur + 14) : 0;
+  const lift = idle
+    ? ease(frame, last.at + last.dur, last.at + last.dur + 14)
+    : 0;
   return (
     <div
       style={{
@@ -433,7 +500,11 @@ const SketchScreen: React.FC = () => {
         );
       })}
       {wipe < 0.02 ? (
-        <Pencil x={tip[0] + lift * 60} y={tip[1] + lift * 140} opacity={1 - lift} />
+        <Pencil
+          x={tip[0] + lift * 60}
+          y={tip[1] + lift * 140}
+          opacity={1 - lift}
+        />
       ) : null}
       {/* the "build" line sweeping down */}
       {wipe > 0 && wipe < 1 ? (
@@ -461,13 +532,29 @@ const SLOTS = ["9:30 am", "11:00 am", "2:15 pm"];
 const AppScreen: React.FC<{ f: number; taps?: boolean }> = ({ f, taps }) => {
   const { fps } = useVideoConfig();
   const picked = f >= TAP_CARD;
-  const slotIn = spring({ frame: f - (TAP_CARD + 4), fps, config: theme.spring.snappy });
+  const slotIn = spring({
+    frame: f - (TAP_CARD + 4),
+    fps,
+    config: theme.spring.snappy,
+  });
   const slot = f >= TAP_SLOT;
   const press = (at: number) =>
     1 - 0.05 * interpolate(f - at, [-3, 0, 5], [0, 1, 0], clamp);
-  const check = spring({ frame: f - TAP_CARD, fps, config: theme.spring.bouncy });
-  const sheet = spring({ frame: f - (TAP_BOOK + 4), fps, config: theme.spring.smooth });
-  const tick = spring({ frame: f - (TAP_BOOK + 12), fps, config: theme.spring.bouncy });
+  const check = spring({
+    frame: f - TAP_CARD,
+    fps,
+    config: theme.spring.bouncy,
+  });
+  const sheet = spring({
+    frame: f - (TAP_BOOK + 4),
+    fps,
+    config: theme.spring.smooth,
+  });
+  const tick = spring({
+    frame: f - (TAP_BOOK + 12),
+    fps,
+    config: theme.spring.bouncy,
+  });
   return (
     <div
       style={{
@@ -637,7 +724,12 @@ const AppScreen: React.FC<{ f: number; taps?: boolean }> = ({ f, taps }) => {
             justifyContent: "center",
           }}
         >
-          <Icon name="sparkle" size={28} color={theme.colors.gold2} stroke={2} />
+          <Icon
+            name="sparkle"
+            size={28}
+            color={theme.colors.gold2}
+            stroke={2}
+          />
         </div>
         {picked ? (
           <div
@@ -859,7 +951,9 @@ const AppScreen: React.FC<{ f: number; taps?: boolean }> = ({ f, taps }) => {
             >
               Booked!
             </div>
-            <div style={{ marginTop: 8, fontSize: 22, color: theme.colors.muted }}>
+            <div
+              style={{ marginTop: 8, fontSize: 22, color: theme.colors.muted }}
+            >
               Signature facial · $120.00
             </div>
             <div
@@ -893,7 +987,11 @@ const AppScreen: React.FC<{ f: number; taps?: boolean }> = ({ f, taps }) => {
 // ---------------------------------------------------------------- step 3: the store
 type Note = { title: string; body: string; icon: IconName };
 const NOTES: Note[] = [
-  { title: "New booking", body: "Signature facial · tomorrow 9:30 am", icon: "bell" },
+  {
+    title: "New booking",
+    body: "Signature facial · tomorrow 9:30 am",
+    icon: "bell",
+  },
   { title: "Order paid", body: "$120.00 · Signature facial", icon: "check" },
   { title: "New booking", body: "Massage · Friday 2:15 pm", icon: "bell" },
   { title: "Order paid", body: "$85.00 · Massage", icon: "check" },
@@ -957,7 +1055,8 @@ const StoreScreen: React.FC = () => {
   const { fps } = useVideoConfig();
   const loading = ease(frame, TAP_GET + 2, OPEN_AT, theme.ease.soft);
   const open = frame >= OPEN_AT;
-  const getPress = 1 - 0.08 * interpolate(frame - TAP_GET, [-3, 0, 5], [0, 1, 0], clamp);
+  const getPress =
+    1 - 0.08 * interpolate(frame - TAP_GET, [-3, 0, 5], [0, 1, 0], clamp);
   return (
     <div
       style={{
@@ -1050,7 +1149,14 @@ const StoreScreen: React.FC = () => {
                 justifyContent: "center",
               }}
             >
-              <div style={{ width: 11, height: 11, borderRadius: 2, background: STORE_BLUE }} />
+              <div
+                style={{
+                  width: 11,
+                  height: 11,
+                  borderRadius: 2,
+                  background: STORE_BLUE,
+                }}
+              />
             </div>
           </div>
         ) : (
@@ -1146,11 +1252,16 @@ const StoreScreen: React.FC = () => {
       {NOTES.map((n, i) => {
         const at = NOTES_AT[i];
         if (frame < at - 2) return null;
-        const p = spring({ frame: frame - at, fps, config: theme.spring.snappy });
+        const p = spring({
+          frame: frame - at,
+          fps,
+          config: theme.spring.snappy,
+        });
         const below = NOTES_AT.filter((t, k) => k > i && frame >= t).length;
         const slide = NOTES_AT.slice(i + 1).reduce(
           (acc, t) =>
-            acc + spring({ frame: frame - t, fps, config: theme.spring.snappy }),
+            acc +
+            spring({ frame: frame - t, fps, config: theme.spring.snappy }),
           0,
         );
         return (
@@ -1170,7 +1281,8 @@ const StoreScreen: React.FC = () => {
               alignItems: "center",
               gap: 14,
               padding: "0 18px",
-              opacity: interpolate(p, [0, 0.3], [0, 1], clamp) * (below >= 3 ? 0 : 1),
+              opacity:
+                interpolate(p, [0, 0.3], [0, 1], clamp) * (below >= 3 ? 0 : 1),
               zIndex: 10 + i,
             }}
           >
@@ -1201,7 +1313,9 @@ const StoreScreen: React.FC = () => {
                 <Icon
                   name={n.icon}
                   size={20}
-                  color={n.icon === "check" ? theme.colors.ok : theme.colors.gold2}
+                  color={
+                    n.icon === "check" ? theme.colors.ok : theme.colors.gold2
+                  }
                   stroke={2.4}
                 />
                 {n.title}
@@ -1236,10 +1350,15 @@ const PhoneLayer: React.FC = () => {
   const real = frame >= DROP - 6;
   const dim = 1 - 0.45 * ease(frame, PROOF, PROOF + 10) - 0.2 * sink;
   // a small pop as the sketch turns real
-  const pop = interpolate(frame, [DROP - 2, DROP + 4, DROP + 14], [1, 1.04, 1], {
-    ...clamp,
-    easing: theme.ease.soft,
-  });
+  const pop = interpolate(
+    frame,
+    [DROP - 2, DROP + 4, DROP + 14],
+    [1, 1.04, 1],
+    {
+      ...clamp,
+      easing: theme.ease.soft,
+    },
+  );
   return (
     <div
       style={{
@@ -1249,9 +1368,7 @@ const PhoneLayer: React.FC = () => {
         opacity: interpolate(enter, [0, 0.35], [0, 1], clamp),
         scale: pop,
         filter:
-          dim < 0.99
-            ? `brightness(${dim}) blur(${4 * sink}px)`
-            : undefined,
+          dim < 0.99 ? `brightness(${dim}) blur(${4 * sink}px)` : undefined,
       }}
     >
       <PhoneShell
@@ -1292,8 +1409,16 @@ const PhoneLayer: React.FC = () => {
 // ---------------------------------------------------------------- proof cards
 const CARDS: { icon: IconName; title: string; sub: string }[] = [
   { icon: "layers", title: "iOS & Android", sub: "Native or cross-platform" },
-  { icon: "code", title: "You own the code", sub: "Source, designs and repo are yours" },
-  { icon: "star", title: "5.0 on Google", sub: "15+ years · 98% client satisfaction" },
+  {
+    icon: "code",
+    title: "You own the code",
+    sub: "Source, designs and repo are yours",
+  },
+  {
+    icon: "star",
+    title: "5.0 on Google",
+    sub: "15+ years · 98% client satisfaction",
+  },
 ];
 
 const ProofCards: React.FC = () => {
@@ -1344,7 +1469,12 @@ const ProofCards: React.FC = () => {
                 justifyContent: "center",
               }}
             >
-              <Icon name={c.icon} size={34} color={theme.colors.gold2} stroke={2.2} />
+              <Icon
+                name={c.icon}
+                size={34}
+                color={theme.colors.gold2}
+                stroke={2.2}
+              />
             </div>
             <div>
               <div
@@ -1375,12 +1505,12 @@ const ProofCards: React.FC = () => {
 };
 
 // ---------------------------------------------------------------- CTA
-const DemoTile: React.FC<{ letter: string; bg: string; name: string; kind: string }> = ({
-  letter,
-  bg,
-  name,
-  kind,
-}) => (
+const DemoTile: React.FC<{
+  letter: string;
+  bg: string;
+  name: string;
+  kind: string;
+}> = ({ letter, bg, name, kind }) => (
   <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
     <div
       style={{
@@ -1427,8 +1557,16 @@ const DemoTile: React.FC<{ letter: string; bg: string; name: string; kind: strin
 const Cta: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const pill = spring({ frame: frame - (CTA + 22), fps, config: theme.spring.bouncy });
-  const btn = spring({ frame: frame - (CTA + 44), fps, config: theme.spring.snappy });
+  const pill = spring({
+    frame: frame - (CTA + 22),
+    fps,
+    config: theme.spring.bouncy,
+  });
+  const btn = spring({
+    frame: frame - (CTA + 44),
+    fps,
+    config: theme.spring.snappy,
+  });
   const sub = useEntrance(CTA + 32, "smooth");
   const url = useEntrance(CTA + 54, "smooth");
   const live = 0.6 + 0.4 * Math.sin((frame - CTA) / 5);
@@ -1470,9 +1608,19 @@ const Cta: React.FC = () => {
           scale: interpolate(pill, [0, 1], [0.8, 1]),
         }}
       >
-        <DemoTile letter="n" bg={theme.gradients.gold} name="Northline" kind="Book a visit" />
+        <DemoTile
+          letter="n"
+          bg={theme.gradients.gold}
+          name="Northline"
+          kind="Book a visit"
+        />
         <div style={{ width: 1, height: 84, background: theme.colors.line2 }} />
-        <DemoTile letter="f" bg="#2F4A7A" name="Fieldwork" kind="Build a quote" />
+        <DemoTile
+          letter="f"
+          bg="#2F4A7A"
+          name="Fieldwork"
+          kind="Build a quote"
+        />
         <div
           style={{
             position: "absolute",

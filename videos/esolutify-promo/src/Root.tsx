@@ -6,6 +6,7 @@ import { MetaAd } from "./ad/MetaAd";
 import { StoryImage } from "./ad/StoryImage";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
+import { SeoReel } from "./seo/SeoReel";
 import { Main } from "./Main";
 import { S01Hook } from "./scenes/S01Hook";
 import { S02Outcomes } from "./scenes/S02Outcomes";
@@ -124,6 +125,25 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="MobileAppReel-SZ"
           component={AppReel}
+          durationInFrames={720}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+      </Folder>
+      <Folder name="LocalSeo">
+        <Composition
+          id="LocalSeoReel"
+          component={SeoReel}
+          durationInFrames={720}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="LocalSeoReel-SZ"
+          component={SeoReel}
           durationInFrames={720}
           fps={30}
           width={1080}
