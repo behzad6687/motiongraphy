@@ -8,6 +8,7 @@ import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
 import { SeoReel } from "./seo/SeoReel";
 import { BotReel } from "./bot/BotReel";
+import { AdsReel } from "./ads/AdsReel";
 import { Main } from "./Main";
 import { S01Hook } from "./scenes/S01Hook";
 import { S02Outcomes } from "./scenes/S02Outcomes";
@@ -164,6 +165,25 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="AiChatbotsReel-SZ"
           component={BotReel}
+          durationInFrames={720}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+      </Folder>
+      <Folder name="PaidAds">
+        <Composition
+          id="PaidAdsReel"
+          component={AdsReel}
+          durationInFrames={720}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="PaidAdsReel-SZ"
+          component={AdsReel}
           durationInFrames={720}
           fps={30}
           width={1080}

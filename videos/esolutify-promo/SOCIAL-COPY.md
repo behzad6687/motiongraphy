@@ -9,6 +9,7 @@
 | Mobile App Development (24s, 9:16) | `renders/app/mobile-app-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Local SEO (24s, 9:16) | `renders/seo/local-seo-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | AI Chatbots & Lead Automation (24s, 9:16) | `renders/bot/ai-chatbots-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
+| Paid Advertising Management (24s, 9:16) | `renders/ads/paid-ads-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 
 Every claim below comes from esolutify.com.
 
@@ -328,6 +329,57 @@ One AI agent across 7 channels: WhatsApp, Instagram DMs, Messenger, SMS, website
 **Settings:** point the link in bio at `esolutify.com/ai-chatbots-automation`. Pin a comment: "How long does your business take to answer a new DM? Be honest 👇"
 
 The 9:42 pm conversation is the page's own illustrative example.
+
+---
+
+## 9. Paid Advertising Management: Reel + Short (24s)
+
+The cover is `renders/ads/paid-ads-cover.jpg` (the "$4.80 back" frame).
+
+**Instagram Reel caption:**
+
+```
+You put $1 into ads. How much comes back? 💸
+
+On their own, most ads leak: nobody answers, the reply comes too late, nobody follows up. $1.20 comes back.
+After our first 90 days, the average across the accounts we manage: $4.80. Same budget.
+
+📈 4.8x average return on ad spend (Meta & Google)
+📉 62% lower cost per lead
+👆 Click-through from 0.8% to 3.9%
+
+Meta, Instagram, Google, TikTok, LinkedIn and YouTube, run by one team, with someone answering every enquiry.
+
+Get a free ads audit. We find where your ad money leaks first. Link in bio 🔗
+
+#paidads #facebookads #googleads #smallbusiness #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- $1 In, $4.80 Back: Where Your Ad Money Really Goes 💸 #Shorts
+- Why Your Ads Only Make Back $1.20 (and the Fix) #Shorts
+- One Customer's Day, Six Chances to Meet You #Shorts
+
+**Shorts description:**
+
+```
+An ad can only bring people to your door. What happens when they knock decides whether you earn the money back.
+
+Ads on their own leak: nobody answers, the reply comes too late, nobody follows up. Ads plus someone who always answers turn the same budget into many more customers.
+
+For every $1 in ads: $1.20 back before, $4.80 back after our first 90 days. 62% lower cost per lead. Click-through from 0.8% to 3.9%. 500+ campaigns managed across Canada, the USA and the UAE.
+
+📊 Get a free ads audit: https://esolutify.com/paid-advertising-management/
+
+Averages across managed ad accounts in the first 90 days; individual results vary by industry, budget and market.
+
+#PaidAds #GoogleAds #MetaAds
+```
+
+**Settings:** point the link in bio at `esolutify.com/paid-advertising-management`. Pin a comment: "What does $1 in ads bring back for your business today? 👇"
+
+The figures are the page's own averages across managed accounts in the first 90 days. Keep the "individual results vary" line in the description, and in any paid version of this ad.
 
 ---
 

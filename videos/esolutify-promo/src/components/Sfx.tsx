@@ -4,6 +4,7 @@ import { Sequence, staticFile } from "remotion";
 
 export type SfxName =
   | "blip"
+  | "cash"
   | "chime"
   | "impact"
   | "pencil"
