@@ -32,6 +32,7 @@ import {
   type Timeline,
   Tracker,
   byId,
+  speechDuck,
 } from "./kit";
 import MOUTH from "./receptionist.mouth.json";
 import TIMELINE from "./receptionist.timeline.json";
@@ -1100,6 +1101,7 @@ const BLOCKING: Blocking = {
 // ---------------------------------------------------------------- sound
 type Cue = [SfxName, number, number, number?];
 const ROUNDS = TL.beats.filter((b) => b.kind === "round");
+const DUCK = speechDuck(TL);
 const CUES: Cue[] = [
   ["boing", 0, 0.25, 1.1],
   ["wahwah", B.hook.showFrom + 4, 0.4],
@@ -1225,6 +1227,7 @@ export const Receptionist: React.FC<{ readonly safeZones?: boolean }> = ({
         at={at}
         volume={volume}
         rate={rate}
+        duck={DUCK}
       />
     ))}
     {safeZones ? <SafeZones /> : null}

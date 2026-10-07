@@ -1,0 +1,826 @@
+{
+ "hook": {
+  "clip": 4.08,
+  "heard": "Your $65 phone plan can turn into $400.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Your",
+    "start": 0.0,
+    "end": 0.3
+   },
+   {
+    "w": "$65",
+    "start": 0.3,
+    "end": 0.98
+   },
+   {
+    "w": "phone",
+    "start": 0.98,
+    "end": 1.56
+   },
+   {
+    "w": "plan",
+    "start": 1.56,
+    "end": 2.04
+   },
+   {
+    "w": "can",
+    "start": 2.04,
+    "end": 2.56
+   },
+   {
+    "w": "turn",
+    "start": 2.56,
+    "end": 2.72
+   },
+   {
+    "w": "into",
+    "start": 2.72,
+    "end": 2.98
+   },
+   {
+    "w": "$400.",
+    "start": 2.98,
+    "end": 3.5
+   }
+  ]
+ },
+ "intro": {
+  "clip": 4.71,
+  "heard": "Hi, I'm Saul. Full disclosure, I'm an AI. I'll be fair.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Hi,",
+    "start": 0.0,
+    "end": 0.38
+   },
+   {
+    "w": "I'm",
+    "start": 0.72,
+    "end": 0.96
+   },
+   {
+    "w": "Saul.",
+    "start": 0.96,
+    "end": 1.28
+   },
+   {
+    "w": "Full",
+    "start": 1.78,
+    "end": 1.88
+   },
+   {
+    "w": "disclosure,",
+    "start": 1.88,
+    "end": 2.42
+   },
+   {
+    "w": "I'm",
+    "start": 3.02,
+    "end": 3.2
+   },
+   {
+    "w": "an",
+    "start": 3.2,
+    "end": 3.24
+   },
+   {
+    "w": "AI.",
+    "start": 3.24,
+    "end": 3.54
+   },
+   {
+    "w": "I'll",
+    "start": 3.94,
+    "end": 4.08
+   },
+   {
+    "w": "be",
+    "start": 4.08,
+    "end": 4.16
+   },
+   {
+    "w": "fair.",
+    "start": 4.16,
+    "end": 4.46
+   }
+  ]
+ },
+ "r1": {
+  "clip": 1.04,
+  "heard": "Round 1",
+  "ok": true,
+  "words": [
+   {
+    "w": "Round",
+    "start": 0.0,
+    "end": 0.32
+   },
+   {
+    "w": "1",
+    "start": 0.32,
+    "end": 0.68
+   }
+  ]
+ },
+ "c1": {
+  "clip": 3.12,
+  "heard": "Answering service. A shared call center.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Answering",
+    "start": 0.0,
+    "end": 0.6
+   },
+   {
+    "w": "service.",
+    "start": 0.6,
+    "end": 1.06
+   },
+   {
+    "w": "A",
+    "start": 1.56,
+    "end": 1.68
+   },
+   {
+    "w": "shared",
+    "start": 1.68,
+    "end": 2.02
+   },
+   {
+    "w": "call",
+    "start": 2.02,
+    "end": 2.38
+   },
+   {
+    "w": "center.",
+    "start": 2.38,
+    "end": 2.74
+   }
+  ]
+ },
+ "c2": {
+  "clip": 3.221,
+  "heard": "Virtual Receptionist, a real person, remote.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Virtual",
+    "start": 0.0,
+    "end": 0.4
+   },
+   {
+    "w": "Receptionist,",
+    "start": 0.4,
+    "end": 1.22
+   },
+   {
+    "w": "a",
+    "start": 1.64,
+    "end": 1.74
+   },
+   {
+    "w": "real",
+    "start": 1.74,
+    "end": 1.86
+   },
+   {
+    "w": "person,",
+    "start": 1.86,
+    "end": 2.28
+   },
+   {
+    "w": "remote.",
+    "start": 2.6,
+    "end": 2.82
+   }
+  ]
+ },
+ "c3": {
+  "clip": 4.29,
+  "heard": "The AI receptionist? Software. Yep, that's me.",
+  "ok": true,
+  "words": [
+   {
+    "w": "The",
+    "start": 0.0,
+    "end": 0.24
+   },
+   {
+    "w": "AI",
+    "start": 0.24,
+    "end": 0.64
+   },
+   {
+    "w": "receptionist?",
+    "start": 0.64,
+    "end": 1.58
+   },
+   {
+    "w": "Software.",
+    "start": 1.94,
+    "end": 2.42
+   },
+   {
+    "w": "Yep,",
+    "start": 2.96,
+    "end": 3.16
+   },
+   {
+    "w": "that's",
+    "start": 3.5,
+    "end": 3.78
+   },
+   {
+    "w": "me.",
+    "start": 3.78,
+    "end": 3.98
+   }
+  ]
+ },
+ "r2": {
+  "clip": 1.56,
+  "heard": "Round two, the math.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Round",
+    "start": 0.0,
+    "end": 0.18
+   },
+   {
+    "w": "two,",
+    "start": 0.18,
+    "end": 0.54
+   },
+   {
+    "w": "the",
+    "start": 0.88,
+    "end": 0.98
+   },
+   {
+    "w": "math.",
+    "start": 0.98,
+    "end": 1.24
+   }
+  ]
+ },
+ "m1": {
+  "clip": 4.65,
+  "heard": "Forty-two calls, times three minutes, a hundred and twenty-six minutes.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Forty",
+    "start": 0.0,
+    "end": 0.38
+   },
+   {
+    "w": "-two",
+    "start": 0.38,
+    "end": 0.6
+   },
+   {
+    "w": "calls,",
+    "start": 0.6,
+    "end": 1.2
+   },
+   {
+    "w": "times",
+    "start": 1.62,
+    "end": 1.8
+   },
+   {
+    "w": "three",
+    "start": 1.8,
+    "end": 2.06
+   },
+   {
+    "w": "minutes,",
+    "start": 2.06,
+    "end": 2.54
+   },
+   {
+    "w": "a",
+    "start": 3.2,
+    "end": 3.2
+   },
+   {
+    "w": "hundred",
+    "start": 3.2,
+    "end": 3.46
+   },
+   {
+    "w": "and",
+    "start": 3.46,
+    "end": 3.7
+   },
+   {
+    "w": "twenty",
+    "start": 3.7,
+    "end": 3.92
+   },
+   {
+    "w": "-six",
+    "start": 3.92,
+    "end": 4.2
+   },
+   {
+    "w": "minutes.",
+    "start": 4.2,
+    "end": 4.52
+   }
+  ]
+ },
+ "m2": {
+  "clip": 3.76,
+  "heard": "A 50-minute plan is gone by week 2. Then you pay per minute.",
+  "ok": true,
+  "words": [
+   {
+    "w": "A",
+    "start": 0.0,
+    "end": 0.22
+   },
+   {
+    "w": "50",
+    "start": 0.22,
+    "end": 0.46
+   },
+   {
+    "w": "-minute",
+    "start": 0.46,
+    "end": 0.64
+   },
+   {
+    "w": "plan",
+    "start": 0.64,
+    "end": 0.92
+   },
+   {
+    "w": "is",
+    "start": 0.92,
+    "end": 1.08
+   },
+   {
+    "w": "gone",
+    "start": 1.08,
+    "end": 1.3
+   },
+   {
+    "w": "by",
+    "start": 1.3,
+    "end": 1.46
+   },
+   {
+    "w": "week",
+    "start": 1.46,
+    "end": 1.6
+   },
+   {
+    "w": "2.",
+    "start": 1.6,
+    "end": 2.0
+   },
+   {
+    "w": "Then",
+    "start": 2.46,
+    "end": 2.66
+   },
+   {
+    "w": "you",
+    "start": 2.66,
+    "end": 2.82
+   },
+   {
+    "w": "pay",
+    "start": 2.82,
+    "end": 3.04
+   },
+   {
+    "w": "per",
+    "start": 3.04,
+    "end": 3.3
+   },
+   {
+    "w": "minute.",
+    "start": 3.3,
+    "end": 3.54
+   }
+  ]
+ },
+ "m4": {
+  "clip": 5.67,
+  "heard": "At a hundred calls, pay-per-minute balloons past four hundred. Flat stays flat.",
+  "ok": true,
+  "words": [
+   {
+    "w": "At",
+    "start": 0.0,
+    "end": 0.24
+   },
+   {
+    "w": "a",
+    "start": 0.24,
+    "end": 0.36
+   },
+   {
+    "w": "hundred",
+    "start": 0.36,
+    "end": 0.6
+   },
+   {
+    "w": "calls,",
+    "start": 0.6,
+    "end": 1.12
+   },
+   {
+    "w": "pay",
+    "start": 1.66,
+    "end": 1.8
+   },
+   {
+    "w": "-per",
+    "start": 1.8,
+    "end": 1.94
+   },
+   {
+    "w": "-minute",
+    "start": 1.94,
+    "end": 2.14
+   },
+   {
+    "w": "balloons",
+    "start": 2.14,
+    "end": 2.64
+   },
+   {
+    "w": "past",
+    "start": 2.64,
+    "end": 3.12
+   },
+   {
+    "w": "four",
+    "start": 3.12,
+    "end": 3.5
+   },
+   {
+    "w": "hundred.",
+    "start": 3.5,
+    "end": 4.18
+   },
+   {
+    "w": "Flat",
+    "start": 4.62,
+    "end": 4.76
+   },
+   {
+    "w": "stays",
+    "start": 4.76,
+    "end": 5.06
+   },
+   {
+    "w": "flat.",
+    "start": 5.06,
+    "end": 5.4
+   }
+  ]
+ },
+ "m5": {
+  "clip": 1.925,
+  "heard": "Minutes, not months.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Minutes,",
+    "start": 0.0,
+    "end": 0.54
+   },
+   {
+    "w": "not",
+    "start": 1.08,
+    "end": 1.3
+   },
+   {
+    "w": "months.",
+    "start": 1.3,
+    "end": 1.66
+   }
+  ]
+ },
+ "r3": {
+  "clip": 1.95,
+  "heard": "Round 3, who wins?",
+  "ok": true,
+  "words": [
+   {
+    "w": "Round",
+    "start": 0.0,
+    "end": 0.32
+   },
+   {
+    "w": "3,",
+    "start": 0.32,
+    "end": 0.7
+   },
+   {
+    "w": "who",
+    "start": 1.08,
+    "end": 1.3
+   },
+   {
+    "w": "wins?",
+    "start": 1.3,
+    "end": 1.58
+   }
+  ]
+ },
+ "w1": {
+  "clip": 3.079,
+  "heard": "A dental clinic with 150 calls a month?",
+  "ok": true,
+  "words": [
+   {
+    "w": "A",
+    "start": 0.0,
+    "end": 0.2
+   },
+   {
+    "w": "dental",
+    "start": 0.2,
+    "end": 0.46
+   },
+   {
+    "w": "clinic",
+    "start": 0.46,
+    "end": 0.86
+   },
+   {
+    "w": "with",
+    "start": 0.86,
+    "end": 1.4
+   },
+   {
+    "w": "150",
+    "start": 1.4,
+    "end": 1.98
+   },
+   {
+    "w": "calls",
+    "start": 1.98,
+    "end": 2.44
+   },
+   {
+    "w": "a",
+    "start": 2.44,
+    "end": 2.54
+   },
+   {
+    "w": "month?",
+    "start": 2.54,
+    "end": 2.8
+   }
+  ]
+ },
+ "w2": {
+  "clip": 4.0,
+  "heard": "A law firm? With sensitive calls? Fine. A human wins this one.",
+  "ok": true,
+  "words": [
+   {
+    "w": "A",
+    "start": 0.0,
+    "end": 0.18
+   },
+   {
+    "w": "law",
+    "start": 0.18,
+    "end": 0.34
+   },
+   {
+    "w": "firm?",
+    "start": 0.34,
+    "end": 0.66
+   },
+   {
+    "w": "With",
+    "start": 0.94,
+    "end": 1.04
+   },
+   {
+    "w": "sensitive",
+    "start": 1.04,
+    "end": 1.32
+   },
+   {
+    "w": "calls?",
+    "start": 1.32,
+    "end": 1.7
+   },
+   {
+    "w": "Fine.",
+    "start": 2.14,
+    "end": 2.38
+   },
+   {
+    "w": "A",
+    "start": 2.76,
+    "end": 2.86
+   },
+   {
+    "w": "human",
+    "start": 2.86,
+    "end": 3.12
+   },
+   {
+    "w": "wins",
+    "start": 3.12,
+    "end": 3.38
+   },
+   {
+    "w": "this",
+    "start": 3.38,
+    "end": 3.58
+   },
+   {
+    "w": "one.",
+    "start": 3.58,
+    "end": 3.76
+   }
+  ]
+ },
+ "w3": {
+  "clip": 4.155,
+  "heard": "a contractor, up on a roof, answer, or text back.",
+  "ok": true,
+  "words": [
+   {
+    "w": "a",
+    "start": 0.0,
+    "end": 0.2
+   },
+   {
+    "w": "contractor,",
+    "start": 0.2,
+    "end": 0.82
+   },
+   {
+    "w": "up",
+    "start": 1.38,
+    "end": 1.52
+   },
+   {
+    "w": "on",
+    "start": 1.52,
+    "end": 1.68
+   },
+   {
+    "w": "a",
+    "start": 1.68,
+    "end": 1.74
+   },
+   {
+    "w": "roof,",
+    "start": 1.74,
+    "end": 2.02
+   },
+   {
+    "w": "answer,",
+    "start": 2.4,
+    "end": 2.78
+   },
+   {
+    "w": "or",
+    "start": 3.18,
+    "end": 3.36
+   },
+   {
+    "w": "text",
+    "start": 3.36,
+    "end": 3.6
+   },
+   {
+    "w": "back.",
+    "start": 3.6,
+    "end": 3.9
+   }
+  ]
+ },
+ "both": {
+  "clip": 4.956,
+  "heard": "Honest answer? Often both. AI for routine calls. Humans for the hard ones.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Honest",
+    "start": 0.0,
+    "end": 0.36
+   },
+   {
+    "w": "answer?",
+    "start": 0.36,
+    "end": 0.68
+   },
+   {
+    "w": "Often",
+    "start": 1.06,
+    "end": 1.3
+   },
+   {
+    "w": "both.",
+    "start": 1.3,
+    "end": 1.58
+   },
+   {
+    "w": "AI",
+    "start": 2.0,
+    "end": 2.22
+   },
+   {
+    "w": "for",
+    "start": 2.22,
+    "end": 2.46
+   },
+   {
+    "w": "routine",
+    "start": 2.46,
+    "end": 2.76
+   },
+   {
+    "w": "calls.",
+    "start": 2.76,
+    "end": 3.24
+   },
+   {
+    "w": "Humans",
+    "start": 3.78,
+    "end": 4.06
+   },
+   {
+    "w": "for",
+    "start": 4.06,
+    "end": 4.24
+   },
+   {
+    "w": "the",
+    "start": 4.24,
+    "end": 4.34
+   },
+   {
+    "w": "hard",
+    "start": 4.34,
+    "end": 4.5
+   },
+   {
+    "w": "ones.",
+    "start": 4.5,
+    "end": 4.76
+   }
+  ]
+ },
+ "cta": {
+  "clip": 1.86,
+  "heard": "Want to hear me answer? Call me!",
+  "ok": true,
+  "words": [
+   {
+    "w": "Want",
+    "start": 0.0,
+    "end": 0.2
+   },
+   {
+    "w": "to",
+    "start": 0.2,
+    "end": 0.36
+   },
+   {
+    "w": "hear",
+    "start": 0.36,
+    "end": 0.48
+   },
+   {
+    "w": "me",
+    "start": 0.48,
+    "end": 0.64
+   },
+   {
+    "w": "answer?",
+    "start": 0.64,
+    "end": 0.94
+   },
+   {
+    "w": "Call",
+    "start": 1.36,
+    "end": 1.46
+   },
+   {
+    "w": "me!",
+    "start": 1.46,
+    "end": 1.66
+   }
+  ]
+ }
+}

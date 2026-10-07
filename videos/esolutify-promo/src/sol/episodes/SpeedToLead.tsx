@@ -32,6 +32,7 @@ import {
   type Timeline,
   Tracker,
   byId,
+  speechDuck,
 } from "./kit";
 import MOUTH from "./speed-to-lead.mouth.json";
 import TIMELINE from "./speed-to-lead.timeline.json";
@@ -1013,6 +1014,7 @@ const BLOCKING: Blocking = {
 // ---------------------------------------------------------------- sound
 const SAY_BEATS = TL.beats.filter((b) => b.kind === "say");
 const ROUNDS = TL.beats.filter((b) => b.kind === "round");
+const DUCK = speechDuck(TL);
 const CUES: [SfxName, number, number, number?][] = [
   ["boing", 0, 0.3, 1.1],
   ["tick", 10, 0.3],
@@ -1141,6 +1143,7 @@ export const SpeedToLead: React.FC<{ readonly safeZones?: boolean }> = ({
         at={at}
         volume={volume}
         rate={rate}
+        duck={DUCK}
       />
     ))}
     {safeZones ? <SafeZones /> : null}

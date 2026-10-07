@@ -16,7 +16,7 @@ Sol is eSolutify's AI agent, shown as a character: a small, bouncy sun wearing a
 | Moods | `happy`, `talk`, `laugh`, `shock` (rays spike), `smug`, `wink`, `worried` (+ sweat), `pout` |
 | Props | Retro specs (the "since the 1960s" gag), sweat drop |
 | Motion | Hops at the start of every line, squash and stretch, idle bob, blinks every ~3 s, waves |
-| Voice | **Luna** (Higgsfield `seed_audio` preset `375a3398-e3b4-4f91-845d-42181e352899`), `speech_rate` +25, WAV 44.1 kHz, one file per line in `public/audio/sol/<episode>/<beat>.wav`. Pauses over 0.22 s are tightened and every line is loudness-matched. Speech bubbles still carry the words, so it works muted. Episode 1 v1 used cartoon babble (`script.json`) |
+| Voice | **Luna** (Higgsfield `seed_audio` preset `375a3398-e3b4-4f91-845d-42181e352899`), `speech_rate` +25, WAV 44.1 kHz, one file per line in `public/audio/sol/<episode>/<beat>.wav`. Long silent pauses (over 0.38 s, under -40 dB) are shortened to 0.26 s, with a margin left around every word, and every line is loudness-matched. Every line is transcribed and checked against the script (`scripts/sol_qa.py`) before it is used. Speech bubbles still carry the words, so it works muted. Episode 1 v1 used cartoon babble (`script.json`) |
 | Lip-sync | Sol's mouth opens with the voice's loudness, frame by frame (`<episode>.mouth.json`) |
 
 ## Pacing rules (from viewer feedback: "too hard to keep up")
@@ -43,10 +43,13 @@ Episode 1 showed words every 3 frames (about 10 words a second) and packed 16 bu
 
 1. Write `src/sol/episodes/<id>.json`: beats with `say` (on screen) and `speak` (what Sol says, numbers spelled out), or `round`, plus `show`/`hold` for each picture. Music cues are optional: `"music": {"tick": [from, to], "stopBefore": [beat]}`.
 2. Record Sol's lines: generate each beat's `speak` text with the voice above (Higgsfield `generate_audio`, `seed_audio`, voice Luna, `speech_rate` 25, `format` wav, `sample_rate` 44100) and save it as `public/audio/sol/<id>/<beat>.wav`. The service rate-limits, so send about 4 lines per batch. It costs about 0.3 credits a line.
-3. Run `python3 scripts/gen_sol_audio.py <id>`. It schedules the timeline from the recorded lines (`<id>.timeline.json`, `<id>.mouth.json`) and writes the voice track and the theme music, ducked under Sol's voice. With no recordings it falls back to babble at reading speed.
-4. Draw the pictures in `src/sol/episodes/<Id>.tsx` with the kit (`episodes/kit.tsx`: `PhraseBubble`, `Tracker`, `RoundCard`, `BeatScene`, `Stamp`, `SolOnStage`). See `SpeedToLead.tsx`.
-5. Register it in `src/Root.tsx` with `durationInFrames` taken from the timeline.
+3. **Check every line:** `python3 scripts/sol_qa.py <id>` (needs `pip install faster-whisper`). It transcribes each line exactly as it will play and compares it with `speak`. Re-record any FAIL; if the same word fails twice, reword the line (the voice garbled "AI receptionist" and "per-minute" at speed 25, and once added a throat-clear) or record it at `speech_rate` 10. "Numbers written differently" is fine. It also writes `<id>.words.json`, so each bubble phrase appears exactly when Sol starts saying it.
+4. Run `python3 scripts/gen_sol_audio.py <id>`. It schedules the timeline from the recorded lines (`<id>.timeline.json`, `<id>.mouth.json`) and writes the voice track and the theme music, ducked under Sol's voice. With no recordings it falls back to babble at reading speed.
+5. Draw the pictures in `src/sol/episodes/<Id>.tsx` with the kit (`episodes/kit.tsx`: `PhraseBubble`, `Tracker`, `RoundCard`, `BeatScene`, `Stamp`, `SolOnStage`). See `SpeedToLead.tsx`.
+6. Register it in `src/Root.tsx` with `durationInFrames` taken from the timeline.
 
 Episode 1 v1 (`SolExplainer.tsx`) predates the kit and keeps its hand-timed `script.json`. Its re-cut, `Receptionist.tsx` (`SolReceptionistShowdownV2`), uses the kit and the voice.
 
-6. **Pace with the voice.** Phrases appear in step with Sol's speech (about 2.5–3 words a second at `speech_rate` 25), and pictures play after each line. That's slower than silent reading, so keep `show`/`hold` short (about 20–36 and 10–16 frames); 60–75 s is a normal voiced episode.
+Keep `say` word for word the same as `speak` (numbers may be written as digits), so viewers never see words Sol doesn't say. Sound effects are ducked under Sol's voice automatically (`speechDuck` in the kit), so a sting never covers a word.
+
+**Pace with the voice.** Phrases appear in step with Sol's speech (about 2.5–3 words a second at `speech_rate` 25), and pictures play after each line. That's slower than silent reading, so keep `show`/`hold` short (about 20–36 and 10–16 frames); 60–95 s is a normal voiced episode; past that, cut a beat.

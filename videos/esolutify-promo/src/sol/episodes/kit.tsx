@@ -52,6 +52,21 @@ export const beatAt = (tl: Timeline, frame: number) =>
 export const byId = (tl: Timeline) =>
   Object.fromEntries(tl.beats.map((b) => [b.id, b])) as Record<string, Beat>;
 
+// Sound effects drop to `level` while Sol is speaking (3-frame ramps), so a
+// boing or a ta-da never covers a word.
+export const speechDuck = (tl: Timeline, level = 0.25) => {
+  const spans = tl.beats
+    .filter((b) => b.voice)
+    .map((b) => [b.voice!.at - 1, b.voice!.at + b.voice!.frames + 1]);
+  return (frame: number) => {
+    let d = 0;
+    for (const [a, z] of spans) {
+      d = Math.max(d, Math.min(1, (frame - a + 3) / 3, (z + 3 - frame) / 3));
+    }
+    return 1 - (1 - level) * Math.max(0, d);
+  };
+};
+
 const isTalking = (tl: Timeline, frame: number) =>
   tl.beats.some((b) =>
     b.phrases.some((p) =>

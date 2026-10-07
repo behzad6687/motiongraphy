@@ -42,6 +42,7 @@ GAP = 4
 GRID = 15  # 120 BPM at 30 fps
 MAX_WORDS = 11  # one idea per bubble
 VOICE_LEAD = 4  # the voice starts this many frames into its beat
+ROUND_VOICE_LEAD = 10  # on a round card, after the ta-da's hit
 READ_AHEAD = 3  # phrases appear this many frames before they're spoken
 
 
@@ -58,26 +59,52 @@ def load_voice(ep_id, beat_id):
         sr, ch, n = w.getframerate(), w.getnchannels(), w.getnframes()
         a = np.frombuffer(w.readframes(n), "<i2").astype(np.float64) / 32768
     a = a.reshape(-1, ch).mean(axis=1)
-    env = np.abs(a)
-    thr = max(1e-4, env.max() * 0.04)
-    idx = np.where(env > thr)[0]
+    db = envelope_db(a, sr)
+    idx = np.where(db > SILENCE_DB)[0]
     if len(idx) == 0:
         return None
-    start = max(0, idx[0] - int(0.03 * sr))
-    end = min(len(a), idx[-1] + int(0.08 * sr))
+    # the generator sometimes ends a file with a short click or half a
+    # syllable after the line is over; drop a final burst that touches the end
+    # of the file and comes after a clear pause
+    k = len(idx) - 1
+    while k > 0 and idx[k] - idx[k - 1] == 1:
+        k -= 1
+    if k > 0 and idx[-1] >= len(db) - 2 and len(idx) - k <= 25 and idx[k] - idx[k - 1] > 25:
+        idx = idx[:k]
+    # generous margins: soft first consonants ("th", "f") and fading word
+    # endings ("s", "t") sit well below the vowels
+    start = max(0, idx[0] * int(sr * 0.01) - int(PRE_ROLL * sr))
+    end = min(len(a), (idx[-1] + 1) * int(sr * 0.01) + int(POST_ROLL * sr))
     a = tighten(a[start:end], sr)
     return {"path": p, "sr": sr, "start": 0, "end": len(a), "samples": a, "trim": start / sr}
 
 
-MAX_PAUSE = 0.22  # s: TTS pauses (often 0.5-1 s) are cut to a natural breath
+# Pauses. TTS leaves 0.5-1 s between phrases; long ones are shortened, but
+# only where it is really silent. The first version called anything under 5%
+# of the peak (-26 dB) silence, and cut the quiet ends of words with it
+# ("minute(s)", "tha(t)"): Sol sounded clipped. Now silence is -40 dB under the
+# loudest 10 ms, a pause must be clearly long before it's touched, and a
+# margin stays on both sides of every word.
+SILENCE_DB = -40
+PRE_ROLL = 0.08  # s kept before the first sound
+POST_ROLL = 0.18  # s kept after the last sound
+LONG_PAUSE = 0.38  # s: only pauses longer than this are shortened...
+MAX_PAUSE = 0.26  # s: ...down to this
+WORD_GUARD = 0.05  # s of silence always kept next to a word
+
+
+def envelope_db(a, sr):
+    hop = int(sr * 0.01)
+    env = np.array([np.sqrt(np.mean(a[i : i + hop] ** 2)) for i in range(0, len(a), hop)])
+    return 20 * np.log10(env / (env.max() or 1) + 1e-9)
 
 
 def tighten(a, sr):
-    """Shorten every pause longer than MAX_PAUSE, with short crossfades."""
+    """Shorten long, truly silent pauses to MAX_PAUSE, with short crossfades."""
     hop = int(sr * 0.01)
-    env = np.array([np.sqrt(np.mean(a[i : i + hop] ** 2)) for i in range(0, len(a), hop)])
-    quiet = env < env.max() * 0.05
+    quiet = envelope_db(a, sr) < SILENCE_DB
     keep = int(MAX_PAUSE * 100)  # in 10 ms hops
+    guard = int(WORD_GUARD * 100)
     cuts = []
     i = 0
     while i < len(quiet):
@@ -85,9 +112,11 @@ def tighten(a, sr):
             j = i
             while j < len(quiet) and quiet[j]:
                 j += 1
-            if j - i > keep and i > 0 and j < len(quiet):
-                mid = (i + j) // 2
-                cuts.append(((mid - (j - i) // 2 + keep // 2) * hop, (mid + (j - i) // 2 - keep // 2) * hop))
+            if j - i > LONG_PAUSE * 100 and i > 0 and j < len(quiet):
+                # remove the middle, keeping keep/2 (at least the guard) each side
+                side = max(guard, keep // 2)
+                if j - i > 2 * side:
+                    cuts.append(((i + side) * hop, (j - side) * hop))
             i = j
         else:
             i += 1
@@ -103,6 +132,41 @@ def tighten(a, sr):
     tail[:x] *= np.linspace(0, 1, x)
     parts.append(tail)
     return np.concatenate(parts)
+
+
+def word_times(ep_id, beat_id, v, raw_phrases):
+    """Start time (s into the played clip) of every on-screen word, from the
+    transcript sol_qa.py wrote; None if there is none or it is stale."""
+    import difflib
+
+    from sol_qa import norm
+
+    p = ROOT / "src" / "sol" / "episodes" / f"{ep_id}.words.json"
+    if not v or not p.exists():
+        return None
+    rec = json.loads(p.read_text()).get(beat_id)
+    if not rec or abs(rec["clip"] - len(v["samples"]) / v["sr"]) > 0.02 or not rec["words"]:
+        return None
+    say = [w.strip("*!") for ws in raw_phrases for w in ws]
+    a = [(i, tok) for i, w in enumerate(say) for tok in norm(w)]
+    h = [(j, tok) for j, w in enumerate(rec["words"]) for tok in norm(w["w"])]
+    starts = [None] * len(say)
+    sm = difflib.SequenceMatcher(a=[x[1] for x in a], b=[x[1] for x in h], autojunk=False)
+    for blk in sm.get_matching_blocks():
+        for n in range(blk.size):
+            i, j = a[blk.a + n][0], h[blk.b + n][0]
+            if starts[i] is None:
+                starts[i] = rec["words"][j]["start"]
+    known = [(i, s) for i, s in enumerate(starts) if s is not None]
+    if not known:
+        return None
+    # words the transcript spelled differently: between their neighbours
+    for i in range(len(say)):
+        if starts[i] is None:
+            prev = [s for k, s in known if k < i]
+            nxt = [s for k, s in known if k > i]
+            starts[i] = prev[-1] + 0.15 if prev else max(0.0, nxt[0] - 0.15)
+    return [max(starts[: i + 1]) for i in range(len(starts))]  # never backwards
 
 
 def schedule(ep):
@@ -125,9 +189,9 @@ def schedule(ep):
             if beats:  # ...and give the slack to the previous beat as hold
                 beats[-1]["until"] += snapped - t
             t = snapped
-            dur = max(b.get("hold", 36), VOICE_LEAD + vframes + 10)
+            dur = max(b.get("hold", 36), ROUND_VOICE_LEAD + vframes + 10)
             if voice:
-                voice["at"] = t + VOICE_LEAD
+                voice["at"] = t + ROUND_VOICE_LEAD
             beats.append({**b, "kind": "round", "from": t, "textEnd": t, "showFrom": t, "until": t + dur, "phrases": [], "voice": voice})
             t += dur + GAP
             continue
@@ -137,7 +201,17 @@ def schedule(ep):
             warnings.append(f"{b['id']}: {n} words (max {MAX_WORDS}) -- split it")
         raw_phrases = [[w for w in ph.split(" ") if w] for ph in text.split(" | ")]
         phrases = []
-        if voice:
+        heard = word_times(ep["id"], b["id"], v, raw_phrases)
+        if voice and heard:
+            # each word appears as Sol says it (timings from sol_qa.py)
+            voice["at"] = t + VOICE_LEAD
+            k = 0
+            for ws in raw_phrases:
+                at = max(t, voice["at"] + round(heard[k] * FPS) - READ_AHEAD)
+                phrases.append({"at": at, "words": [{"w": w, "at": max(at, voice["at"] + round(heard[k + i] * FPS) - READ_AHEAD)} for i, w in enumerate(ws)]})
+                k += len(ws)
+            text_end = voice["at"] + vframes
+        elif voice:
             # spread the phrases over the spoken line by length
             voice["at"] = t + VOICE_LEAD
             total_chars = sum(len(" ".join(ws)) for ws in raw_phrases) or 1

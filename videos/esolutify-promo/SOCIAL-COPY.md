@@ -438,7 +438,7 @@ The growth figures are the page's averages across managed accounts. The profile,
 
 ---
 
-## 11. Sol explains: AI receptionist vs virtual receptionist vs answering service (42s)
+## 11. Sol explains: AI receptionist vs virtual receptionist vs answering service (85s)
 
 Built from the blog post of the same name. Use v2 (`sol-receptionist-showdown-v2-9x16.mp4`, voiced, re-paced); its cover is `renders/sol/sol-receptionist-showdown-v2-9x16-cover.jpg`.
 
@@ -472,7 +472,7 @@ Full comparison in CAD, with real scenarios: link in bio 🔗
 **Shorts description:**
 
 ```
-An AI receptionist, a human virtual receptionist or an answering service: which should answer your business phone? Sol, our AI agent, explains in 40 seconds, and he admits when a human wins.
+An AI receptionist, a human virtual receptionist or an answering service: which should answer your business phone? Sol, our AI agent, explains in under 90 seconds, and admits when a human wins.
 
 • Answering service: a call centre for hundreds of businesses. $100–$700/mo, mostly per-minute.
 • Virtual receptionist: a real person, remote, just for you. $200–$1,000+/mo, base fee + overage.
@@ -486,7 +486,7 @@ The math that trips people up: 42 calls × 3 min = 126 minutes. Per-minute overa
 #AIReceptionist #SmallBusiness #VirtualReceptionist
 ```
 
-**Pinned comment:** "How many calls does your business get a month? Tell Sol 👇 and he'll tell you which one wins."
+**Pinned comment:** "How many calls does your business get a month? Tell Sol 👇 and Sol will tell you which one wins."
 
 **TikTok:** post as-is with the Instagram caption. It suits TikTok's explainer format and the character makes it native there.
 
@@ -494,7 +494,7 @@ Note: the blog says a 50-minute plan "burns through its allowance in the first w
 
 ---
 
-## 12. Sol explains: speed to lead (66s)
+## 12. Sol explains: speed to lead (71s)
 
 Built from the blog post "Speed to Lead Small Business: 2026 Response Guide". The cover is `renders/sol/sol-speed-to-lead-9x16-cover.jpg` (the 5-minute countdown).
 
@@ -544,6 +544,55 @@ The fix: instant text-back on missed calls, AI chat on your website and DMs that
 **Pinned comment:** "How fast does your business reply to a new lead? Be honest 👇"
 
 All figures come from the blog's cited studies. The countdown, chats and firm names in the video are illustrative.
+
+---
+
+## 13. Sol explains: AI receptionist for dental clinics, cost and 30-day rollout (93s)
+
+Built from the blog post "AI Receptionist for Dental Clinics: Cost, Capabilities, 30-Day Plan". The video is `renders/sol/sol-dental-receptionist-9x16.mp4`; its cover is `renders/sol/sol-dental-receptionist-9x16-cover.jpg` (the ad price vs the real bill).
+
+**Instagram Reel caption:**
+
+```
+The ad says $300 a month. The real bill? $1,400. 🦷
+
+Sol's 4 things every dental clinic should know before buying an AI receptionist:
+
+1️⃣ Real cost: base plan $300–$800, plus $99–$300 to link your booking software, plus 12–35¢ per extra minute. Real total: $700–$1,400/mo (CAD). Missing 15+ calls a week? It usually pays back in 3–8 weeks.
+2️⃣ Can / can't: booking, rescheduling and routine questions 24/7, yes. Clinical advice, never. Pain, swelling or bleeding go straight to a human.
+3️⃣ Privacy: patient data means PIPEDA (and PHIPA in Ontario). Get 5 answers in writing; vague answers mean keep shopping.
+4️⃣ 30 days: audit and script, connect and consent, after-hours only, then go live.
+
+Got a quote already? Send it to us for a second opinion. Full guide: link in bio 🔗
+
+#dentalpractice #dentaloffice #aireceptionist #dentalmarketing #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- The AI Receptionist Ad Says $300. The Real Bill Is $1,400 🦷 #Shorts
+- AI Receptionist for Dental Clinics: 4 Things Before You Buy #Shorts
+- Can an AI Receptionist Handle Dental Emergencies? (No.) #Shorts
+
+**Shorts description:**
+
+```
+What an AI receptionist really costs a Canadian dental clinic, what it can and can't do, and how to roll one out in 30 days. Sol, our AI agent, explains.
+
+• Real cost: $300–$800 base + $99–$300 PMS integration + $0.12–$0.35/min overage = $700–$1,400/mo all-in (CAD). Clinics missing 15+ calls a week usually see payback in 3–8 weeks.
+• Can: book, reschedule, answer hours/parking/insurance questions, reminders, after-hours calls. Can't: clinical advice. Pain, swelling, bleeding or trauma go straight to a human.
+• Privacy: PIPEDA applies to patient data (PHIPA in Ontario). Ask in writing: data stored in Canada? consent line on every call? breach plan? retention? subprocessors?
+• 30-day plan: week 1 audit and script, week 2 connect the PMS and consent line, week 3 after-hours only, week 4 go live with a 90-day review.
+
+📖 Full guide: https://esolutify.com/ai-receptionist-for-dental-clinics-cost-rollout-plan/
+📞 Call Sol: +1 365 360 3545
+
+#AIReceptionist #DentalPractice #SmallBusiness
+```
+
+**Pinned comment:** "Dentists: how many calls go to voicemail at your clinic each week? 👇"
+
+All figures come from the blog. The receipt in the hook ($300 + $300 + $650 + $150) is an illustrative mid-tier example, and "Smile Dental" is a placeholder clinic. The video skips the blog's full-time-hire comparison ($45k–$65k a year for about 40 hours a week) to stay under 95 seconds; it's worth a line in the caption if you have room.
 
 ---
 

@@ -20,6 +20,7 @@ import {
   SPEED_TO_LEAD_DURATION,
   SpeedToLead,
 } from "./sol/episodes/SpeedToLead";
+import { DENTAL_DURATION, Dental } from "./sol/episodes/Dental";
 import { Main } from "./Main";
 import { S01Hook } from "./scenes/S01Hook";
 import { S02Outcomes } from "./scenes/S02Outcomes";
@@ -268,6 +269,23 @@ export const RemotionRoot: React.FC = () => {
           id="SolSpeedToLead-SZ"
           component={SpeedToLead}
           durationInFrames={SPEED_TO_LEAD_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+        <Composition
+          id="SolDental"
+          component={Dental}
+          durationInFrames={DENTAL_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="SolDental-SZ"
+          component={Dental}
+          durationInFrames={DENTAL_DURATION}
           fps={30}
           width={1080}
           height={1920}

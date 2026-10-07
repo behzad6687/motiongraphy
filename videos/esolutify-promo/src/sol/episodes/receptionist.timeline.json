@@ -1,937 +1,990 @@
 {
-  "id": "receptionist",
-  "fps": 30,
-  "total": 2294,
-  "beats": [
+ "id": "receptionist",
+ "fps": 30,
+ "total": 2538,
+ "beats": [
+  {
+   "id": "hook",
+   "say": "Your *$65* phone plan | can turn into !$400.!",
+   "speak": "Your sixty-five dollar phone plan can turn into four hundred.",
+   "show": 30,
+   "hold": 12,
+   "kind": "say",
+   "from": 0,
+   "textEnd": 127,
+   "showFrom": 123,
+   "until": 169,
+   "phrases": [
     {
-      "id": "hook",
-      "say": "Your *$65* phone plan | can turn into !$400.!",
-      "speak": "Your sixty-five dollar phone plan can turn into four hundred.",
-      "show": 30,
-      "hold": 12,
-      "kind": "say",
-      "from": 0,
-      "textEnd": 117,
-      "showFrom": 113,
-      "until": 159,
-      "phrases": [
-        {
-          "at": 1,
-          "words": [
-            {
-              "w": "Your",
-              "at": 1
-            },
-            {
-              "w": "*$65*",
-              "at": 15
-            },
-            {
-              "w": "phone",
-              "at": 29
-            },
-            {
-              "w": "plan",
-              "at": 43
-            }
-          ]
-        },
-        {
-          "at": 57,
-          "words": [
-            {
-              "w": "can",
-              "at": 57
-            },
-            {
-              "w": "turn",
-              "at": 71
-            },
-            {
-              "w": "into",
-              "at": 85
-            },
-            {
-              "w": "!$400.!",
-              "at": 99
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 4,
-        "frames": 113,
-        "file": "audio/sol/receptionist/hook.wav",
-        "trim": 0.3394
+     "at": 1,
+     "words": [
+      {
+       "w": "Your",
+       "at": 1
+      },
+      {
+       "w": "*$65*",
+       "at": 10
+      },
+      {
+       "w": "phone",
+       "at": 30
+      },
+      {
+       "w": "plan",
+       "at": 48
       }
+     ]
     },
     {
-      "id": "intro",
-      "say": "Hi, I’m *Sol!* | Full disclosure: I’m an AI. | I’ll be fair.",
-      "speak": "Hi, I'm Sol! Full disclosure: I'm an AI. I'll be fair.",
-      "show": 10,
-      "hold": 8,
-      "kind": "say",
-      "from": 163,
-      "textEnd": 285,
-      "showFrom": 281,
-      "until": 311,
-      "phrases": [
-        {
-          "at": 164,
-          "words": [
-            {
-              "w": "Hi,",
-              "at": 164
-            },
-            {
-              "w": "I’m",
-              "at": 174
-            },
-            {
-              "w": "*Sol!*",
-              "at": 184
-            }
-          ]
-        },
-        {
-          "at": 195,
-          "words": [
-            {
-              "w": "Full",
-              "at": 195
-            },
-            {
-              "w": "disclosure:",
-              "at": 207
-            },
-            {
-              "w": "I’m",
-              "at": 219
-            },
-            {
-              "w": "an",
-              "at": 230
-            },
-            {
-              "w": "AI.",
-              "at": 242
-            }
-          ]
-        },
-        {
-          "at": 254,
-          "words": [
-            {
-              "w": "I’ll",
-              "at": 254
-            },
-            {
-              "w": "be",
-              "at": 263
-            },
-            {
-              "w": "fair.",
-              "at": 273
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 167,
-        "frames": 118,
-        "file": "audio/sol/receptionist/intro.wav",
-        "trim": 0.3247
+     "at": 62,
+     "words": [
+      {
+       "w": "can",
+       "at": 62
+      },
+      {
+       "w": "turn",
+       "at": 78
+      },
+      {
+       "w": "into",
+       "at": 83
+      },
+      {
+       "w": "!$400.!",
+       "at": 90
       }
-    },
-    {
-      "id": "r1",
-      "round": "1",
-      "speak": "Round one!",
-      "hold": 30,
-      "kind": "round",
-      "from": 315,
-      "textEnd": 315,
-      "showFrom": 315,
-      "until": 364,
-      "phrases": [],
-      "voice": {
-        "at": 319,
-        "frames": 35,
-        "file": "audio/sol/receptionist/r1.wav",
-        "trim": 0.3602
-      }
-    },
-    {
-      "id": "c1",
-      "say": "*Answering* *service:* | a shared call centre.",
-      "speak": "Answering service: a shared call centre.",
-      "show": 22,
-      "hold": 8,
-      "kind": "say",
-      "from": 368,
-      "textEnd": 459,
-      "showFrom": 455,
-      "until": 489,
-      "phrases": [
-        {
-          "at": 369,
-          "words": [
-            {
-              "w": "*Answering*",
-              "at": 369
-            },
-            {
-              "w": "*service:*",
-              "at": 391
-            }
-          ]
-        },
-        {
-          "at": 414,
-          "words": [
-            {
-              "w": "a",
-              "at": 414
-            },
-            {
-              "w": "shared",
-              "at": 425
-            },
-            {
-              "w": "call",
-              "at": 435
-            },
-            {
-              "w": "centre.",
-              "at": 446
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 372,
-        "frames": 87,
-        "file": "audio/sol/receptionist/c1.wav",
-        "trim": 0.3545
-      }
-    },
-    {
-      "id": "c2",
-      "say": "*Virtual* *receptionist:* | a real person, remote.",
-      "speak": "Virtual receptionist: a real person, remote.",
-      "show": 22,
-      "hold": 8,
-      "kind": "say",
-      "from": 493,
-      "textEnd": 580,
-      "showFrom": 576,
-      "until": 610,
-      "phrases": [
-        {
-          "at": 494,
-          "words": [
-            {
-              "w": "*Virtual*",
-              "at": 494
-            },
-            {
-              "w": "*receptionist:*",
-              "at": 516
-            }
-          ]
-        },
-        {
-          "at": 538,
-          "words": [
-            {
-              "w": "a",
-              "at": 538
-            },
-            {
-              "w": "real",
-              "at": 548
-            },
-            {
-              "w": "person,",
-              "at": 557
-            },
-            {
-              "w": "remote.",
-              "at": 567
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 497,
-        "frames": 83,
-        "file": "audio/sol/receptionist/c2.wav",
-        "trim": 0.3523
-      }
-    },
-    {
-      "id": "c3",
-      "say": "*AI* *receptionist:* | software. | Ahem, that’s me.",
-      "speak": "AI receptionist: software. Ahem, that's me.",
-      "show": 20,
-      "hold": 10,
-      "kind": "say",
-      "from": 614,
-      "textEnd": 677,
-      "showFrom": 673,
-      "until": 716,
-      "phrases": [
-        {
-          "at": 615,
-          "words": [
-            {
-              "w": "*AI*",
-              "at": 615
-            },
-            {
-              "w": "*receptionist:*",
-              "at": 628
-            }
-          ]
-        },
-        {
-          "at": 641,
-          "words": [
-            {
-              "w": "software.",
-              "at": 641
-            }
-          ]
-        },
-        {
-          "at": 653,
-          "words": [
-            {
-              "w": "Ahem,",
-              "at": 653
-            },
-            {
-              "w": "that’s",
-              "at": 660
-            },
-            {
-              "w": "me.",
-              "at": 667
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 618,
-        "frames": 59,
-        "file": "audio/sol/receptionist/c3.wav",
-        "trim": 0.0
-      }
-    },
-    {
-      "id": "r2",
-      "round": "2",
-      "speak": "Round two: the math!",
-      "hold": 30,
-      "kind": "round",
-      "from": 720,
-      "textEnd": 720,
-      "showFrom": 720,
-      "until": 780,
-      "phrases": [],
-      "voice": {
-        "at": 724,
-        "frames": 46,
-        "file": "audio/sol/receptionist/r2.wav",
-        "trim": 0.0
-      }
-    },
-    {
-      "id": "m1",
-      "say": "*42* calls × 3 min | = *126* *minutes.*",
-      "speak": "Forty-two calls, times three minutes: a hundred and twenty-six minutes.",
-      "show": 24,
-      "hold": 10,
-      "kind": "say",
-      "from": 784,
-      "textEnd": 912,
-      "showFrom": 908,
-      "until": 946,
-      "phrases": [
-        {
-          "at": 785,
-          "words": [
-            {
-              "w": "*42*",
-              "at": 785
-            },
-            {
-              "w": "calls",
-              "at": 797
-            },
-            {
-              "w": "×",
-              "at": 810
-            },
-            {
-              "w": "3",
-              "at": 822
-            },
-            {
-              "w": "min",
-              "at": 835
-            }
-          ]
-        },
-        {
-          "at": 847,
-          "words": [
-            {
-              "w": "=",
-              "at": 847
-            },
-            {
-              "w": "*126*",
-              "at": 868
-            },
-            {
-              "w": "*minutes.*",
-              "at": 888
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 788,
-        "frames": 124,
-        "file": "audio/sol/receptionist/m1.wav",
-        "trim": 0.3374
-      }
-    },
-    {
-      "id": "m2",
-      "say": "A 50-minute plan | is gone by !week! !two.! | Then: per minute.",
-      "speak": "A fifty-minute plan is gone by week two. Then you pay per minute.",
-      "show": 36,
-      "hold": 10,
-      "kind": "say",
-      "from": 950,
-      "textEnd": 1056,
-      "showFrom": 1052,
-      "until": 1102,
-      "phrases": [
-        {
-          "at": 951,
-          "words": [
-            {
-              "w": "A",
-              "at": 951
-            },
-            {
-              "w": "50-minute",
-              "at": 961
-            },
-            {
-              "w": "plan",
-              "at": 970
-            }
-          ]
-        },
-        {
-          "at": 980,
-          "words": [
-            {
-              "w": "is",
-              "at": 980
-            },
-            {
-              "w": "gone",
-              "at": 989
-            },
-            {
-              "w": "by",
-              "at": 997
-            },
-            {
-              "w": "!week!",
-              "at": 1006
-            },
-            {
-              "w": "!two.!",
-              "at": 1014
-            }
-          ]
-        },
-        {
-          "at": 1023,
-          "words": [
-            {
-              "w": "Then:",
-              "at": 1023
-            },
-            {
-              "w": "per",
-              "at": 1033
-            },
-            {
-              "w": "minute.",
-              "at": 1043
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 954,
-        "frames": 102,
-        "file": "audio/sol/receptionist/m2.wav",
-        "trim": 0.9145
-      }
-    },
-    {
-      "id": "m4",
-      "say": "100 calls? | Per-minute balloons past !$400.! | Flat stays *flat.*",
-      "speak": "At a hundred calls, per-minute plans balloon past four hundred. Flat stays flat.",
-      "show": 30,
-      "hold": 10,
-      "kind": "say",
-      "from": 1106,
-      "textEnd": 1258,
-      "showFrom": 1254,
-      "until": 1298,
-      "phrases": [
-        {
-          "at": 1107,
-          "words": [
-            {
-              "w": "100",
-              "at": 1107
-            },
-            {
-              "w": "calls?",
-              "at": 1119
-            }
-          ]
-        },
-        {
-          "at": 1132,
-          "words": [
-            {
-              "w": "Per-minute",
-              "at": 1132
-            },
-            {
-              "w": "balloons",
-              "at": 1152
-            },
-            {
-              "w": "past",
-              "at": 1171
-            },
-            {
-              "w": "!$400.!",
-              "at": 1191
-            }
-          ]
-        },
-        {
-          "at": 1211,
-          "words": [
-            {
-              "w": "Flat",
-              "at": 1211
-            },
-            {
-              "w": "stays",
-              "at": 1226
-            },
-            {
-              "w": "*flat.*",
-              "at": 1241
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 1110,
-        "frames": 148,
-        "file": "audio/sol/receptionist/m4.wav",
-        "trim": 0.3129
-      }
-    },
-    {
-      "id": "m5",
-      "say": "*Minutes,* *not* *months.*",
-      "speak": "Minutes, not months!",
-      "show": 20,
-      "hold": 20,
-      "kind": "say",
-      "from": 1302,
-      "textEnd": 1355,
-      "showFrom": 1351,
-      "until": 1406,
-      "phrases": [
-        {
-          "at": 1303,
-          "words": [
-            {
-              "w": "*Minutes,*",
-              "at": 1303
-            },
-            {
-              "w": "*not*",
-              "at": 1319
-            },
-            {
-              "w": "*months.*",
-              "at": 1336
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 1306,
-        "frames": 49,
-        "file": "audio/sol/receptionist/m5.wav",
-        "trim": 0.3519
-      }
-    },
-    {
-      "id": "r3",
-      "round": "3",
-      "speak": "Round three: who wins?",
-      "hold": 30,
-      "kind": "round",
-      "from": 1410,
-      "textEnd": 1410,
-      "showFrom": 1410,
-      "until": 1475,
-      "phrases": [],
-      "voice": {
-        "at": 1414,
-        "frames": 51,
-        "file": "audio/sol/receptionist/r3.wav",
-        "trim": 0.3516
-      }
-    },
-    {
-      "id": "w1",
-      "say": "*Dental* *clinic,* | 150+ calls a month?",
-      "speak": "A dental clinic, with a hundred and fifty calls a month?",
-      "show": 30,
-      "hold": 10,
-      "kind": "say",
-      "from": 1479,
-      "textEnd": 1564,
-      "showFrom": 1560,
-      "until": 1604,
-      "phrases": [
-        {
-          "at": 1480,
-          "words": [
-            {
-              "w": "*Dental*",
-              "at": 1480
-            },
-            {
-              "w": "*clinic,*",
-              "at": 1500
-            }
-          ]
-        },
-        {
-          "at": 1519,
-          "words": [
-            {
-              "w": "150+",
-              "at": 1519
-            },
-            {
-              "w": "calls",
-              "at": 1529
-            },
-            {
-              "w": "a",
-              "at": 1540
-            },
-            {
-              "w": "month?",
-              "at": 1550
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 1483,
-        "frames": 81,
-        "file": "audio/sol/receptionist/w1.wav",
-        "trim": 0.3489
-      }
-    },
-    {
-      "id": "w2",
-      "say": "*Law* *firm,* sensitive calls? | Fine. A human wins this one.",
-      "speak": "A law firm, with sensitive calls? Fine. A human wins this one.",
-      "show": 30,
-      "hold": 10,
-      "kind": "say",
-      "from": 1608,
-      "textEnd": 1721,
-      "showFrom": 1717,
-      "until": 1761,
-      "phrases": [
-        {
-          "at": 1609,
-          "words": [
-            {
-              "w": "*Law*",
-              "at": 1609
-            },
-            {
-              "w": "*firm,*",
-              "at": 1623
-            },
-            {
-              "w": "sensitive",
-              "at": 1637
-            },
-            {
-              "w": "calls?",
-              "at": 1651
-            }
-          ]
-        },
-        {
-          "at": 1665,
-          "words": [
-            {
-              "w": "Fine.",
-              "at": 1665
-            },
-            {
-              "w": "A",
-              "at": 1674
-            },
-            {
-              "w": "human",
-              "at": 1683
-            },
-            {
-              "w": "wins",
-              "at": 1691
-            },
-            {
-              "w": "this",
-              "at": 1700
-            },
-            {
-              "w": "one.",
-              "at": 1709
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 1612,
-        "frames": 109,
-        "file": "audio/sol/receptionist/w2.wav",
-        "trim": 0.1652
-      }
-    },
-    {
-      "id": "w3",
-      "say": "*Contractor* up on a roof? | Answer or text back.",
-      "speak": "A contractor, up on a roof? Answer, or text back.",
-      "show": 30,
-      "hold": 10,
-      "kind": "say",
-      "from": 1765,
-      "textEnd": 1874,
-      "showFrom": 1870,
-      "until": 1914,
-      "phrases": [
-        {
-          "at": 1766,
-          "words": [
-            {
-              "w": "*Contractor*",
-              "at": 1766
-            },
-            {
-              "w": "up",
-              "at": 1778
-            },
-            {
-              "w": "on",
-              "at": 1790
-            },
-            {
-              "w": "a",
-              "at": 1802
-            },
-            {
-              "w": "roof?",
-              "at": 1813
-            }
-          ]
-        },
-        {
-          "at": 1825,
-          "words": [
-            {
-              "w": "Answer",
-              "at": 1825
-            },
-            {
-              "w": "or",
-              "at": 1836
-            },
-            {
-              "w": "text",
-              "at": 1848
-            },
-            {
-              "w": "back.",
-              "at": 1859
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 1769,
-        "frames": 105,
-        "file": "audio/sol/receptionist/w3.wav",
-        "trim": 0.3702
-      }
-    },
-    {
-      "id": "both",
-      "say": "Honest answer? Often *both:* | AI for routine, humans for hard calls.",
-      "speak": "Honest answer? Often both: AI for routine calls, humans for the hard ones.",
-      "show": 36,
-      "hold": 18,
-      "kind": "say",
-      "from": 1918,
-      "textEnd": 2055,
-      "showFrom": 2051,
-      "until": 2109,
-      "phrases": [
-        {
-          "at": 1919,
-          "words": [
-            {
-              "w": "Honest",
-              "at": 1919
-            },
-            {
-              "w": "answer?",
-              "at": 1933
-            },
-            {
-              "w": "Often",
-              "at": 1947
-            },
-            {
-              "w": "*both:*",
-              "at": 1961
-            }
-          ]
-        },
-        {
-          "at": 1975,
-          "words": [
-            {
-              "w": "AI",
-              "at": 1975
-            },
-            {
-              "w": "for",
-              "at": 1986
-            },
-            {
-              "w": "routine,",
-              "at": 1997
-            },
-            {
-              "w": "humans",
-              "at": 2008
-            },
-            {
-              "w": "for",
-              "at": 2019
-            },
-            {
-              "w": "hard",
-              "at": 2030
-            },
-            {
-              "w": "calls.",
-              "at": 2041
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 1922,
-        "frames": 133,
-        "file": "audio/sol/receptionist/both.wav",
-        "trim": 0.2966
-      }
-    },
-    {
-      "id": "cta",
-      "say": "Want to hear me? | *Call* *me!*",
-      "speak": "Want to hear me answer? Call me!",
-      "show": 60,
-      "hold": 36,
-      "kind": "say",
-      "from": 2113,
-      "textEnd": 2182,
-      "showFrom": 2178,
-      "until": 2278,
-      "phrases": [
-        {
-          "at": 2114,
-          "words": [
-            {
-              "w": "Want",
-              "at": 2114
-            },
-            {
-              "w": "to",
-              "at": 2123
-            },
-            {
-              "w": "hear",
-              "at": 2133
-            },
-            {
-              "w": "me?",
-              "at": 2142
-            }
-          ]
-        },
-        {
-          "at": 2151,
-          "words": [
-            {
-              "w": "*Call*",
-              "at": 2151
-            },
-            {
-              "w": "*me!*",
-              "at": 2165
-            }
-          ]
-        }
-      ],
-      "voice": {
-        "at": 2117,
-        "frames": 65,
-        "file": "audio/sol/receptionist/cta.wav",
-        "trim": 0.3182
-      }
+     ]
     }
-  ],
-  "warnings": []
+   ],
+   "voice": {
+    "at": 4,
+    "frames": 123,
+    "file": "audio/sol/receptionist/hook.wav",
+    "trim": 0.28
+   }
+  },
+  {
+   "id": "intro",
+   "say": "Hi, I’m *Sol!* | Full disclosure: I’m an AI. | I’ll be fair.",
+   "speak": "Hi, I'm Sol! Full disclosure: I'm an AI. I'll be fair.",
+   "show": 10,
+   "hold": 8,
+   "kind": "say",
+   "from": 173,
+   "textEnd": 319,
+   "showFrom": 315,
+   "until": 341,
+   "phrases": [
+    {
+     "at": 174,
+     "words": [
+      {
+       "w": "Hi,",
+       "at": 174
+      },
+      {
+       "w": "I’m",
+       "at": 196
+      },
+      {
+       "w": "*Sol!*",
+       "at": 203
+      }
+     ]
+    },
+    {
+     "at": 227,
+     "words": [
+      {
+       "w": "Full",
+       "at": 227
+      },
+      {
+       "w": "disclosure:",
+       "at": 230
+      },
+      {
+       "w": "I’m",
+       "at": 265
+      },
+      {
+       "w": "an",
+       "at": 270
+      },
+      {
+       "w": "AI.",
+       "at": 271
+      }
+     ]
+    },
+    {
+     "at": 292,
+     "words": [
+      {
+       "w": "I’ll",
+       "at": 292
+      },
+      {
+       "w": "be",
+       "at": 296
+      },
+      {
+       "w": "fair.",
+       "at": 299
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 177,
+    "frames": 142,
+    "file": "audio/sol/receptionist/intro.wav",
+    "trim": 0.25
+   }
+  },
+  {
+   "id": "r1",
+   "round": "1",
+   "speak": "Round one!",
+   "hold": 30,
+   "kind": "round",
+   "from": 345,
+   "textEnd": 345,
+   "showFrom": 345,
+   "until": 397,
+   "phrases": [],
+   "voice": {
+    "at": 355,
+    "frames": 32,
+    "file": "audio/sol/receptionist/r1.wav",
+    "trim": 0.3
+   }
+  },
+  {
+   "id": "c1",
+   "say": "*Answering* *service:* | a shared call centre.",
+   "speak": "Answering service: a shared call centre.",
+   "show": 22,
+   "hold": 8,
+   "kind": "say",
+   "from": 401,
+   "textEnd": 499,
+   "showFrom": 495,
+   "until": 529,
+   "phrases": [
+    {
+     "at": 402,
+     "words": [
+      {
+       "w": "*Answering*",
+       "at": 402
+      },
+      {
+       "w": "*service:*",
+       "at": 420
+      }
+     ]
+    },
+    {
+     "at": 449,
+     "words": [
+      {
+       "w": "a",
+       "at": 449
+      },
+      {
+       "w": "shared",
+       "at": 452
+      },
+      {
+       "w": "call",
+       "at": 463
+      },
+      {
+       "w": "centre.",
+       "at": 473
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 405,
+    "frames": 94,
+    "file": "audio/sol/receptionist/c1.wav",
+    "trim": 0.3
+   }
+  },
+  {
+   "id": "c2",
+   "say": "*Virtual* *receptionist:* | a real person, remote.",
+   "speak": "Virtual receptionist: a real person, remote.",
+   "show": 22,
+   "hold": 8,
+   "kind": "say",
+   "from": 533,
+   "textEnd": 634,
+   "showFrom": 630,
+   "until": 664,
+   "phrases": [
+    {
+     "at": 534,
+     "words": [
+      {
+       "w": "*Virtual*",
+       "at": 534
+      },
+      {
+       "w": "*receptionist:*",
+       "at": 546
+      }
+     ]
+    },
+    {
+     "at": 583,
+     "words": [
+      {
+       "w": "a",
+       "at": 583
+      },
+      {
+       "w": "real",
+       "at": 586
+      },
+      {
+       "w": "person,",
+       "at": 590
+      },
+      {
+       "w": "remote.",
+       "at": 612
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 537,
+    "frames": 97,
+    "file": "audio/sol/receptionist/c2.wav",
+    "trim": 0.29
+   }
+  },
+  {
+   "id": "c3",
+   "say": "The *AI* *receptionist:* | software. | Yep, that’s me!",
+   "speak": "The AI receptionist: software. Yep, that's me!",
+   "show": 20,
+   "hold": 10,
+   "kind": "say",
+   "from": 668,
+   "textEnd": 801,
+   "showFrom": 797,
+   "until": 836,
+   "phrases": [
+    {
+     "at": 669,
+     "words": [
+      {
+       "w": "The",
+       "at": 669
+      },
+      {
+       "w": "*AI*",
+       "at": 676
+      },
+      {
+       "w": "*receptionist:*",
+       "at": 688
+      }
+     ]
+    },
+    {
+     "at": 727,
+     "words": [
+      {
+       "w": "software.",
+       "at": 727
+      }
+     ]
+    },
+    {
+     "at": 758,
+     "words": [
+      {
+       "w": "Yep,",
+       "at": 758
+      },
+      {
+       "w": "that’s",
+       "at": 774
+      },
+      {
+       "w": "me!",
+       "at": 782
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 672,
+    "frames": 129,
+    "file": "audio/sol/receptionist/c3.wav",
+    "trim": 0.36
+   }
+  },
+  {
+   "id": "r2",
+   "round": "2",
+   "speak": "Round two: the math!",
+   "hold": 30,
+   "kind": "round",
+   "from": 840,
+   "textEnd": 840,
+   "showFrom": 840,
+   "until": 907,
+   "phrases": [],
+   "voice": {
+    "at": 850,
+    "frames": 47,
+    "file": "audio/sol/receptionist/r2.wav",
+    "trim": 0.0
+   }
+  },
+  {
+   "id": "m1",
+   "say": "*42* calls × 3 min | = *126* *minutes.*",
+   "speak": "Forty-two calls, times three minutes: a hundred and twenty-six minutes.",
+   "show": 24,
+   "hold": 10,
+   "kind": "say",
+   "from": 911,
+   "textEnd": 1055,
+   "showFrom": 1051,
+   "until": 1089,
+   "phrases": [
+    {
+     "at": 912,
+     "words": [
+      {
+       "w": "*42*",
+       "at": 912
+      },
+      {
+       "w": "calls",
+       "at": 930
+      },
+      {
+       "w": "×",
+       "at": 934
+      },
+      {
+       "w": "3",
+       "at": 966
+      },
+      {
+       "w": "min",
+       "at": 970
+      }
+     ]
+    },
+    {
+     "at": 970,
+     "words": [
+      {
+       "w": "=",
+       "at": 970
+      },
+      {
+       "w": "*126*",
+       "at": 1008
+      },
+      {
+       "w": "*minutes.*",
+       "at": 1038
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 915,
+    "frames": 140,
+    "file": "audio/sol/receptionist/m1.wav",
+    "trim": 0.23
+   }
+  },
+  {
+   "id": "m2",
+   "say": "A 50-minute plan | is gone by !week! !two.! | Then you pay per minute.",
+   "speak": "A fifty-minute plan is gone by week two. Then you pay per minute.",
+   "show": 36,
+   "hold": 10,
+   "kind": "say",
+   "from": 1093,
+   "textEnd": 1210,
+   "showFrom": 1206,
+   "until": 1256,
+   "phrases": [
+    {
+     "at": 1094,
+     "words": [
+      {
+       "w": "A",
+       "at": 1094
+      },
+      {
+       "w": "50-minute",
+       "at": 1101
+      },
+      {
+       "w": "plan",
+       "at": 1113
+      }
+     ]
+    },
+    {
+     "at": 1122,
+     "words": [
+      {
+       "w": "is",
+       "at": 1122
+      },
+      {
+       "w": "gone",
+       "at": 1126
+      },
+      {
+       "w": "by",
+       "at": 1133
+      },
+      {
+       "w": "!week!",
+       "at": 1138
+      },
+      {
+       "w": "!two.!",
+       "at": 1142
+      }
+     ]
+    },
+    {
+     "at": 1168,
+     "words": [
+      {
+       "w": "Then",
+       "at": 1168
+      },
+      {
+       "w": "you",
+       "at": 1174
+      },
+      {
+       "w": "pay",
+       "at": 1179
+      },
+      {
+       "w": "per",
+       "at": 1185
+      },
+      {
+       "w": "minute.",
+       "at": 1193
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1097,
+    "frames": 113,
+    "file": "audio/sol/receptionist/m2.wav",
+    "trim": 0.86
+   }
+  },
+  {
+   "id": "m4",
+   "say": "At *100* calls, pay-per-minute | balloons past !$400.! | Flat stays *flat.*",
+   "speak": "At a hundred calls, pay-per-minute balloons past four hundred. Flat stays flat.",
+   "show": 30,
+   "hold": 10,
+   "kind": "say",
+   "from": 1260,
+   "textEnd": 1435,
+   "showFrom": 1431,
+   "until": 1475,
+   "phrases": [
+    {
+     "at": 1261,
+     "words": [
+      {
+       "w": "At",
+       "at": 1261
+      },
+      {
+       "w": "*100*",
+       "at": 1272
+      },
+      {
+       "w": "calls,",
+       "at": 1279
+      },
+      {
+       "w": "pay-per-minute",
+       "at": 1311
+      }
+     ]
+    },
+    {
+     "at": 1325,
+     "words": [
+      {
+       "w": "balloons",
+       "at": 1325
+      },
+      {
+       "w": "past",
+       "at": 1340
+      },
+      {
+       "w": "!$400.!",
+       "at": 1355
+      }
+     ]
+    },
+    {
+     "at": 1400,
+     "words": [
+      {
+       "w": "Flat",
+       "at": 1400
+      },
+      {
+       "w": "stays",
+       "at": 1404
+      },
+      {
+       "w": "*flat.*",
+       "at": 1413
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1264,
+    "frames": 171,
+    "file": "audio/sol/receptionist/m4.wav",
+    "trim": 0.31
+   }
+  },
+  {
+   "id": "m5",
+   "say": "*Minutes,* *not* *months.*",
+   "speak": "Minutes, not months!",
+   "show": 20,
+   "hold": 20,
+   "kind": "say",
+   "from": 1479,
+   "textEnd": 1541,
+   "showFrom": 1537,
+   "until": 1586,
+   "phrases": [
+    {
+     "at": 1480,
+     "words": [
+      {
+       "w": "*Minutes,*",
+       "at": 1480
+      },
+      {
+       "w": "*not*",
+       "at": 1512
+      },
+      {
+       "w": "*months.*",
+       "at": 1519
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1483,
+    "frames": 58,
+    "file": "audio/sol/receptionist/m5.wav",
+    "trim": 0.3
+   }
+  },
+  {
+   "id": "r3",
+   "round": "3",
+   "speak": "Round three: who wins?",
+   "hold": 30,
+   "kind": "round",
+   "from": 1590,
+   "textEnd": 1590,
+   "showFrom": 1590,
+   "until": 1669,
+   "phrases": [],
+   "voice": {
+    "at": 1600,
+    "frames": 59,
+    "file": "audio/sol/receptionist/r3.wav",
+    "trim": 0.3
+   }
+  },
+  {
+   "id": "w1",
+   "say": "A *dental* *clinic,* | with 150 calls a month?",
+   "speak": "A dental clinic, with a hundred and fifty calls a month?",
+   "show": 30,
+   "hold": 10,
+   "kind": "say",
+   "from": 1673,
+   "textEnd": 1770,
+   "showFrom": 1766,
+   "until": 1810,
+   "phrases": [
+    {
+     "at": 1674,
+     "words": [
+      {
+       "w": "A",
+       "at": 1674
+      },
+      {
+       "w": "*dental*",
+       "at": 1680
+      },
+      {
+       "w": "*clinic,*",
+       "at": 1688
+      }
+     ]
+    },
+    {
+     "at": 1700,
+     "words": [
+      {
+       "w": "with",
+       "at": 1700
+      },
+      {
+       "w": "150",
+       "at": 1716
+      },
+      {
+       "w": "calls",
+       "at": 1733
+      },
+      {
+       "w": "a",
+       "at": 1747
+      },
+      {
+       "w": "month?",
+       "at": 1750
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1677,
+    "frames": 93,
+    "file": "audio/sol/receptionist/w1.wav",
+    "trim": 0.29
+   }
+  },
+  {
+   "id": "w2",
+   "say": "A *law* *firm,* with sensitive calls? | Fine. A human wins this one.",
+   "speak": "A law firm, with sensitive calls? Fine. A human wins this one.",
+   "show": 30,
+   "hold": 10,
+   "kind": "say",
+   "from": 1814,
+   "textEnd": 1938,
+   "showFrom": 1934,
+   "until": 1978,
+   "phrases": [
+    {
+     "at": 1815,
+     "words": [
+      {
+       "w": "A",
+       "at": 1815
+      },
+      {
+       "w": "*law*",
+       "at": 1820
+      },
+      {
+       "w": "*firm,*",
+       "at": 1825
+      },
+      {
+       "w": "with",
+       "at": 1843
+      },
+      {
+       "w": "sensitive",
+       "at": 1846
+      },
+      {
+       "w": "calls?",
+       "at": 1855
+      }
+     ]
+    },
+    {
+     "at": 1879,
+     "words": [
+      {
+       "w": "Fine.",
+       "at": 1879
+      },
+      {
+       "w": "A",
+       "at": 1898
+      },
+      {
+       "w": "human",
+       "at": 1901
+      },
+      {
+       "w": "wins",
+       "at": 1909
+      },
+      {
+       "w": "this",
+       "at": 1916
+      },
+      {
+       "w": "one.",
+       "at": 1922
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1818,
+    "frames": 120,
+    "file": "audio/sol/receptionist/w2.wav",
+    "trim": 0.11
+   }
+  },
+  {
+   "id": "w3",
+   "say": "*Contractor* up on a roof? | Answer or text back.",
+   "speak": "A contractor, up on a roof? Answer, or text back.",
+   "show": 30,
+   "hold": 10,
+   "kind": "say",
+   "from": 1982,
+   "textEnd": 2111,
+   "showFrom": 2107,
+   "until": 2151,
+   "phrases": [
+    {
+     "at": 1989,
+     "words": [
+      {
+       "w": "*Contractor*",
+       "at": 1989
+      },
+      {
+       "w": "up",
+       "at": 2024
+      },
+      {
+       "w": "on",
+       "at": 2029
+      },
+      {
+       "w": "a",
+       "at": 2033
+      },
+      {
+       "w": "roof?",
+       "at": 2035
+      }
+     ]
+    },
+    {
+     "at": 2055,
+     "words": [
+      {
+       "w": "Answer",
+       "at": 2055
+      },
+      {
+       "w": "or",
+       "at": 2078
+      },
+      {
+       "w": "text",
+       "at": 2084
+      },
+      {
+       "w": "back.",
+       "at": 2091
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1986,
+    "frames": 125,
+    "file": "audio/sol/receptionist/w3.wav",
+    "trim": 0.32
+   }
+  },
+  {
+   "id": "both",
+   "say": "Honest answer? Often *both:* | AI for routine calls, | humans for the hard ones.",
+   "speak": "Honest answer? Often both: AI for routine calls, humans for the hard ones.",
+   "show": 36,
+   "hold": 18,
+   "kind": "say",
+   "from": 2155,
+   "textEnd": 2308,
+   "showFrom": 2304,
+   "until": 2362,
+   "phrases": [
+    {
+     "at": 2156,
+     "words": [
+      {
+       "w": "Honest",
+       "at": 2156
+      },
+      {
+       "w": "answer?",
+       "at": 2167
+      },
+      {
+       "w": "Often",
+       "at": 2188
+      },
+      {
+       "w": "*both:*",
+       "at": 2195
+      }
+     ]
+    },
+    {
+     "at": 2216,
+     "words": [
+      {
+       "w": "AI",
+       "at": 2216
+      },
+      {
+       "w": "for",
+       "at": 2223
+      },
+      {
+       "w": "routine",
+       "at": 2230
+      },
+      {
+       "w": "calls,",
+       "at": 2239
+      }
+     ]
+    },
+    {
+     "at": 2269,
+     "words": [
+      {
+       "w": "humans",
+       "at": 2269
+      },
+      {
+       "w": "for",
+       "at": 2278
+      },
+      {
+       "w": "the",
+       "at": 2283
+      },
+      {
+       "w": "hard",
+       "at": 2286
+      },
+      {
+       "w": "ones.",
+       "at": 2291
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2159,
+    "frames": 149,
+    "file": "audio/sol/receptionist/both.wav",
+    "trim": 0.24
+   }
+  },
+  {
+   "id": "cta",
+   "say": "Want to hear me answer? | *Call* *me!*",
+   "speak": "Want to hear me answer? Call me!",
+   "show": 60,
+   "hold": 36,
+   "kind": "say",
+   "from": 2366,
+   "textEnd": 2426,
+   "showFrom": 2422,
+   "until": 2522,
+   "phrases": [
+    {
+     "at": 2367,
+     "words": [
+      {
+       "w": "Want",
+       "at": 2367
+      },
+      {
+       "w": "to",
+       "at": 2373
+      },
+      {
+       "w": "hear",
+       "at": 2378
+      },
+      {
+       "w": "me",
+       "at": 2381
+      },
+      {
+       "w": "answer?",
+       "at": 2386
+      }
+     ]
+    },
+    {
+     "at": 2408,
+     "words": [
+      {
+       "w": "*Call*",
+       "at": 2408
+      },
+      {
+       "w": "*me!*",
+       "at": 2411
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2370,
+    "frames": 56,
+    "file": "audio/sol/receptionist/cta.wav",
+    "trim": 0.11
+   }
+  }
+ ],
+ "warnings": [
+  "m2: 13 words (max 11) -- split it",
+  "w2: 12 words (max 11) -- split it",
+  "both: 13 words (max 11) -- split it"
+ ]
 }

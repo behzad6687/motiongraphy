@@ -28,12 +28,15 @@ export type SfxName =
   | "whoosh-soft";
 
 // One sound effect at a frame. Place it 2–3 frames BEFORE the visual lands.
+// duck(frame) scales it per frame of the composition, e.g. to sit under a
+// voice-over (see speechDuck in sol/episodes/kit.tsx).
 export const Sfx: React.FC<{
   name: SfxName;
   at: number;
   volume?: number;
   rate?: number;
-}> = ({ name, at, volume = 0.6, rate = 1 }) => (
+  duck?: (frame: number) => number;
+}> = ({ name, at, volume = 0.6, rate = 1, duck }) => (
   <Sequence
     from={Math.max(0, at)}
     durationInFrames={90}
@@ -42,7 +45,9 @@ export const Sfx: React.FC<{
   >
     <Audio
       src={staticFile(`audio/sfx/${name}.wav`)}
-      volume={volume}
+      volume={
+        duck ? (f: number) => volume * duck(Math.max(0, at) + f) : volume
+      }
       playbackRate={rate}
     />
   </Sequence>

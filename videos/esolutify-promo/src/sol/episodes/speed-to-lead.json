@@ -25,7 +25,7 @@
     },
     {
       "id": "n1",
-      "say": "Reply that fast | and you’re *100×* more likely | to reach them.",
+      "say": "Reply that fast, | and you’re up to *100×* | more likely to reach them.",
       "show": 36,
       "hold": 16,
       "speak": "Reply that fast, and you're up to a hundred times more likely to reach them."
@@ -54,7 +54,7 @@
       "id": "r3",
       "round": "3",
       "hold": 30,
-      "speak": "Number three: seventy-eight percent,"
+      "speak": "Number three: seventy-eight percent."
     },
     {
       "id": "n3a",

@@ -1,0 +1,1115 @@
+{
+ "hook": {
+  "clip": 3.922,
+  "heard": "The ad says $300 a month. The real bill? $1400.",
+  "ok": true,
+  "words": [
+   {
+    "w": "The",
+    "start": 0.0,
+    "end": 0.24
+   },
+   {
+    "w": "ad",
+    "start": 0.24,
+    "end": 0.44
+   },
+   {
+    "w": "says",
+    "start": 0.44,
+    "end": 0.74
+   },
+   {
+    "w": "$300",
+    "start": 0.74,
+    "end": 1.34
+   },
+   {
+    "w": "a",
+    "start": 1.34,
+    "end": 1.52
+   },
+   {
+    "w": "month.",
+    "start": 1.52,
+    "end": 1.8
+   },
+   {
+    "w": "The",
+    "start": 2.08,
+    "end": 2.2
+   },
+   {
+    "w": "real",
+    "start": 2.2,
+    "end": 2.38
+   },
+   {
+    "w": "bill?",
+    "start": 2.38,
+    "end": 2.66
+   },
+   {
+    "w": "$1400.",
+    "start": 3.16,
+    "end": 3.72
+   }
+  ]
+ },
+ "intro": {
+  "clip": 3.17,
+  "heard": "Hi, I'm Sol. Four things before you buy.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Hi,",
+    "start": 0.0,
+    "end": 0.38
+   },
+   {
+    "w": "I'm",
+    "start": 0.64,
+    "end": 0.9
+   },
+   {
+    "w": "Sol.",
+    "start": 0.9,
+    "end": 1.14
+   },
+   {
+    "w": "Four",
+    "start": 1.54,
+    "end": 1.66
+   },
+   {
+    "w": "things",
+    "start": 1.66,
+    "end": 2.02
+   },
+   {
+    "w": "before",
+    "start": 2.02,
+    "end": 2.54
+   },
+   {
+    "w": "you",
+    "start": 2.54,
+    "end": 2.7
+   },
+   {
+    "w": "buy.",
+    "start": 2.7,
+    "end": 2.9
+   }
+  ]
+ },
+ "r1": {
+  "clip": 1.79,
+  "heard": "1. The real cost",
+  "ok": true,
+  "words": [
+   {
+    "w": "1.",
+    "start": 0.0,
+    "end": 0.36
+   },
+   {
+    "w": "The",
+    "start": 0.72,
+    "end": 0.86
+   },
+   {
+    "w": "real",
+    "start": 0.86,
+    "end": 1.04
+   },
+   {
+    "w": "cost",
+    "start": 1.04,
+    "end": 1.46
+   }
+  ]
+ },
+ "k1": {
+  "clip": 2.72,
+  "heard": "The base plan, $300 to $800 a month.",
+  "ok": true,
+  "words": [
+   {
+    "w": "The",
+    "start": 0.0,
+    "end": 0.2
+   },
+   {
+    "w": "base",
+    "start": 0.2,
+    "end": 0.44
+   },
+   {
+    "w": "plan,",
+    "start": 0.44,
+    "end": 0.82
+   },
+   {
+    "w": "$300",
+    "start": 1.38,
+    "end": 1.5
+   },
+   {
+    "w": "to",
+    "start": 1.5,
+    "end": 1.62
+   },
+   {
+    "w": "$800",
+    "start": 1.62,
+    "end": 2.06
+   },
+   {
+    "w": "a",
+    "start": 2.06,
+    "end": 2.22
+   },
+   {
+    "w": "month.",
+    "start": 2.22,
+    "end": 2.46
+   }
+  ]
+ },
+ "k2": {
+  "clip": 4.06,
+  "heard": "Linking your booking software, 99 to 300 more.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Linking",
+    "start": 0.0,
+    "end": 0.46
+   },
+   {
+    "w": "your",
+    "start": 0.46,
+    "end": 0.56
+   },
+   {
+    "w": "booking",
+    "start": 0.56,
+    "end": 0.78
+   },
+   {
+    "w": "software,",
+    "start": 0.78,
+    "end": 1.24
+   },
+   {
+    "w": "99",
+    "start": 1.68,
+    "end": 2.14
+   },
+   {
+    "w": "to",
+    "start": 2.14,
+    "end": 2.7
+   },
+   {
+    "w": "300",
+    "start": 2.7,
+    "end": 3.24
+   },
+   {
+    "w": "more.",
+    "start": 3.24,
+    "end": 3.76
+   }
+  ]
+ },
+ "k3": {
+  "clip": 3.675,
+  "heard": "Busy month, extra minutes, 12 to 35 cents each.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Busy",
+    "start": 0.0,
+    "end": 0.36
+   },
+   {
+    "w": "month,",
+    "start": 0.36,
+    "end": 0.62
+   },
+   {
+    "w": "extra",
+    "start": 1.14,
+    "end": 1.24
+   },
+   {
+    "w": "minutes,",
+    "start": 1.24,
+    "end": 1.6
+   },
+   {
+    "w": "12",
+    "start": 2.24,
+    "end": 2.26
+   },
+   {
+    "w": "to",
+    "start": 2.26,
+    "end": 2.4
+   },
+   {
+    "w": "35",
+    "start": 2.4,
+    "end": 2.84
+   },
+   {
+    "w": "cents",
+    "start": 2.84,
+    "end": 3.12
+   },
+   {
+    "w": "each.",
+    "start": 3.12,
+    "end": 3.44
+   }
+  ]
+ },
+ "k4": {
+  "clip": 3.848,
+  "heard": "Real total, 700 to 1400 a month.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Real",
+    "start": 0.0,
+    "end": 0.34
+   },
+   {
+    "w": "total,",
+    "start": 0.34,
+    "end": 0.78
+   },
+   {
+    "w": "700",
+    "start": 1.28,
+    "end": 1.86
+   },
+   {
+    "w": "to",
+    "start": 1.86,
+    "end": 2.48
+   },
+   {
+    "w": "1400",
+    "start": 2.48,
+    "end": 3.02
+   },
+   {
+    "w": "a",
+    "start": 3.02,
+    "end": 3.36
+   },
+   {
+    "w": "month.",
+    "start": 3.36,
+    "end": 3.58
+   }
+  ]
+ },
+ "k5": {
+  "clip": 4.612,
+  "heard": "A full-time hire? 45,000 to 65,000 a year for 40 hours a week.",
+  "ok": true,
+  "words": [
+   {
+    "w": "A",
+    "start": 0.0,
+    "end": 0.22
+   },
+   {
+    "w": "full",
+    "start": 0.22,
+    "end": 0.38
+   },
+   {
+    "w": "-time",
+    "start": 0.38,
+    "end": 0.6
+   },
+   {
+    "w": "hire?",
+    "start": 0.6,
+    "end": 0.9
+   },
+   {
+    "w": "45",
+    "start": 1.32,
+    "end": 1.74
+   },
+   {
+    "w": ",000",
+    "start": 1.74,
+    "end": 1.78
+   },
+   {
+    "w": "to",
+    "start": 1.78,
+    "end": 1.92
+   },
+   {
+    "w": "65",
+    "start": 1.92,
+    "end": 2.34
+   },
+   {
+    "w": ",000",
+    "start": 2.34,
+    "end": 2.72
+   },
+   {
+    "w": "a",
+    "start": 2.72,
+    "end": 2.82
+   },
+   {
+    "w": "year",
+    "start": 2.82,
+    "end": 3.1
+   },
+   {
+    "w": "for",
+    "start": 3.1,
+    "end": 3.54
+   },
+   {
+    "w": "40",
+    "start": 3.54,
+    "end": 3.82
+   },
+   {
+    "w": "hours",
+    "start": 3.82,
+    "end": 4.06
+   },
+   {
+    "w": "a",
+    "start": 4.06,
+    "end": 4.2
+   },
+   {
+    "w": "week.",
+    "start": 4.2,
+    "end": 4.4
+   }
+  ]
+ },
+ "k6": {
+  "clip": 3.7,
+  "heard": "Missing 15 calls a week? It pays back in 3-8 weeks.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Missing",
+    "start": 0.0,
+    "end": 0.32
+   },
+   {
+    "w": "15",
+    "start": 0.32,
+    "end": 0.66
+   },
+   {
+    "w": "calls",
+    "start": 0.66,
+    "end": 0.92
+   },
+   {
+    "w": "a",
+    "start": 0.92,
+    "end": 1.06
+   },
+   {
+    "w": "week?",
+    "start": 1.06,
+    "end": 1.3
+   },
+   {
+    "w": "It",
+    "start": 1.88,
+    "end": 1.98
+   },
+   {
+    "w": "pays",
+    "start": 1.98,
+    "end": 2.18
+   },
+   {
+    "w": "back",
+    "start": 2.18,
+    "end": 2.42
+   },
+   {
+    "w": "in",
+    "start": 2.42,
+    "end": 2.64
+   },
+   {
+    "w": "3",
+    "start": 2.64,
+    "end": 2.82
+   },
+   {
+    "w": "-8",
+    "start": 2.82,
+    "end": 3.04
+   },
+   {
+    "w": "weeks.",
+    "start": 3.04,
+    "end": 3.38
+   }
+  ]
+ },
+ "r2": {
+  "clip": 3.16,
+  "heard": "to what I can and can't do.",
+  "ok": true,
+  "words": [
+   {
+    "w": "to",
+    "start": 0.0,
+    "end": 0.4
+   },
+   {
+    "w": "what",
+    "start": 0.4,
+    "end": 0.88
+   },
+   {
+    "w": "I",
+    "start": 0.88,
+    "end": 1.08
+   },
+   {
+    "w": "can",
+    "start": 1.08,
+    "end": 1.58
+   },
+   {
+    "w": "and",
+    "start": 1.58,
+    "end": 2.16
+   },
+   {
+    "w": "can't",
+    "start": 2.16,
+    "end": 2.64
+   },
+   {
+    "w": "do.",
+    "start": 2.64,
+    "end": 2.9
+   }
+  ]
+ },
+ "can": {
+  "clip": 4.04,
+  "heard": "I book, reschedule, and answer questions 24x7.",
+  "ok": true,
+  "words": [
+   {
+    "w": "I",
+    "start": 0.0,
+    "end": 0.24
+   },
+   {
+    "w": "book,",
+    "start": 0.24,
+    "end": 0.5
+   },
+   {
+    "w": "reschedule,",
+    "start": 0.9,
+    "end": 1.44
+   },
+   {
+    "w": "and",
+    "start": 1.74,
+    "end": 1.82
+   },
+   {
+    "w": "answer",
+    "start": 1.82,
+    "end": 2.06
+   },
+   {
+    "w": "questions",
+    "start": 2.06,
+    "end": 2.66
+   },
+   {
+    "w": "24x7.",
+    "start": 2.66,
+    "end": 3.78
+   }
+  ]
+ },
+ "cant": {
+  "clip": 3.17,
+  "heard": "Clinical advice? Never. That's not my job.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Clinical",
+    "start": 0.0,
+    "end": 0.42
+   },
+   {
+    "w": "advice?",
+    "start": 0.42,
+    "end": 0.74
+   },
+   {
+    "w": "Never.",
+    "start": 1.4,
+    "end": 1.6
+   },
+   {
+    "w": "That's",
+    "start": 2.1,
+    "end": 2.34
+   },
+   {
+    "w": "not",
+    "start": 2.34,
+    "end": 2.44
+   },
+   {
+    "w": "my",
+    "start": 2.44,
+    "end": 2.6
+   },
+   {
+    "w": "job.",
+    "start": 2.6,
+    "end": 2.88
+   }
+  ]
+ },
+ "emerg": {
+  "clip": 3.362,
+  "heard": "Pain, swelling, bleeding, straight to a human.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Pain,",
+    "start": 0.0,
+    "end": 0.44
+   },
+   {
+    "w": "swelling,",
+    "start": 0.88,
+    "end": 1.18
+   },
+   {
+    "w": "bleeding,",
+    "start": 1.68,
+    "end": 1.92
+   },
+   {
+    "w": "straight",
+    "start": 2.36,
+    "end": 2.62
+   },
+   {
+    "w": "to",
+    "start": 2.62,
+    "end": 2.84
+   },
+   {
+    "w": "a",
+    "start": 2.84,
+    "end": 2.92
+   },
+   {
+    "w": "human.",
+    "start": 2.92,
+    "end": 3.12
+   }
+  ]
+ },
+ "r3": {
+  "clip": 1.46,
+  "heard": "3. Privacy",
+  "ok": true,
+  "words": [
+   {
+    "w": "3.",
+    "start": 0.0,
+    "end": 0.36
+   },
+   {
+    "w": "Privacy",
+    "start": 0.82,
+    "end": 1.08
+   }
+  ]
+ },
+ "p1": {
+  "clip": 3.1,
+  "heard": "Patient data? Canadian Privacy Law applies.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Patient",
+    "start": 0.0,
+    "end": 0.44
+   },
+   {
+    "w": "data?",
+    "start": 0.44,
+    "end": 0.78
+   },
+   {
+    "w": "Canadian",
+    "start": 1.16,
+    "end": 1.56
+   },
+   {
+    "w": "Privacy",
+    "start": 1.56,
+    "end": 2.02
+   },
+   {
+    "w": "Law",
+    "start": 2.02,
+    "end": 2.26
+   },
+   {
+    "w": "applies.",
+    "start": 2.26,
+    "end": 2.64
+   }
+  ]
+ },
+ "p2": {
+  "clip": 3.46,
+  "heard": "Get these five answers in writing.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Get",
+    "start": 0.0,
+    "end": 0.3
+   },
+   {
+    "w": "these",
+    "start": 0.3,
+    "end": 0.76
+   },
+   {
+    "w": "five",
+    "start": 0.76,
+    "end": 1.24
+   },
+   {
+    "w": "answers",
+    "start": 1.24,
+    "end": 1.94
+   },
+   {
+    "w": "in",
+    "start": 1.94,
+    "end": 2.64
+   },
+   {
+    "w": "writing.",
+    "start": 2.64,
+    "end": 3.04
+   }
+  ]
+ },
+ "p3": {
+  "clip": 2.31,
+  "heard": "Vague answers? Keep shopping.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Vague",
+    "start": 0.0,
+    "end": 0.48
+   },
+   {
+    "w": "answers?",
+    "start": 0.48,
+    "end": 0.94
+   },
+   {
+    "w": "Keep",
+    "start": 1.48,
+    "end": 1.62
+   },
+   {
+    "w": "shopping.",
+    "start": 1.62,
+    "end": 1.98
+   }
+  ]
+ },
+ "r4": {
+  "clip": 2.06,
+  "heard": "4. Your 30-Day Plan",
+  "ok": true,
+  "words": [
+   {
+    "w": "4.",
+    "start": 0.0,
+    "end": 0.4
+   },
+   {
+    "w": "Your",
+    "start": 0.8,
+    "end": 0.94
+   },
+   {
+    "w": "30",
+    "start": 0.94,
+    "end": 1.22
+   },
+   {
+    "w": "-Day",
+    "start": 1.22,
+    "end": 1.4
+   },
+   {
+    "w": "Plan",
+    "start": 1.4,
+    "end": 1.78
+   }
+  ]
+ },
+ "w1": {
+  "clip": 3.803,
+  "heard": "Week 1. Count your missed calls and write the script.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Week",
+    "start": 0.0,
+    "end": 0.28
+   },
+   {
+    "w": "1.",
+    "start": 0.28,
+    "end": 0.7
+   },
+   {
+    "w": "Count",
+    "start": 1.06,
+    "end": 1.28
+   },
+   {
+    "w": "your",
+    "start": 1.28,
+    "end": 1.52
+   },
+   {
+    "w": "missed",
+    "start": 1.52,
+    "end": 1.78
+   },
+   {
+    "w": "calls",
+    "start": 1.78,
+    "end": 2.28
+   },
+   {
+    "w": "and",
+    "start": 2.28,
+    "end": 2.78
+   },
+   {
+    "w": "write",
+    "start": 2.78,
+    "end": 3.0
+   },
+   {
+    "w": "the",
+    "start": 3.0,
+    "end": 3.2
+   },
+   {
+    "w": "script.",
+    "start": 3.2,
+    "end": 3.5
+   }
+  ]
+ },
+ "w2": {
+  "clip": 3.73,
+  "heard": "Week 2. Connect your booking system and add the consent line.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Week",
+    "start": 0.0,
+    "end": 0.28
+   },
+   {
+    "w": "2.",
+    "start": 0.28,
+    "end": 0.64
+   },
+   {
+    "w": "Connect",
+    "start": 1.0,
+    "end": 1.2
+   },
+   {
+    "w": "your",
+    "start": 1.2,
+    "end": 1.4
+   },
+   {
+    "w": "booking",
+    "start": 1.4,
+    "end": 1.62
+   },
+   {
+    "w": "system",
+    "start": 1.62,
+    "end": 2.04
+   },
+   {
+    "w": "and",
+    "start": 2.04,
+    "end": 2.56
+   },
+   {
+    "w": "add",
+    "start": 2.56,
+    "end": 2.74
+   },
+   {
+    "w": "the",
+    "start": 2.74,
+    "end": 2.86
+   },
+   {
+    "w": "consent",
+    "start": 2.86,
+    "end": 3.12
+   },
+   {
+    "w": "line.",
+    "start": 3.12,
+    "end": 3.46
+   }
+  ]
+ },
+ "w3": {
+  "clip": 3.72,
+  "heard": "Week 3. After hours only. Week 4. Go live.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Week",
+    "start": 0.0,
+    "end": 0.26
+   },
+   {
+    "w": "3.",
+    "start": 0.26,
+    "end": 0.6
+   },
+   {
+    "w": "After",
+    "start": 1.04,
+    "end": 1.32
+   },
+   {
+    "w": "hours",
+    "start": 1.32,
+    "end": 1.58
+   },
+   {
+    "w": "only.",
+    "start": 1.58,
+    "end": 1.94
+   },
+   {
+    "w": "Week",
+    "start": 2.26,
+    "end": 2.4
+   },
+   {
+    "w": "4.",
+    "start": 2.4,
+    "end": 2.7
+   },
+   {
+    "w": "Go",
+    "start": 3.06,
+    "end": 3.14
+   },
+   {
+    "w": "live.",
+    "start": 3.14,
+    "end": 3.42
+   }
+  ]
+ },
+ "w4": {
+  "clip": 3.7,
+  "heard": "Week 4. Go live. Check the results at 90 days.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Week",
+    "start": 0.0,
+    "end": 0.24
+   },
+   {
+    "w": "4.",
+    "start": 0.24,
+    "end": 0.6
+   },
+   {
+    "w": "Go",
+    "start": 0.92,
+    "end": 1.08
+   },
+   {
+    "w": "live.",
+    "start": 1.08,
+    "end": 1.5
+   },
+   {
+    "w": "Check",
+    "start": 1.92,
+    "end": 2.04
+   },
+   {
+    "w": "the",
+    "start": 2.04,
+    "end": 2.2
+   },
+   {
+    "w": "results",
+    "start": 2.2,
+    "end": 2.52
+   },
+   {
+    "w": "at",
+    "start": 2.52,
+    "end": 2.76
+   },
+   {
+    "w": "90",
+    "start": 2.76,
+    "end": 3.04
+   },
+   {
+    "w": "days.",
+    "start": 3.04,
+    "end": 3.34
+   }
+  ]
+ },
+ "recap": {
+  "clip": 3.84,
+  "heard": "Real cost. Hard limits. Privacy. 30 days.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Real",
+    "start": 0.0,
+    "end": 0.3
+   },
+   {
+    "w": "cost.",
+    "start": 0.3,
+    "end": 0.76
+   },
+   {
+    "w": "Hard",
+    "start": 1.16,
+    "end": 1.32
+   },
+   {
+    "w": "limits.",
+    "start": 1.32,
+    "end": 1.66
+   },
+   {
+    "w": "Privacy.",
+    "start": 2.18,
+    "end": 2.54
+   },
+   {
+    "w": "30",
+    "start": 2.94,
+    "end": 3.14
+   },
+   {
+    "w": "days.",
+    "start": 3.14,
+    "end": 3.44
+   }
+  ]
+ },
+ "cta": {
+  "clip": 2.87,
+  "heard": "Got a quote? Want a second opinion? Call me!",
+  "ok": true,
+  "words": [
+   {
+    "w": "Got",
+    "start": 0.0,
+    "end": 0.28
+   },
+   {
+    "w": "a",
+    "start": 0.28,
+    "end": 0.4
+   },
+   {
+    "w": "quote?",
+    "start": 0.4,
+    "end": 0.62
+   },
+   {
+    "w": "Want",
+    "start": 1.08,
+    "end": 1.18
+   },
+   {
+    "w": "a",
+    "start": 1.18,
+    "end": 1.32
+   },
+   {
+    "w": "second",
+    "start": 1.32,
+    "end": 1.5
+   },
+   {
+    "w": "opinion?",
+    "start": 1.5,
+    "end": 1.84
+   },
+   {
+    "w": "Call",
+    "start": 2.26,
+    "end": 2.38
+   },
+   {
+    "w": "me!",
+    "start": 2.38,
+    "end": 2.62
+   }
+  ]
+ }
+}

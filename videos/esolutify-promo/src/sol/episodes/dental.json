@@ -1,0 +1,159 @@
+{
+  "_": "Sol explains: AI receptionist for dental clinics, cost & 30-day rollout (blog: esolutify.com/ai-receptionist-for-dental-clinics-cost-rollout-plan). say = on screen (' | ' phrases, *gold*, !red!), speak = what Sol says, word for word the same (numbers spelled for the voice). scripts/sol_timeline.py sets the frames; scripts/sol_qa.py checks every recorded line.",
+  "id": "dental",
+  "tail": 12,
+  "music": {
+    "tick": [
+      "r1",
+      "k3"
+    ],
+    "stopBefore": [
+      "k6"
+    ]
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "say": "The ad says *$300* a month. | The real bill? !$1,400.!",
+      "speak": "The ad says three hundred a month. The real bill? Fourteen hundred.",
+      "show": 30,
+      "hold": 10
+    },
+    {
+      "id": "intro",
+      "say": "Hi, I’m *Sol!* | *4* things before you buy.",
+      "speak": "Hi, I'm Sol! Four things, before you buy.",
+      "show": 22,
+      "hold": 6
+    },
+    {
+      "id": "r1",
+      "round": "1",
+      "speak": "One: the real cost.",
+      "hold": 30
+    },
+    {
+      "id": "k1",
+      "say": "The base plan: | *$300–$800* a month.",
+      "speak": "The base plan: three to eight hundred a month.",
+      "show": 14,
+      "hold": 4
+    },
+    {
+      "id": "k2",
+      "say": "Linking your booking software? | !+$99–$300! more.",
+      "speak": "Linking your booking software? Ninety-nine to three hundred more.",
+      "show": 14,
+      "hold": 4
+    },
+    {
+      "id": "k3",
+      "say": "Busy month? Extra minutes: | !12–35¢! each.",
+      "speak": "Busy month? Extra minutes: twelve to thirty-five cents each.",
+      "show": 30,
+      "hold": 10
+    },
+    {
+      "id": "k6",
+      "say": "Missing *15* calls a week? | It pays back in *3–8* weeks.",
+      "speak": "Missing fifteen calls a week? It pays back in three to eight weeks.",
+      "show": 26,
+      "hold": 8
+    },
+    {
+      "id": "r2",
+      "round": "2",
+      "speak": "Two: what I can, and can't do.",
+      "hold": 30
+    },
+    {
+      "id": "can",
+      "say": "I *book,* *reschedule* | and answer questions *24/7.*",
+      "speak": "I book, reschedule, and answer questions, twenty-four seven.",
+      "show": 26,
+      "hold": 6
+    },
+    {
+      "id": "cant",
+      "say": "Clinical advice? | !Never.! That’s not my job.",
+      "speak": "Clinical advice? Never. That's not my job.",
+      "show": 22,
+      "hold": 6
+    },
+    {
+      "id": "emerg",
+      "say": "*Pain,* *swelling,* *bleeding?* | Straight to a human.",
+      "speak": "Pain, swelling, bleeding? Straight to a human.",
+      "show": 26,
+      "hold": 8
+    },
+    {
+      "id": "r3",
+      "round": "3",
+      "speak": "Three: privacy.",
+      "hold": 30
+    },
+    {
+      "id": "p1",
+      "say": "Patient data? | Canadian *privacy* *law* applies.",
+      "speak": "Patient data? Canadian privacy law applies.",
+      "show": 22,
+      "hold": 6
+    },
+    {
+      "id": "p2",
+      "say": "Get these *5* answers | in writing.",
+      "speak": "Get these five answers, in writing.",
+      "show": 44,
+      "hold": 14
+    },
+    {
+      "id": "r4",
+      "round": "30",
+      "speak": "Four: your thirty-day plan.",
+      "hold": 30
+    },
+    {
+      "id": "w1",
+      "say": "Week *1:* count your missed calls, | write the script.",
+      "speak": "Week one: count your missed calls, and write the script.",
+      "show": 16,
+      "hold": 4
+    },
+    {
+      "id": "w2",
+      "say": "Week *2:* | connect your booking system, | add the consent line.",
+      "speak": "Week two: connect your booking system, and add the consent line.",
+      "show": 16,
+      "hold": 4
+    },
+    {
+      "id": "w3",
+      "say": "Week *3:* after hours only. | Week *4:* go live.",
+      "speak": "Week three: after hours only. Week four: go live.",
+      "show": 26,
+      "hold": 10
+    },
+    {
+      "id": "recap",
+      "say": "*Real* *cost.* *Hard* *limits.* | *Privacy.* *30* *days.*",
+      "speak": "Real cost. Hard limits. Privacy. Thirty days.",
+      "show": 26,
+      "hold": 16
+    },
+    {
+      "id": "cta",
+      "say": "Got a quote? | Want a second opinion? | *Call* *me!*",
+      "speak": "Got a quote? Want a second opinion? Call me!",
+      "show": 60,
+      "hold": 30
+    }
+  ],
+  "voice": {
+    "provider": "Higgsfield seed_audio",
+    "voice": "Luna",
+    "voice_id": "375a3398-e3b4-4f91-845d-42181e352899",
+    "speech_rate": 25,
+    "format": "wav 44.1 kHz"
+  }
+}

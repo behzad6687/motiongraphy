@@ -3,8 +3,13 @@
   "id": "receptionist",
   "tail": 12,
   "music": {
-    "tick": ["r2", "m4"],
-    "stopBefore": ["m5"]
+    "tick": [
+      "r2",
+      "m4"
+    ],
+    "stopBefore": [
+      "m5"
+    ]
   },
   "beats": [
     {
@@ -43,8 +48,8 @@
     },
     {
       "id": "c3",
-      "say": "*AI* *receptionist:* | software. | Ahem, that’s me.",
-      "speak": "AI receptionist: software. Ahem, that's me.",
+      "say": "The *AI* *receptionist:* | software. | Yep, that’s me!",
+      "speak": "The AI receptionist: software. Yep, that's me!",
       "show": 20,
       "hold": 10
     },
@@ -63,15 +68,15 @@
     },
     {
       "id": "m2",
-      "say": "A 50-minute plan | is gone by !week! !two.! | Then: per minute.",
+      "say": "A 50-minute plan | is gone by !week! !two.! | Then you pay per minute.",
       "speak": "A fifty-minute plan is gone by week two. Then you pay per minute.",
       "show": 36,
       "hold": 10
     },
     {
       "id": "m4",
-      "say": "100 calls? | Per-minute balloons past !$400.! | Flat stays *flat.*",
-      "speak": "At a hundred calls, per-minute plans balloon past four hundred. Flat stays flat.",
+      "say": "At *100* calls, pay-per-minute | balloons past !$400.! | Flat stays *flat.*",
+      "speak": "At a hundred calls, pay-per-minute balloons past four hundred. Flat stays flat.",
       "show": 30,
       "hold": 10
     },
@@ -90,14 +95,14 @@
     },
     {
       "id": "w1",
-      "say": "*Dental* *clinic,* | 150+ calls a month?",
+      "say": "A *dental* *clinic,* | with 150 calls a month?",
       "speak": "A dental clinic, with a hundred and fifty calls a month?",
       "show": 30,
       "hold": 10
     },
     {
       "id": "w2",
-      "say": "*Law* *firm,* sensitive calls? | Fine. A human wins this one.",
+      "say": "A *law* *firm,* with sensitive calls? | Fine. A human wins this one.",
       "speak": "A law firm, with sensitive calls? Fine. A human wins this one.",
       "show": 30,
       "hold": 10
@@ -111,14 +116,14 @@
     },
     {
       "id": "both",
-      "say": "Honest answer? Often *both:* | AI for routine, humans for hard calls.",
+      "say": "Honest answer? Often *both:* | AI for routine calls, | humans for the hard ones.",
       "speak": "Honest answer? Often both: AI for routine calls, humans for the hard ones.",
       "show": 36,
       "hold": 18
     },
     {
       "id": "cta",
-      "say": "Want to hear me? | *Call* *me!*",
+      "say": "Want to hear me answer? | *Call* *me!*",
       "speak": "Want to hear me answer? Call me!",
       "show": 60,
       "hold": 36

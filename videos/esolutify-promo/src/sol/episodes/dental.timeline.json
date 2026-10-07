@@ -1,0 +1,1066 @@
+{
+ "id": "dental",
+ "fps": 30,
+ "total": 2793,
+ "beats": [
+  {
+   "id": "hook",
+   "say": "The ad says *$300* a month. | The real bill? !$1,400.!",
+   "speak": "The ad says three hundred a month. The real bill? Fourteen hundred.",
+   "show": 30,
+   "hold": 10,
+   "kind": "say",
+   "from": 0,
+   "textEnd": 122,
+   "showFrom": 118,
+   "until": 162,
+   "phrases": [
+    {
+     "at": 1,
+     "words": [
+      {
+       "w": "The",
+       "at": 1
+      },
+      {
+       "w": "ad",
+       "at": 8
+      },
+      {
+       "w": "says",
+       "at": 14
+      },
+      {
+       "w": "*$300*",
+       "at": 23
+      },
+      {
+       "w": "a",
+       "at": 41
+      },
+      {
+       "w": "month.",
+       "at": 47
+      }
+     ]
+    },
+    {
+     "at": 63,
+     "words": [
+      {
+       "w": "The",
+       "at": 63
+      },
+      {
+       "w": "real",
+       "at": 67
+      },
+      {
+       "w": "bill?",
+       "at": 72
+      },
+      {
+       "w": "!$1,400.!",
+       "at": 96
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 4,
+    "frames": 118,
+    "file": "audio/sol/dental/hook.wav",
+    "trim": 0.29
+   }
+  },
+  {
+   "id": "intro",
+   "say": "Hi, I’m *Sol!* | *4* things before you buy.",
+   "speak": "Hi, I'm Sol! Four things, before you buy.",
+   "show": 22,
+   "hold": 6,
+   "kind": "say",
+   "from": 166,
+   "textEnd": 266,
+   "showFrom": 262,
+   "until": 296,
+   "phrases": [
+    {
+     "at": 167,
+     "words": [
+      {
+       "w": "Hi,",
+       "at": 167
+      },
+      {
+       "w": "I’m",
+       "at": 186
+      },
+      {
+       "w": "*Sol!*",
+       "at": 194
+      }
+     ]
+    },
+    {
+     "at": 213,
+     "words": [
+      {
+       "w": "*4*",
+       "at": 213
+      },
+      {
+       "w": "things",
+       "at": 217
+      },
+      {
+       "w": "before",
+       "at": 228
+      },
+      {
+       "w": "you",
+       "at": 243
+      },
+      {
+       "w": "buy.",
+       "at": 248
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 170,
+    "frames": 96,
+    "file": "audio/sol/dental/intro.wav",
+    "trim": 0.25
+   }
+  },
+  {
+   "id": "r1",
+   "round": "1",
+   "speak": "One: the real cost.",
+   "hold": 30,
+   "kind": "round",
+   "from": 300,
+   "textEnd": 300,
+   "showFrom": 300,
+   "until": 374,
+   "phrases": [],
+   "voice": {
+    "at": 310,
+    "frames": 54,
+    "file": "audio/sol/dental/r1.wav",
+    "trim": 0.32
+   }
+  },
+  {
+   "id": "k1",
+   "say": "The base plan: | *$300–$800* a month.",
+   "speak": "The base plan: three to eight hundred a month.",
+   "show": 14,
+   "hold": 4,
+   "kind": "say",
+   "from": 378,
+   "textEnd": 464,
+   "showFrom": 460,
+   "until": 482,
+   "phrases": [
+    {
+     "at": 379,
+     "words": [
+      {
+       "w": "The",
+       "at": 379
+      },
+      {
+       "w": "base",
+       "at": 385
+      },
+      {
+       "w": "plan:",
+       "at": 392
+      }
+     ]
+    },
+    {
+     "at": 420,
+     "words": [
+      {
+       "w": "*$300–$800*",
+       "at": 420
+      },
+      {
+       "w": "a",
+       "at": 441
+      },
+      {
+       "w": "month.",
+       "at": 446
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 382,
+    "frames": 82,
+    "file": "audio/sol/dental/k1.wav",
+    "trim": 0.31
+   }
+  },
+  {
+   "id": "k2",
+   "say": "Linking your booking software? | !+$99–$300! more.",
+   "speak": "Linking your booking software? Ninety-nine to three hundred more.",
+   "show": 14,
+   "hold": 4,
+   "kind": "say",
+   "from": 486,
+   "textEnd": 612,
+   "showFrom": 608,
+   "until": 630,
+   "phrases": [
+    {
+     "at": 487,
+     "words": [
+      {
+       "w": "Linking",
+       "at": 487
+      },
+      {
+       "w": "your",
+       "at": 501
+      },
+      {
+       "w": "booking",
+       "at": 504
+      },
+      {
+       "w": "software?",
+       "at": 510
+      }
+     ]
+    },
+    {
+     "at": 537,
+     "words": [
+      {
+       "w": "!+$99–$300!",
+       "at": 537
+      },
+      {
+       "w": "more.",
+       "at": 584
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 490,
+    "frames": 122,
+    "file": "audio/sol/dental/k2.wav",
+    "trim": 0.29
+   }
+  },
+  {
+   "id": "k3",
+   "say": "Busy month? Extra minutes: | !12–35¢! each.",
+   "speak": "Busy month? Extra minutes: twelve to thirty-five cents each.",
+   "show": 30,
+   "hold": 10,
+   "kind": "say",
+   "from": 634,
+   "textEnd": 749,
+   "showFrom": 745,
+   "until": 789,
+   "phrases": [
+    {
+     "at": 635,
+     "words": [
+      {
+       "w": "Busy",
+       "at": 635
+      },
+      {
+       "w": "month?",
+       "at": 646
+      },
+      {
+       "w": "Extra",
+       "at": 669
+      },
+      {
+       "w": "minutes:",
+       "at": 672
+      }
+     ]
+    },
+    {
+     "at": 702,
+     "words": [
+      {
+       "w": "!12–35¢!",
+       "at": 702
+      },
+      {
+       "w": "each.",
+       "at": 729
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 638,
+    "frames": 111,
+    "file": "audio/sol/dental/k3.wav",
+    "trim": 0.3
+   }
+  },
+  {
+   "id": "k6",
+   "say": "Missing *15* calls a week? | It pays back in *3–8* weeks.",
+   "speak": "Missing fifteen calls a week? It pays back in three to eight weeks.",
+   "show": 26,
+   "hold": 8,
+   "kind": "say",
+   "from": 793,
+   "textEnd": 908,
+   "showFrom": 904,
+   "until": 956,
+   "phrases": [
+    {
+     "at": 794,
+     "words": [
+      {
+       "w": "Missing",
+       "at": 794
+      },
+      {
+       "w": "*15*",
+       "at": 804
+      },
+      {
+       "w": "calls",
+       "at": 814
+      },
+      {
+       "w": "a",
+       "at": 822
+      },
+      {
+       "w": "week?",
+       "at": 826
+      }
+     ]
+    },
+    {
+     "at": 850,
+     "words": [
+      {
+       "w": "It",
+       "at": 850
+      },
+      {
+       "w": "pays",
+       "at": 853
+      },
+      {
+       "w": "back",
+       "at": 859
+      },
+      {
+       "w": "in",
+       "at": 867
+      },
+      {
+       "w": "*3–8*",
+       "at": 873
+      },
+      {
+       "w": "weeks.",
+       "at": 885
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 797,
+    "frames": 111,
+    "file": "audio/sol/dental/k6.wav",
+    "trim": 0.29
+   }
+  },
+  {
+   "id": "r2",
+   "round": "2",
+   "speak": "Two: what I can, and can't do.",
+   "hold": 30,
+   "kind": "round",
+   "from": 960,
+   "textEnd": 960,
+   "showFrom": 960,
+   "until": 1075,
+   "phrases": [],
+   "voice": {
+    "at": 970,
+    "frames": 95,
+    "file": "audio/sol/dental/r2.wav",
+    "trim": 0.22
+   }
+  },
+  {
+   "id": "can",
+   "say": "I *book,* *reschedule* | and answer questions *24/7.*",
+   "speak": "I book, reschedule, and answer questions, twenty-four seven.",
+   "show": 26,
+   "hold": 6,
+   "kind": "say",
+   "from": 1079,
+   "textEnd": 1205,
+   "showFrom": 1201,
+   "until": 1237,
+   "phrases": [
+    {
+     "at": 1080,
+     "words": [
+      {
+       "w": "I",
+       "at": 1080
+      },
+      {
+       "w": "*book,*",
+       "at": 1087
+      },
+      {
+       "w": "*reschedule*",
+       "at": 1107
+      }
+     ]
+    },
+    {
+     "at": 1132,
+     "words": [
+      {
+       "w": "and",
+       "at": 1132
+      },
+      {
+       "w": "answer",
+       "at": 1135
+      },
+      {
+       "w": "questions",
+       "at": 1142
+      },
+      {
+       "w": "*24/7.*",
+       "at": 1160
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1083,
+    "frames": 122,
+    "file": "audio/sol/dental/can.wav",
+    "trim": 0.11
+   }
+  },
+  {
+   "id": "cant",
+   "say": "Clinical advice? | !Never.! That’s not my job.",
+   "speak": "Clinical advice? Never. That's not my job.",
+   "show": 22,
+   "hold": 6,
+   "kind": "say",
+   "from": 1241,
+   "textEnd": 1341,
+   "showFrom": 1337,
+   "until": 1369,
+   "phrases": [
+    {
+     "at": 1242,
+     "words": [
+      {
+       "w": "Clinical",
+       "at": 1242
+      },
+      {
+       "w": "advice?",
+       "at": 1255
+      }
+     ]
+    },
+    {
+     "at": 1284,
+     "words": [
+      {
+       "w": "!Never.!",
+       "at": 1284
+      },
+      {
+       "w": "That’s",
+       "at": 1305
+      },
+      {
+       "w": "not",
+       "at": 1312
+      },
+      {
+       "w": "my",
+       "at": 1315
+      },
+      {
+       "w": "job.",
+       "at": 1320
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1245,
+    "frames": 96,
+    "file": "audio/sol/dental/cant.wav",
+    "trim": 0.24
+   }
+  },
+  {
+   "id": "emerg",
+   "say": "*Pain,* *swelling,* *bleeding?* | Straight to a human.",
+   "speak": "Pain, swelling, bleeding? Straight to a human.",
+   "show": 26,
+   "hold": 8,
+   "kind": "say",
+   "from": 1373,
+   "textEnd": 1478,
+   "showFrom": 1474,
+   "until": 1526,
+   "phrases": [
+    {
+     "at": 1374,
+     "words": [
+      {
+       "w": "*Pain,*",
+       "at": 1374
+      },
+      {
+       "w": "*swelling,*",
+       "at": 1400
+      },
+      {
+       "w": "*bleeding?*",
+       "at": 1424
+      }
+     ]
+    },
+    {
+     "at": 1445,
+     "words": [
+      {
+       "w": "Straight",
+       "at": 1445
+      },
+      {
+       "w": "to",
+       "at": 1453
+      },
+      {
+       "w": "a",
+       "at": 1459
+      },
+      {
+       "w": "human.",
+       "at": 1462
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1377,
+    "frames": 101,
+    "file": "audio/sol/dental/emerg.wav",
+    "trim": 0.23
+   }
+  },
+  {
+   "id": "r3",
+   "round": "3",
+   "speak": "Three: privacy.",
+   "hold": 30,
+   "kind": "round",
+   "from": 1530,
+   "textEnd": 1530,
+   "showFrom": 1530,
+   "until": 1594,
+   "phrases": [],
+   "voice": {
+    "at": 1540,
+    "frames": 44,
+    "file": "audio/sol/dental/r3.wav",
+    "trim": 0.26
+   }
+  },
+  {
+   "id": "p1",
+   "say": "Patient data? | Canadian *privacy* *law* applies.",
+   "speak": "Patient data? Canadian privacy law applies.",
+   "show": 22,
+   "hold": 6,
+   "kind": "say",
+   "from": 1598,
+   "textEnd": 1695,
+   "showFrom": 1691,
+   "until": 1723,
+   "phrases": [
+    {
+     "at": 1599,
+     "words": [
+      {
+       "w": "Patient",
+       "at": 1599
+      },
+      {
+       "w": "data?",
+       "at": 1612
+      }
+     ]
+    },
+    {
+     "at": 1634,
+     "words": [
+      {
+       "w": "Canadian",
+       "at": 1634
+      },
+      {
+       "w": "*privacy*",
+       "at": 1646
+      },
+      {
+       "w": "*law*",
+       "at": 1660
+      },
+      {
+       "w": "applies.",
+       "at": 1667
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1602,
+    "frames": 93,
+    "file": "audio/sol/dental/p1.wav",
+    "trim": 0.24
+   }
+  },
+  {
+   "id": "p2",
+   "say": "Get these *5* answers | in writing.",
+   "speak": "Get these five answers, in writing.",
+   "show": 44,
+   "hold": 14,
+   "kind": "say",
+   "from": 1727,
+   "textEnd": 1835,
+   "showFrom": 1831,
+   "until": 1901,
+   "phrases": [
+    {
+     "at": 1728,
+     "words": [
+      {
+       "w": "Get",
+       "at": 1728
+      },
+      {
+       "w": "these",
+       "at": 1737
+      },
+      {
+       "w": "*5*",
+       "at": 1751
+      },
+      {
+       "w": "answers",
+       "at": 1765
+      }
+     ]
+    },
+    {
+     "at": 1786,
+     "words": [
+      {
+       "w": "in",
+       "at": 1786
+      },
+      {
+       "w": "writing.",
+       "at": 1807
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1731,
+    "frames": 104,
+    "file": "audio/sol/dental/p2.wav",
+    "trim": 0.25
+   }
+  },
+  {
+   "id": "r4",
+   "round": "30",
+   "speak": "Four: your thirty-day plan.",
+   "hold": 30,
+   "kind": "round",
+   "from": 1905,
+   "textEnd": 1905,
+   "showFrom": 1905,
+   "until": 1987,
+   "phrases": [],
+   "voice": {
+    "at": 1915,
+    "frames": 62,
+    "file": "audio/sol/dental/r4.wav",
+    "trim": 0.62
+   }
+  },
+  {
+   "id": "w1",
+   "say": "Week *1:* count your missed calls, | write the script.",
+   "speak": "Week one: count your missed calls, and write the script.",
+   "show": 16,
+   "hold": 4,
+   "kind": "say",
+   "from": 1991,
+   "textEnd": 2110,
+   "showFrom": 2106,
+   "until": 2130,
+   "phrases": [
+    {
+     "at": 1992,
+     "words": [
+      {
+       "w": "Week",
+       "at": 1992
+      },
+      {
+       "w": "*1:*",
+       "at": 2000
+      },
+      {
+       "w": "count",
+       "at": 2024
+      },
+      {
+       "w": "your",
+       "at": 2030
+      },
+      {
+       "w": "missed",
+       "at": 2038
+      },
+      {
+       "w": "calls,",
+       "at": 2045
+      }
+     ]
+    },
+    {
+     "at": 2075,
+     "words": [
+      {
+       "w": "write",
+       "at": 2075
+      },
+      {
+       "w": "the",
+       "at": 2082
+      },
+      {
+       "w": "script.",
+       "at": 2088
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1995,
+    "frames": 115,
+    "file": "audio/sol/dental/w1.wav",
+    "trim": 0.28
+   }
+  },
+  {
+   "id": "w2",
+   "say": "Week *2:* | connect your booking system, | add the consent line.",
+   "speak": "Week two: connect your booking system, and add the consent line.",
+   "show": 16,
+   "hold": 4,
+   "kind": "say",
+   "from": 2134,
+   "textEnd": 2250,
+   "showFrom": 2246,
+   "until": 2270,
+   "phrases": [
+    {
+     "at": 2135,
+     "words": [
+      {
+       "w": "Week",
+       "at": 2135
+      },
+      {
+       "w": "*2:*",
+       "at": 2143
+      }
+     ]
+    },
+    {
+     "at": 2165,
+     "words": [
+      {
+       "w": "connect",
+       "at": 2165
+      },
+      {
+       "w": "your",
+       "at": 2171
+      },
+      {
+       "w": "booking",
+       "at": 2177
+      },
+      {
+       "w": "system,",
+       "at": 2184
+      }
+     ]
+    },
+    {
+     "at": 2212,
+     "words": [
+      {
+       "w": "add",
+       "at": 2212
+      },
+      {
+       "w": "the",
+       "at": 2217
+      },
+      {
+       "w": "consent",
+       "at": 2221
+      },
+      {
+       "w": "line.",
+       "at": 2229
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2138,
+    "frames": 112,
+    "file": "audio/sol/dental/w2.wav",
+    "trim": 0.3
+   }
+  },
+  {
+   "id": "w3",
+   "say": "Week *3:* after hours only. | Week *4:* go live.",
+   "speak": "Week three: after hours only. Week four: go live.",
+   "show": 26,
+   "hold": 10,
+   "kind": "say",
+   "from": 2274,
+   "textEnd": 2390,
+   "showFrom": 2386,
+   "until": 2426,
+   "phrases": [
+    {
+     "at": 2275,
+     "words": [
+      {
+       "w": "Week",
+       "at": 2275
+      },
+      {
+       "w": "*3:*",
+       "at": 2283
+      },
+      {
+       "w": "after",
+       "at": 2306
+      },
+      {
+       "w": "hours",
+       "at": 2315
+      },
+      {
+       "w": "only.",
+       "at": 2322
+      }
+     ]
+    },
+    {
+     "at": 2343,
+     "words": [
+      {
+       "w": "Week",
+       "at": 2343
+      },
+      {
+       "w": "*4:*",
+       "at": 2347
+      },
+      {
+       "w": "go",
+       "at": 2367
+      },
+      {
+       "w": "live.",
+       "at": 2369
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2278,
+    "frames": 112,
+    "file": "audio/sol/dental/w3.wav",
+    "trim": 0.32
+   }
+  },
+  {
+   "id": "recap",
+   "say": "*Real* *cost.* *Hard* *limits.* | *Privacy.* *30* *days.*",
+   "speak": "Real cost. Hard limits. Privacy. Thirty days.",
+   "show": 26,
+   "hold": 16,
+   "kind": "say",
+   "from": 2430,
+   "textEnd": 2550,
+   "showFrom": 2546,
+   "until": 2592,
+   "phrases": [
+    {
+     "at": 2431,
+     "words": [
+      {
+       "w": "*Real*",
+       "at": 2431
+      },
+      {
+       "w": "*cost.*",
+       "at": 2440
+      },
+      {
+       "w": "*Hard*",
+       "at": 2466
+      },
+      {
+       "w": "*limits.*",
+       "at": 2471
+      }
+     ]
+    },
+    {
+     "at": 2496,
+     "words": [
+      {
+       "w": "*Privacy.*",
+       "at": 2496
+      },
+      {
+       "w": "*30*",
+       "at": 2519
+      },
+      {
+       "w": "*days.*",
+       "at": 2525
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2434,
+    "frames": 116,
+    "file": "audio/sol/dental/recap.wav",
+    "trim": 0.11
+   }
+  },
+  {
+   "id": "cta",
+   "say": "Got a quote? | Want a second opinion? | *Call* *me!*",
+   "speak": "Got a quote? Want a second opinion? Call me!",
+   "show": 60,
+   "hold": 30,
+   "kind": "say",
+   "from": 2596,
+   "textEnd": 2687,
+   "showFrom": 2683,
+   "until": 2777,
+   "phrases": [
+    {
+     "at": 2597,
+     "words": [
+      {
+       "w": "Got",
+       "at": 2597
+      },
+      {
+       "w": "a",
+       "at": 2605
+      },
+      {
+       "w": "quote?",
+       "at": 2609
+      }
+     ]
+    },
+    {
+     "at": 2629,
+     "words": [
+      {
+       "w": "Want",
+       "at": 2629
+      },
+      {
+       "w": "a",
+       "at": 2632
+      },
+      {
+       "w": "second",
+       "at": 2637
+      },
+      {
+       "w": "opinion?",
+       "at": 2642
+      }
+     ]
+    },
+    {
+     "at": 2665,
+     "words": [
+      {
+       "w": "*Call*",
+       "at": 2665
+      },
+      {
+       "w": "*me!*",
+       "at": 2668
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2600,
+    "frames": 87,
+    "file": "audio/sol/dental/cta.wav",
+    "trim": 0.19
+   }
+  }
+ ],
+ "warnings": []
+}
