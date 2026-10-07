@@ -45,9 +45,7 @@ export const Sfx: React.FC<{
   >
     <Audio
       src={staticFile(`audio/sfx/${name}.wav`)}
-      volume={
-        duck ? (f: number) => volume * duck(Math.max(0, at) + f) : volume
-      }
+      volume={duck ? (f: number) => volume * duck(Math.max(0, at) + f) : volume}
       playbackRate={rate}
     />
   </Sequence>
