@@ -12,6 +12,7 @@
 | Paid Advertising Management (24s, 9:16) | `renders/ads/paid-ads-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Social Media Management (24s, 9:16) | `renders/social/social-media-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Sol explains: AI vs virtual receptionist vs answering service (42s, 9:16) | `renders/sol/sol-receptionist-showdown-9x16-42s.mp4` | Instagram Reel + YouTube Shorts + TikTok |
+| Sol explains: speed to lead (59s, 9:16) | `renders/sol/sol-speed-to-lead-9x16-59s.mp4` | Instagram Reel + YouTube Shorts + TikTok |
 
 Every claim below comes from esolutify.com.
 
@@ -489,6 +490,59 @@ The math that trips people up: 42 calls × 3 min = 126 minutes. Per-minute overa
 **TikTok:** post as-is with the Instagram caption. It suits TikTok's explainer format and the character makes it native there.
 
 Note: the blog says a 50-minute plan "burns through its allowance in the first week" at 42 calls a month. At 3 minutes a call that runs out on about day 12, so the video says "gone by week two".
+
+---
+
+## 12. Sol explains: speed to lead (59s)
+
+Built from the blog post "Speed to Lead Small Business: 2026 Response Guide". The cover is `renders/sol/sol-speed-to-lead-cover.jpg` (the 5-minute countdown).
+
+**Instagram Reel caption:**
+
+```
+You have 5 minutes before a new lead goes cold. ⏱️
+
+Sol's 3 numbers every small business should know:
+1️⃣ 5 minutes: reply that fast and you're up to 100× more likely to reach them (Harvard Business Review, 1.25M leads)
+2️⃣ 29 hours: the average reply time. And 63% of companies never reply to web forms at all.
+3️⃣ 78%: of legal clients hire the first firm that answers.
+
+The fix, no new hire needed:
+✅ Missed a call? Text back in seconds
+✅ Website or DM? AI chat that books
+✅ Write it down: every lead gets a real reply in 5 minutes
+
+Save this for later 📌 Full guide: link in bio
+
+#speedtolead #smallbusiness #leadgeneration #aiautomation #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- You Have 5 Minutes Before a Lead Goes Cold ⏱️ #Shorts
+- The Average Business Replies in 29 Hours. Don't. #Shorts
+- 3 Numbers That Decide Who Gets the Customer #Shorts
+
+**Shorts description:**
+
+```
+Speed to lead = the time between a lead arriving and a real reply. An autoresponder doesn't count.
+
+5 minutes: reply within five minutes and you're up to 100× more likely to reach the lead than at 30 minutes (Harvard Business Review, 2011, 1.25M leads).
+29 hours: the average lead response time; 63% of companies never answer web forms at all.
+78%: of legal clients hire the first firm that answers.
+
+The fix: instant text-back on missed calls, AI chat on your website and DMs that books appointments, and a written "every lead in 5 minutes" rule (teams with one hit their target 55% of the time vs 30% without).
+
+📖 Full guide: https://esolutify.com/speed-to-lead-small-business-2026/
+📞 Call Sol, our AI agent: +1 365 360 3545
+
+#SpeedToLead #SmallBusiness #LeadGeneration
+```
+
+**Pinned comment:** "How fast does your business reply to a new lead? Be honest 👇"
+
+All figures come from the blog's cited studies. The countdown, chats and firm names in the video are illustrative.
 
 ---
 

@@ -29,7 +29,8 @@ FPS = 30
 BPM = 120
 BEAT = 60 / BPM
 BAR = 4 * BEAT
-SCRIPT = json.loads((Path(__file__).resolve().parent.parent / "src" / "sol" / "script.json").read_text())
+ROOT_SRC = Path(__file__).resolve().parent.parent / "src" / "sol"
+SCRIPT = json.loads((ROOT_SRC / "script.json").read_text())
 TOTAL = SCRIPT["total"] / FPS
 RNG = np.random.default_rng(83)
 g.RNG = np.random.default_rng(89)
@@ -93,11 +94,15 @@ def shaker():
 
 
 # ---------------------------------------------------------------- music
-def music():
+def music(total=None, tick=(420, 686), stops=((684, 698),), ducks=None, out="sol-music-42.wav"):
+    """The show's theme. Defaults reproduce episode 1 (the receptionist showdown)."""
+    TOTAL = total if total is not None else globals()["TOTAL"]  # noqa: N806
+    if ducks is None:
+        ducks = list(zip(SCRIPT["drumrolls"], SCRIPT["verdicts"]))
     n = int(TOTAL * SR)
     mix = np.zeros((2, n))
     bars = int(np.ceil(TOTAL / BAR))
-    math_from, math_to = sec(420), sec(686)
+    math_from, math_to = (sec(tick[0]), sec(tick[1])) if tick else (-1, -1)
     for b in range(bars):
         t0 = b * BAR
         root, chord, scale = PROG[b % 4]
@@ -147,15 +152,16 @@ def music():
         gain[max(0, i0 - r) : i0] = np.minimum(gain[max(0, i0 - r) : i0], np.linspace(1, level, min(r, i0)))
         gain[i1 : i1 + r] = np.minimum(gain[i1 : i1 + r], np.linspace(level, 1, len(gain[i1 : i1 + r])))
 
-    seg(684, 698, 0.0)
-    for d, v in zip(SCRIPT["drumrolls"], SCRIPT["verdicts"]):
+    for a, b in stops:
+        seg(a, b, 0.0)
+    for d, v in ducks:
         seg(d, v, 0.3)
     mix *= gain
     mix = hp(mix, 35)
     mix = np.tanh(mix * 1.2) / np.tanh(1.2)
     fo = int(1.0 * SR)
     mix[:, -fo:] *= np.linspace(1, 0, fo) ** 1.5
-    write_wav(OUT / "sol-music-42.wav", mix, -1.0)
+    write_wav(OUT / out, mix, -1.0)
 
 
 # ---------------------------------------------------------------- Sol's voice
@@ -284,7 +290,66 @@ def stingers():
     write_wav(sfx / "inflate.wav", (squeak + air) * env, -6)
 
 
+# ---------------------------------------------------------------- episodes
+def voice_timeline(tl, out_name):
+    """Sol's babble for a scheduled episode: one or two syllables per word,
+    starting on the frame each word appears (scripts/sol_timeline.py)."""
+    total = tl["total"] / FPS
+    out = np.zeros(int(total * SR))
+    rng = np.random.default_rng(101)
+    for b in tl["beats"]:
+        if b["kind"] != "say":
+            continue
+        raw = b["say"]
+        base = 470 if raw.rstrip().endswith(("!", "!*")) else 420
+        words = [w for ph in b["phrases"] for w in ph["words"]]
+        for i, wd in enumerate(words):
+            w = wd["w"].replace("*", "").replace("!", "") or "a"
+            if wd["w"].endswith("!") and not wd["w"].startswith("!"):
+                w += "!"
+            letters = [c for c in w.lower() if c.isalpha()] or ["a"]
+            vowels = [c for c in letters if c in VOWELS] or ["a"]
+            nsyl = 1 if len(letters) < 5 else 2
+            word_dur = 0.24
+            syl = word_dur / nsyl
+            last = i == len(words) - 1
+            for s_ in range(nsyl):
+                f0 = base * (1 + 0.18 * rng.random() - 0.06)
+                rise = 0.35 if (last and w.endswith("?") and s_ == nsyl - 1) else 0.0
+                if w.endswith("!"):
+                    f0 *= 1.12
+                sig = syllable(f0, vowels[(s_ * 2) % len(vowels)], syl * 0.9, rise)
+                i0 = int((sec(wd["at"]) + s_ * syl) * SR)
+                m = min(len(sig), len(out) - i0)
+                if m > 0 and i0 >= 0:
+                    out[i0 : i0 + m] += sig[:m]
+    out = lp(out, 7000)
+    out = np.tanh(out / (np.max(np.abs(out)) or 1) * 2.5)
+    write_wav(OUT / out_name, reverb(out, 0.12), -4.0)
+
+
+def episode(ep_id):
+    import sol_timeline
+
+    tl, _ = sol_timeline.build(ep_id)
+    for w in tl["warnings"]:
+        print("WARNING", w)
+    beats = {b["id"]: b for b in tl["beats"]}
+    music_cfg = json.loads((ROOT_SRC / "episodes" / f"{ep_id}.json").read_text()).get("music", {})
+    tick = music_cfg.get("tick")
+    tick = (beats[tick[0]]["from"], beats[tick[1]]["until"]) if tick else None
+    stops = [(beats[b]["from"] - 4, beats[b]["from"] + 8) for b in music_cfg.get("stopBefore", [])]
+    music(total=tl["total"] / FPS, tick=tick, stops=stops, ducks=[], out=f"sol-{ep_id}-music.wav")
+    voice_timeline(tl, f"sol-{ep_id}-voice.wav")
+    print(f"wrote sol-{ep_id}-music.wav, sol-{ep_id}-voice.wav ({tl['total'] / FPS:.1f} s)")
+
+
 if __name__ == "__main__":
+    import sys
+
+    if len(sys.argv) > 1:
+        episode(sys.argv[1])
+        raise SystemExit
     music()
     voice()
     stingers()

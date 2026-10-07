@@ -1,0 +1,707 @@
+{
+ "id": "speed-to-lead",
+ "fps": 30,
+ "total": 1771,
+ "beats": [
+  {
+   "id": "hook",
+   "say": "You have *5* *minutes* | before a new lead | goes !cold.!",
+   "show": 30,
+   "hold": 18,
+   "kind": "say",
+   "from": 0,
+   "textEnd": 86,
+   "showFrom": 82,
+   "until": 134,
+   "phrases": [
+    {
+     "at": 0,
+     "words": [
+      {
+       "w": "You",
+       "at": 0
+      },
+      {
+       "w": "have",
+       "at": 8
+      },
+      {
+       "w": "*5*",
+       "at": 16
+      },
+      {
+       "w": "*minutes*",
+       "at": 24
+      }
+     ]
+    },
+    {
+     "at": 34,
+     "words": [
+      {
+       "w": "before",
+       "at": 34
+      },
+      {
+       "w": "a",
+       "at": 42
+      },
+      {
+       "w": "new",
+       "at": 50
+      },
+      {
+       "w": "lead",
+       "at": 58
+      }
+     ]
+    },
+    {
+     "at": 68,
+     "words": [
+      {
+       "w": "goes",
+       "at": 68
+      },
+      {
+       "w": "!cold.!",
+       "at": 76
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intro",
+   "say": "Hi, I’m *Sol!* | 3 numbers decide | who gets the customer.",
+   "show": 16,
+   "hold": 18,
+   "kind": "say",
+   "from": 138,
+   "textEnd": 224,
+   "showFrom": 220,
+   "until": 266,
+   "phrases": [
+    {
+     "at": 138,
+     "words": [
+      {
+       "w": "Hi,",
+       "at": 138
+      },
+      {
+       "w": "I’m",
+       "at": 146
+      },
+      {
+       "w": "*Sol!*",
+       "at": 154
+      }
+     ]
+    },
+    {
+     "at": 164,
+     "words": [
+      {
+       "w": "3",
+       "at": 164
+      },
+      {
+       "w": "numbers",
+       "at": 172
+      },
+      {
+       "w": "decide",
+       "at": 180
+      }
+     ]
+    },
+    {
+     "at": 190,
+     "words": [
+      {
+       "w": "who",
+       "at": 190
+      },
+      {
+       "w": "gets",
+       "at": 198
+      },
+      {
+       "w": "the",
+       "at": 206
+      },
+      {
+       "w": "customer.",
+       "at": 214
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r1",
+   "round": "1",
+   "hold": 36,
+   "kind": "round",
+   "from": 270,
+   "textEnd": 270,
+   "showFrom": 270,
+   "until": 306,
+   "phrases": []
+  },
+  {
+   "id": "n1",
+   "say": "Reply that fast | and you’re *100×* more likely | to reach them.",
+   "show": 45,
+   "hold": 24,
+   "kind": "say",
+   "from": 310,
+   "textEnd": 404,
+   "showFrom": 400,
+   "until": 476,
+   "phrases": [
+    {
+     "at": 310,
+     "words": [
+      {
+       "w": "Reply",
+       "at": 310
+      },
+      {
+       "w": "that",
+       "at": 318
+      },
+      {
+       "w": "fast",
+       "at": 326
+      }
+     ]
+    },
+    {
+     "at": 336,
+     "words": [
+      {
+       "w": "and",
+       "at": 336
+      },
+      {
+       "w": "you’re",
+       "at": 344
+      },
+      {
+       "w": "*100×*",
+       "at": 352
+      },
+      {
+       "w": "more",
+       "at": 360
+      },
+      {
+       "w": "likely",
+       "at": 368
+      }
+     ]
+    },
+    {
+     "at": 378,
+     "words": [
+      {
+       "w": "to",
+       "at": 378
+      },
+      {
+       "w": "reach",
+       "at": 386
+      },
+      {
+       "w": "them.",
+       "at": 394
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r2",
+   "round": "2",
+   "hold": 36,
+   "kind": "round",
+   "from": 480,
+   "textEnd": 480,
+   "showFrom": 480,
+   "until": 516,
+   "phrases": []
+  },
+  {
+   "id": "n2a",
+   "say": "That’s the average | reply time.",
+   "show": 30,
+   "hold": 14,
+   "kind": "say",
+   "from": 520,
+   "textEnd": 564,
+   "showFrom": 560,
+   "until": 608,
+   "phrases": [
+    {
+     "at": 520,
+     "words": [
+      {
+       "w": "That’s",
+       "at": 520
+      },
+      {
+       "w": "the",
+       "at": 528
+      },
+      {
+       "w": "average",
+       "at": 536
+      }
+     ]
+    },
+    {
+     "at": 546,
+     "words": [
+      {
+       "w": "reply",
+       "at": 546
+      },
+      {
+       "w": "time.",
+       "at": 554
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "n2b",
+   "say": "And 63% | !never! !reply! !at! !all.!",
+   "show": 45,
+   "hold": 24,
+   "kind": "say",
+   "from": 612,
+   "textEnd": 664,
+   "showFrom": 660,
+   "until": 746,
+   "phrases": [
+    {
+     "at": 612,
+     "words": [
+      {
+       "w": "And",
+       "at": 612
+      },
+      {
+       "w": "63%",
+       "at": 620
+      }
+     ]
+    },
+    {
+     "at": 630,
+     "words": [
+      {
+       "w": "!never!",
+       "at": 630
+      },
+      {
+       "w": "!reply!",
+       "at": 638
+      },
+      {
+       "w": "!at!",
+       "at": 646
+      },
+      {
+       "w": "!all.!",
+       "at": 654
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r3",
+   "round": "3",
+   "hold": 36,
+   "kind": "round",
+   "from": 750,
+   "textEnd": 750,
+   "showFrom": 750,
+   "until": 786,
+   "phrases": []
+  },
+  {
+   "id": "n3a",
+   "say": "of legal clients | hire the first firm | that answers.",
+   "show": 45,
+   "hold": 24,
+   "kind": "say",
+   "from": 790,
+   "textEnd": 868,
+   "showFrom": 864,
+   "until": 937,
+   "phrases": [
+    {
+     "at": 790,
+     "words": [
+      {
+       "w": "of",
+       "at": 790
+      },
+      {
+       "w": "legal",
+       "at": 798
+      },
+      {
+       "w": "clients",
+       "at": 806
+      }
+     ]
+    },
+    {
+     "at": 816,
+     "words": [
+      {
+       "w": "hire",
+       "at": 816
+      },
+      {
+       "w": "the",
+       "at": 824
+      },
+      {
+       "w": "first",
+       "at": 832
+      },
+      {
+       "w": "firm",
+       "at": 840
+      }
+     ]
+    },
+    {
+     "at": 850,
+     "words": [
+      {
+       "w": "that",
+       "at": 850
+      },
+      {
+       "w": "answers.",
+       "at": 858
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "n3b",
+   "say": "*First* *to* *answer* *wins.*",
+   "show": 24,
+   "hold": 30,
+   "kind": "say",
+   "from": 941,
+   "textEnd": 975,
+   "showFrom": 971,
+   "until": 1031,
+   "phrases": [
+    {
+     "at": 941,
+     "words": [
+      {
+       "w": "*First*",
+       "at": 941
+      },
+      {
+       "w": "*to*",
+       "at": 949
+      },
+      {
+       "w": "*answer*",
+       "at": 957
+      },
+      {
+       "w": "*wins.*",
+       "at": 965
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "r4",
+   "round": "fix",
+   "hold": 32,
+   "kind": "round",
+   "from": 1035,
+   "textEnd": 1035,
+   "showFrom": 1035,
+   "until": 1067,
+   "phrases": []
+  },
+  {
+   "id": "fix1",
+   "say": "Missed a call? | Text back in seconds.",
+   "show": 40,
+   "hold": 20,
+   "kind": "say",
+   "from": 1071,
+   "textEnd": 1131,
+   "showFrom": 1127,
+   "until": 1191,
+   "phrases": [
+    {
+     "at": 1071,
+     "words": [
+      {
+       "w": "Missed",
+       "at": 1071
+      },
+      {
+       "w": "a",
+       "at": 1079
+      },
+      {
+       "w": "call?",
+       "at": 1087
+      }
+     ]
+    },
+    {
+     "at": 1097,
+     "words": [
+      {
+       "w": "Text",
+       "at": 1097
+      },
+      {
+       "w": "back",
+       "at": 1105
+      },
+      {
+       "w": "in",
+       "at": 1113
+      },
+      {
+       "w": "seconds.",
+       "at": 1121
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fix2",
+   "say": "Website or DM? | AI chat that books.",
+   "show": 40,
+   "hold": 20,
+   "kind": "say",
+   "from": 1195,
+   "textEnd": 1255,
+   "showFrom": 1251,
+   "until": 1315,
+   "phrases": [
+    {
+     "at": 1195,
+     "words": [
+      {
+       "w": "Website",
+       "at": 1195
+      },
+      {
+       "w": "or",
+       "at": 1203
+      },
+      {
+       "w": "DM?",
+       "at": 1211
+      }
+     ]
+    },
+    {
+     "at": 1221,
+     "words": [
+      {
+       "w": "AI",
+       "at": 1221
+      },
+      {
+       "w": "chat",
+       "at": 1229
+      },
+      {
+       "w": "that",
+       "at": 1237
+      },
+      {
+       "w": "books.",
+       "at": 1245
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fix3",
+   "say": "Write it down: | every lead, *5* *minutes.*",
+   "show": 40,
+   "hold": 24,
+   "kind": "say",
+   "from": 1319,
+   "textEnd": 1379,
+   "showFrom": 1375,
+   "until": 1443,
+   "phrases": [
+    {
+     "at": 1319,
+     "words": [
+      {
+       "w": "Write",
+       "at": 1319
+      },
+      {
+       "w": "it",
+       "at": 1327
+      },
+      {
+       "w": "down:",
+       "at": 1335
+      }
+     ]
+    },
+    {
+     "at": 1345,
+     "words": [
+      {
+       "w": "every",
+       "at": 1345
+      },
+      {
+       "w": "lead,",
+       "at": 1353
+      },
+      {
+       "w": "*5*",
+       "at": 1361
+      },
+      {
+       "w": "*minutes.*",
+       "at": 1369
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "recap",
+   "say": "Remember these 3. | *Screenshot* *this!*",
+   "show": 40,
+   "hold": 36,
+   "kind": "say",
+   "from": 1447,
+   "textEnd": 1491,
+   "showFrom": 1487,
+   "until": 1567,
+   "phrases": [
+    {
+     "at": 1447,
+     "words": [
+      {
+       "w": "Remember",
+       "at": 1447
+      },
+      {
+       "w": "these",
+       "at": 1455
+      },
+      {
+       "w": "3.",
+       "at": 1463
+      }
+     ]
+    },
+    {
+     "at": 1473,
+     "words": [
+      {
+       "w": "*Screenshot*",
+       "at": 1473
+      },
+      {
+       "w": "*this!*",
+       "at": 1481
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "say": "Me? I reply in seconds. | Want me on your line?",
+   "show": 60,
+   "hold": 40,
+   "kind": "say",
+   "from": 1571,
+   "textEnd": 1655,
+   "showFrom": 1651,
+   "until": 1755,
+   "phrases": [
+    {
+     "at": 1571,
+     "words": [
+      {
+       "w": "Me?",
+       "at": 1571
+      },
+      {
+       "w": "I",
+       "at": 1579
+      },
+      {
+       "w": "reply",
+       "at": 1587
+      },
+      {
+       "w": "in",
+       "at": 1595
+      },
+      {
+       "w": "seconds.",
+       "at": 1603
+      }
+     ]
+    },
+    {
+     "at": 1613,
+     "words": [
+      {
+       "w": "Want",
+       "at": 1613
+      },
+      {
+       "w": "me",
+       "at": 1621
+      },
+      {
+       "w": "on",
+       "at": 1629
+      },
+      {
+       "w": "your",
+       "at": 1637
+      },
+      {
+       "w": "line?",
+       "at": 1645
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "warnings": []
+}

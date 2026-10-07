@@ -1,0 +1,103 @@
+{
+  "_": "Sol explains: speed to lead (blog: esolutify.com/speed-to-lead-small-business-2026). Write words only; scripts/sol_timeline.py sets the frames. ' | ' splits phrases, *gold*, !red!. show = frames the picture plays after the text, hold = still frames after that.",
+  "id": "speed-to-lead",
+  "tail": 12,
+  "beats": [
+    {
+      "id": "hook",
+      "say": "You have *5* *minutes* | before a new lead | goes !cold.!",
+      "show": 30,
+      "hold": 18
+    },
+    {
+      "id": "intro",
+      "say": "Hi, I’m *Sol!* | 3 numbers decide | who gets the customer.",
+      "show": 16,
+      "hold": 18
+    },
+    {
+      "id": "r1",
+      "round": "1",
+      "hold": 36
+    },
+    {
+      "id": "n1",
+      "say": "Reply that fast | and you’re *100×* more likely | to reach them.",
+      "show": 45,
+      "hold": 24
+    },
+    {
+      "id": "r2",
+      "round": "2",
+      "hold": 36
+    },
+    {
+      "id": "n2a",
+      "say": "That’s the average | reply time.",
+      "show": 30,
+      "hold": 14
+    },
+    {
+      "id": "n2b",
+      "say": "And 63% | !never! !reply! !at! !all.!",
+      "show": 45,
+      "hold": 24
+    },
+    {
+      "id": "r3",
+      "round": "3",
+      "hold": 36
+    },
+    {
+      "id": "n3a",
+      "say": "of legal clients | hire the first firm | that answers.",
+      "show": 45,
+      "hold": 24
+    },
+    {
+      "id": "n3b",
+      "say": "*First* *to* *answer* *wins.*",
+      "show": 24,
+      "hold": 30
+    },
+    {
+      "id": "r4",
+      "round": "fix",
+      "hold": 32
+    },
+    {
+      "id": "fix1",
+      "say": "Missed a call? | Text back in seconds.",
+      "show": 40,
+      "hold": 20
+    },
+    {
+      "id": "fix2",
+      "say": "Website or DM? | AI chat that books.",
+      "show": 40,
+      "hold": 20
+    },
+    {
+      "id": "fix3",
+      "say": "Write it down: | every lead, *5* *minutes.*",
+      "show": 40,
+      "hold": 24
+    },
+    {
+      "id": "recap",
+      "say": "Remember these 3. | *Screenshot* *this!*",
+      "show": 40,
+      "hold": 36
+    },
+    {
+      "id": "cta",
+      "say": "Me? I reply in seconds. | Want me on your line?",
+      "show": 60,
+      "hold": 40
+    }
+  ],
+  "music": {
+    "tick": ["r2", "n2b"],
+    "stopBefore": ["n3b"]
+  }
+}
