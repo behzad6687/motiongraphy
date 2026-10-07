@@ -10,6 +10,7 @@
 | Local SEO (24s, 9:16) | `renders/seo/local-seo-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | AI Chatbots & Lead Automation (24s, 9:16) | `renders/bot/ai-chatbots-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Paid Advertising Management (24s, 9:16) | `renders/ads/paid-ads-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
+| Social Media Management (24s, 9:16) | `renders/social/social-media-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 
 Every claim below comes from esolutify.com.
 
@@ -380,6 +381,57 @@ Averages across managed ad accounts in the first 90 days; individual results var
 **Settings:** point the link in bio at `esolutify.com/paid-advertising-management`. Pin a comment: "What does $1 in ads bring back for your business today? 👇"
 
 The figures are the page's own averages across managed accounts in the first 90 days. Keep the "individual results vary" line in the description, and in any paid version of this ad.
+
+---
+
+## 10. Social Media Management: Reel + Short (24s)
+
+The cover is `renders/social/social-media-cover.jpg` (the approved month calendar).
+
+**Instagram Reel caption:**
+
+```
+When did your business last post? 👀
+
+You're busy running the business. The page goes quiet, and customers move on.
+
+We plan, design, write and post a whole month for you: photos, reels, stories, offers and tips, in your voice. You approve the plan once a month. Ten minutes.
+
+📈 280% average follower growth in the first 6 months
+🚀 3.5x organic reach within 90 days
+✅ Nothing goes live without your sign-off
+🌐 Content in English, French, Arabic & Farsi
+
+From $599 CAD a month, no lock-in. Book a free strategy call, link in bio 🔗
+
+#socialmediamarketing #socialmediamanager #contentcreation #smallbusiness #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- When Did Your Business Last Post? 👀 #Shorts
+- A Month of Social Media Posts, Done for You #Shorts
+- Approve Once a Month. We Post Every Week. #Shorts
+
+**Shorts description:**
+
+```
+You run your business. We keep your Instagram, Facebook, TikTok and LinkedIn alive, every week, in your voice.
+
+Each month we plan, design, write and post: photos, reels, stories, offers and tips. You approve the plan once a month (about ten minutes), and nothing goes live without your sign-off.
+
+280% average follower growth in the first 6 months · 3.5x organic reach within 90 days · 500+ brands managed · 98% client retention.
+
+From $599 CAD a month, no lock-in contracts.
+
+📅 Book a free strategy call: https://esolutify.com/social-media-management/
+
+#SocialMediaMarketing #SmallBusiness #ContentCreation
+```
+
+**Settings:** point the link in bio at `esolutify.com/social-media-management`. Pin a comment: "Be honest: how many days since your last post? 👇"
+
+The growth figures are the page's averages across managed accounts. The profile, posts and follower counts in the video are illustrative.
 
 ---
 

@@ -9,6 +9,7 @@ import { AppReel } from "./app/AppReel";
 import { SeoReel } from "./seo/SeoReel";
 import { BotReel } from "./bot/BotReel";
 import { AdsReel } from "./ads/AdsReel";
+import { SocialReel } from "./social/SocialReel";
 import { Main } from "./Main";
 import { S01Hook } from "./scenes/S01Hook";
 import { S02Outcomes } from "./scenes/S02Outcomes";
@@ -184,6 +185,25 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="PaidAdsReel-SZ"
           component={AdsReel}
+          durationInFrames={720}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+      </Folder>
+      <Folder name="SocialMedia">
+        <Composition
+          id="SocialMediaReel"
+          component={SocialReel}
+          durationInFrames={720}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="SocialMediaReel-SZ"
+          component={SocialReel}
           durationInFrames={720}
           fps={30}
           width={1080}

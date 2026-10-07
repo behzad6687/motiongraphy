@@ -14,6 +14,7 @@ export type SfxName =
   | "riser"
   | "ring"
   | "shimmer"
+  | "shutter"
   | "thud"
   | "tick"
   | "typing"
