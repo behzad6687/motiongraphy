@@ -3,6 +3,12 @@ import { Audio } from "@remotion/media";
 import { Sequence, staticFile } from "remotion";
 
 export type SfxName =
+  | "boing"
+  | "drumroll"
+  | "inflate"
+  | "stamp"
+  | "tada"
+  | "wahwah"
   | "blip"
   | "cash"
   | "chime"

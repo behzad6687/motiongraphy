@@ -1,0 +1,168 @@
+{
+  "_": "Sol's lines for the 'AI receptionist vs virtual receptionist vs answering service' explainer. Read by SolExplainer.tsx (speech bubbles, mouth) and scripts/gen_sol_audio.py (babble voice). Frames @30fps. *word* = gold marker, !word! = red marker.",
+  "total": 1260,
+  "bubbles": [
+    {
+      "from": 0,
+      "until": 86,
+      "segs": [
+        { "at": -12, "per": 3, "text": "Your *$65* phone plan" },
+        { "at": 36, "per": 4, "text": "can turn into !$400.!" }
+      ]
+    },
+    {
+      "from": 92,
+      "until": 176,
+      "segs": [
+        { "at": 92, "per": 4, "text": "Hi, I’m *Sol!*" },
+        { "at": 110, "per": 3, "text": "Who should answer your phone?" }
+      ],
+      "aside": {
+        "at": 138,
+        "text": "Full disclosure: I’m an AI. I’ll be fair."
+      }
+    },
+    {
+      "from": 182,
+      "until": 256,
+      "segs": [
+        { "at": 182, "per": 4, "text": "*Answering* *service:*" },
+        {
+          "at": 192,
+          "per": 3,
+          "text": "a call centre for hundreds of businesses."
+        }
+      ],
+      "aside": { "at": 222, "text": "Since the 1960s!" }
+    },
+    {
+      "from": 262,
+      "until": 336,
+      "segs": [
+        { "at": 262, "per": 4, "text": "*Virtual* *receptionist:*" },
+        { "at": 272, "per": 3, "text": "a real person, remote, just for you." }
+      ],
+      "aside": {
+        "at": 300,
+        "text": "Books calls. Learns your business over time."
+      }
+    },
+    {
+      "from": 342,
+      "until": 416,
+      "segs": [
+        { "at": 342, "per": 4, "text": "*AI* *receptionist:*" },
+        {
+          "at": 352,
+          "per": 3,
+          "text": "software trained on your business. 24/7."
+        }
+      ],
+      "aside": { "at": 384, "text": "Ahem. That’s me." }
+    },
+    {
+      "from": 422,
+      "until": 476,
+      "segs": [
+        {
+          "at": 422,
+          "per": 3,
+          "text": "Now the math that *trips* *people* *up.*"
+        }
+      ]
+    },
+    {
+      "from": 482,
+      "until": 536,
+      "segs": [
+        { "at": 482, "per": 4, "text": "*42* calls × 3 min = *126* *minutes.*" }
+      ]
+    },
+    {
+      "from": 542,
+      "until": 590,
+      "segs": [
+        {
+          "at": 542,
+          "per": 3,
+          "text": "A “50-minute” plan is gone by !week! !two.!"
+        }
+      ]
+    },
+    {
+      "from": 596,
+      "until": 636,
+      "segs": [
+        {
+          "at": 596,
+          "per": 3,
+          "text": "Every minute after costs !$1.25–$2.50.!"
+        }
+      ]
+    },
+    {
+      "from": 640,
+      "until": 686,
+      "segs": [
+        {
+          "at": 640,
+          "per": 3,
+          "text": "100 calls? Per-minute balloons to !$400+.!"
+        }
+      ],
+      "aside": { "at": 664, "text": "A flat AI plan stays flat." }
+    },
+    {
+      "from": 690,
+      "until": 716,
+      "segs": [{ "at": 690, "per": 4, "text": "*Minutes,* *not* *months.*" }]
+    },
+    {
+      "from": 722,
+      "until": 816,
+      "segs": [
+        {
+          "at": 722,
+          "per": 3,
+          "text": "*Dental* *clinic,* 150+ calls a month?"
+        }
+      ],
+      "aside": { "at": 776, "text": "Flat $299–$499 beats $400+ of overage." }
+    },
+    {
+      "from": 822,
+      "until": 916,
+      "segs": [
+        { "at": 822, "per": 3, "text": "*Law* *firm,* sensitive calls?" }
+      ],
+      "aside": { "at": 876, "text": "Fine. A human wins this one." }
+    },
+    {
+      "from": 922,
+      "until": 1016,
+      "segs": [{ "at": 922, "per": 3, "text": "*Contractor* up on a roof?" }],
+      "aside": { "at": 976, "text": "Answer or text back. Every time." }
+    },
+    {
+      "from": 1022,
+      "until": 1106,
+      "segs": [
+        { "at": 1022, "per": 4, "text": "Honest answer? Often *both.*" }
+      ],
+      "aside": {
+        "at": 1048,
+        "text": "AI for routine calls. Humans for the hard ones."
+      }
+    },
+    {
+      "from": 1112,
+      "until": 1268,
+      "segs": [
+        { "at": 1112, "per": 3, "text": "Count your calls." },
+        { "at": 1128, "per": 3, "text": "Check the *per-minute* rate." }
+      ]
+    }
+  ],
+  "drumrolls": [742, 842, 942],
+  "verdicts": [770, 870, 970]
+}

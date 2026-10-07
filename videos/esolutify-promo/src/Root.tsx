@@ -10,6 +10,8 @@ import { SeoReel } from "./seo/SeoReel";
 import { BotReel } from "./bot/BotReel";
 import { AdsReel } from "./ads/AdsReel";
 import { SocialReel } from "./social/SocialReel";
+import { SolSheet } from "./sol/SolSheet";
+import { SolExplainer } from "./sol/SolExplainer";
 import { Main } from "./Main";
 import { S01Hook } from "./scenes/S01Hook";
 import { S02Outcomes } from "./scenes/S02Outcomes";
@@ -209,6 +211,31 @@ export const RemotionRoot: React.FC = () => {
           width={1080}
           height={1920}
           defaultProps={{ safeZones: true }}
+        />
+      </Folder>
+      <Folder name="Sol">
+        <Composition
+          id="SolReceptionistShowdown"
+          component={SolExplainer}
+          durationInFrames={1260}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="SolReceptionistShowdown-SZ"
+          component={SolExplainer}
+          durationInFrames={1260}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+        <Still
+          id="SolModelSheet"
+          component={SolSheet}
+          width={1080}
+          height={1920}
         />
       </Folder>
       <Folder name="Scenes">

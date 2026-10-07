@@ -11,6 +11,7 @@
 | AI Chatbots & Lead Automation (24s, 9:16) | `renders/bot/ai-chatbots-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Paid Advertising Management (24s, 9:16) | `renders/ads/paid-ads-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Social Media Management (24s, 9:16) | `renders/social/social-media-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
+| Sol explains: AI vs virtual receptionist vs answering service (42s, 9:16) | `renders/sol/sol-receptionist-showdown-9x16-42s.mp4` | Instagram Reel + YouTube Shorts + TikTok |
 
 Every claim below comes from esolutify.com.
 
@@ -432,6 +433,62 @@ From $599 CAD a month, no lock-in contracts.
 **Settings:** point the link in bio at `esolutify.com/social-media-management`. Pin a comment: "Be honest: how many days since your last post? 👇"
 
 The growth figures are the page's averages across managed accounts. The profile, posts and follower counts in the video are illustrative.
+
+---
+
+## 11. Sol explains: AI receptionist vs virtual receptionist vs answering service (42s)
+
+Built from the blog post of the same name. The cover is `renders/sol/sol-showdown-cover.jpg` (Sol in shock, "$400/mo").
+
+**Instagram Reel caption:**
+
+```
+Your $65 phone plan can turn into $400. 😳
+
+Sol (our AI, and yes, he's biased, but he promised to be fair) breaks down who should answer your business phone:
+
+📞 Answering service: $100–$700/mo, mostly per-minute
+🎧 Virtual receptionist: $200–$1,000+/mo, base + overage
+✨ AI receptionist: $50–$500/mo, mostly flat
+
+The trap: 42 calls × 3 min = 126 minutes. A "50-minute" plan is gone by week two, then every minute costs $1.25–$2.50.
+Remember: minutes, not months.
+
+Who wins? Depends on your calls. Sometimes it's even a human (Sol is still recovering).
+
+Full comparison in CAD, with real scenarios: link in bio 🔗
+
+#aireceptionist #virtualreceptionist #smallbusiness #answeringservice #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- AI vs Human Receptionist vs Answering Service: Who Wins? ☀️ #Shorts
+- Your $65 Answering Plan Can Cost $400. Here's Why #Shorts
+- Minutes, Not Months: The Receptionist Pricing Trap #Shorts
+
+**Shorts description:**
+
+```
+An AI receptionist, a human virtual receptionist or an answering service: which should answer your business phone? Sol, our AI agent, explains in 40 seconds, and he admits when a human wins.
+
+• Answering service: a call centre for hundreds of businesses. $100–$700/mo, mostly per-minute.
+• Virtual receptionist: a real person, remote, just for you. $200–$1,000+/mo, base fee + overage.
+• AI receptionist: software trained on your business, 24/7. $50–$500/mo, mostly flat.
+
+The math that trips people up: 42 calls × 3 min = 126 minutes. Per-minute overage at $1.25–$2.50 adds up fast; at 100 calls a month it can balloon past $400, while a flat AI plan stays flat.
+
+📖 Full guide with costs in CAD: https://esolutify.com/ai-receptionist-vs-virtual-receptionist-vs-answering-service/
+📞 Call Sol yourself: +1 365 360 3545
+
+#AIReceptionist #SmallBusiness #VirtualReceptionist
+```
+
+**Pinned comment:** "How many calls does your business get a month? Tell Sol 👇 and he'll tell you which one wins."
+
+**TikTok:** post as-is with the Instagram caption. It suits TikTok's explainer format and the character makes it native there.
+
+Note: the blog says a 50-minute plan "burns through its allowance in the first week" at 42 calls a month. At 3 minutes a call that runs out on about day 12, so the video says "gone by week two".
 
 ---
 
