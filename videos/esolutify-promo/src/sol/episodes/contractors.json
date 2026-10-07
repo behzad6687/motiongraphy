@@ -1,0 +1,145 @@
+{
+  "_": "Sol explains: missed call text back for contractors (blog: esolutify.com/missed-call-text-back-for-contractors). say = on screen (' | ' phrases, *gold*, !red!), speak = what Sol says, word for word the same (numbers spelled for the voice). scripts/sol_timeline.py sets the frames; scripts/sol_qa.py checks every recorded line.",
+  "id": "contractors",
+  "tail": 12,
+  "music": {
+    "tick": [
+      "h1",
+      "h1"
+    ],
+    "stopBefore": [
+      "h2"
+    ]
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "say": "You’re on a ladder. | The phone rings. | !Voicemail.!",
+      "speak": "You're on a ladder. The phone rings. Voicemail.",
+      "show": 34,
+      "hold": 10
+    },
+    {
+      "id": "intro",
+      "say": "Hi, I’m *Sol!* | *4* things to plug the leak.",
+      "speak": "Hi, I'm Sol! Four things to plug the leak.",
+      "show": 26,
+      "hold": 6
+    },
+    {
+      "id": "r1",
+      "round": "1",
+      "speak": "One: the leak.",
+      "hold": 30
+    },
+    {
+      "id": "m1",
+      "say": "Contractors miss *27%* of calls. | After hours? !Most! !of! !them.!",
+      "speak": "Contractors miss twenty-seven percent of calls. After hours? Most of them.",
+      "show": 30,
+      "hold": 8
+    },
+    {
+      "id": "m2",
+      "say": "And fewer than *3%* | leave a voicemail.",
+      "speak": "And fewer than three percent leave a voicemail.",
+      "show": 34,
+      "hold": 10
+    },
+    {
+      "id": "r2",
+      "round": "2",
+      "speak": "Two: the cost.",
+      "hold": 30
+    },
+    {
+      "id": "c2",
+      "say": "Win back just *3* jobs, | that’s *$2,400* a month.",
+      "speak": "Win back just three jobs, that's twenty-four hundred a month.",
+      "show": 34,
+      "hold": 8
+    },
+    {
+      "id": "c3",
+      "say": "The tool? | *$20–$150* a month.",
+      "speak": "The tool? Twenty to a hundred and fifty a month.",
+      "show": 28,
+      "hold": 12
+    },
+    {
+      "id": "r3",
+      "round": "3",
+      "speak": "Three: how it works.",
+      "hold": 30
+    },
+    {
+      "id": "h1",
+      "say": "Missed call? | A text goes out in *30* seconds.",
+      "speak": "Missed call? A text goes out in thirty seconds.",
+      "show": 34,
+      "hold": 8
+    },
+    {
+      "id": "h2",
+      "say": "*98%* of texts get opened. | Most within *3* minutes.",
+      "speak": "Ninety-eight percent of texts get opened. Most within three minutes.",
+      "show": 28,
+      "hold": 8
+    },
+    {
+      "id": "h3",
+      "say": "They reply *URGENT.* | You call back in *10.*",
+      "speak": "They reply urgent. You call back in ten.",
+      "show": 34,
+      "hold": 10
+    },
+    {
+      "id": "r4",
+      "round": "4",
+      "speak": "Four: the rules.",
+      "hold": 30
+    },
+    {
+      "id": "l1",
+      "say": "In Canada, texts follow | the *anti-spam* *law.*",
+      "speak": "In Canada, texts follow the anti-spam law.",
+      "show": 24,
+      "hold": 6
+    },
+    {
+      "id": "l2",
+      "say": "Say who you are, | and add: *Reply* *STOP.*",
+      "speak": "Say who you are, and add: reply STOP.",
+      "show": 34,
+      "hold": 8
+    },
+    {
+      "id": "l3",
+      "say": "Sending promos later? | Ask for a *YES* first.",
+      "speak": "Sending promos later? Ask for a yes first.",
+      "show": 30,
+      "hold": 10
+    },
+    {
+      "id": "recap",
+      "say": "*Text* *fast.* *Flag* *urgent.* | *Say* *who* *you* *are.*",
+      "speak": "Text fast. Flag urgent. Say who you are.",
+      "show": 26,
+      "hold": 16
+    },
+    {
+      "id": "cta",
+      "say": "Want me texting | your missed calls? | *Call* *me!*",
+      "speak": "Want me texting your missed calls? Call me!",
+      "show": 60,
+      "hold": 30
+    }
+  ],
+  "voice": {
+    "provider": "Higgsfield seed_audio",
+    "voice": "Luna",
+    "voice_id": "375a3398-e3b4-4f91-845d-42181e352899",
+    "speech_rate": 25,
+    "format": "wav 44.1 kHz"
+  }
+}

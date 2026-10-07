@@ -368,7 +368,10 @@ def episode(ep_id):
     voiced = [b for b in tl["beats"] if b.get("voice")]
     # music sits under Sol's voice (ducked while speaking), full between lines
     ducks = [(b["voice"]["at"] - 2, b["voice"]["at"] + b["voice"]["frames"] + 2) for b in voiced]
-    music(total=tl["total"] / FPS, tick=tick, stops=stops, ducks=ducks, duck_level=0.5, out=f"sol-{ep_id}-music.wav")
+    # how far the music dips under Sol (0.5 = half); lower it if sol_qa.py --mix
+    # finds a word the music covers
+    duck = music_cfg.get("duck", 0.5)
+    music(total=tl["total"] / FPS, tick=tick, stops=stops, ducks=ducks, duck_level=duck, out=f"sol-{ep_id}-music.wav")
     if voiced:
         voice_recorded(tl, voices, f"sol-{ep_id}-voice.wav")
     else:

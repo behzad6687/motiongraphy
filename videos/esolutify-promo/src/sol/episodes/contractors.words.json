@@ -1,0 +1,793 @@
+{
+ "hook": {
+  "clip": 3.08,
+  "heard": "You're on a ladder. The phone rings. Voicemail.",
+  "ok": true,
+  "words": [
+   {
+    "w": "You're",
+    "start": 0.0,
+    "end": 0.26
+   },
+   {
+    "w": "on",
+    "start": 0.26,
+    "end": 0.36
+   },
+   {
+    "w": "a",
+    "start": 0.36,
+    "end": 0.48
+   },
+   {
+    "w": "ladder.",
+    "start": 0.48,
+    "end": 0.78
+   },
+   {
+    "w": "The",
+    "start": 1.18,
+    "end": 1.24
+   },
+   {
+    "w": "phone",
+    "start": 1.24,
+    "end": 1.48
+   },
+   {
+    "w": "rings.",
+    "start": 1.48,
+    "end": 1.94
+   },
+   {
+    "w": "Voicemail.",
+    "start": 2.38,
+    "end": 2.76
+   }
+  ]
+ },
+ "intro": {
+  "clip": 3.51,
+  "heard": "Hi, I'm Sol. Four things to plug the leak.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Hi,",
+    "start": 0.0,
+    "end": 0.32
+   },
+   {
+    "w": "I'm",
+    "start": 0.72,
+    "end": 0.94
+   },
+   {
+    "w": "Sol.",
+    "start": 0.94,
+    "end": 1.2
+   },
+   {
+    "w": "Four",
+    "start": 1.62,
+    "end": 1.76
+   },
+   {
+    "w": "things",
+    "start": 1.76,
+    "end": 2.04
+   },
+   {
+    "w": "to",
+    "start": 2.04,
+    "end": 2.36
+   },
+   {
+    "w": "plug",
+    "start": 2.36,
+    "end": 2.82
+   },
+   {
+    "w": "the",
+    "start": 2.82,
+    "end": 3.02
+   },
+   {
+    "w": "leak.",
+    "start": 3.02,
+    "end": 3.18
+   }
+  ]
+ },
+ "r1": {
+  "clip": 1.37,
+  "heard": "1. The Leak",
+  "ok": true,
+  "words": [
+   {
+    "w": "1.",
+    "start": 0.0,
+    "end": 0.36
+   },
+   {
+    "w": "The",
+    "start": 0.74,
+    "end": 0.84
+   },
+   {
+    "w": "Leak",
+    "start": 0.84,
+    "end": 1.2
+   }
+  ]
+ },
+ "m1": {
+  "clip": 4.68,
+  "heard": "Contractors miss 27% of calls. After hours? Most of them.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Contractors",
+    "start": 0.0,
+    "end": 0.74
+   },
+   {
+    "w": "miss",
+    "start": 0.74,
+    "end": 0.98
+   },
+   {
+    "w": "27",
+    "start": 0.98,
+    "end": 1.52
+   },
+   {
+    "w": "%",
+    "start": 1.52,
+    "end": 1.9
+   },
+   {
+    "w": "of",
+    "start": 1.9,
+    "end": 2.08
+   },
+   {
+    "w": "calls.",
+    "start": 2.08,
+    "end": 2.48
+   },
+   {
+    "w": "After",
+    "start": 2.84,
+    "end": 3.08
+   },
+   {
+    "w": "hours?",
+    "start": 3.08,
+    "end": 3.52
+   },
+   {
+    "w": "Most",
+    "start": 3.92,
+    "end": 4.1
+   },
+   {
+    "w": "of",
+    "start": 4.1,
+    "end": 4.28
+   },
+   {
+    "w": "them.",
+    "start": 4.28,
+    "end": 4.44
+   }
+  ]
+ },
+ "m2": {
+  "clip": 2.39,
+  "heard": "and fewer than 3% leave a voicemail.",
+  "ok": true,
+  "words": [
+   {
+    "w": "and",
+    "start": 0.0,
+    "end": 0.26
+   },
+   {
+    "w": "fewer",
+    "start": 0.26,
+    "end": 0.5
+   },
+   {
+    "w": "than",
+    "start": 0.5,
+    "end": 0.78
+   },
+   {
+    "w": "3",
+    "start": 0.78,
+    "end": 1.02
+   },
+   {
+    "w": "%",
+    "start": 1.02,
+    "end": 1.4
+   },
+   {
+    "w": "leave",
+    "start": 1.4,
+    "end": 1.58
+   },
+   {
+    "w": "a",
+    "start": 1.58,
+    "end": 1.72
+   },
+   {
+    "w": "voicemail.",
+    "start": 1.72,
+    "end": 2.14
+   }
+  ]
+ },
+ "r2": {
+  "clip": 1.55,
+  "heard": "2. The Cost",
+  "ok": true,
+  "words": [
+   {
+    "w": "2.",
+    "start": 0.0,
+    "end": 0.44
+   },
+   {
+    "w": "The",
+    "start": 0.8,
+    "end": 0.88
+   },
+   {
+    "w": "Cost",
+    "start": 0.88,
+    "end": 1.22
+   }
+  ]
+ },
+ "c2": {
+  "clip": 3.694,
+  "heard": "Win back just three jobs. That's $2,400 a month.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Win",
+    "start": 0.0,
+    "end": 0.26
+   },
+   {
+    "w": "back",
+    "start": 0.26,
+    "end": 0.58
+   },
+   {
+    "w": "just",
+    "start": 0.58,
+    "end": 0.88
+   },
+   {
+    "w": "three",
+    "start": 0.88,
+    "end": 1.18
+   },
+   {
+    "w": "jobs.",
+    "start": 1.18,
+    "end": 1.66
+   },
+   {
+    "w": "That's",
+    "start": 2.04,
+    "end": 2.36
+   },
+   {
+    "w": "$2",
+    "start": 2.36,
+    "end": 2.56
+   },
+   {
+    "w": ",400",
+    "start": 2.56,
+    "end": 3.12
+   },
+   {
+    "w": "a",
+    "start": 3.12,
+    "end": 3.28
+   },
+   {
+    "w": "month.",
+    "start": 3.28,
+    "end": 3.5
+   }
+  ]
+ },
+ "c3": {
+  "clip": 2.89,
+  "heard": "The tool, 20 to 150 a month.",
+  "ok": true,
+  "words": [
+   {
+    "w": "The",
+    "start": 0.0,
+    "end": 0.18
+   },
+   {
+    "w": "tool,",
+    "start": 0.18,
+    "end": 0.5
+   },
+   {
+    "w": "20",
+    "start": 0.88,
+    "end": 1.12
+   },
+   {
+    "w": "to",
+    "start": 1.12,
+    "end": 1.34
+   },
+   {
+    "w": "150",
+    "start": 1.34,
+    "end": 2.1
+   },
+   {
+    "w": "a",
+    "start": 2.1,
+    "end": 2.4
+   },
+   {
+    "w": "month.",
+    "start": 2.4,
+    "end": 2.6
+   }
+  ]
+ },
+ "r3": {
+  "clip": 1.67,
+  "heard": "3. How it works",
+  "ok": true,
+  "words": [
+   {
+    "w": "3.",
+    "start": 0.0,
+    "end": 0.36
+   },
+   {
+    "w": "How",
+    "start": 0.78,
+    "end": 0.9
+   },
+   {
+    "w": "it",
+    "start": 0.9,
+    "end": 1.02
+   },
+   {
+    "w": "works",
+    "start": 1.02,
+    "end": 1.32
+   }
+  ]
+ },
+ "h1": {
+  "clip": 3.16,
+  "heard": "Missed call? A text goes out in 30 seconds.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Missed",
+    "start": 0.0,
+    "end": 0.8
+   },
+   {
+    "w": "call?",
+    "start": 0.8,
+    "end": 1.0
+   },
+   {
+    "w": "A",
+    "start": 1.42,
+    "end": 1.42
+   },
+   {
+    "w": "text",
+    "start": 1.42,
+    "end": 1.7
+   },
+   {
+    "w": "goes",
+    "start": 1.7,
+    "end": 1.9
+   },
+   {
+    "w": "out",
+    "start": 1.9,
+    "end": 2.1
+   },
+   {
+    "w": "in",
+    "start": 2.1,
+    "end": 2.28
+   },
+   {
+    "w": "30",
+    "start": 2.28,
+    "end": 2.48
+   },
+   {
+    "w": "seconds.",
+    "start": 2.48,
+    "end": 2.78
+   }
+  ]
+ },
+ "h2": {
+  "clip": 4.09,
+  "heard": "98% of texts get opened, most within 3 minutes.",
+  "ok": true,
+  "words": [
+   {
+    "w": "98",
+    "start": 0.0,
+    "end": 0.56
+   },
+   {
+    "w": "%",
+    "start": 0.56,
+    "end": 1.0
+   },
+   {
+    "w": "of",
+    "start": 1.0,
+    "end": 1.16
+   },
+   {
+    "w": "texts",
+    "start": 1.16,
+    "end": 1.56
+   },
+   {
+    "w": "get",
+    "start": 1.56,
+    "end": 1.78
+   },
+   {
+    "w": "opened,",
+    "start": 1.78,
+    "end": 2.26
+   },
+   {
+    "w": "most",
+    "start": 2.66,
+    "end": 2.88
+   },
+   {
+    "w": "within",
+    "start": 2.88,
+    "end": 3.18
+   },
+   {
+    "w": "3",
+    "start": 3.18,
+    "end": 3.5
+   },
+   {
+    "w": "minutes.",
+    "start": 3.5,
+    "end": 3.8
+   }
+  ]
+ },
+ "h3": {
+  "clip": 2.81,
+  "heard": "They reply, Urgent. You call back in ten.",
+  "ok": true,
+  "words": [
+   {
+    "w": "They",
+    "start": 0.0,
+    "end": 0.22
+   },
+   {
+    "w": "reply,",
+    "start": 0.22,
+    "end": 0.6
+   },
+   {
+    "w": "Urgent.",
+    "start": 0.98,
+    "end": 1.36
+   },
+   {
+    "w": "You",
+    "start": 1.72,
+    "end": 1.8
+   },
+   {
+    "w": "call",
+    "start": 1.8,
+    "end": 1.96
+   },
+   {
+    "w": "back",
+    "start": 1.96,
+    "end": 2.14
+   },
+   {
+    "w": "in",
+    "start": 2.14,
+    "end": 2.3
+   },
+   {
+    "w": "ten.",
+    "start": 2.3,
+    "end": 2.48
+   }
+  ]
+ },
+ "r4": {
+  "clip": 1.58,
+  "heard": "4. The rules",
+  "ok": true,
+  "words": [
+   {
+    "w": "4.",
+    "start": 0.0,
+    "end": 0.44
+   },
+   {
+    "w": "The",
+    "start": 0.82,
+    "end": 0.9
+   },
+   {
+    "w": "rules",
+    "start": 0.9,
+    "end": 1.22
+   }
+  ]
+ },
+ "l1": {
+  "clip": 3.73,
+  "heard": "In Canada, texts follow the anti-spam law.",
+  "ok": true,
+  "words": [
+   {
+    "w": "In",
+    "start": 0.0,
+    "end": 0.22
+   },
+   {
+    "w": "Canada,",
+    "start": 0.22,
+    "end": 0.68
+   },
+   {
+    "w": "texts",
+    "start": 1.06,
+    "end": 1.5
+   },
+   {
+    "w": "follow",
+    "start": 1.5,
+    "end": 1.92
+   },
+   {
+    "w": "the",
+    "start": 1.92,
+    "end": 2.18
+   },
+   {
+    "w": "anti",
+    "start": 2.18,
+    "end": 2.6
+   },
+   {
+    "w": "-spam",
+    "start": 2.6,
+    "end": 3.16
+   },
+   {
+    "w": "law.",
+    "start": 3.16,
+    "end": 3.44
+   }
+  ]
+ },
+ "l2": {
+  "clip": 3.03,
+  "heard": "Say who you are and add, reply stop.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Say",
+    "start": 0.0,
+    "end": 0.34
+   },
+   {
+    "w": "who",
+    "start": 0.34,
+    "end": 0.48
+   },
+   {
+    "w": "you",
+    "start": 0.48,
+    "end": 0.64
+   },
+   {
+    "w": "are",
+    "start": 0.64,
+    "end": 0.94
+   },
+   {
+    "w": "and",
+    "start": 0.94,
+    "end": 1.34
+   },
+   {
+    "w": "add,",
+    "start": 1.34,
+    "end": 1.66
+   },
+   {
+    "w": "reply",
+    "start": 2.02,
+    "end": 2.32
+   },
+   {
+    "w": "stop.",
+    "start": 2.32,
+    "end": 2.72
+   }
+  ]
+ },
+ "l3": {
+  "clip": 2.77,
+  "heard": "Sending promos later? Ask for a yes first.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Sending",
+    "start": 0.0,
+    "end": 0.42
+   },
+   {
+    "w": "promos",
+    "start": 0.42,
+    "end": 0.86
+   },
+   {
+    "w": "later?",
+    "start": 0.86,
+    "end": 1.1
+   },
+   {
+    "w": "Ask",
+    "start": 1.48,
+    "end": 1.66
+   },
+   {
+    "w": "for",
+    "start": 1.66,
+    "end": 1.86
+   },
+   {
+    "w": "a",
+    "start": 1.86,
+    "end": 1.94
+   },
+   {
+    "w": "yes",
+    "start": 1.94,
+    "end": 2.1
+   },
+   {
+    "w": "first.",
+    "start": 2.1,
+    "end": 2.42
+   }
+  ]
+ },
+ "recap": {
+  "clip": 2.94,
+  "heard": "Text FAST. Flag urgent. Say who you are.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Text",
+    "start": 0.0,
+    "end": 0.3
+   },
+   {
+    "w": "FAST.",
+    "start": 0.3,
+    "end": 0.78
+   },
+   {
+    "w": "Flag",
+    "start": 1.02,
+    "end": 1.3
+   },
+   {
+    "w": "urgent.",
+    "start": 1.3,
+    "end": 1.62
+   },
+   {
+    "w": "Say",
+    "start": 2.1,
+    "end": 2.2
+   },
+   {
+    "w": "who",
+    "start": 2.2,
+    "end": 2.34
+   },
+   {
+    "w": "you",
+    "start": 2.34,
+    "end": 2.48
+   },
+   {
+    "w": "are.",
+    "start": 2.48,
+    "end": 2.68
+   }
+  ]
+ },
+ "cta": {
+  "clip": 2.53,
+  "heard": "Want me texting your missed calls? Call me.",
+  "ok": true,
+  "words": [
+   {
+    "w": "Want",
+    "start": 0.0,
+    "end": 0.26
+   },
+   {
+    "w": "me",
+    "start": 0.26,
+    "end": 0.44
+   },
+   {
+    "w": "texting",
+    "start": 0.44,
+    "end": 0.76
+   },
+   {
+    "w": "your",
+    "start": 0.76,
+    "end": 0.98
+   },
+   {
+    "w": "missed",
+    "start": 0.98,
+    "end": 1.18
+   },
+   {
+    "w": "calls?",
+    "start": 1.18,
+    "end": 1.58
+   },
+   {
+    "w": "Call",
+    "start": 2.02,
+    "end": 2.08
+   },
+   {
+    "w": "me.",
+    "start": 2.08,
+    "end": 2.34
+   }
+  ]
+ }
+}

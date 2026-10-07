@@ -1,11 +1,16 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Img,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { Tap } from "../../components/Devices";
+import { Icon } from "../../components/Icons";
+import { LightSweep } from "../../components/Motion";
 import { ease } from "../../reel/kit";
 import { clamp, theme } from "../../theme";
 import { Sol, type Mood } from "../Sol";
@@ -564,5 +569,148 @@ export const SolOnStage: React.FC<{
         squash={squash + land}
       />
     </div>
+  );
+};
+
+// ---------------------------------------------------------------- call Sol
+// The episode's last beat: Sol's number, one line under it, and the guide
+// button. `at` is the CTA beat's showFrom.
+export const CallSolCta: React.FC<{ at: number; line: string }> = ({
+  at,
+  line,
+}) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const pill = spring({ frame: frame - at, fps, config: theme.spring.bouncy });
+  const btn = spring({
+    frame: frame - at - 16,
+    fps,
+    config: theme.spring.snappy,
+  });
+  const ring = ((frame - at) % 40) / 40;
+  if (frame < at) return null;
+  return (
+    <>
+      <div
+        style={{
+          position: "absolute",
+          left: 120,
+          width: 840,
+          top: 934,
+          height: 110,
+          borderRadius: 99,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 20,
+          background: theme.colors.surface2,
+          border: `5px solid ${INK}`,
+          outline: `3px solid ${theme.colors.gold2}`,
+          boxShadow: theme.shadow.goldGlow,
+          fontFamily: theme.fonts.display,
+          fontWeight: 900,
+          fontSize: 54,
+          color: theme.colors.text,
+          opacity: interpolate(pill, [0, 0.4], [0, 1], clamp),
+          scale: interpolate(pill, [0, 1], [0.8, 1]),
+        }}
+      >
+        <div style={{ position: "relative", width: 62, height: 62 }}>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              border: `3px solid ${theme.colors.gold2}`,
+              scale: 1 + ring * 0.8,
+              opacity: 1 - ring,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              background: theme.gradients.gold,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Icon name="handset" size={32} color={INK} stroke={2.4} />
+          </div>
+        </div>
+        Call Sol: +1 365 360 3545
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          left: 70,
+          right: 70,
+          top: 1064,
+          textAlign: "center",
+          fontFamily: theme.fonts.body,
+          fontWeight: 600,
+          fontSize: 32,
+          color: theme.colors.muted,
+          opacity: ease(frame, at + 10, at + 20),
+        }}
+      >
+        {line}
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          left: 170,
+          width: 740,
+          top: 1124,
+          height: 104,
+          borderRadius: 99,
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 14,
+          background: theme.gradients.gold,
+          border: `5px solid ${INK}`,
+          fontFamily: theme.fonts.display,
+          fontWeight: 900,
+          fontSize: 40,
+          color: INK,
+          opacity: interpolate(btn, [0, 0.4], [0, 1], clamp),
+          scale: interpolate(btn, [0, 1], [0.85, 1]),
+        }}
+      >
+        Read the full guide
+        <Icon name="arrow" size={38} color={INK} stroke={2.8} />
+        <LightSweep start={at + 30} duration={24} width={130} opacity={0.7} />
+        <Tap x={370} y={52} at={at + 50} size={100} />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: 1252,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 18,
+          opacity: ease(frame, at + 24, at + 34),
+        }}
+      >
+        <Img src={staticFile("brand/logo.png")} style={{ width: 170 }} />
+        <span
+          style={{
+            fontFamily: theme.fonts.body,
+            fontWeight: 700,
+            fontSize: 30,
+            color: theme.colors.text,
+          }}
+        >
+          Link in bio
+        </span>
+      </div>
+    </>
   );
 };

@@ -2,16 +2,13 @@ import React from "react";
 import { Audio } from "@remotion/media";
 import {
   AbsoluteFill,
-  Img,
   interpolate,
   spring,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { Tap } from "../../components/Devices";
 import { Icon, type IconName } from "../../components/Icons";
-import { LightSweep } from "../../components/Motion";
 import { SafeZones } from "../../components/SafeZones";
 import { Sfx, type SfxName } from "../../components/Sfx";
 import { Stage } from "../../components/Stage";
@@ -20,6 +17,7 @@ import { clamp, theme } from "../../theme";
 import {
   BeatScene,
   type Blocking,
+  CallSolCta,
   CREAM,
   Footnote,
   INK,
@@ -1221,140 +1219,6 @@ const RecapCard: React.FC<{
   );
 };
 
-// ---------------------------------------------------------------- CTA
-const Cta: React.FC = () => {
-  const frame = useCurrentFrame();
-  const at = B.cta.showFrom;
-  const pill = useSpring(at);
-  const btn = useSpring(at + 16, "snappy");
-  const ring = ((frame - at) % 40) / 40;
-  if (frame < at) return null;
-  return (
-    <>
-      <div
-        style={{
-          position: "absolute",
-          left: 120,
-          width: 840,
-          top: 934,
-          height: 110,
-          borderRadius: 99,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 20,
-          background: theme.colors.surface2,
-          border: `5px solid ${INK}`,
-          outline: `3px solid ${theme.colors.gold2}`,
-          boxShadow: theme.shadow.goldGlow,
-          fontFamily: theme.fonts.display,
-          fontWeight: 900,
-          fontSize: 54,
-          color: theme.colors.text,
-          opacity: interpolate(pill, [0, 0.4], [0, 1], clamp),
-          scale: interpolate(pill, [0, 1], [0.8, 1]),
-        }}
-      >
-        <div style={{ position: "relative", width: 62, height: 62 }}>
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              borderRadius: "50%",
-              border: `3px solid ${theme.colors.gold2}`,
-              scale: 1 + ring * 0.8,
-              opacity: 1 - ring,
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              borderRadius: "50%",
-              background: theme.gradients.gold,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Icon name="handset" size={32} color={INK} stroke={2.4} />
-          </div>
-        </div>
-        Call Sol: +1 365 360 3545
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          left: 70,
-          right: 70,
-          top: 1064,
-          textAlign: "center",
-          fontFamily: theme.fonts.body,
-          fontWeight: 600,
-          fontSize: 32,
-          color: theme.colors.muted,
-          opacity: ease(frame, at + 10, at + 20),
-        }}
-      >
-        Send us your quote. We’ll walk you through it.
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          left: 170,
-          width: 740,
-          top: 1124,
-          height: 104,
-          borderRadius: 99,
-          overflow: "hidden",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 14,
-          background: theme.gradients.gold,
-          border: `5px solid ${INK}`,
-          fontFamily: theme.fonts.display,
-          fontWeight: 900,
-          fontSize: 40,
-          color: INK,
-          opacity: interpolate(btn, [0, 0.4], [0, 1], clamp),
-          scale: interpolate(btn, [0, 1], [0.85, 1]),
-        }}
-      >
-        Read the full guide
-        <Icon name="arrow" size={38} color={INK} stroke={2.8} />
-        <LightSweep start={at + 30} duration={24} width={130} opacity={0.7} />
-        <Tap x={370} y={52} at={at + 50} size={100} />
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 1252,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 18,
-          opacity: ease(frame, at + 24, at + 34),
-        }}
-      >
-        <Img src={staticFile("brand/logo.png")} style={{ width: 170 }} />
-        <span
-          style={{
-            fontFamily: theme.fonts.body,
-            fontWeight: 700,
-            fontSize: 30,
-            color: theme.colors.text,
-          }}
-        >
-          Link in bio
-        </span>
-      </div>
-    </>
-  );
-};
-
 // ---------------------------------------------------------------- Sol's blocking
 const BLOCKING: Blocking = {
   hook: {
@@ -1527,7 +1391,10 @@ export const Dental: React.FC<{ readonly safeZones?: boolean }> = ({
             { beat: "cta", top: 590, size: 290 },
           ]}
         />
-        <Cta />
+        <CallSolCta
+          at={B.cta.showFrom}
+          line="Send us your quote. We’ll walk you through it."
+        />
         <RoundCard beat={B.r1} eyebrow="PART 1 OF 4" big="1" unit="REAL COST" />
         <RoundCard
           beat={B.r2}

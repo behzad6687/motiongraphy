@@ -1,0 +1,962 @@
+{
+ "id": "contractors",
+ "fps": 30,
+ "total": 2410,
+ "beats": [
+  {
+   "id": "hook",
+   "say": "You’re on a ladder. | The phone rings. | !Voicemail.!",
+   "speak": "You're on a ladder. The phone rings. Voicemail.",
+   "show": 34,
+   "hold": 10,
+   "kind": "say",
+   "from": 0,
+   "textEnd": 97,
+   "showFrom": 93,
+   "until": 141,
+   "phrases": [
+    {
+     "at": 1,
+     "words": [
+      {
+       "w": "You’re",
+       "at": 1
+      },
+      {
+       "w": "on",
+       "at": 9
+      },
+      {
+       "w": "a",
+       "at": 12
+      },
+      {
+       "w": "ladder.",
+       "at": 15
+      }
+     ]
+    },
+    {
+     "at": 36,
+     "words": [
+      {
+       "w": "The",
+       "at": 36
+      },
+      {
+       "w": "phone",
+       "at": 38
+      },
+      {
+       "w": "rings.",
+       "at": 45
+      }
+     ]
+    },
+    {
+     "at": 72,
+     "words": [
+      {
+       "w": "!Voicemail.!",
+       "at": 72
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 4,
+    "frames": 93,
+    "file": "audio/sol/contractors/hook.wav",
+    "trim": 0.3
+   }
+  },
+  {
+   "id": "intro",
+   "say": "Hi, I’m *Sol!* | *4* things to plug the leak.",
+   "speak": "Hi, I'm Sol! Four things to plug the leak.",
+   "show": 26,
+   "hold": 6,
+   "kind": "say",
+   "from": 145,
+   "textEnd": 255,
+   "showFrom": 251,
+   "until": 296,
+   "phrases": [
+    {
+     "at": 146,
+     "words": [
+      {
+       "w": "Hi,",
+       "at": 146
+      },
+      {
+       "w": "I’m",
+       "at": 168
+      },
+      {
+       "w": "*Sol!*",
+       "at": 174
+      }
+     ]
+    },
+    {
+     "at": 195,
+     "words": [
+      {
+       "w": "*4*",
+       "at": 195
+      },
+      {
+       "w": "things",
+       "at": 199
+      },
+      {
+       "w": "to",
+       "at": 207
+      },
+      {
+       "w": "plug",
+       "at": 217
+      },
+      {
+       "w": "the",
+       "at": 231
+      },
+      {
+       "w": "leak.",
+       "at": 237
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 149,
+    "frames": 106,
+    "file": "audio/sol/contractors/intro.wav",
+    "trim": 0.25
+   }
+  },
+  {
+   "id": "r1",
+   "round": "1",
+   "speak": "One: the leak.",
+   "hold": 30,
+   "kind": "round",
+   "from": 300,
+   "textEnd": 300,
+   "showFrom": 300,
+   "until": 362,
+   "phrases": [],
+   "voice": {
+    "at": 310,
+    "frames": 42,
+    "file": "audio/sol/contractors/r1.wav",
+    "trim": 0.31
+   }
+  },
+  {
+   "id": "m1",
+   "say": "Contractors miss *27%* of calls. | After hours? !Most! !of! !them.!",
+   "speak": "Contractors miss twenty-seven percent of calls. After hours? Most of them.",
+   "show": 30,
+   "hold": 8,
+   "kind": "say",
+   "from": 366,
+   "textEnd": 511,
+   "showFrom": 507,
+   "until": 549,
+   "phrases": [
+    {
+     "at": 367,
+     "words": [
+      {
+       "w": "Contractors",
+       "at": 367
+      },
+      {
+       "w": "miss",
+       "at": 389
+      },
+      {
+       "w": "*27%*",
+       "at": 396
+      },
+      {
+       "w": "of",
+       "at": 424
+      },
+      {
+       "w": "calls.",
+       "at": 429
+      }
+     ]
+    },
+    {
+     "at": 452,
+     "words": [
+      {
+       "w": "After",
+       "at": 452
+      },
+      {
+       "w": "hours?",
+       "at": 459
+      },
+      {
+       "w": "!Most!",
+       "at": 485
+      },
+      {
+       "w": "!of!",
+       "at": 490
+      },
+      {
+       "w": "!them.!",
+       "at": 495
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 370,
+    "frames": 141,
+    "file": "audio/sol/contractors/m1.wav",
+    "trim": 0.26
+   }
+  },
+  {
+   "id": "m2",
+   "say": "And fewer than *3%* | leave a voicemail.",
+   "speak": "And fewer than three percent leave a voicemail.",
+   "show": 34,
+   "hold": 10,
+   "kind": "say",
+   "from": 553,
+   "textEnd": 629,
+   "showFrom": 625,
+   "until": 686,
+   "phrases": [
+    {
+     "at": 554,
+     "words": [
+      {
+       "w": "And",
+       "at": 554
+      },
+      {
+       "w": "fewer",
+       "at": 562
+      },
+      {
+       "w": "than",
+       "at": 569
+      },
+      {
+       "w": "*3%*",
+       "at": 577
+      }
+     ]
+    },
+    {
+     "at": 596,
+     "words": [
+      {
+       "w": "leave",
+       "at": 596
+      },
+      {
+       "w": "a",
+       "at": 601
+      },
+      {
+       "w": "voicemail.",
+       "at": 606
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 557,
+    "frames": 72,
+    "file": "audio/sol/contractors/m2.wav",
+    "trim": 0.31
+   }
+  },
+  {
+   "id": "r2",
+   "round": "2",
+   "speak": "Two: the cost.",
+   "hold": 30,
+   "kind": "round",
+   "from": 690,
+   "textEnd": 690,
+   "showFrom": 690,
+   "until": 757,
+   "phrases": [],
+   "voice": {
+    "at": 700,
+    "frames": 47,
+    "file": "audio/sol/contractors/r2.wav",
+    "trim": 0.22
+   }
+  },
+  {
+   "id": "c2",
+   "say": "Win back just *3* jobs, | that’s *$2,400* a month.",
+   "speak": "Win back just three jobs, that's twenty-four hundred a month.",
+   "show": 34,
+   "hold": 8,
+   "kind": "say",
+   "from": 761,
+   "textEnd": 876,
+   "showFrom": 872,
+   "until": 918,
+   "phrases": [
+    {
+     "at": 762,
+     "words": [
+      {
+       "w": "Win",
+       "at": 762
+      },
+      {
+       "w": "back",
+       "at": 770
+      },
+      {
+       "w": "just",
+       "at": 779
+      },
+      {
+       "w": "*3*",
+       "at": 788
+      },
+      {
+       "w": "jobs,",
+       "at": 797
+      }
+     ]
+    },
+    {
+     "at": 823,
+     "words": [
+      {
+       "w": "that’s",
+       "at": 823
+      },
+      {
+       "w": "*$2,400*",
+       "at": 833
+      },
+      {
+       "w": "a",
+       "at": 856
+      },
+      {
+       "w": "month.",
+       "at": 860
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 765,
+    "frames": 111,
+    "file": "audio/sol/contractors/c2.wav",
+    "trim": 0.31
+   }
+  },
+  {
+   "id": "c3",
+   "say": "The tool? | *$20–$150* a month.",
+   "speak": "The tool? Twenty to a hundred and fifty a month.",
+   "show": 28,
+   "hold": 12,
+   "kind": "say",
+   "from": 922,
+   "textEnd": 1013,
+   "showFrom": 1009,
+   "until": 1061,
+   "phrases": [
+    {
+     "at": 923,
+     "words": [
+      {
+       "w": "The",
+       "at": 923
+      },
+      {
+       "w": "tool?",
+       "at": 928
+      }
+     ]
+    },
+    {
+     "at": 949,
+     "words": [
+      {
+       "w": "*$20–$150*",
+       "at": 949
+      },
+      {
+       "w": "a",
+       "at": 986
+      },
+      {
+       "w": "month.",
+       "at": 995
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 926,
+    "frames": 87,
+    "file": "audio/sol/contractors/c3.wav",
+    "trim": 0.34
+   }
+  },
+  {
+   "id": "r3",
+   "round": "3",
+   "speak": "Three: how it works.",
+   "hold": 30,
+   "kind": "round",
+   "from": 1065,
+   "textEnd": 1065,
+   "showFrom": 1065,
+   "until": 1136,
+   "phrases": [],
+   "voice": {
+    "at": 1075,
+    "frames": 51,
+    "file": "audio/sol/contractors/r3.wav",
+    "trim": 0.27
+   }
+  },
+  {
+   "id": "h1",
+   "say": "Missed call? | A text goes out in *30* seconds.",
+   "speak": "Missed call? A text goes out in thirty seconds.",
+   "show": 34,
+   "hold": 8,
+   "kind": "say",
+   "from": 1140,
+   "textEnd": 1239,
+   "showFrom": 1235,
+   "until": 1281,
+   "phrases": [
+    {
+     "at": 1141,
+     "words": [
+      {
+       "w": "Missed",
+       "at": 1141
+      },
+      {
+       "w": "call?",
+       "at": 1165
+      }
+     ]
+    },
+    {
+     "at": 1184,
+     "words": [
+      {
+       "w": "A",
+       "at": 1184
+      },
+      {
+       "w": "text",
+       "at": 1184
+      },
+      {
+       "w": "goes",
+       "at": 1192
+      },
+      {
+       "w": "out",
+       "at": 1198
+      },
+      {
+       "w": "in",
+       "at": 1204
+      },
+      {
+       "w": "*30*",
+       "at": 1209
+      },
+      {
+       "w": "seconds.",
+       "at": 1215
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1144,
+    "frames": 95,
+    "file": "audio/sol/contractors/h1.wav",
+    "trim": 0.0
+   }
+  },
+  {
+   "id": "h2",
+   "say": "*98%* of texts get opened. | Most within *3* minutes.",
+   "speak": "Ninety-eight percent of texts get opened. Most within three minutes.",
+   "show": 28,
+   "hold": 8,
+   "kind": "say",
+   "from": 1285,
+   "textEnd": 1412,
+   "showFrom": 1408,
+   "until": 1448,
+   "phrases": [
+    {
+     "at": 1286,
+     "words": [
+      {
+       "w": "*98%*",
+       "at": 1286
+      },
+      {
+       "w": "of",
+       "at": 1316
+      },
+      {
+       "w": "texts",
+       "at": 1321
+      },
+      {
+       "w": "get",
+       "at": 1333
+      },
+      {
+       "w": "opened.",
+       "at": 1339
+      }
+     ]
+    },
+    {
+     "at": 1366,
+     "words": [
+      {
+       "w": "Most",
+       "at": 1366
+      },
+      {
+       "w": "within",
+       "at": 1372
+      },
+      {
+       "w": "*3*",
+       "at": 1381
+      },
+      {
+       "w": "minutes.",
+       "at": 1391
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1289,
+    "frames": 123,
+    "file": "audio/sol/contractors/h2.wav",
+    "trim": 0.29
+   }
+  },
+  {
+   "id": "h3",
+   "say": "They reply *URGENT.* | You call back in *10.*",
+   "speak": "They reply urgent. You call back in ten.",
+   "show": 34,
+   "hold": 10,
+   "kind": "say",
+   "from": 1452,
+   "textEnd": 1541,
+   "showFrom": 1537,
+   "until": 1586,
+   "phrases": [
+    {
+     "at": 1453,
+     "words": [
+      {
+       "w": "They",
+       "at": 1453
+      },
+      {
+       "w": "reply",
+       "at": 1460
+      },
+      {
+       "w": "*URGENT.*",
+       "at": 1482
+      }
+     ]
+    },
+    {
+     "at": 1505,
+     "words": [
+      {
+       "w": "You",
+       "at": 1505
+      },
+      {
+       "w": "call",
+       "at": 1507
+      },
+      {
+       "w": "back",
+       "at": 1512
+      },
+      {
+       "w": "in",
+       "at": 1517
+      },
+      {
+       "w": "*10.*",
+       "at": 1522
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1456,
+    "frames": 85,
+    "file": "audio/sol/contractors/h3.wav",
+    "trim": 0.29
+   }
+  },
+  {
+   "id": "r4",
+   "round": "4",
+   "speak": "Four: the rules.",
+   "hold": 30,
+   "kind": "round",
+   "from": 1590,
+   "textEnd": 1590,
+   "showFrom": 1590,
+   "until": 1658,
+   "phrases": [],
+   "voice": {
+    "at": 1600,
+    "frames": 48,
+    "file": "audio/sol/contractors/r4.wav",
+    "trim": 0.25
+   }
+  },
+  {
+   "id": "l1",
+   "say": "In Canada, texts follow | the *anti-spam* *law.*",
+   "speak": "In Canada, texts follow the anti-spam law.",
+   "show": 24,
+   "hold": 6,
+   "kind": "say",
+   "from": 1662,
+   "textEnd": 1778,
+   "showFrom": 1774,
+   "until": 1808,
+   "phrases": [
+    {
+     "at": 1663,
+     "words": [
+      {
+       "w": "In",
+       "at": 1663
+      },
+      {
+       "w": "Canada,",
+       "at": 1670
+      },
+      {
+       "w": "texts",
+       "at": 1695
+      },
+      {
+       "w": "follow",
+       "at": 1708
+      }
+     ]
+    },
+    {
+     "at": 1721,
+     "words": [
+      {
+       "w": "the",
+       "at": 1721
+      },
+      {
+       "w": "*anti-spam*",
+       "at": 1728
+      },
+      {
+       "w": "*law.*",
+       "at": 1758
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1666,
+    "frames": 112,
+    "file": "audio/sol/contractors/l1.wav",
+    "trim": 0.31
+   }
+  },
+  {
+   "id": "l2",
+   "say": "Say who you are, | and add: *Reply* *STOP.*",
+   "speak": "Say who you are, and add: reply STOP.",
+   "show": 34,
+   "hold": 8,
+   "kind": "say",
+   "from": 1812,
+   "textEnd": 1907,
+   "showFrom": 1903,
+   "until": 1949,
+   "phrases": [
+    {
+     "at": 1813,
+     "words": [
+      {
+       "w": "Say",
+       "at": 1813
+      },
+      {
+       "w": "who",
+       "at": 1823
+      },
+      {
+       "w": "you",
+       "at": 1827
+      },
+      {
+       "w": "are,",
+       "at": 1832
+      }
+     ]
+    },
+    {
+     "at": 1841,
+     "words": [
+      {
+       "w": "and",
+       "at": 1841
+      },
+      {
+       "w": "add:",
+       "at": 1853
+      },
+      {
+       "w": "*Reply*",
+       "at": 1874
+      },
+      {
+       "w": "*STOP.*",
+       "at": 1883
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1816,
+    "frames": 91,
+    "file": "audio/sol/contractors/l2.wav",
+    "trim": 0.21
+   }
+  },
+  {
+   "id": "l3",
+   "say": "Sending promos later? | Ask for a *YES* first.",
+   "speak": "Sending promos later? Ask for a yes first.",
+   "show": 30,
+   "hold": 10,
+   "kind": "say",
+   "from": 1953,
+   "textEnd": 2041,
+   "showFrom": 2037,
+   "until": 2081,
+   "phrases": [
+    {
+     "at": 1954,
+     "words": [
+      {
+       "w": "Sending",
+       "at": 1954
+      },
+      {
+       "w": "promos",
+       "at": 1967
+      },
+      {
+       "w": "later?",
+       "at": 1980
+      }
+     ]
+    },
+    {
+     "at": 1998,
+     "words": [
+      {
+       "w": "Ask",
+       "at": 1998
+      },
+      {
+       "w": "for",
+       "at": 2004
+      },
+      {
+       "w": "a",
+       "at": 2010
+      },
+      {
+       "w": "*YES*",
+       "at": 2012
+      },
+      {
+       "w": "first.",
+       "at": 2017
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1957,
+    "frames": 84,
+    "file": "audio/sol/contractors/l3.wav",
+    "trim": 0.25
+   }
+  },
+  {
+   "id": "recap",
+   "say": "*Text* *fast.* *Flag* *urgent.* | *Say* *who* *you* *are.*",
+   "speak": "Text fast. Flag urgent. Say who you are.",
+   "show": 26,
+   "hold": 16,
+   "kind": "say",
+   "from": 2085,
+   "textEnd": 2178,
+   "showFrom": 2174,
+   "until": 2220,
+   "phrases": [
+    {
+     "at": 2086,
+     "words": [
+      {
+       "w": "*Text*",
+       "at": 2086
+      },
+      {
+       "w": "*fast.*",
+       "at": 2095
+      },
+      {
+       "w": "*Flag*",
+       "at": 2117
+      },
+      {
+       "w": "*urgent.*",
+       "at": 2125
+      }
+     ]
+    },
+    {
+     "at": 2149,
+     "words": [
+      {
+       "w": "*Say*",
+       "at": 2149
+      },
+      {
+       "w": "*who*",
+       "at": 2152
+      },
+      {
+       "w": "*you*",
+       "at": 2156
+      },
+      {
+       "w": "*are.*",
+       "at": 2160
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2089,
+    "frames": 89,
+    "file": "audio/sol/contractors/recap.wav",
+    "trim": 0.3
+   }
+  },
+  {
+   "id": "cta",
+   "say": "Want me texting | your missed calls? | *Call* *me!*",
+   "speak": "Want me texting your missed calls? Call me!",
+   "show": 60,
+   "hold": 30,
+   "kind": "say",
+   "from": 2224,
+   "textEnd": 2304,
+   "showFrom": 2300,
+   "until": 2394,
+   "phrases": [
+    {
+     "at": 2225,
+     "words": [
+      {
+       "w": "Want",
+       "at": 2225
+      },
+      {
+       "w": "me",
+       "at": 2233
+      },
+      {
+       "w": "texting",
+       "at": 2238
+      }
+     ]
+    },
+    {
+     "at": 2248,
+     "words": [
+      {
+       "w": "your",
+       "at": 2248
+      },
+      {
+       "w": "missed",
+       "at": 2254
+      },
+      {
+       "w": "calls?",
+       "at": 2260
+      }
+     ]
+    },
+    {
+     "at": 2286,
+     "words": [
+      {
+       "w": "*Call*",
+       "at": 2286
+      },
+      {
+       "w": "*me!*",
+       "at": 2287
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2228,
+    "frames": 76,
+    "file": "audio/sol/contractors/cta.wav",
+    "trim": 0.16
+   }
+  }
+ ],
+ "warnings": []
+}

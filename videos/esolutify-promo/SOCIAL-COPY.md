@@ -596,6 +596,55 @@ All figures come from the blog. The receipt in the hook ($300 + $300 + $650 + $1
 
 ---
 
+## 14. Sol explains: missed call text back for contractors (80s)
+
+Built from the blog post "Missed Call Text Back for Contractors: Stop Losing Jobs". The video is `renders/sol/sol-contractors-text-back-9x16.mp4`; its cover is `renders/sol/sol-contractors-text-back-9x16-cover.jpg` (the missed call on the ladder).
+
+**Instagram Reel caption:**
+
+```
+You're on a ladder. The phone rings. Voicemail. 📵
+
+Sol's 4 things to plug the leak:
+
+1️⃣ The leak: contractors miss about 27% of calls, and most after-hours calls. Fewer than 3% of callers leave a voicemail; the rest call the next name on Google.
+2️⃣ The cost: 50 calls a month, 25% missed. Win back just 3 of those jobs at $800 and that's $2,400 a month, from a $20–$150/mo tool.
+3️⃣ How it works: missed call → an automatic text in about 30 seconds. 98% of texts get opened, most within 3 minutes. They reply URGENT, you call back in 10.
+4️⃣ The rules (Canada): every text says who you are and includes "Reply STOP". Promos later? Get a YES first (CASL).
+
+Plumbers, HVAC, roofers: save this 📌 Full guide with ready-to-use scripts: link in bio 🔗
+
+#contractor #plumber #hvac #roofing #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- You're on a Ladder. The Phone Rings. Voicemail. 📵 #Shorts
+- Fewer Than 3% of Callers Leave a Voicemail (Contractors, Read This) #Shorts
+- Missed Call Text Back: The $20 Fix for Lost Contractor Jobs #Shorts
+
+**Shorts description:**
+
+```
+Missed call text back automatically texts anyone whose call you couldn't answer, usually within 10–30 seconds. Here's why it matters for plumbers, HVAC techs and roofers.
+
+• The leak: about 27% of contractor calls go unanswered, and after hours pickup drops below 18%. Fewer than 3% of missed callers leave a voicemail.
+• The cost: 50 calls a month, 25% missed, 1 in 4 won back at an $800 average job ≈ $2,400 a month. The tools cost $20–$150 a month.
+• How it works: the text goes out in seconds; texts have 98%+ open rates and most are read within 3 minutes. Give callers a way to flag an emergency (reply URGENT) and call back within 10–15 minutes.
+• The rules in Canada (CASL): identify your business, include "Reply STOP to opt out", and get express consent (a YES) before any marketing texts.
+
+📖 Full guide with plumbing, HVAC and roofing scripts: https://esolutify.com/missed-call-text-back-for-contractors/
+📞 Call Sol, our AI agent: +1 365 360 3545
+
+#Contractors #Plumbing #HVAC
+```
+
+**Pinned comment:** "Contractors: what happens to your calls when you're on a job? Be honest 👇"
+
+All figures come from the blog's cited sources. The 82% after-hours figure in the video is the flip side of the blog's "pickup rates drop below 18%". "Northside Plumbing", the phone number and the chats are illustrative.
+
+---
+
 ## Posting order
 
 1. YouTube main promo first, so the Shorts can link to it as the related video.
