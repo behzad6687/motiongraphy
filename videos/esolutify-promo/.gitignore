@@ -10,3 +10,6 @@ out
 public/sites/*/mobile.jpg
 public/sites/*/desktop.jpg
 public/sites/*/preview.jpg
+
+# python bytecode from running the scripts/ helpers
+__pycache__
