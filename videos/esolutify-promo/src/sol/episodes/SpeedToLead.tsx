@@ -33,6 +33,7 @@ import {
   Tracker,
   byId,
 } from "./kit";
+import MOUTH from "./speed-to-lead.mouth.json";
 import TIMELINE from "./speed-to-lead.timeline.json";
 
 // Sol explains: Speed to lead (blog: esolutify.com/speed-to-lead-small-business-2026).
@@ -64,7 +65,7 @@ const Hook: React.FC = () => {
   const b = B.hook;
   // real time for the first seconds, then it races to 0:00 when the line lands
   const race = ease(frame, b.showFrom, b.showFrom + 24, theme.ease.inOut);
-  const left = Math.max(0, (300 - frame / 30) * (1 - race));
+  const left = race > 0.95 ? 0 : Math.max(0, (300 - frame / 30) * (1 - race));
   const cold = race;
   const mm = Math.floor(left / 60);
   const ss = Math.floor(left % 60);
@@ -897,7 +898,7 @@ const Cta: React.FC = () => {
           opacity: ease(frame, at + 10, at + 20),
         }}
       >
-        He answers eSolutify’s own line in seconds. 24/7.
+        Sol answers eSolutify’s own line in seconds. 24/7.
       </div>
       <div
         style={{
@@ -1116,6 +1117,7 @@ export const SpeedToLead: React.FC<{ readonly safeZones?: boolean }> = ({
         <SolOnStage
           tl={TL}
           blocking={BLOCKING}
+          mouth={MOUTH as number[]}
           keys={[
             { beat: "hook", top: 1120, size: 330 },
             { beat: "recap", top: 1120, size: 330 },
@@ -1130,11 +1132,8 @@ export const SpeedToLead: React.FC<{ readonly safeZones?: boolean }> = ({
         <PhraseBubble tl={TL} />
       </Shake>
     </Stage>
-    <Audio src={staticFile("audio/sol-speed-to-lead-music.wav")} volume={0.6} />
-    <Audio
-      src={staticFile("audio/sol-speed-to-lead-voice.wav")}
-      volume={0.42}
-    />
+    <Audio src={staticFile("audio/sol-speed-to-lead-music.wav")} volume={0.5} />
+    <Audio src={staticFile("audio/sol-speed-to-lead-voice.wav")} volume={0.9} />
     {CUES.map(([name, at, volume, rate], i) => (
       <Sfx
         key={`${name}-${at}-${i}`}

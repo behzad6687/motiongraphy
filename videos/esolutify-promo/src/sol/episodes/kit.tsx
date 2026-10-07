@@ -37,6 +37,7 @@ export type Beat = {
   phrases: Phrase[];
   say?: string;
   round?: string;
+  voice?: { at: number; frames: number; file: string; trim: number } | null;
 };
 export type Timeline = {
   id: string;
@@ -478,7 +479,8 @@ export const SolOnStage: React.FC<{
   tl: Timeline;
   blocking: Blocking;
   keys: StageKey[];
-}> = ({ tl, blocking, keys }) => {
+  mouth?: number[]; // per-frame lip-sync from the voice (sol_timeline.py)
+}> = ({ tl, blocking, keys, mouth }) => {
   const frame = useCurrentFrame();
   const B = byId(tl);
   const b = beatAt(tl, frame);
@@ -535,6 +537,9 @@ export const SolOnStage: React.FC<{
         mood={pose.mood}
         talking={
           isTalking(tl, frame) && pose.mood !== "laugh" && pose.mood !== "pout"
+        }
+        mouthOpen={
+          mouth && pose.mood !== "laugh" ? (mouth[frame] ?? 0) : undefined
         }
         arms={arms}
         look={pose.look ?? [0, 0]}

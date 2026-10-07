@@ -94,7 +94,7 @@ def shaker():
 
 
 # ---------------------------------------------------------------- music
-def music(total=None, tick=(420, 686), stops=((684, 698),), ducks=None, out="sol-music-42.wav"):
+def music(total=None, tick=(420, 686), stops=((684, 698),), ducks=None, out="sol-music-42.wav", duck_level=0.3):
     """The show's theme. Defaults reproduce episode 1 (the receptionist showdown)."""
     TOTAL = total if total is not None else globals()["TOTAL"]  # noqa: N806
     if ducks is None:
@@ -155,7 +155,7 @@ def music(total=None, tick=(420, 686), stops=((684, 698),), ducks=None, out="sol
     for a, b in stops:
         seg(a, b, 0.0)
     for d, v in ducks:
-        seg(d, v, 0.3)
+        seg(d, v, duck_level, 0.12 if duck_level > 0.3 else 0.03)
     mix *= gain
     mix = hp(mix, 35)
     mix = np.tanh(mix * 1.2) / np.tanh(1.2)
@@ -328,10 +328,36 @@ def voice_timeline(tl, out_name):
     write_wav(OUT / out_name, reverb(out, 0.12), -4.0)
 
 
+def voice_recorded(tl, voices, out_name):
+    """Sol's recorded lines placed on their beats, loudness-matched, gently
+    compressed so every line sits at the same level over the music."""
+    from scipy.signal import resample_poly
+
+    out = np.zeros(int(tl["total"] / FPS * SR))
+    for b in tl["beats"]:
+        v = voices.get(b["id"])
+        if not v:
+            continue
+        a = v["samples"][v["start"] : v["end"]]
+        if v["sr"] != SR:
+            a = resample_poly(a, SR, v["sr"])
+        rms = np.sqrt(np.mean(a**2)) or 1
+        a = a / rms * 0.12  # same loudness for every line
+        fade = int(0.01 * SR)
+        a[:fade] *= np.linspace(0, 1, fade)
+        a[-fade:] *= np.linspace(1, 0, fade)
+        i0 = int(sec(b["voice"]["at"]) * SR)
+        m = min(len(a), len(out) - i0)
+        out[i0 : i0 + m] += a[:m]
+    out = hp(out, 80)
+    out = np.tanh(out * 2.2) / np.tanh(2.2)  # soft compression
+    write_wav(OUT / out_name, out, -1.5)
+
+
 def episode(ep_id):
     import sol_timeline
 
-    tl, _ = sol_timeline.build(ep_id)
+    tl, _, voices = sol_timeline.build(ep_id)
     for w in tl["warnings"]:
         print("WARNING", w)
     beats = {b["id"]: b for b in tl["beats"]}
@@ -339,8 +365,14 @@ def episode(ep_id):
     tick = music_cfg.get("tick")
     tick = (beats[tick[0]]["from"], beats[tick[1]]["until"]) if tick else None
     stops = [(beats[b]["from"] - 4, beats[b]["from"] + 8) for b in music_cfg.get("stopBefore", [])]
-    music(total=tl["total"] / FPS, tick=tick, stops=stops, ducks=[], out=f"sol-{ep_id}-music.wav")
-    voice_timeline(tl, f"sol-{ep_id}-voice.wav")
+    voiced = [b for b in tl["beats"] if b.get("voice")]
+    # music sits under Sol's voice (ducked while speaking), full between lines
+    ducks = [(b["voice"]["at"] - 2, b["voice"]["at"] + b["voice"]["frames"] + 2) for b in voiced]
+    music(total=tl["total"] / FPS, tick=tick, stops=stops, ducks=ducks, duck_level=0.5, out=f"sol-{ep_id}-music.wav")
+    if voiced:
+        voice_recorded(tl, voices, f"sol-{ep_id}-voice.wav")
+    else:
+        voice_timeline(tl, f"sol-{ep_id}-voice.wav")
     print(f"wrote sol-{ep_id}-music.wav, sol-{ep_id}-voice.wav ({tl['total'] / FPS:.1f} s)")
 
 

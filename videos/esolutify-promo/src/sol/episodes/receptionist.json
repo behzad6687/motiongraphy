@@ -1,0 +1,134 @@
+{
+  "_": "Sol explains: AI receptionist vs virtual receptionist vs answering service (re-cut of episode 1 with the pacing rules and Sol's voice). say = on screen (' | ' phrases, *gold*, !red!), speak = what Sol says (numbers spelled for the voice).",
+  "id": "receptionist",
+  "tail": 12,
+  "music": {
+    "tick": ["r2", "m4"],
+    "stopBefore": ["m5"]
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "say": "Your *$65* phone plan | can turn into !$400.!",
+      "speak": "Your sixty-five dollar phone plan can turn into four hundred.",
+      "show": 30,
+      "hold": 12
+    },
+    {
+      "id": "intro",
+      "say": "Hi, I’m *Sol!* | Full disclosure: I’m an AI. | I’ll be fair.",
+      "speak": "Hi, I'm Sol! Full disclosure: I'm an AI. I'll be fair.",
+      "show": 10,
+      "hold": 8
+    },
+    {
+      "id": "r1",
+      "round": "1",
+      "speak": "Round one!",
+      "hold": 30
+    },
+    {
+      "id": "c1",
+      "say": "*Answering* *service:* | a shared call centre.",
+      "speak": "Answering service: a shared call centre.",
+      "show": 22,
+      "hold": 8
+    },
+    {
+      "id": "c2",
+      "say": "*Virtual* *receptionist:* | a real person, remote.",
+      "speak": "Virtual receptionist: a real person, remote.",
+      "show": 22,
+      "hold": 8
+    },
+    {
+      "id": "c3",
+      "say": "*AI* *receptionist:* | software. | Ahem, that’s me.",
+      "speak": "AI receptionist: software. Ahem, that's me.",
+      "show": 20,
+      "hold": 10
+    },
+    {
+      "id": "r2",
+      "round": "2",
+      "speak": "Round two: the math!",
+      "hold": 30
+    },
+    {
+      "id": "m1",
+      "say": "*42* calls × 3 min | = *126* *minutes.*",
+      "speak": "Forty-two calls, times three minutes: a hundred and twenty-six minutes.",
+      "show": 24,
+      "hold": 10
+    },
+    {
+      "id": "m2",
+      "say": "A 50-minute plan | is gone by !week! !two.! | Then: per minute.",
+      "speak": "A fifty-minute plan is gone by week two. Then you pay per minute.",
+      "show": 36,
+      "hold": 10
+    },
+    {
+      "id": "m4",
+      "say": "100 calls? | Per-minute balloons past !$400.! | Flat stays *flat.*",
+      "speak": "At a hundred calls, per-minute plans balloon past four hundred. Flat stays flat.",
+      "show": 30,
+      "hold": 10
+    },
+    {
+      "id": "m5",
+      "say": "*Minutes,* *not* *months.*",
+      "speak": "Minutes, not months!",
+      "show": 20,
+      "hold": 20
+    },
+    {
+      "id": "r3",
+      "round": "3",
+      "speak": "Round three: who wins?",
+      "hold": 30
+    },
+    {
+      "id": "w1",
+      "say": "*Dental* *clinic,* | 150+ calls a month?",
+      "speak": "A dental clinic, with a hundred and fifty calls a month?",
+      "show": 30,
+      "hold": 10
+    },
+    {
+      "id": "w2",
+      "say": "*Law* *firm,* sensitive calls? | Fine. A human wins this one.",
+      "speak": "A law firm, with sensitive calls? Fine. A human wins this one.",
+      "show": 30,
+      "hold": 10
+    },
+    {
+      "id": "w3",
+      "say": "*Contractor* up on a roof? | Answer or text back.",
+      "speak": "A contractor, up on a roof? Answer, or text back.",
+      "show": 30,
+      "hold": 10
+    },
+    {
+      "id": "both",
+      "say": "Honest answer? Often *both:* | AI for routine, humans for hard calls.",
+      "speak": "Honest answer? Often both: AI for routine calls, humans for the hard ones.",
+      "show": 36,
+      "hold": 18
+    },
+    {
+      "id": "cta",
+      "say": "Want to hear me? | *Call* *me!*",
+      "speak": "Want to hear me answer? Call me!",
+      "show": 60,
+      "hold": 36
+    }
+  ],
+  "voice": {
+    "provider": "Higgsfield seed_audio",
+    "voice": "Luna",
+    "voice_id": "375a3398-e3b4-4f91-845d-42181e352899",
+    "speech_rate": 25,
+    "format": "wav 44.1 kHz"
+  }
+}

@@ -19,6 +19,7 @@ export type SolProps = {
   size: number; // rendered width in px
   mood?: Mood;
   talking?: boolean; // flap the mouth
+  mouthOpen?: number; // 0..1 from the voice's loudness (lip-sync); overrides the flap
   look?: [number, number]; // pupils, -1..1
   arms?: [number, number]; // degrees from straight down; + raises outward
   spike?: number; // 0..1 rays shoot out (shock)
@@ -74,6 +75,7 @@ export const Sol: React.FC<SolProps> = ({
   size,
   mood = "happy",
   talking = false,
+  mouthOpen,
   look = [0, 0],
   arms = [55, 55],
   spike = 0,
@@ -88,9 +90,13 @@ export const Sol: React.FC<SolProps> = ({
   const blink =
     mood === "laugh" ? 1 : bt >= 90 && bt < 93 ? 0.12 : bt >= 93 ? 0.5 : 1;
   // mouth: syllable-like flaps while talking
-  const flap = talking
-    ? 0.25 + 0.75 * Math.abs(Math.sin(frame * 0.85) * Math.cos(frame * 0.31))
-    : 0;
+  const flap =
+    mouthOpen !== undefined
+      ? mouthOpen
+      : talking
+        ? 0.25 +
+          0.75 * Math.abs(Math.sin(frame * 0.85) * Math.cos(frame * 0.31))
+        : 0;
   const spin = frame * 0.6;
   const shock = mood === "shock" ? 1 : 0;
   const rayLen = 30 + 24 * spike + (mood === "pout" ? -8 : 0);
@@ -219,7 +225,8 @@ export const Sol: React.FC<SolProps> = ({
       />
     );
   } else {
-    const open = mood === "laugh" ? 1 : talking ? flap : 0;
+    const open =
+      mood === "laugh" ? 1 : talking || mouthOpen !== undefined ? flap : 0;
     if (open < 0.08) {
       mouth = (
         <path

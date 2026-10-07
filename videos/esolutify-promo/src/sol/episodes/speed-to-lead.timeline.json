@@ -1,58 +1,59 @@
 {
  "id": "speed-to-lead",
  "fps": 30,
- "total": 1771,
+ "total": 1988,
  "beats": [
   {
    "id": "hook",
    "say": "You have *5* *minutes* | before a new lead | goes !cold.!",
-   "show": 30,
-   "hold": 18,
+   "show": 26,
+   "hold": 12,
+   "speak": "You have five minutes, before a new lead goes cold.",
    "kind": "say",
    "from": 0,
-   "textEnd": 86,
-   "showFrom": 82,
-   "until": 134,
+   "textEnd": 92,
+   "showFrom": 88,
+   "until": 130,
    "phrases": [
     {
-     "at": 0,
+     "at": 1,
      "words": [
       {
        "w": "You",
-       "at": 0
+       "at": 1
       },
       {
        "w": "have",
-       "at": 8
+       "at": 10
       },
       {
        "w": "*5*",
-       "at": 16
+       "at": 20
       },
       {
        "w": "*minutes*",
-       "at": 24
+       "at": 29
       }
      ]
     },
     {
-     "at": 34,
+     "at": 39,
      "words": [
       {
        "w": "before",
-       "at": 34
+       "at": 39
       },
       {
        "w": "a",
-       "at": 42
+       "at": 46
       },
       {
        "w": "new",
-       "at": 50
+       "at": 54
       },
       {
        "w": "lead",
-       "at": 58
+       "at": 61
       }
      ]
     },
@@ -65,33 +66,40 @@
       },
       {
        "w": "!cold.!",
-       "at": 76
+       "at": 78
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 4,
+    "frames": 88,
+    "file": "audio/sol/speed-to-lead/hook.wav",
+    "trim": 0.3727
+   }
   },
   {
    "id": "intro",
    "say": "Hi, I’m *Sol!* | 3 numbers decide | who gets the customer.",
-   "show": 16,
-   "hold": 18,
+   "show": 14,
+   "hold": 10,
+   "speak": "Hi, I'm Sol! Three numbers decide who gets the customer.",
    "kind": "say",
-   "from": 138,
-   "textEnd": 224,
-   "showFrom": 220,
-   "until": 266,
+   "from": 134,
+   "textEnd": 244,
+   "showFrom": 240,
+   "until": 281,
    "phrases": [
     {
-     "at": 138,
+     "at": 135,
      "words": [
       {
        "w": "Hi,",
-       "at": 138
+       "at": 135
       },
       {
        "w": "I’m",
-       "at": 146
+       "at": 145
       },
       {
        "w": "*Sol!*",
@@ -108,98 +116,87 @@
       },
       {
        "w": "numbers",
-       "at": 172
+       "at": 175
       },
       {
        "w": "decide",
-       "at": 180
+       "at": 186
       }
      ]
     },
     {
-     "at": 190,
+     "at": 196,
      "words": [
       {
        "w": "who",
-       "at": 190
+       "at": 196
       },
       {
        "w": "gets",
-       "at": 198
+       "at": 207
       },
       {
        "w": "the",
-       "at": 206
+       "at": 218
       },
       {
        "w": "customer.",
-       "at": 214
+       "at": 230
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 138,
+    "frames": 106,
+    "file": "audio/sol/speed-to-lead/intro.wav",
+    "trim": 0.3168
+   }
   },
   {
    "id": "r1",
    "round": "1",
-   "hold": 36,
+   "hold": 30,
+   "speak": "Number one: five minutes.",
    "kind": "round",
-   "from": 270,
-   "textEnd": 270,
-   "showFrom": 270,
-   "until": 306,
-   "phrases": []
+   "from": 285,
+   "textEnd": 285,
+   "showFrom": 285,
+   "until": 346,
+   "phrases": [],
+   "voice": {
+    "at": 289,
+    "frames": 47,
+    "file": "audio/sol/speed-to-lead/r1.wav",
+    "trim": 0.3487
+   }
   },
   {
    "id": "n1",
    "say": "Reply that fast | and you’re *100×* more likely | to reach them.",
-   "show": 45,
-   "hold": 24,
+   "show": 36,
+   "hold": 16,
+   "speak": "Reply that fast, and you're up to a hundred times more likely to reach them.",
    "kind": "say",
-   "from": 310,
-   "textEnd": 404,
-   "showFrom": 400,
-   "until": 476,
+   "from": 350,
+   "textEnd": 458,
+   "showFrom": 454,
+   "until": 521,
    "phrases": [
     {
-     "at": 310,
+     "at": 351,
      "words": [
       {
        "w": "Reply",
-       "at": 310
+       "at": 351
       },
       {
        "w": "that",
-       "at": 318
-      },
-      {
-       "w": "fast",
-       "at": 326
-      }
-     ]
-    },
-    {
-     "at": 336,
-     "words": [
-      {
-       "w": "and",
-       "at": 336
-      },
-      {
-       "w": "you’re",
-       "at": 344
-      },
-      {
-       "w": "*100×*",
-       "at": 352
-      },
-      {
-       "w": "more",
        "at": 360
       },
       {
-       "w": "likely",
-       "at": 368
+       "w": "fast",
+       "at": 369
       }
      ]
     },
@@ -207,500 +204,615 @@
      "at": 378,
      "words": [
       {
-       "w": "to",
+       "w": "and",
        "at": 378
       },
       {
+       "w": "you’re",
+       "at": 388
+      },
+      {
+       "w": "*100×*",
+       "at": 399
+      },
+      {
+       "w": "more",
+       "at": 409
+      },
+      {
+       "w": "likely",
+       "at": 420
+      }
+     ]
+    },
+    {
+     "at": 430,
+     "words": [
+      {
+       "w": "to",
+       "at": 430
+      },
+      {
        "w": "reach",
-       "at": 386
+       "at": 438
       },
       {
        "w": "them.",
-       "at": 394
+       "at": 447
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 354,
+    "frames": 104,
+    "file": "audio/sol/speed-to-lead/n1.wav",
+    "trim": 0.237
+   }
   },
   {
    "id": "r2",
    "round": "2",
-   "hold": 36,
+   "hold": 30,
+   "speak": "Number two: twenty-nine hours.",
    "kind": "round",
-   "from": 480,
-   "textEnd": 480,
-   "showFrom": 480,
-   "until": 516,
-   "phrases": []
+   "from": 525,
+   "textEnd": 525,
+   "showFrom": 525,
+   "until": 598,
+   "phrases": [],
+   "voice": {
+    "at": 529,
+    "frames": 59,
+    "file": "audio/sol/speed-to-lead/r2.wav",
+    "trim": 0.3712
+   }
   },
   {
    "id": "n2a",
    "say": "That’s the average | reply time.",
-   "show": 30,
-   "hold": 14,
+   "show": 20,
+   "hold": 10,
+   "speak": "That's the average reply time.",
    "kind": "say",
-   "from": 520,
-   "textEnd": 564,
-   "showFrom": 560,
-   "until": 608,
+   "from": 602,
+   "textEnd": 655,
+   "showFrom": 651,
+   "until": 685,
    "phrases": [
     {
-     "at": 520,
+     "at": 603,
      "words": [
       {
        "w": "That’s",
-       "at": 520
+       "at": 603
       },
       {
        "w": "the",
-       "at": 528
+       "at": 613
       },
       {
        "w": "average",
-       "at": 536
+       "at": 623
       }
      ]
     },
     {
-     "at": 546,
+     "at": 633,
      "words": [
       {
        "w": "reply",
-       "at": 546
+       "at": 633
       },
       {
        "w": "time.",
-       "at": 554
+       "at": 642
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 606,
+    "frames": 49,
+    "file": "audio/sol/speed-to-lead/n2a.wav",
+    "trim": 0.352
+   }
   },
   {
    "id": "n2b",
    "say": "And 63% | !never! !reply! !at! !all.!",
-   "show": 45,
-   "hold": 24,
+   "show": 36,
+   "hold": 14,
+   "speak": "And sixty-three percent never reply at all.",
    "kind": "say",
-   "from": 612,
-   "textEnd": 664,
-   "showFrom": 660,
-   "until": 746,
+   "from": 689,
+   "textEnd": 790,
+   "showFrom": 786,
+   "until": 851,
    "phrases": [
     {
-     "at": 612,
+     "at": 690,
      "words": [
       {
        "w": "And",
-       "at": 612
+       "at": 690
       },
       {
        "w": "63%",
-       "at": 620
+       "at": 700
       }
      ]
     },
     {
-     "at": 630,
+     "at": 710,
      "words": [
       {
        "w": "!never!",
-       "at": 630
+       "at": 710
       },
       {
        "w": "!reply!",
-       "at": 638
+       "at": 729
       },
       {
        "w": "!at!",
-       "at": 646
+       "at": 749
       },
       {
        "w": "!all.!",
-       "at": 654
+       "at": 768
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 693,
+    "frames": 97,
+    "file": "audio/sol/speed-to-lead/n2b.wav",
+    "trim": 0.3476
+   }
   },
   {
    "id": "r3",
    "round": "3",
-   "hold": 36,
+   "hold": 30,
+   "speak": "Number three: seventy-eight percent,",
    "kind": "round",
-   "from": 750,
-   "textEnd": 750,
-   "showFrom": 750,
-   "until": 786,
-   "phrases": []
+   "from": 855,
+   "textEnd": 855,
+   "showFrom": 855,
+   "until": 931,
+   "phrases": [],
+   "voice": {
+    "at": 859,
+    "frames": 62,
+    "file": "audio/sol/speed-to-lead/r3.wav",
+    "trim": 0.3245
+   }
   },
   {
    "id": "n3a",
    "say": "of legal clients | hire the first firm | that answers.",
-   "show": 45,
-   "hold": 24,
+   "show": 36,
+   "hold": 14,
+   "speak": "of legal clients hire the first firm that answers.",
    "kind": "say",
-   "from": 790,
-   "textEnd": 868,
-   "showFrom": 864,
-   "until": 937,
+   "from": 935,
+   "textEnd": 1031,
+   "showFrom": 1027,
+   "until": 1081,
    "phrases": [
     {
-     "at": 790,
+     "at": 936,
      "words": [
       {
        "w": "of",
-       "at": 790
+       "at": 936
       },
       {
        "w": "legal",
-       "at": 798
+       "at": 946
       },
       {
        "w": "clients",
-       "at": 806
+       "at": 956
       }
      ]
     },
     {
-     "at": 816,
+     "at": 967,
      "words": [
       {
        "w": "hire",
-       "at": 816
+       "at": 967
       },
       {
        "w": "the",
-       "at": 824
+       "at": 976
       },
       {
        "w": "first",
-       "at": 832
+       "at": 985
       },
       {
        "w": "firm",
-       "at": 840
+       "at": 994
       }
      ]
     },
     {
-     "at": 850,
+     "at": 1003,
      "words": [
       {
        "w": "that",
-       "at": 850
+       "at": 1003
       },
       {
        "w": "answers.",
-       "at": 858
+       "at": 1015
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 939,
+    "frames": 92,
+    "file": "audio/sol/speed-to-lead/n3a.wav",
+    "trim": 0.14
+   }
   },
   {
    "id": "n3b",
    "say": "*First* *to* *answer* *wins.*",
-   "show": 24,
-   "hold": 30,
+   "show": 20,
+   "hold": 20,
+   "speak": "First to answer wins!",
    "kind": "say",
-   "from": 941,
-   "textEnd": 975,
-   "showFrom": 971,
-   "until": 1031,
+   "from": 1085,
+   "textEnd": 1139,
+   "showFrom": 1135,
+   "until": 1181,
    "phrases": [
     {
-     "at": 941,
+     "at": 1086,
      "words": [
       {
        "w": "*First*",
-       "at": 941
+       "at": 1086
       },
       {
        "w": "*to*",
-       "at": 949
+       "at": 1098
       },
       {
        "w": "*answer*",
-       "at": 957
+       "at": 1111
       },
       {
        "w": "*wins.*",
-       "at": 965
+       "at": 1124
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 1089,
+    "frames": 50,
+    "file": "audio/sol/speed-to-lead/n3b.wav",
+    "trim": 0.277
+   }
   },
   {
    "id": "r4",
    "round": "fix",
-   "hold": 32,
+   "hold": 30,
+   "speak": "The fix!",
    "kind": "round",
-   "from": 1035,
-   "textEnd": 1035,
-   "showFrom": 1035,
-   "until": 1067,
-   "phrases": []
+   "from": 1185,
+   "textEnd": 1185,
+   "showFrom": 1185,
+   "until": 1225,
+   "phrases": [],
+   "voice": {
+    "at": 1189,
+    "frames": 26,
+    "file": "audio/sol/speed-to-lead/r4.wav",
+    "trim": 0.3523
+   }
   },
   {
    "id": "fix1",
    "say": "Missed a call? | Text back in seconds.",
-   "show": 40,
-   "hold": 20,
+   "show": 32,
+   "hold": 12,
+   "speak": "Missed a call? Text back in seconds.",
    "kind": "say",
-   "from": 1071,
-   "textEnd": 1131,
-   "showFrom": 1127,
-   "until": 1191,
+   "from": 1229,
+   "textEnd": 1310,
+   "showFrom": 1306,
+   "until": 1354,
    "phrases": [
     {
-     "at": 1071,
+     "at": 1230,
      "words": [
       {
        "w": "Missed",
-       "at": 1071
+       "at": 1230
       },
       {
        "w": "a",
-       "at": 1079
+       "at": 1240
       },
       {
        "w": "call?",
-       "at": 1087
+       "at": 1251
       }
      ]
     },
     {
-     "at": 1097,
+     "at": 1261,
      "words": [
       {
        "w": "Text",
-       "at": 1097
+       "at": 1261
       },
       {
        "w": "back",
-       "at": 1105
+       "at": 1273
       },
       {
        "w": "in",
-       "at": 1113
+       "at": 1284
       },
       {
        "w": "seconds.",
-       "at": 1121
+       "at": 1296
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 1233,
+    "frames": 77,
+    "file": "audio/sol/speed-to-lead/fix1.wav",
+    "trim": 0.3491
+   }
   },
   {
    "id": "fix2",
    "say": "Website or DM? | AI chat that books.",
-   "show": 40,
-   "hold": 20,
+   "show": 32,
+   "hold": 12,
+   "speak": "Website or DM? AI chat that books.",
    "kind": "say",
-   "from": 1195,
-   "textEnd": 1255,
-   "showFrom": 1251,
-   "until": 1315,
+   "from": 1358,
+   "textEnd": 1462,
+   "showFrom": 1458,
+   "until": 1506,
    "phrases": [
     {
-     "at": 1195,
+     "at": 1359,
      "words": [
       {
        "w": "Website",
-       "at": 1195
+       "at": 1359
       },
       {
        "w": "or",
-       "at": 1203
+       "at": 1373
       },
       {
        "w": "DM?",
-       "at": 1211
+       "at": 1387
       }
      ]
     },
     {
-     "at": 1221,
+     "at": 1401,
      "words": [
       {
        "w": "AI",
-       "at": 1221
+       "at": 1401
       },
       {
        "w": "chat",
-       "at": 1229
+       "at": 1415
       },
       {
        "w": "that",
-       "at": 1237
+       "at": 1430
       },
       {
        "w": "books.",
-       "at": 1245
+       "at": 1444
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 1362,
+    "frames": 100,
+    "file": "audio/sol/speed-to-lead/fix2.wav",
+    "trim": 0.3529
+   }
   },
   {
    "id": "fix3",
    "say": "Write it down: | every lead, *5* *minutes.*",
-   "show": 40,
-   "hold": 24,
+   "show": 32,
+   "hold": 14,
+   "speak": "Write it down: every lead, five minutes.",
    "kind": "say",
-   "from": 1319,
-   "textEnd": 1379,
-   "showFrom": 1375,
-   "until": 1443,
+   "from": 1510,
+   "textEnd": 1588,
+   "showFrom": 1584,
+   "until": 1634,
    "phrases": [
     {
-     "at": 1319,
+     "at": 1511,
      "words": [
       {
        "w": "Write",
-       "at": 1319
+       "at": 1511
       },
       {
        "w": "it",
-       "at": 1327
+       "at": 1520
       },
       {
        "w": "down:",
-       "at": 1335
+       "at": 1528
       }
      ]
     },
     {
-     "at": 1345,
+     "at": 1537,
      "words": [
       {
        "w": "every",
-       "at": 1345
+       "at": 1537
       },
       {
        "w": "lead,",
-       "at": 1353
+       "at": 1549
       },
       {
        "w": "*5*",
-       "at": 1361
+       "at": 1561
       },
       {
        "w": "*minutes.*",
-       "at": 1369
+       "at": 1573
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 1514,
+    "frames": 74,
+    "file": "audio/sol/speed-to-lead/fix3.wav",
+    "trim": 0.3623
+   }
   },
   {
    "id": "recap",
    "say": "Remember these 3. | *Screenshot* *this!*",
    "show": 40,
-   "hold": 36,
+   "hold": 30,
+   "speak": "Remember these three. Screenshot this!",
    "kind": "say",
-   "from": 1447,
-   "textEnd": 1491,
-   "showFrom": 1487,
-   "until": 1567,
+   "from": 1638,
+   "textEnd": 1709,
+   "showFrom": 1705,
+   "until": 1779,
    "phrases": [
     {
-     "at": 1447,
+     "at": 1639,
      "words": [
       {
        "w": "Remember",
-       "at": 1447
+       "at": 1639
       },
       {
        "w": "these",
-       "at": 1455
+       "at": 1649
       },
       {
        "w": "3.",
-       "at": 1463
+       "at": 1660
       }
      ]
     },
     {
-     "at": 1473,
+     "at": 1670,
      "words": [
       {
        "w": "*Screenshot*",
-       "at": 1473
+       "at": 1670
       },
       {
        "w": "*this!*",
-       "at": 1481
+       "at": 1688
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 1642,
+    "frames": 67,
+    "file": "audio/sol/speed-to-lead/recap.wav",
+    "trim": 0.5469
+   }
   },
   {
    "id": "cta",
    "say": "Me? I reply in seconds. | Want me on your line?",
    "show": 60,
-   "hold": 40,
+   "hold": 36,
+   "speak": "Me? I reply in seconds. Want me on your line?",
    "kind": "say",
-   "from": 1571,
-   "textEnd": 1655,
-   "showFrom": 1651,
-   "until": 1755,
+   "from": 1783,
+   "textEnd": 1876,
+   "showFrom": 1872,
+   "until": 1972,
    "phrases": [
     {
-     "at": 1571,
+     "at": 1784,
      "words": [
       {
        "w": "Me?",
-       "at": 1571
+       "at": 1784
       },
       {
        "w": "I",
-       "at": 1579
+       "at": 1793
       },
       {
        "w": "reply",
-       "at": 1587
+       "at": 1803
       },
       {
        "w": "in",
-       "at": 1595
+       "at": 1812
       },
       {
        "w": "seconds.",
-       "at": 1603
+       "at": 1821
       }
      ]
     },
     {
-     "at": 1613,
+     "at": 1831,
      "words": [
       {
        "w": "Want",
-       "at": 1613
+       "at": 1831
       },
       {
        "w": "me",
-       "at": 1621
+       "at": 1839
       },
       {
        "w": "on",
-       "at": 1629
+       "at": 1848
       },
       {
        "w": "your",
-       "at": 1637
+       "at": 1856
       },
       {
        "w": "line?",
-       "at": 1645
+       "at": 1865
       }
      ]
     }
-   ]
+   ],
+   "voice": {
+    "at": 1787,
+    "frames": 89,
+    "file": "audio/sol/speed-to-lead/cta.wav",
+    "trim": 0.3731
+   }
   }
  ],
  "warnings": []

@@ -13,6 +13,10 @@ import { SocialReel } from "./social/SocialReel";
 import { SolSheet } from "./sol/SolSheet";
 import { SolExplainer } from "./sol/SolExplainer";
 import {
+  RECEPTIONIST_DURATION,
+  Receptionist,
+} from "./sol/episodes/Receptionist";
+import {
   SPEED_TO_LEAD_DURATION,
   SpeedToLead,
 } from "./sol/episodes/SpeedToLead";
@@ -230,6 +234,23 @@ export const RemotionRoot: React.FC = () => {
           id="SolReceptionistShowdown-SZ"
           component={SolExplainer}
           durationInFrames={1260}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+        <Composition
+          id="SolReceptionistShowdownV2"
+          component={Receptionist}
+          durationInFrames={RECEPTIONIST_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="SolReceptionistShowdownV2-SZ"
+          component={Receptionist}
+          durationInFrames={RECEPTIONIST_DURATION}
           fps={30}
           width={1080}
           height={1920}

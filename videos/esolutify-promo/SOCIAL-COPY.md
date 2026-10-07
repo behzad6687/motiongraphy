@@ -11,8 +11,9 @@
 | AI Chatbots & Lead Automation (24s, 9:16) | `renders/bot/ai-chatbots-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Paid Advertising Management (24s, 9:16) | `renders/ads/paid-ads-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
 | Social Media Management (24s, 9:16) | `renders/social/social-media-9x16-24s.mp4` | Instagram Reel + YouTube Shorts |
-| Sol explains: AI vs virtual receptionist vs answering service (42s, 9:16) | `renders/sol/sol-receptionist-showdown-9x16-42s.mp4` | Instagram Reel + YouTube Shorts + TikTok |
-| Sol explains: speed to lead (59s, 9:16) | `renders/sol/sol-speed-to-lead-9x16-59s.mp4` | Instagram Reel + YouTube Shorts + TikTok |
+| Sol explains: AI vs virtual receptionist vs answering service, v2 with voice (77s, 9:16) | `renders/sol/sol-receptionist-showdown-v2-9x16.mp4` | Instagram Reel + YouTube Shorts + TikTok |
+| (v1, babble, 42s: superseded) | `renders/sol/sol-receptionist-showdown-9x16-42s.mp4` | |
+| Sol explains: speed to lead, with voice (66s, 9:16) | `renders/sol/sol-speed-to-lead-9x16.mp4` | Instagram Reel + YouTube Shorts + TikTok |
 
 Every claim below comes from esolutify.com.
 
@@ -439,14 +440,14 @@ The growth figures are the page's averages across managed accounts. The profile,
 
 ## 11. Sol explains: AI receptionist vs virtual receptionist vs answering service (42s)
 
-Built from the blog post of the same name. The cover is `renders/sol/sol-showdown-cover.jpg` (Sol in shock, "$400/mo").
+Built from the blog post of the same name. Use v2 (`sol-receptionist-showdown-v2-9x16.mp4`, voiced, re-paced); its cover is `renders/sol/sol-receptionist-showdown-v2-9x16-cover.jpg`.
 
 **Instagram Reel caption:**
 
 ```
 Your $65 phone plan can turn into $400. 😳
 
-Sol (our AI, and yes, he's biased, but he promised to be fair) breaks down who should answer your business phone:
+Sol (our AI, so yes, a little biased, but promised to be fair) breaks down who should answer your business phone:
 
 📞 Answering service: $100–$700/mo, mostly per-minute
 🎧 Virtual receptionist: $200–$1,000+/mo, base + overage
@@ -493,9 +494,9 @@ Note: the blog says a 50-minute plan "burns through its allowance in the first w
 
 ---
 
-## 12. Sol explains: speed to lead (59s)
+## 12. Sol explains: speed to lead (66s)
 
-Built from the blog post "Speed to Lead Small Business: 2026 Response Guide". The cover is `renders/sol/sol-speed-to-lead-cover.jpg` (the 5-minute countdown).
+Built from the blog post "Speed to Lead Small Business: 2026 Response Guide". The cover is `renders/sol/sol-speed-to-lead-9x16-cover.jpg` (the 5-minute countdown).
 
 **Instagram Reel caption:**
 
