@@ -1,0 +1,152 @@
+{
+  "_": "Sol explains: how to get recommended by ChatGPT (blog: esolutify.com/how-to-get-recommended-by-chatgpt). say = on screen (' | ' phrases, *gold*, !red!), speak = what Sol says, word for word the same (numbers spelled for the voice). scripts/sol_timeline.py sets the frames; scripts/sol_qa.py checks every recorded line.",
+  "id": "chatgpt",
+  "tail": 12,
+  "music": {
+    "tick": [
+      "c2",
+      "c2"
+    ],
+    "stopBefore": [
+      "b3"
+    ]
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "say": "Your customers are asking | *ChatGPT* who to hire. | Are !you! in the answer?",
+      "speak": "Your customers are asking ChatGPT who to hire. Are you in the answer?",
+      "show": 34,
+      "hold": 10
+    },
+    {
+      "id": "intro",
+      "say": "Hi, I’m *Sol!* I’m an AI, | so here’s how we pick.",
+      "speak": "Hi, I'm Sol! I'm an AI, so here's how we pick.",
+      "show": 26,
+      "hold": 6
+    },
+    {
+      "id": "r1",
+      "round": "1",
+      "speak": "One: why it's hard.",
+      "hold": 30
+    },
+    {
+      "id": "a1",
+      "say": "*45%* of customers | now ask AI who to hire.",
+      "speak": "Forty-five percent of customers now ask AI who to hire.",
+      "show": 30,
+      "hold": 8
+    },
+    {
+      "id": "a2",
+      "say": "Google’s top 3 shows *36%.* | ChatGPT? !1.2%!",
+      "speak": "Google's top three shows thirty-six percent. ChatGPT? One point two percent.",
+      "show": 34,
+      "hold": 10
+    },
+    {
+      "id": "r2",
+      "round": "2",
+      "speak": "Two: where we look.",
+      "hold": 30
+    },
+    {
+      "id": "b1",
+      "say": "ChatGPT doesn’t search Google. | It uses *Bing.*",
+      "speak": "ChatGPT doesn't search Google. It uses Bing.",
+      "show": 26,
+      "hold": 8
+    },
+    {
+      "id": "b2",
+      "say": "And *Yelp* shows up | in *96%* of local answers.",
+      "speak": "And Yelp shows up in ninety-six percent of local answers.",
+      "show": 28,
+      "hold": 8
+    },
+    {
+      "id": "b3",
+      "say": "If your details don’t match, | we !leave! !you! !out.!",
+      "speak": "If your details don't match, we leave you out.",
+      "show": 34,
+      "hold": 10
+    },
+    {
+      "id": "r3",
+      "round": "3",
+      "speak": "Three: the checklist.",
+      "hold": 30
+    },
+    {
+      "id": "c1",
+      "say": "Same *name,* *address* and *phone,* | everywhere. Down to the suite.",
+      "speak": "Same name, address and phone, everywhere. Down to the suite.",
+      "show": 30,
+      "hold": 6
+    },
+    {
+      "id": "c2",
+      "say": "Claim *Bing* *Places.* | It’s free, and takes *15* minutes.",
+      "speak": "Claim Bing Places. It's free, and takes fifteen minutes.",
+      "show": 26,
+      "hold": 6
+    },
+    {
+      "id": "c3",
+      "say": "*20+* reviews, | some from the last *90* days.",
+      "speak": "Twenty plus reviews, some from the last ninety days.",
+      "show": 26,
+      "hold": 6
+    },
+    {
+      "id": "c4",
+      "say": "And say plainly | *what* you do, and *where.*",
+      "speak": "And say plainly what you do, and where.",
+      "show": 34,
+      "hold": 10
+    },
+    {
+      "id": "r4",
+      "round": "4",
+      "speak": "Four: the test.",
+      "hold": 30
+    },
+    {
+      "id": "t1",
+      "say": "Once a month, ask AI: | Best *dentist* in *your* *town?*",
+      "speak": "Once a month, ask AI: best dentist in your town?",
+      "show": 30,
+      "hold": 6
+    },
+    {
+      "id": "t2",
+      "say": "Missing? Fix the list. | Results in *4–8* weeks.",
+      "speak": "Missing? Fix the list. Results in four to eight weeks.",
+      "show": 34,
+      "hold": 10
+    },
+    {
+      "id": "recap",
+      "say": "*Match* *your* *details.* *Claim* *Bing.* | *Get* *reviews.* *Test* *monthly.*",
+      "speak": "Match your details. Claim Bing. Get reviews. Test monthly.",
+      "show": 26,
+      "hold": 16
+    },
+    {
+      "id": "cta",
+      "say": "Want a second set of eyes | on your listings? | *Call* *me!*",
+      "speak": "Want a second set of eyes on your listings? Call me!",
+      "show": 60,
+      "hold": 30
+    }
+  ],
+  "voice": {
+    "provider": "Higgsfield seed_audio",
+    "voice": "Luna",
+    "voice_id": "375a3398-e3b4-4f91-845d-42181e352899",
+    "speech_rate": 25,
+    "format": "wav 44.1 kHz"
+  }
+}

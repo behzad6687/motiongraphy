@@ -85,6 +85,8 @@ def norm(text):
     """Words to compare: lower case, numbers spelled out, no punctuation."""
     t = text.lower().replace("’", "'").replace("—", " ").replace("–", " ")
     t = re.sub(r"(\d),(\d{3})", r"\1\2", t)
+    t = re.sub(r"(\d+)\.(\d+)", lambda m: m.group(1) + " point " + " ".join(m.group(2)), t)  # 1.2
+    t = re.sub(r"\bchat ?gpt\b", "chatgpt", t)
     t = re.sub(r"\$(\d+)k\b", lambda m: m.group(1) + " thousand dollars", t)
     t = re.sub(r"\$(\d+)", lambda m: m.group(1) + " dollars", t)
     t = re.sub(r"(\d+)%", lambda m: m.group(1) + " percent", t)

@@ -1,0 +1,1094 @@
+{
+ "id": "chatgpt",
+ "fps": 30,
+ "total": 2777,
+ "beats": [
+  {
+   "id": "hook",
+   "say": "Your customers are asking | *ChatGPT* who to hire. | Are !you! in the answer?",
+   "speak": "Your customers are asking ChatGPT who to hire. Are you in the answer?",
+   "show": 34,
+   "hold": 10,
+   "kind": "say",
+   "from": 0,
+   "textEnd": 127,
+   "showFrom": 123,
+   "until": 171,
+   "phrases": [
+    {
+     "at": 1,
+     "words": [
+      {
+       "w": "Your",
+       "at": 1
+      },
+      {
+       "w": "customers",
+       "at": 8
+      },
+      {
+       "w": "are",
+       "at": 21
+      },
+      {
+       "w": "asking",
+       "at": 28
+      }
+     ]
+    },
+    {
+     "at": 37,
+     "words": [
+      {
+       "w": "*ChatGPT*",
+       "at": 37
+      },
+      {
+       "w": "who",
+       "at": 62
+      },
+      {
+       "w": "to",
+       "at": 69
+      },
+      {
+       "w": "hire.",
+       "at": 74
+      }
+     ]
+    },
+    {
+     "at": 93,
+     "words": [
+      {
+       "w": "Are",
+       "at": 93
+      },
+      {
+       "w": "!you!",
+       "at": 95
+      },
+      {
+       "w": "in",
+       "at": 99
+      },
+      {
+       "w": "the",
+       "at": 102
+      },
+      {
+       "w": "answer?",
+       "at": 105
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 4,
+    "frames": 123,
+    "file": "audio/sol/chatgpt/hook.wav",
+    "trim": 0.11
+   }
+  },
+  {
+   "id": "intro",
+   "say": "Hi, I’m *Sol!* I’m an AI, | so here’s how we pick.",
+   "speak": "Hi, I'm Sol! I'm an AI, so here's how we pick.",
+   "show": 26,
+   "hold": 6,
+   "kind": "say",
+   "from": 175,
+   "textEnd": 307,
+   "showFrom": 303,
+   "until": 341,
+   "phrases": [
+    {
+     "at": 176,
+     "words": [
+      {
+       "w": "Hi,",
+       "at": 176
+      },
+      {
+       "w": "I’m",
+       "at": 201
+      },
+      {
+       "w": "*Sol!*",
+       "at": 207
+      },
+      {
+       "w": "I’m",
+       "at": 227
+      },
+      {
+       "w": "an",
+       "at": 231
+      },
+      {
+       "w": "AI,",
+       "at": 233
+      }
+     ]
+    },
+    {
+     "at": 262,
+     "words": [
+      {
+       "w": "so",
+       "at": 262
+      },
+      {
+       "w": "here’s",
+       "at": 266
+      },
+      {
+       "w": "how",
+       "at": 282
+      },
+      {
+       "w": "we",
+       "at": 286
+      },
+      {
+       "w": "pick.",
+       "at": 289
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 179,
+    "frames": 128,
+    "file": "audio/sol/chatgpt/intro.wav",
+    "trim": 0.27
+   }
+  },
+  {
+   "id": "r1",
+   "round": "1",
+   "speak": "One: why it's hard.",
+   "hold": 30,
+   "kind": "round",
+   "from": 345,
+   "textEnd": 345,
+   "showFrom": 345,
+   "until": 418,
+   "phrases": [],
+   "voice": {
+    "at": 355,
+    "frames": 53,
+    "file": "audio/sol/chatgpt/r1.wav",
+    "trim": 0.32
+   }
+  },
+  {
+   "id": "a1",
+   "say": "*45%* of customers | now ask AI who to hire.",
+   "speak": "Forty-five percent of customers now ask AI who to hire.",
+   "show": 30,
+   "hold": 8,
+   "kind": "say",
+   "from": 422,
+   "textEnd": 550,
+   "showFrom": 546,
+   "until": 588,
+   "phrases": [
+    {
+     "at": 423,
+     "words": [
+      {
+       "w": "*45%*",
+       "at": 423
+      },
+      {
+       "w": "of",
+       "at": 454
+      },
+      {
+       "w": "customers",
+       "at": 461
+      }
+     ]
+    },
+    {
+     "at": 474,
+     "words": [
+      {
+       "w": "now",
+       "at": 474
+      },
+      {
+       "w": "ask",
+       "at": 485
+      },
+      {
+       "w": "AI",
+       "at": 498
+      },
+      {
+       "w": "who",
+       "at": 510
+      },
+      {
+       "w": "to",
+       "at": 518
+      },
+      {
+       "w": "hire.",
+       "at": 523
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 426,
+    "frames": 124,
+    "file": "audio/sol/chatgpt/a1.wav",
+    "trim": 0.23
+   }
+  },
+  {
+   "id": "a2",
+   "say": "Google’s top 3 shows *36%.* | ChatGPT? !1.2%!",
+   "speak": "Google's top three shows thirty-six percent. ChatGPT? One point two percent.",
+   "show": 34,
+   "hold": 10,
+   "kind": "say",
+   "from": 592,
+   "textEnd": 735,
+   "showFrom": 731,
+   "until": 791,
+   "phrases": [
+    {
+     "at": 593,
+     "words": [
+      {
+       "w": "Google’s",
+       "at": 593
+      },
+      {
+       "w": "top",
+       "at": 609
+      },
+      {
+       "w": "3",
+       "at": 612
+      },
+      {
+       "w": "shows",
+       "at": 620
+      },
+      {
+       "w": "*36%.*",
+       "at": 630
+      }
+     ]
+    },
+    {
+     "at": 635,
+     "words": [
+      {
+       "w": "ChatGPT?",
+       "at": 635
+      },
+      {
+       "w": "!1.2%!",
+       "at": 690
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 596,
+    "frames": 139,
+    "file": "audio/sol/chatgpt/a2.wav",
+    "trim": 0.26
+   }
+  },
+  {
+   "id": "r2",
+   "round": "2",
+   "speak": "Two: where we look.",
+   "hold": 30,
+   "kind": "round",
+   "from": 795,
+   "textEnd": 795,
+   "showFrom": 795,
+   "until": 865,
+   "phrases": [],
+   "voice": {
+    "at": 805,
+    "frames": 50,
+    "file": "audio/sol/chatgpt/r2.wav",
+    "trim": 0.24
+   }
+  },
+  {
+   "id": "b1",
+   "say": "ChatGPT doesn’t search Google. | It uses *Bing.*",
+   "speak": "ChatGPT doesn't search Google. It uses Bing.",
+   "show": 26,
+   "hold": 8,
+   "kind": "say",
+   "from": 869,
+   "textEnd": 965,
+   "showFrom": 961,
+   "until": 999,
+   "phrases": [
+    {
+     "at": 870,
+     "words": [
+      {
+       "w": "ChatGPT",
+       "at": 870
+      },
+      {
+       "w": "doesn’t",
+       "at": 895
+      },
+      {
+       "w": "search",
+       "at": 909
+      },
+      {
+       "w": "Google.",
+       "at": 914
+      }
+     ]
+    },
+    {
+     "at": 935,
+     "words": [
+      {
+       "w": "It",
+       "at": 935
+      },
+      {
+       "w": "uses",
+       "at": 938
+      },
+      {
+       "w": "*Bing.*",
+       "at": 946
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 873,
+    "frames": 92,
+    "file": "audio/sol/chatgpt/b1.wav",
+    "trim": 0.24
+   }
+  },
+  {
+   "id": "b2",
+   "say": "And *Yelp* shows up | in *96%* of local answers.",
+   "speak": "And Yelp shows up in ninety-six percent of local answers.",
+   "show": 28,
+   "hold": 8,
+   "kind": "say",
+   "from": 1003,
+   "textEnd": 1117,
+   "showFrom": 1113,
+   "until": 1153,
+   "phrases": [
+    {
+     "at": 1004,
+     "words": [
+      {
+       "w": "And",
+       "at": 1004
+      },
+      {
+       "w": "*Yelp*",
+       "at": 1012
+      },
+      {
+       "w": "shows",
+       "at": 1020
+      },
+      {
+       "w": "up",
+       "at": 1029
+      }
+     ]
+    },
+    {
+     "at": 1036,
+     "words": [
+      {
+       "w": "in",
+       "at": 1036
+      },
+      {
+       "w": "*96%*",
+       "at": 1045
+      },
+      {
+       "w": "of",
+       "at": 1077
+      },
+      {
+       "w": "local",
+       "at": 1083
+      },
+      {
+       "w": "answers.",
+       "at": 1090
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1007,
+    "frames": 110,
+    "file": "audio/sol/chatgpt/b2.wav",
+    "trim": 0.27
+   }
+  },
+  {
+   "id": "b3",
+   "say": "If your details don’t match, | we !leave! !you! !out.!",
+   "speak": "If your details don't match, we leave you out.",
+   "show": 34,
+   "hold": 10,
+   "kind": "say",
+   "from": 1157,
+   "textEnd": 1237,
+   "showFrom": 1233,
+   "until": 1286,
+   "phrases": [
+    {
+     "at": 1158,
+     "words": [
+      {
+       "w": "If",
+       "at": 1158
+      },
+      {
+       "w": "your",
+       "at": 1165
+      },
+      {
+       "w": "details",
+       "at": 1169
+      },
+      {
+       "w": "don’t",
+       "at": 1178
+      },
+      {
+       "w": "match,",
+       "at": 1187
+      }
+     ]
+    },
+    {
+     "at": 1208,
+     "words": [
+      {
+       "w": "we",
+       "at": 1208
+      },
+      {
+       "w": "!leave!",
+       "at": 1213
+      },
+      {
+       "w": "!you!",
+       "at": 1216
+      },
+      {
+       "w": "!out.!",
+       "at": 1220
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1161,
+    "frames": 76,
+    "file": "audio/sol/chatgpt/b3.wav",
+    "trim": 0.11
+   }
+  },
+  {
+   "id": "r3",
+   "round": "3",
+   "speak": "Three: the checklist.",
+   "hold": 30,
+   "kind": "round",
+   "from": 1290,
+   "textEnd": 1290,
+   "showFrom": 1290,
+   "until": 1357,
+   "phrases": [],
+   "voice": {
+    "at": 1300,
+    "frames": 47,
+    "file": "audio/sol/chatgpt/r3.wav",
+    "trim": 0.3
+   }
+  },
+  {
+   "id": "c1",
+   "say": "Same *name,* *address* and *phone,* | everywhere. Down to the suite.",
+   "speak": "Same name, address and phone, everywhere. Down to the suite.",
+   "show": 30,
+   "hold": 6,
+   "kind": "say",
+   "from": 1361,
+   "textEnd": 1540,
+   "showFrom": 1536,
+   "until": 1576,
+   "phrases": [
+    {
+     "at": 1362,
+     "words": [
+      {
+       "w": "Same",
+       "at": 1362
+      },
+      {
+       "w": "*name,*",
+       "at": 1373
+      },
+      {
+       "w": "*address*",
+       "at": 1404
+      },
+      {
+       "w": "and",
+       "at": 1436
+      },
+      {
+       "w": "*phone,*",
+       "at": 1440
+      }
+     ]
+    },
+    {
+     "at": 1465,
+     "words": [
+      {
+       "w": "everywhere.",
+       "at": 1465
+      },
+      {
+       "w": "Down",
+       "at": 1489
+      },
+      {
+       "w": "to",
+       "at": 1510
+      },
+      {
+       "w": "the",
+       "at": 1516
+      },
+      {
+       "w": "suite.",
+       "at": 1520
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1365,
+    "frames": 175,
+    "file": "audio/sol/chatgpt/c1.wav",
+    "trim": 0.24
+   }
+  },
+  {
+   "id": "c2",
+   "say": "Claim *Bing* *Places.* | It’s free, and takes *15* minutes.",
+   "speak": "Claim Bing Places. It's free, and takes fifteen minutes.",
+   "show": 26,
+   "hold": 6,
+   "kind": "say",
+   "from": 1580,
+   "textEnd": 1705,
+   "showFrom": 1701,
+   "until": 1737,
+   "phrases": [
+    {
+     "at": 1581,
+     "words": [
+      {
+       "w": "Claim",
+       "at": 1581
+      },
+      {
+       "w": "*Bing*",
+       "at": 1592
+      },
+      {
+       "w": "*Places.*",
+       "at": 1600
+      }
+     ]
+    },
+    {
+     "at": 1629,
+     "words": [
+      {
+       "w": "It’s",
+       "at": 1629
+      },
+      {
+       "w": "free,",
+       "at": 1634
+      },
+      {
+       "w": "and",
+       "at": 1640
+      },
+      {
+       "w": "takes",
+       "at": 1662
+      },
+      {
+       "w": "*15*",
+       "at": 1669
+      },
+      {
+       "w": "minutes.",
+       "at": 1681
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1584,
+    "frames": 121,
+    "file": "audio/sol/chatgpt/c2.wav",
+    "trim": 0.22
+   }
+  },
+  {
+   "id": "c3",
+   "say": "*20+* reviews, | some from the last *90* days.",
+   "speak": "Twenty plus reviews, some from the last ninety days.",
+   "show": 26,
+   "hold": 6,
+   "kind": "say",
+   "from": 1741,
+   "textEnd": 1842,
+   "showFrom": 1838,
+   "until": 1874,
+   "phrases": [
+    {
+     "at": 1742,
+     "words": [
+      {
+       "w": "*20+*",
+       "at": 1742
+      },
+      {
+       "w": "reviews,",
+       "at": 1762
+      }
+     ]
+    },
+    {
+     "at": 1794,
+     "words": [
+      {
+       "w": "some",
+       "at": 1794
+      },
+      {
+       "w": "from",
+       "at": 1797
+      },
+      {
+       "w": "the",
+       "at": 1803
+      },
+      {
+       "w": "last",
+       "at": 1807
+      },
+      {
+       "w": "*90*",
+       "at": 1813
+      },
+      {
+       "w": "days.",
+       "at": 1822
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1745,
+    "frames": 97,
+    "file": "audio/sol/chatgpt/c3.wav",
+    "trim": 0.1
+   }
+  },
+  {
+   "id": "c4",
+   "say": "And say plainly | *what* you do, and *where.*",
+   "speak": "And say plainly what you do, and where.",
+   "show": 34,
+   "hold": 10,
+   "kind": "say",
+   "from": 1878,
+   "textEnd": 1968,
+   "showFrom": 1964,
+   "until": 2021,
+   "phrases": [
+    {
+     "at": 1879,
+     "words": [
+      {
+       "w": "And",
+       "at": 1879
+      },
+      {
+       "w": "say",
+       "at": 1886
+      },
+      {
+       "w": "plainly",
+       "at": 1891
+      }
+     ]
+    },
+    {
+     "at": 1902,
+     "words": [
+      {
+       "w": "*what*",
+       "at": 1902
+      },
+      {
+       "w": "you",
+       "at": 1909
+      },
+      {
+       "w": "do,",
+       "at": 1914
+      },
+      {
+       "w": "and",
+       "at": 1937
+      },
+      {
+       "w": "*where.*",
+       "at": 1946
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 1882,
+    "frames": 86,
+    "file": "audio/sol/chatgpt/c4.wav",
+    "trim": 0.11
+   }
+  },
+  {
+   "id": "r4",
+   "round": "4",
+   "speak": "Four: the test.",
+   "hold": 30,
+   "kind": "round",
+   "from": 2025,
+   "textEnd": 2025,
+   "showFrom": 2025,
+   "until": 2094,
+   "phrases": [],
+   "voice": {
+    "at": 2035,
+    "frames": 49,
+    "file": "audio/sol/chatgpt/r4.wav",
+    "trim": 0.2
+   }
+  },
+  {
+   "id": "t1",
+   "say": "Once a month, ask AI: | Best *dentist* in *your* *town?*",
+   "speak": "Once a month, ask AI: best dentist in your town?",
+   "show": 30,
+   "hold": 6,
+   "kind": "say",
+   "from": 2098,
+   "textEnd": 2207,
+   "showFrom": 2203,
+   "until": 2243,
+   "phrases": [
+    {
+     "at": 2099,
+     "words": [
+      {
+       "w": "Once",
+       "at": 2099
+      },
+      {
+       "w": "a",
+       "at": 2108
+      },
+      {
+       "w": "month,",
+       "at": 2113
+      },
+      {
+       "w": "ask",
+       "at": 2133
+      },
+      {
+       "w": "AI:",
+       "at": 2138
+      }
+     ]
+    },
+    {
+     "at": 2159,
+     "words": [
+      {
+       "w": "Best",
+       "at": 2159
+      },
+      {
+       "w": "*dentist*",
+       "at": 2164
+      },
+      {
+       "w": "in",
+       "at": 2177
+      },
+      {
+       "w": "*your*",
+       "at": 2182
+      },
+      {
+       "w": "*town?*",
+       "at": 2185
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2102,
+    "frames": 105,
+    "file": "audio/sol/chatgpt/t1.wav",
+    "trim": 0.3
+   }
+  },
+  {
+   "id": "t2",
+   "say": "Missing? Fix the list. | Results in *4–8* weeks.",
+   "speak": "Missing? Fix the list. Results in four to eight weeks.",
+   "show": 34,
+   "hold": 10,
+   "kind": "say",
+   "from": 2247,
+   "textEnd": 2364,
+   "showFrom": 2360,
+   "until": 2408,
+   "phrases": [
+    {
+     "at": 2248,
+     "words": [
+      {
+       "w": "Missing?",
+       "at": 2248
+      },
+      {
+       "w": "Fix",
+       "at": 2271
+      },
+      {
+       "w": "the",
+       "at": 2277
+      },
+      {
+       "w": "list.",
+       "at": 2283
+      }
+     ]
+    },
+    {
+     "at": 2303,
+     "words": [
+      {
+       "w": "Results",
+       "at": 2303
+      },
+      {
+       "w": "in",
+       "at": 2309
+      },
+      {
+       "w": "*4–8*",
+       "at": 2319
+      },
+      {
+       "w": "weeks.",
+       "at": 2337
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2251,
+    "frames": 113,
+    "file": "audio/sol/chatgpt/t2.wav",
+    "trim": 0.29
+   }
+  },
+  {
+   "id": "recap",
+   "say": "*Match* *your* *details.* *Claim* *Bing.* | *Get* *reviews.* *Test* *monthly.*",
+   "speak": "Match your details. Claim Bing. Get reviews. Test monthly.",
+   "show": 26,
+   "hold": 16,
+   "kind": "say",
+   "from": 2412,
+   "textEnd": 2538,
+   "showFrom": 2534,
+   "until": 2580,
+   "phrases": [
+    {
+     "at": 2413,
+     "words": [
+      {
+       "w": "*Match*",
+       "at": 2413
+      },
+      {
+       "w": "*your*",
+       "at": 2423
+      },
+      {
+       "w": "*details.*",
+       "at": 2428
+      },
+      {
+       "w": "*Claim*",
+       "at": 2453
+      },
+      {
+       "w": "*Bing.*",
+       "at": 2460
+      }
+     ]
+    },
+    {
+     "at": 2483,
+     "words": [
+      {
+       "w": "*Get*",
+       "at": 2483
+      },
+      {
+       "w": "*reviews.*",
+       "at": 2487
+      },
+      {
+       "w": "*Test*",
+       "at": 2515
+      },
+      {
+       "w": "*monthly.*",
+       "at": 2520
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2416,
+    "frames": 122,
+    "file": "audio/sol/chatgpt/recap.wav",
+    "trim": 0.19
+   }
+  },
+  {
+   "id": "cta",
+   "say": "Want a second set of eyes | on your listings? | *Call* *me!*",
+   "speak": "Want a second set of eyes on your listings? Call me!",
+   "show": 60,
+   "hold": 30,
+   "kind": "say",
+   "from": 2584,
+   "textEnd": 2671,
+   "showFrom": 2667,
+   "until": 2761,
+   "phrases": [
+    {
+     "at": 2585,
+     "words": [
+      {
+       "w": "Want",
+       "at": 2585
+      },
+      {
+       "w": "a",
+       "at": 2592
+      },
+      {
+       "w": "second",
+       "at": 2598
+      },
+      {
+       "w": "set",
+       "at": 2602
+      },
+      {
+       "w": "of",
+       "at": 2608
+      },
+      {
+       "w": "eyes",
+       "at": 2612
+      }
+     ]
+    },
+    {
+     "at": 2618,
+     "words": [
+      {
+       "w": "on",
+       "at": 2618
+      },
+      {
+       "w": "your",
+       "at": 2622
+      },
+      {
+       "w": "listings?",
+       "at": 2625
+      }
+     ]
+    },
+    {
+     "at": 2650,
+     "words": [
+      {
+       "w": "*Call*",
+       "at": 2650
+      },
+      {
+       "w": "*me!*",
+       "at": 2653
+      }
+     ]
+    }
+   ],
+   "voice": {
+    "at": 2588,
+    "frames": 83,
+    "file": "audio/sol/chatgpt/cta.wav",
+    "trim": 0.3
+   }
+  }
+ ],
+ "warnings": [
+  "hook: 13 words (max 11) -- split it"
+ ]
+}

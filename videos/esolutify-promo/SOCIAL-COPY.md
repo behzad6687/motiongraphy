@@ -645,6 +645,55 @@ All figures come from the blog's cited sources. The 82% after-hours figure in th
 
 ---
 
+## 15. Sol explains: how to get recommended by ChatGPT (93s)
+
+Built from the blog post "How to Get Recommended by ChatGPT in 2026: A Plain Checklist". The video is `renders/sol/sol-chatgpt-recommended-9x16.mp4`; its cover is `renders/sol/sol-chatgpt-recommended-9x16-cover.jpg` (an AI answer that leaves your business out).
+
+**Instagram Reel caption:**
+
+```
+Your customers are asking ChatGPT who to hire. Are you in the answer? 🤖
+
+Sol is an AI too, so here's how we actually pick:
+
+1️⃣ Why it's hard: 45% of customers now use AI to find local businesses (up from 6%). Google's top 3 shows about 36% of businesses; ChatGPT recommends just 1.2%.
+2️⃣ Where we look: ChatGPT searches Bing, not Google. Yelp shows up in 96% of local answers. If your details don't match across listings, we leave you out.
+3️⃣ The checklist: same name, address and phone everywhere (down to "Suite" vs "Ste."), claim Bing Places (free, 15 min), 20+ reviews with fresh ones, and a homepage that says plainly what you do and where.
+4️⃣ The test: once a month, ask ChatGPT, Gemini and Perplexity "best [your service] in [your town]?" Fix what's missing; results in 4–8 weeks.
+
+Save this checklist 📌 Full guide: link in bio 🔗
+
+#chatgpt #localseo #smallbusiness #aisearch #esolutify
+```
+
+**YouTube Shorts title** (pick one):
+
+- Are You in ChatGPT's Answer? (Most Businesses Aren't) 🤖 #Shorts
+- ChatGPT Recommends Just 1.2% of Local Businesses. Here's How to Be One #Shorts
+- How AI Picks Which Business to Recommend, Explained by an AI #Shorts
+
+**Shorts description:**
+
+```
+How to get your business recommended by ChatGPT and other AI assistants, explained by Sol, our AI agent.
+
+• Why it's hard: 45% of consumers now use ChatGPT or another AI tool to find local businesses (BrightLocal 2026). ChatGPT recommends only 1.2% of eligible locations, vs 35.9% visibility in Google's local 3-pack (SOCi 2026).
+• Where ChatGPT looks: Bing's index, not Google's, plus structured data partners. Yelp appeared in 95.83% of local answers in a test of ~3,000 prompts. Only 68% of AI contact details match a business's own profile, and mismatches get left out.
+• The checklist: identical name, address and phone on your website, Google Business Profile, Bing Places, Yelp and one industry directory; claim Bing Places (free, about 15 minutes); 20+ reviews with new ones each month; a plain-language homepage that says what you do and where; basic schema markup.
+• The test: monthly, ask ChatGPT, Gemini and Perplexity for the best [service] in [your city], then ask about your business by name and check the details. Changes usually show in 4–8 weeks.
+
+📖 Full checklist: https://esolutify.com/how-to-get-recommended-by-chatgpt/
+📞 Call Sol: +1 365 360 3545
+
+#ChatGPT #LocalSEO #SmallBusiness
+```
+
+**Pinned comment:** "Try it now: ask ChatGPT for the best [your service] in [your town]. Are you in the answer? 👇"
+
+All figures come from the blog's cited sources. "Bright Smile Dental", the other clinic names, the reviews and Oakville are illustrative. 36% is the blog's 35.9% rounded for the voice.
+
+---
+
 ## Posting order
 
 1. YouTube main promo first, so the Shorts can link to it as the related video.
