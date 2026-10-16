@@ -23,7 +23,7 @@ const HERO_SCROLL: Record<SiteKey, number> = {
   gincoaluminium: 0,
 };
 
-const gold: React.CSSProperties = {
+export const gold: React.CSSProperties = {
   backgroundImage: theme.gradients.gold,
   WebkitBackgroundClip: "text",
   backgroundClip: "text",
@@ -31,7 +31,7 @@ const gold: React.CSSProperties = {
   filter: `drop-shadow(0 0 28px ${theme.colors.glow})`,
 };
 
-const headline = (size: number): React.CSSProperties => ({
+export const headline = (size: number): React.CSSProperties => ({
   fontFamily: theme.fonts.display,
   fontWeight: 800,
   fontSize: size,
@@ -41,7 +41,7 @@ const headline = (size: number): React.CSSProperties => ({
   textAlign: "center",
 });
 
-const PhoneAt: React.FC<{
+export const PhoneAt: React.FC<{
   site: SiteKey;
   width: number;
   cx: number;

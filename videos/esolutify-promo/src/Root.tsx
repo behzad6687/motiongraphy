@@ -4,6 +4,7 @@ import { Composition, Folder, Still } from "remotion";
 import { Stage } from "./components/Stage";
 import { MetaAd } from "./ad/MetaAd";
 import { StoryImage } from "./ad/StoryImage";
+import { OfferImage } from "./ad/OfferImage";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
 import { SeoReel } from "./seo/SeoReel";
@@ -101,6 +102,27 @@ export const RemotionRoot: React.FC = () => {
           width={1080}
           height={1920}
           defaultProps={{ variant: "offer" as const }}
+        />
+        <Still
+          id="OfferImageWide"
+          component={OfferImage}
+          width={1200}
+          height={628}
+          defaultProps={{ format: "wide" as const }}
+        />
+        <Still
+          id="OfferImageSquare"
+          component={OfferImage}
+          width={1080}
+          height={1080}
+          defaultProps={{ format: "square" as const }}
+        />
+        <Still
+          id="OfferImageTall"
+          component={OfferImage}
+          width={1080}
+          height={1350}
+          defaultProps={{ format: "tall" as const }}
         />
         <Still
           id="StoryImageWall"
