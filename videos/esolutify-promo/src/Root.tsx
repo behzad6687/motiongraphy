@@ -7,6 +7,10 @@ import { StoryImage } from "./ad/StoryImage";
 import { OfferImage } from "./ad/OfferImage";
 import { PortfolioStory, STORY_DURATION } from "./portfolio/PortfolioStory";
 import { STORY_ORDER } from "./portfolio/sites";
+import {
+  DD_DURATION,
+  DowntownDentistsStory,
+} from "./portfolio/stories/DowntownDentists";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
 import { SeoReel } from "./seo/SeoReel";
@@ -135,10 +139,27 @@ export const RemotionRoot: React.FC = () => {
         />
       </Folder>
       <Folder name="PortfolioStories">
+        <Composition
+          id="Story-downtowndentists"
+          component={DowntownDentistsStory}
+          durationInFrames={DD_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="Story-downtowndentists-SZ"
+          component={DowntownDentistsStory}
+          durationInFrames={DD_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
         {STORY_ORDER.map((site) => (
           <Composition
             key={site}
-            id={`Story-${site}`}
+            id={`StoryBasic-${site}`}
             component={PortfolioStory}
             durationInFrames={STORY_DURATION}
             fps={30}
@@ -148,7 +169,7 @@ export const RemotionRoot: React.FC = () => {
           />
         ))}
         <Composition
-          id="Story-SZ"
+          id="StoryBasic-SZ"
           component={PortfolioStory}
           durationInFrames={STORY_DURATION}
           fps={30}

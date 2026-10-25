@@ -18,7 +18,7 @@ import { Sfx } from "../components/Sfx";
 import { Stage } from "../components/Stage";
 import { ease } from "../reel/kit";
 import { clamp, theme } from "../theme";
-import { STORY_ORDER, STORY_SITES, type StoryKey } from "./sites";
+import { STORY_SITES, type StoryKey } from "./sites";
 
 // A 15 s Instagram Story for one portfolio site, 1080×1920 @ 30 fps.
 // Stories keep the top and bottom ~250 px clear (profile bar, reply bar), so
@@ -51,7 +51,6 @@ const gold: React.CSSProperties = {
 const Title: React.FC<{ k: StoryKey }> = ({ k }) => {
   const frame = useCurrentFrame();
   const s = STORY_SITES[k];
-  const n = STORY_ORDER.indexOf(k) + 1;
   const out = ease(frame, END - 8, END + 6, theme.ease.in);
   return (
     <div
@@ -79,11 +78,6 @@ const Title: React.FC<{ k: StoryKey }> = ({ k }) => {
         }}
       >
         <span>BUILT BY ESOLUTIFY</span>
-        <span style={{ color: theme.colors.dim }}>·</span>
-        <span style={{ color: theme.colors.muted }}>
-          {String(n).padStart(2, "0")} /{" "}
-          {String(STORY_ORDER.length).padStart(2, "0")}
-        </span>
       </div>
       <div
         style={{
