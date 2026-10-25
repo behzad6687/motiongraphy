@@ -1,0 +1,22 @@
+{
+  "url": "https://esolutify.com/demo/downtowndentists/",
+  "mobile": {
+    "cssHeight": 22756,
+    "stickyHeader": 66,
+    "title": "Downtown Dentists | Cosmetic & Restorative Dentist in Downtown Houston",
+    "clipCssHeight": 6400,
+    "dpr": 2.5,
+    "cssWidth": 390,
+    "composite": true,
+    "note": "film hero frame (0-844) + page after \"Skip intro\" (source y=3990-9546)"
+  },
+  "desktop": {
+    "cssHeight": 13755,
+    "stickyHeader": 78,
+    "title": "Downtown Dentists | Cosmetic & Restorative Dentist in Downtown Houston",
+    "brokenImages": 0,
+    "clipCssHeight": 6400,
+    "dpr": 1.25,
+    "cssWidth": 1440
+  }
+}
