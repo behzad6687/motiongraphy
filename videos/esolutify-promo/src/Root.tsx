@@ -5,6 +5,8 @@ import { Stage } from "./components/Stage";
 import { MetaAd } from "./ad/MetaAd";
 import { StoryImage } from "./ad/StoryImage";
 import { OfferImage } from "./ad/OfferImage";
+import { PortfolioStory, STORY_DURATION } from "./portfolio/PortfolioStory";
+import { STORY_ORDER } from "./portfolio/sites";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
 import { SeoReel } from "./seo/SeoReel";
@@ -130,6 +132,29 @@ export const RemotionRoot: React.FC = () => {
           width={1080}
           height={1920}
           defaultProps={{ variant: "wall" as const }}
+        />
+      </Folder>
+      <Folder name="PortfolioStories">
+        {STORY_ORDER.map((site) => (
+          <Composition
+            key={site}
+            id={`Story-${site}`}
+            component={PortfolioStory}
+            durationInFrames={STORY_DURATION}
+            fps={30}
+            width={1080}
+            height={1920}
+            defaultProps={{ site }}
+          />
+        ))}
+        <Composition
+          id="Story-SZ"
+          component={PortfolioStory}
+          durationInFrames={STORY_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ site: "downtowndentists" as const, safeZones: true }}
         />
       </Folder>
       <Folder name="VoiceReceptionist">
