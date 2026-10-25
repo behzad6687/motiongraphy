@@ -7,6 +7,12 @@
 //     device: desktop (1440×900 @1x) | tablet (820×1180 @1x) | mobile (390×844 @2x)
 //     plan:   [{"hold":15}, {"to":3990,"frames":180,"ease":"inOut"}, ...]
 //             scroll starts at 0; "ease": linear | inOut | in | out | sine
+//             {"toSel":"#tryon","offset":-40,"frames":60} scrolls to an element
+//             {"click":"[data-opt=shape] button:nth-child(2)","hold":24,"every":2}
+//               taps it, then records `hold` frames (one screenshot per
+//               `every` frames, so the page's own animations keep pace)
+//   Taps are logged to <device>-<name>.json ({frame, x, y} in css px) so a
+//   finger can be drawn over them.
 //   env: CHROME, CCR_PROXY, CCR_SPKI (cloud sandbox proxy), SETTLE (ms, default 90)
 // Writes public/stories/<slug>/<device>-<name>.mp4 (30 fps, H.264).
 import { chromium } from "playwright";
@@ -57,19 +63,6 @@ const EASE = {
   sine: (t) => (1 - Math.cos(Math.PI * t)) / 2,
 };
 
-// scroll position for every output frame
-const ys = [];
-let y = 0;
-for (const step of plan) {
-  if (step.hold) for (let i = 0; i < step.hold; i++) ys.push(y);
-  else {
-    const e = EASE[step.ease ?? "inOut"];
-    for (let i = 1; i <= step.frames; i++)
-      ys.push(Math.round(y + (step.to - y) * e(i / step.frames)));
-    y = step.to;
-  }
-}
-
 const args = ["--no-sandbox", "--disable-http2", "--disable-quic"];
 if (process.env.CCR_SPKI)
   args.push(`--ignore-certificate-errors-spki-list=${process.env.CCR_SPKI}`);
@@ -103,32 +96,78 @@ await page.addStyleTag({
     iframe[src*="chat" i],[class*="tawk" i],[id*="tawk" i],.grecaptcha-badge{display:none!important}`,
 });
 // preload: walk the page once so images and film frames are cached
-const maxY = Math.max(...ys);
-await page.evaluate(async (maxY) => {
-  for (let y = 0; y <= maxY + 900; y += 300) {
+await page.evaluate(async () => {
+  for (let y = 0; y <= document.documentElement.scrollHeight; y += 300) {
     window.scrollTo(0, y);
-    await new Promise((r) => setTimeout(r, 120));
+    await new Promise((r) => setTimeout(r, 90));
   }
   window.scrollTo(0, 0);
-}, maxY);
+});
 await page.waitForTimeout(2500);
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "rec-"));
-for (let i = 0; i < ys.length; i++) {
+let n = 0;
+let y = 0;
+let maxY = 0;
+const taps = [];
+const shot = async (copies = 1) => {
+  const f = path.join(tmp, `f${String(n).padStart(4, "0")}.jpg`);
+  await page.screenshot({ path: f, type: "jpeg", quality: 90 });
+  n++;
+  for (let i = 1; i < copies; i++) {
+    fs.copyFileSync(f, path.join(tmp, `f${String(n).padStart(4, "0")}.jpg`));
+    n++;
+  }
+};
+const scrollTo = async (yy) => {
   await page.evaluate(
-    (y) =>
+    (yy) =>
       new Promise((r) => {
-        window.scrollTo(0, y);
+        window.scrollTo(0, yy);
         requestAnimationFrame(() => requestAnimationFrame(r));
       }),
-    ys[i],
+    yy,
   );
   if (SETTLE) await page.waitForTimeout(SETTLE);
-  await page.screenshot({
-    path: path.join(tmp, `f${String(i).padStart(4, "0")}.jpg`),
-    type: "jpeg",
-    quality: 90,
-  });
+};
+const glide = async (to, frames, ease) => {
+  const e = EASE[ease ?? "inOut"];
+  const y0 = y;
+  for (let i = 1; i <= frames; i++) {
+    await scrollTo(Math.round(y0 + (to - y0) * e(i / frames)));
+    await shot();
+  }
+  y = to;
+  maxY = Math.max(maxY, y);
+};
+for (const step of plan) {
+  if (step.hold && !step.click) {
+    for (let i = 0; i < step.hold; i++) await shot();
+  } else if (step.to !== undefined) {
+    await glide(step.to, step.frames, step.ease);
+  } else if (step.toSel) {
+    const top = await page.evaluate(
+      (sel) =>
+        document.querySelector(sel).getBoundingClientRect().top +
+        window.scrollY,
+      step.toSel,
+    );
+    await glide(Math.round(top + (step.offset ?? 0)), step.frames, step.ease);
+  } else if (step.click) {
+    const el = page.locator(step.click).first();
+    const box = await el.boundingBox();
+    taps.push({
+      frame: n,
+      x: Math.round(box.x + box.width / 2),
+      y: Math.round(box.y + box.height / 2),
+    });
+    await el.dispatchEvent("click");
+    const every = step.every ?? 2;
+    for (let i = 0; i < (step.hold ?? 20); i += every)
+      await shot(Math.min(every, (step.hold ?? 20) - i));
+    // the page may scroll itself (e.g. focus); keep our idea of y honest
+    y = await page.evaluate(() => Math.round(window.scrollY));
+  }
 }
 await browser.close();
 
@@ -160,4 +199,8 @@ execFileSync(
   { stdio: "inherit" },
 );
 fs.rmSync(tmp, { recursive: true, force: true });
-console.log(`${out}: ${ys.length} frames, scroll 0→${maxY}`);
+fs.writeFileSync(
+  out.replace(/\.mp4$/, ".json"),
+  JSON.stringify({ frames: n, taps }, null, 1),
+);
+console.log(`${out}: ${n} frames, scroll 0→${maxY}, ${taps.length} taps`);

@@ -14,6 +14,13 @@ A city waking up, then a clean groove.
   12.7 s                three stabs for the three feature lines
   14.7 s                the end card: the groove falls away, pad + piano
                         hold the last chord to 18 s
+
+polish (Pedi n Nails, 20 s): 112 BPM, A major, A-E-F#m-D, bright and light.
+  0-4.29 s   bars 0-1   marimba motif over an airy pad, filtered
+  4.29 s     bar 2      DROP on the pull-back reveal: soft kick, finger snaps,
+                        shaker, plucky bass, marimba in 16ths
+  12.9 s     bar 6      a lift as the laptop and tablet arrive
+  17.1 s     bar 8      the end card: drums out, marimba + pad ring to 20 s
 """
 
 import sys
@@ -124,7 +131,75 @@ def dawn():
     print("wrote story-dawn.wav")
 
 
-PRESETS = {"dawn": dawn}
+def marimba(n, dur=0.7):
+    t = t_axis(dur)
+    f = midi(n)
+    sig = np.sin(2 * np.pi * f * t) + 0.35 * np.sin(2 * np.pi * f * 4 * t) * np.exp(-t * 18)
+    return sig * np.exp(-t * 6.5) * np.minimum(1, t / 0.002)
+
+
+def snap(dur=0.18):
+    t = t_axis(dur)
+    n = bp(g.RNG.standard_normal(len(t)), 1800, 6500)
+    return n * (np.exp(-t / 0.012) + 0.4 * np.exp(-np.clip(t - 0.008, 0, None) / 0.03) * (t > 0.008)) * 0.6
+
+
+def polish():
+    bpm, total = 112, 20.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s16 = beat / 4
+    drop, lift, end = 2 * bar, 6 * bar, 8 * bar
+    g.RNG = np.random.default_rng(53)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (45, [61, 64, 69, 73], [69, 73, 76, 81]),  # A
+        (40, [59, 64, 68, 71], [68, 71, 76, 80]),  # E
+        (42, [61, 66, 69, 73], [66, 69, 73, 78]),  # F#m
+        (38, [62, 66, 69, 74], [66, 69, 74, 78]),  # D
+    ]
+    motif = [0, 2, 1, 3, 2, 1, 0, 2]  # 8th-note pattern through the arp notes
+    for b in range(int(np.ceil(total / bar))):
+        root, pad, arp = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        last = t0 >= end - 0.01
+        place(buf, warm_pad(pad, (total - t0) if last else bar + 0.5, bright=2400), t0, 0.32 if t0 < drop else 0.4)
+        if t0 < drop:
+            for i, k in enumerate(motif):
+                place(buf, lp(marimba(arp[k], 0.6), 2600 + 1400 * b), t0 + i * beat / 2, 0.32, pan=-0.25 + 0.5 * (i % 2))
+        elif not last:
+            for i in range(16):
+                k = motif[i % 8]
+                place(buf, marimba(arp[k] + (12 if i % 8 in (3, 7) else 0), 0.45), t0 + i * s16, 0.22 if i % 2 else 0.3, pan=-0.3 + 0.6 * (i % 2))
+            for k in range(4):
+                tb = t0 + k * beat
+                place(buf, g.kick(0.38, 140, 50, punch=0.7), tb, 0.6)
+                if k % 2 == 1:
+                    place(buf, snap(), tb, 0.55, pan=0.1)
+            for i in range(16):
+                place(buf, shaker(), t0 + i * s16 + (s16 * 0.12 if i % 2 else 0), 0.75 if i % 2 else 0.4, pan=0.35)
+            for off in (0, 0.75, 1.5, 2.5, 3.0):
+                place(buf, g.bass_note(root - 12, beat * 0.6, cutoff=650), t0 + off * beat, 0.42)
+        else:
+            for i, k in enumerate(motif):
+                place(buf, marimba(arp[k] + 12, 0.9), t0 + i * beat / 2, 0.22 * (1 - i / 10), pan=-0.25 + 0.5 * (i % 2))
+    place(buf, g.riser(1.6) * 0.45, drop - 1.6, 0.5)
+    place(buf, g.crash(2.2), drop, 0.5)
+    place(buf, g.riser(0.9) * 0.3, lift - 0.9, 0.5)
+    place(buf, g.crash(1.8), lift, 0.3)
+    place(buf, g.crash(2.6), end, 0.35)
+    buf = reverb(buf, 0.2)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.35) / np.tanh(1.35)
+    fade = int(0.5 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-polish.wav", buf, -1.5)
+    print("wrote story-polish.wav")
+
+
+PRESETS = {"dawn": dawn, "polish": polish}
 
 if __name__ == "__main__":
     PRESETS[sys.argv[1]]()

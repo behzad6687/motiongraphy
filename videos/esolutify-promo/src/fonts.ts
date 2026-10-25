@@ -20,3 +20,15 @@ loadFont({
   url: staticFile("fonts/Caveat-Variable.woff2"),
   weight: "400 700",
 });
+// Bodoni Moda (SIL OFL, latin subset): editorial serif for beauty-site Stories.
+loadFont({
+  family: theme.fonts.serif,
+  url: staticFile("fonts/BodoniModa-Variable.woff2"),
+  weight: "400 900",
+});
+loadFont({
+  family: theme.fonts.serif,
+  url: staticFile("fonts/BodoniModa-Italic-Variable.woff2"),
+  weight: "400 900",
+  style: "italic",
+});

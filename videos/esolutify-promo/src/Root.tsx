@@ -11,6 +11,7 @@ import {
   DD_DURATION,
   DowntownDentistsStory,
 } from "./portfolio/stories/DowntownDentists";
+import { PN_DURATION, PediNNailsStory } from "./portfolio/stories/PediNNails";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
 import { SeoReel } from "./seo/SeoReel";
@@ -151,6 +152,23 @@ export const RemotionRoot: React.FC = () => {
           id="Story-downtowndentists-SZ"
           component={DowntownDentistsStory}
           durationInFrames={DD_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+        <Composition
+          id="Story-pedinnails"
+          component={PediNNailsStory}
+          durationInFrames={PN_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="Story-pedinnails-SZ"
+          component={PediNNailsStory}
+          durationInFrames={PN_DURATION}
           fps={30}
           width={1080}
           height={1920}

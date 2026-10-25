@@ -37,6 +37,7 @@ export const theme = {
     display: "Red Hat Display",
     body: "DM Sans",
     hand: "Caveat", // sketches only (app reel step 1)
+    serif: "Bodoni Moda", // editorial Stories (beauty sites)
   },
   // THE easing curves. Linear is forbidden.
   ease: {
