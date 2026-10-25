@@ -1,5 +1,5 @@
 import React from "react";
-import { OffthreadVideo, Sequence, staticFile } from "remotion";
+import { Freeze, OffthreadVideo, Sequence, staticFile } from "remotion";
 
 // Device mock-ups that play real scroll recordings
 // (scripts/record_scroll.mjs → public/stories/<slug>/<device>-<name>.mp4).
@@ -12,16 +12,29 @@ const Rec: React.FC<{
   height: number;
   from: number; // composition frame the recording starts on
   trim?: number; // recording frames to skip
-}> = ({ src, width, height, from, trim = 0 }) => (
-  <Sequence from={from} layout="none">
+  hold?: boolean; // show the first frame before `from` instead of black
+}> = ({ src, width, height, from, trim = 0, hold = false }) => {
+  const video = (
     <OffthreadVideo
       src={staticFile(src)}
       trimBefore={trim}
       muted
       style={{ width, height, display: "block", objectFit: "cover" }}
     />
-  </Sequence>
-);
+  );
+  return (
+    <>
+      {hold && from > 0 ? (
+        <Sequence durationInFrames={from} layout="none">
+          <Freeze frame={0}>{video}</Freeze>
+        </Sequence>
+      ) : null}
+      <Sequence from={from} layout="none">
+        {video}
+      </Sequence>
+    </>
+  );
+};
 
 export const PhoneRec: React.FC<{
   src: string;
@@ -29,7 +42,8 @@ export const PhoneRec: React.FC<{
   from: number;
   trim?: number;
   glow?: number;
-}> = ({ src, width, from, trim, glow = 0 }) => {
+  hold?: boolean;
+}> = ({ src, width, from, trim, glow = 0, hold }) => {
   const h = Math.round((width * 844) / 390);
   const bezel = Math.round(width * 0.035);
   const r = Math.round(width * 0.14);
@@ -57,7 +71,14 @@ export const PhoneRec: React.FC<{
           background: "#000",
         }}
       >
-        <Rec src={src} width={width} height={h} from={from} trim={trim} />
+        <Rec
+          src={src}
+          width={width}
+          height={h}
+          from={from}
+          trim={trim}
+          hold={hold}
+        />
         <div
           style={{
             position: "absolute",
@@ -80,7 +101,8 @@ export const TabletRec: React.FC<{
   width: number; // screen width
   from: number;
   trim?: number;
-}> = ({ src, width, from, trim }) => {
+  hold?: boolean;
+}> = ({ src, width, from, trim, hold }) => {
   const h = Math.round((width * 1180) / 820);
   const bezel = Math.round(width * 0.045);
   const r = Math.round(width * 0.05);
@@ -105,7 +127,14 @@ export const TabletRec: React.FC<{
           background: "#000",
         }}
       >
-        <Rec src={src} width={width} height={h} from={from} trim={trim} />
+        <Rec
+          src={src}
+          width={width}
+          height={h}
+          from={from}
+          trim={trim}
+          hold={hold}
+        />
       </div>
     </div>
   );
@@ -116,7 +145,8 @@ export const LaptopRec: React.FC<{
   width: number; // screen width
   from: number;
   trim?: number;
-}> = ({ src, width, from, trim }) => {
+  hold?: boolean;
+}> = ({ src, width, from, trim, hold }) => {
   const h = Math.round((width * 900) / 1440);
   const bezel = Math.round(width * 0.022);
   const top = Math.round(width * 0.03);
@@ -155,7 +185,14 @@ export const LaptopRec: React.FC<{
             background: "#000",
           }}
         >
-          <Rec src={src} width={width} height={h} from={from} trim={trim} />
+          <Rec
+            src={src}
+            width={width}
+            height={h}
+            from={from}
+            trim={trim}
+            hold={hold}
+          />
         </div>
       </div>
       {/* the base */}

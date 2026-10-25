@@ -32,3 +32,21 @@ loadFont({
   weight: "400 900",
   style: "italic",
 });
+// Cormorant Garamond + Pinyon Script (SIL OFL, latin subset): the Samantha
+// Story, matching the salon's gilded serif-and-script look.
+loadFont({
+  family: theme.fonts.garamond,
+  url: staticFile("fonts/CormorantGaramond-Variable.woff2"),
+  weight: "300 700",
+});
+loadFont({
+  family: theme.fonts.garamond,
+  url: staticFile("fonts/CormorantGaramond-Italic-Variable.woff2"),
+  weight: "300 700",
+  style: "italic",
+});
+loadFont({
+  family: theme.fonts.script,
+  url: staticFile("fonts/PinyonScript-Regular.woff2"),
+  weight: "400",
+});

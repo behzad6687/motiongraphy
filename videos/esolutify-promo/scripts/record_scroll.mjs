@@ -11,9 +11,13 @@
 //             {"click":"[data-opt=shape] button:nth-child(2)","hold":24,"every":2}
 //               taps it, then records `hold` frames (one screenshot per
 //               `every` frames, so the page's own animations keep pace)
+//             {"range":"[data-ba] input","to":90,"frames":40,"ease":"inOut"}
+//               drags a range input (e.g. a before/after slider) to a value
 //   Taps are logged to <device>-<name>.json ({frame, x, y} in css px) so a
-//   finger can be drawn over them.
-//   env: CHROME, CCR_PROXY, CCR_SPKI (cloud sandbox proxy), SETTLE (ms, default 90)
+//   finger can be drawn over them; range drags log the knob every frame.
+//   env: CHROME, CCR_PROXY, CCR_SPKI (cloud sandbox proxy), SETTLE (ms, default 90),
+//        DPR (override the device pixel ratio, e.g. 2 for a sharp desktop zoom),
+//        PRELOAD_MAX (preload only above this y, so reveals below still play)
 // Writes public/stories/<slug>/<device>-<name>.mp4 (30 fps, H.264).
 import { chromium } from "playwright";
 import { execFileSync } from "node:child_process";
@@ -55,6 +59,9 @@ const DEVICES = {
       "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1",
   },
 };
+if (process.env.DPR)
+  DEVICES[device].deviceScaleFactor = Number(process.env.DPR);
+const PRELOAD_MAX = Number(process.env.PRELOAD_MAX ?? Infinity);
 const EASE = {
   linear: (t) => t,
   inOut: (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
@@ -96,13 +103,14 @@ await page.addStyleTag({
     iframe[src*="chat" i],[class*="tawk" i],[id*="tawk" i],.grecaptcha-badge{display:none!important}`,
 });
 // preload: walk the page once so images and film frames are cached
-await page.evaluate(async () => {
-  for (let y = 0; y <= document.documentElement.scrollHeight; y += 300) {
+await page.evaluate(async (max) => {
+  const end = Math.min(max ?? Infinity, document.documentElement.scrollHeight);
+  for (let y = 0; y <= end; y += 300) {
     window.scrollTo(0, y);
     await new Promise((r) => setTimeout(r, 90));
   }
   window.scrollTo(0, 0);
-});
+}, Number.isFinite(PRELOAD_MAX) ? PRELOAD_MAX : null);
 await page.waitForTimeout(2500);
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "rec-"));
@@ -110,6 +118,7 @@ let n = 0;
 let y = 0;
 let maxY = 0;
 const taps = [];
+const drags = [];
 const shot = async (copies = 1) => {
   const f = path.join(tmp, `f${String(n).padStart(4, "0")}.jpg`);
   await page.screenshot({ path: f, type: "jpeg", quality: 90 });
@@ -143,7 +152,7 @@ const glide = async (to, frames, ease) => {
 for (const step of plan) {
   if (step.hold && !step.click) {
     for (let i = 0; i < step.hold; i++) await shot();
-  } else if (step.to !== undefined) {
+  } else if (step.to !== undefined && !step.range) {
     await glide(step.to, step.frames, step.ease);
   } else if (step.toSel) {
     const top = await page.evaluate(
@@ -167,6 +176,28 @@ for (const step of plan) {
       await shot(Math.min(every, (step.hold ?? 20) - i));
     // the page may scroll itself (e.g. focus); keep our idea of y honest
     y = await page.evaluate(() => Math.round(window.scrollY));
+  } else if (step.range) {
+    const e = EASE[step.ease ?? "inOut"];
+    const v0 = await page.$eval(step.range, (el) => Number(el.value));
+    for (let i = 1; i <= step.frames; i++) {
+      const v = v0 + (step.to - v0) * e(i / step.frames);
+      const knob = await page.$eval(
+        step.range,
+        (el, v) => {
+          el.value = String(v);
+          el.dispatchEvent(new Event("input", { bubbles: true }));
+          const r = el.getBoundingClientRect();
+          return {
+            x: Math.round(r.left + (r.width * v) / 100),
+            y: Math.round(r.top + r.height / 2),
+          };
+        },
+        v,
+      );
+      drags.push({ frame: n, ...knob });
+      await page.waitForTimeout(30);
+      await shot();
+    }
   }
 }
 await browser.close();
@@ -201,6 +232,6 @@ execFileSync(
 fs.rmSync(tmp, { recursive: true, force: true });
 fs.writeFileSync(
   out.replace(/\.mp4$/, ".json"),
-  JSON.stringify({ frames: n, taps }, null, 1),
+  JSON.stringify({ frames: n, taps, drags }, null, 1),
 );
 console.log(`${out}: ${n} frames, scroll 0→${maxY}, ${taps.length} taps`);

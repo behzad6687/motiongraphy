@@ -38,6 +38,8 @@ export const theme = {
     body: "DM Sans",
     hand: "Caveat", // sketches only (app reel step 1)
     serif: "Bodoni Moda", // editorial Stories (beauty sites)
+    garamond: "Cormorant Garamond", // the Samantha Story
+    script: "Pinyon Script", // script accents (Samantha Story)
   },
   // THE easing curves. Linear is forbidden.
   ease: {

@@ -21,6 +21,14 @@ polish (Pedi n Nails, 20 s): 112 BPM, A major, A-E-F#m-D, bright and light.
                         shaker, plucky bass, marimba in 16ths
   12.9 s     bar 6      a lift as the laptop and tablet arrive
   17.1 s     bar 8      the end card: drums out, marimba + pad ring to 20 s
+
+silk (Samantha, 20 s): 84 BPM, D minor, Dm9-G13-Cmaj9-A7b13, a slow R&B
+groove: electric piano, vinyl crackle, swung brushes-and-kick, round sub.
+  0-5.71 s   bars 0-1   e-piano chords through a closing-then-opening filter,
+                        crackle, no drums (the tight shot on the mirror)
+  5.71 s     bar 2      DROP as the camera pulls back from the mirror
+  11.4 s     bar 4      a lift as the camera flies to the tablet
+  17.1 s     bar 6      the end card: drums out, a rolled Dm9 rings to 20 s
 """
 
 import sys
@@ -199,7 +207,94 @@ def polish():
     print("wrote story-polish.wav")
 
 
-PRESETS = {"dawn": dawn, "polish": polish}
+def epiano(n, dur=1.8, bright=3000):
+    """Rhodes-ish tone: warm fundamental, a bell partial on the attack and a
+    slow tremolo."""
+    t = t_axis(dur)
+    f = midi(n)
+    sig = np.sin(2 * np.pi * f * t) + 0.25 * np.sin(2 * np.pi * f * 2 * t) * np.exp(-t * 2.5)
+    sig += 0.18 * np.sin(2 * np.pi * f * 7.02 * t) * np.exp(-t * 14)
+    sig *= np.exp(-t * 1.1) * np.minimum(1, t / 0.003)
+    sig *= 1 - 0.14 * (0.5 + 0.5 * np.sin(2 * np.pi * 4.6 * t))
+    return lp(sig, bright)
+
+
+def brush_snare(dur=0.32):
+    t = t_axis(dur)
+    n = bp(g.RNG.standard_normal(len(t)), 700, 6000)
+    body = np.sin(2 * np.pi * 190 * t) * np.exp(-t / 0.03) * 0.35
+    return (n * (np.exp(-t / 0.05) * 0.7 + np.exp(-t / 0.16) * 0.25) + body) * 0.55
+
+
+def crackle(dur):
+    t = t_axis(dur)
+    hiss = bp(g.RNG.standard_normal(len(t)), 1500, 7000) * 0.012
+    pops = (g.RNG.random(len(t)) > 0.99965).astype(float) * g.RNG.uniform(-1, 1, len(t))
+    pops = bp(pops, 1200, 9000) * 0.6
+    return hiss + pops
+
+
+def silk():
+    bpm, total = 84, 20.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s8 = beat / 2
+    swing = s8 * 0.18  # late off-beats
+    drop, lift, end = 2 * bar, 4 * bar, 6 * bar
+    g.RNG = np.random.default_rng(67)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (38, [53, 57, 60, 64]),  # Dm9
+        (43, [53, 59, 64]),  # G13
+        (36, [52, 55, 59, 62]),  # Cmaj9
+        (45, [55, 61, 65]),  # A7b13
+    ]
+    for b in range(int(np.ceil(total / bar))):
+        root, voicing = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        last = t0 >= end - 0.01
+        # e-piano: the chord on 1, a softer push on the and-of-2
+        bright = 1400 + 900 * b if t0 < drop else 3200
+        if not last:
+            for k, n in enumerate(voicing):
+                place(buf, epiano(n, bar, bright), t0 + k * 0.012, 0.26, pan=-0.2 + 0.4 * k / len(voicing))
+                place(buf, epiano(n + 12 if k == len(voicing) - 1 else n, beat * 1.4, bright), t0 + 1.5 * beat + swing + k * 0.01, 0.13, pan=0.2)
+        place(buf, warm_pad([n - 12 for n in voicing[:2]] + voicing, bar + 0.4 if not last else total - t0, bright=900), t0, 0.16)
+        if drop <= t0 < end:
+            for k in range(4):
+                tb = t0 + k * beat
+                if k in (0,):
+                    place(buf, g.kick(0.5, 110, 42, punch=0.4), tb, 0.6)
+                if k == 2:
+                    place(buf, g.kick(0.5, 110, 42, punch=0.4), tb - s8 + swing, 0.45)
+                if k in (1, 3):
+                    place(buf, brush_snare(), tb, 0.5, pan=0.08)
+            for i in range(8):
+                place(buf, g.hat(0.05), t0 + i * s8 + (swing if i % 2 else 0), 0.55 if i % 2 else 0.85, pan=0.3)
+            place(buf, g.bass_note(root - 12, beat * 1.7, cutoff=320), t0, 0.62)
+            place(buf, g.bass_note(root - 12 + (7 if b % 2 else 12), beat * 0.8, cutoff=320), t0 + 2.5 * beat + swing, 0.5)
+            place(buf, g.bass_note(root - 12, beat * 0.9, cutoff=320), t0 + 3 * beat + swing, 0.45)
+    # end card: a rolled Dm9 that rings out
+    for k, n in enumerate([50, 57, 60, 64, 65, 69, 72]):
+        place(buf, epiano(n, total - end, 3000), end + k * 0.07, 0.22, pan=-0.3 + 0.1 * k)
+    place(buf, g.crash(2.4), drop, 0.4)
+    place(buf, g.riser(1.2) * 0.35, lift - 1.2, 0.5)
+    place(buf, g.crash(1.8), lift, 0.25)
+    place(buf, g.crash(2.6), end, 0.3)
+    st = crackle(total)
+    place(buf, np.stack([st, np.roll(st, 337)]), 0, 1.0)
+    buf = reverb(buf, 0.24)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.3) / np.tanh(1.3)
+    fade = int(0.5 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-silk.wav", buf, -1.5)
+    print("wrote story-silk.wav")
+
+
+PRESETS = {"dawn": dawn, "polish": polish, "silk": silk}
 
 if __name__ == "__main__":
     PRESETS[sys.argv[1]]()
