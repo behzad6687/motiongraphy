@@ -15,6 +15,7 @@ import { PN_DURATION, PediNNailsStory } from "./portfolio/stories/PediNNails";
 import { SAM_DURATION, SamanthaStory } from "./portfolio/stories/Samantha";
 import { CROWN_DURATION, CrownStory } from "./portfolio/stories/Crown";
 import { RIEL_DURATION, RielBuildStory } from "./portfolio/stories/RielBuild";
+import { StoryThumb, THUMB_ORDER } from "./portfolio/StoryThumbs";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
 import { SeoReel } from "./seo/SeoReel";
@@ -228,6 +229,20 @@ export const RemotionRoot: React.FC = () => {
           height={1920}
           defaultProps={{ safeZones: true }}
         />
+        {THUMB_ORDER.map((site) => (
+          // a 30 fps composition, not a Still (1 fps), so the recordings' frame
+          // numbers mean the same thing here as in the Stories
+          <Composition
+            key={site}
+            id={`Thumb-${site}`}
+            component={StoryThumb}
+            durationInFrames={1}
+            fps={30}
+            width={1080}
+            height={1920}
+            defaultProps={{ site }}
+          />
+        ))}
         {STORY_ORDER.map((site) => (
           <Composition
             key={site}

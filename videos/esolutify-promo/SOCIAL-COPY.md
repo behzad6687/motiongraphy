@@ -14,6 +14,7 @@
 | Sol explains: AI vs virtual receptionist vs answering service, v2 with voice (77s, 9:16) | `renders/sol/sol-receptionist-showdown-v2-9x16.mp4` | Instagram Reel + YouTube Shorts + TikTok |
 | (v1, babble, 42s: superseded) | `renders/sol/sol-receptionist-showdown-9x16-42s.mp4` | |
 | Sol explains: speed to lead, with voice (66s, 9:16) | `renders/sol/sol-speed-to-lead-9x16.mp4` | Instagram Reel + YouTube Shorts + TikTok |
+| Portfolio Stories: 5 website previews (20s each, 9:16) | `renders/stories/0N-*.mp4` + `renders/stories/thumbs/` | Instagram Story → "Our Work" highlight, or Reel |
 
 Every claim below comes from esolutify.com.
 
@@ -691,6 +692,129 @@ How to get your business recommended by ChatGPT and other AI assistants, explain
 **Pinned comment:** "Try it now: ask ChatGPT for the best [your service] in [your town]. Are you in the answer? 👇"
 
 All figures come from the blog's cited sources. "Bright Smile Dental", the other clinic names, the reviews and Oakville are illustrative. 36% is the blog's 35.9% rounded for the voice.
+
+---
+
+## 16. Portfolio Stories: website previews (20s each)
+
+One Story per website preview, saved to a highlight called **"Our Work"**. Each one also works as a Reel or a feed post, with its thumbnail as the cover.
+
+| Site | Video | Thumbnail / cover |
+| ---- | ----- | ----------------- |
+| Downtown Dentists | `renders/stories/01-downtown-dentists.mp4` | `renders/stories/thumbs/01-downtown-dentists-thumbnail.jpg` |
+| Pedi n Nails | `renders/stories/02-pedi-n-nails.mp4` | `renders/stories/thumbs/02-pedi-n-nails-thumbnail.jpg` |
+| Samantha Beauty Salon | `renders/stories/03-samantha.mp4` | `renders/stories/thumbs/03-samantha-thumbnail.jpg` |
+| Crown | `renders/stories/04-crown.mp4` | `renders/stories/thumbs/04-crown-thumbnail.jpg` |
+| Riel Build | `renders/stories/05-riel-build.mp4` | `renders/stories/thumbs/05-riel-build-thumbnail.jpg` |
+
+The thumbnails are 1080×1920, with everything important inside the 4:5 area the profile grid shows. **As a Story** there is no caption: add the link sticker `esolutify.com/free-demo`, labelled **"See your site free"**, in the space under "Tap the link" on the end card, and paste the alt text. **As a Reel**, use the caption. Every fact below was read off the live site.
+
+### Downtown Dentists
+
+**Caption:**
+
+```
+This dental website plays like a film. 🎬
+
+Scroll on a phone and you fly over the downtown skyline, through the clinic doors and into the chair. A website preview we built for Downtown Dentists, Houston:
+
+▸ Book any visit in one tap
+▸ A symptom checker that points patients to the right visit
+▸ Same-day crowns, explained: one visit, no temporary
+▸ A different layout for laptop, tablet and phone
+
+Want one like this for your practice? We build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#webdesign #dentalwebsite #dentalmarketing #websitedesign #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for Downtown Dentists. On a phone, scrolling plays a film from the city skyline, through the clinic doors, to the dental chair. The site is then shown on a laptop, tablet and phone. Text: Your website could move like this. Get your free demo at esolutify.com/free-demo."
+
+### Pedi n Nails
+
+**Caption:**
+
+```
+Try your nails on before you book. 💅
+
+This nail spa website has a live try-on: pick a shape, a finish and a colour, change the skin tone, and the nails on the hand change as you tap. A website preview we built for Pedi n Nails in Scarborough:
+
+▸ Almond, coffin, short square or stiletto
+▸ Gloss, chrome, glitter, French, ombré or matte
+▸ Every service priced on the page, from $25
+▸ Book in a minute, open 7 days
+
+Want your clients to try before they book? We build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#nailsalon #webdesign #salonmarketing #websitedesign #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for Pedi n Nails. A nail spa's scroll film pulls back into a phone, then a finger tries on nail shapes, finishes, colours and skin tones in the site's live try-on. A laptop shows the prices. Text: Let your clients try before they book. Get your free demo at esolutify.com/free-demo."
+
+### Samantha Beauty Salon
+
+**Caption:**
+
+```
+Scroll, and the look in the mirror changes. ✨
+
+This salon website opens on a gilded mirror. Every scroll wipes to a new client's hair, with her review beside it. A website preview we built for Samantha Beauty Salon, Richmond Hill:
+
+▸ A scroll film framed in gold
+▸ A before & after slider for colour corrections
+▸ 221 five-star reviews, right on the page
+▸ Online booking for hair and brows
+
+Want a website as polished as your work? We build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#hairsalon #webdesign #salonmarketing #beautysalon #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for Samantha Beauty Salon. A gold mirror on the site changes from one client's hair to the next as you scroll. A finger drags a before and after slider, then a tablet shows 221 five-star reviews. Text: Your website could look like this. Get your free demo at esolutify.com/free-demo."
+
+### Crown
+
+**Caption:**
+
+```
+Design your own suitcase. In live 3D. 🧳
+
+On this luggage website you turn the case with your mouse and change it piece by piece: shell, frame, wheels, handles, a leather tag with your initials in foil. The price updates as you go. A website preview we built for Crown, Dubai:
+
+▸ A 3D studio with 8 steps
+▸ Initials in gold, silver or colour foil, the first ones free
+▸ Prices in AED, free UAE delivery in 1–3 days
+▸ 10-year warranty, 14-day returns
+
+Selling a product people want to make their own? We build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#ecommerce #webdesign #3dwebsite #dubaibusiness #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for Crown, a luggage brand in Dubai. A cursor customises a suitcase in the site's 3D studio: navy shell, champagne gold frame, cognac leather handles and tag, initials LM in gold foil. The price rises to AED 2,970. Text: Your website, made to measure. Get your free demo at esolutify.com/free-demo."
+
+### Riel Build
+
+**Caption:**
+
+```
+Press and hold, and the plumb bob settles. 📐
+
+This renovation website turns a promise into something you can feel: hold the button until the line is true, and their four written promises appear. A website preview we built for Riel Build, Toronto:
+
+▸ A fixed, written quote
+▸ Payments tied to finished work
+▸ One project lead, start to finish
+▸ A clean site every day
+
+Contractors: want a website that earns trust before the first call? We build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#contractor #renovation #webdesign #torontobusiness #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for Riel Build, a Toronto renovation company. A plumb bob swings and settles, a phone plays a scroll film of a house at dusk, and a cursor presses and holds a button until four written promises light up. Text: Let's build your website right. Get your free demo at esolutify.com/free-demo."
+
+**Highlight:** save all of them to **"Our Work"**. A free-demo Story (section 4) at the end of the highlight gives viewers the next step.
 
 ---
 
