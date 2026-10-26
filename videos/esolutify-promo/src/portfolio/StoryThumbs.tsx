@@ -158,6 +158,26 @@ export const THUMBS = {
     laptop: { src: "stories/rielbuild/desktop-plumb.mp4", frame: 120 },
     phone: { src: "stories/rielbuild/mobile-film.mp4", frame: 60 },
   },
+  gincoaluminium: {
+    name: "National Aluminium",
+    hook: "We build the skin of the skyline.",
+    look: {
+      bg: "#121A23",
+      glow: "rgba(199,122,82,0.20)",
+      ink: "#EEF0F1",
+      accent: "#D8443F",
+      muted: "#8D99A6",
+      titleFont: display,
+      hookFont: display,
+      labelFont: mono,
+      pattern: [
+        "linear-gradient(90deg, transparent 356px, rgba(207,209,210,0.10) 356px 364px, transparent 364px)",
+        "linear-gradient(transparent 380px, rgba(207,209,210,0.10) 380px 388px, transparent 388px)",
+      ].join(","),
+    },
+    laptop: { src: "stories/gincoaluminium/desktop-film.mp4", frame: 40 },
+    phone: { src: "stories/gincoaluminium/mobile-film.mp4", frame: 200 },
+  },
 } satisfies Record<string, Thumb>;
 
 export type ThumbSite = keyof typeof THUMBS;
@@ -167,6 +187,7 @@ export const THUMB_ORDER: ThumbSite[] = [
   "samantha",
   "crown",
   "rielbuild",
+  "gincoaluminium",
 ];
 
 export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({
@@ -184,7 +205,9 @@ export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({
             backgroundSize:
               site === "rielbuild"
                 ? "200px 200px, 200px 200px, 40px 40px, 40px 40px"
-                : undefined,
+                : site === "gincoaluminium"
+                  ? "360px 384px, 360px 384px"
+                  : undefined,
           }}
         />
       ) : null}

@@ -45,6 +45,14 @@ G-Em7-Cmaj7-D, warm and handmade: picked guitar, upright bass, woodblock.
   5 s        bar 2      DROP into the laptop: kick, woodblock, shaker, bass
   10 s       bar 4      a lift for the tablet
   16.2 s     bar 6.5    the end card: band out, a slow strum rings to 20 s
+
+skyline (National Aluminium, 20 s): 128 BPM (a bar is 56.25 frames), F minor,
+Fm-Db-Ab-Eb, big and engineered: wind and a filtered arp over the clouds,
+then a four-on-the-floor pulse with metallic hits.
+  0-5.63 s   bars 0-2   wind, a wide pad, a 16th arp opening up
+  5.63 s     bar 3      DROP: kick, sub pulse, claps, hats, a metal clang
+  13.1 s     bar 7      a lift for the tablet
+  16.9 s     bar 9      the end card: the beat stops, pad and a last clang
 """
 
 import sys
@@ -505,7 +513,82 @@ def workshop():
     print("wrote story-workshop.wav")
 
 
+def clang(dur=1.6):
+    """A struck aluminium beam: inharmonic partials, fast attack."""
+    t = t_axis(dur)
+    sig = np.zeros_like(t)
+    for f, a, d in [(523, 1.0, 0.9), (1347, 0.6, 0.5), (2211, 0.4, 0.35), (3389, 0.25, 0.2), (4870, 0.15, 0.12)]:
+        sig += a * np.sin(2 * np.pi * f * t) * np.exp(-t / d)
+    hit = bp(g.RNG.standard_normal(len(t)), 2000, 9000) * np.exp(-t / 0.01) * 0.6
+    return (sig * 0.35 + hit) * np.minimum(1, t / 0.001)
+
+
+def wind(dur):
+    t = t_axis(dur)
+    n = g.RNG.standard_normal(len(t))
+    lfo = 0.5 + 0.5 * np.sin(2 * np.pi * 0.23 * t)
+    return g.sweep_lp(n, 400, 2200, curve=1.0) * (0.3 + 0.4 * lfo) * 0.18
+
+
+def skyline():
+    bpm, total = 128, 20.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s16 = beat / 4
+    drop, lift, end = 3 * bar, 7 * bar, 9 * bar
+    g.RNG = np.random.default_rng(113)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (41, [53, 56, 60, 65], [65, 68, 72, 77]),  # Fm
+        (37, [53, 56, 61, 65], [65, 68, 73, 77]),  # Db
+        (44, [51, 56, 60, 63], [63, 68, 72, 75]),  # Ab
+        (39, [51, 55, 58, 63], [63, 67, 70, 75]),  # Eb
+    ]
+    w = wind(drop + 1.0)
+    place(buf, np.stack([w, np.roll(w, 911)]), 0, 1.5)
+    for b in range(int(np.ceil(total / bar))):
+        root, pad, arp = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        tail = t0 >= end - 0.01
+        place(buf, g.pad_chord(pad, (total - t0) if tail else bar + 0.4, bright=1800 if t0 < drop else 2400), t0, 0.9 if t0 < drop else 0.36)
+        if not tail:
+            for i in range(16):
+                at = t0 + i * s16
+                n = arp[(i * 3 + (i // 4)) % 4] + (12 if i % 8 == 6 else 0)
+                cut = 900 + 2600 * min(1, t0 / drop) if t0 < drop else 4200
+                place(buf, g.pluck(n, 0.2, cutoff=cut), at, 0.5 if t0 < drop else 0.2, pan=-0.35 + 0.7 * ((i * 5) % 8) / 7)
+        if drop <= t0 < end:
+            for k in range(4):
+                at = t0 + k * beat
+                place(buf, g.kick(0.36, 150, 46, punch=0.9), at, 0.7)
+                place(buf, g.hat(0.04), at + beat / 2, 0.8, pan=0.3)
+                if k in (1, 3):
+                    place(buf, g.clap(), at, 0.32, pan=-0.05)
+                # sidechained sub: 8th-note pumps between the kicks
+                place(buf, g.bass_note(root - 12, beat * 0.45, cutoff=300), at + beat / 2, 0.55)
+            if b % 2 == 0:
+                place(buf, clang(), t0, 0.32, pan=0.15)
+    place(buf, g.riser(2.4) * 0.5, drop - 2.4, 0.55)
+    place(buf, g.crash(2.4), drop, 0.5)
+    place(buf, clang(2.2), drop, 0.5)
+    place(buf, g.riser(1.2) * 0.35, lift - 1.2, 0.5)
+    place(buf, g.crash(1.8), lift, 0.3)
+    place(buf, clang(3.0), end, 0.55)
+    place(buf, g.crash(2.6), end, 0.35)
+    place(buf, g.bass_note(29, total - end, cutoff=220), end, 0.5)
+    buf = reverb(buf, 0.22)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.35) / np.tanh(1.35)
+    fade = int(0.6 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-skyline.wav", buf, -1.5)
+    print("wrote story-skyline.wav")
+
+
 PRESETS = {
+    "skyline": skyline,
     "dawn": dawn,
     "polish": polish,
     "silk": silk,

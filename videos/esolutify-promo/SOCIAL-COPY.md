@@ -14,7 +14,7 @@
 | Sol explains: AI vs virtual receptionist vs answering service, v2 with voice (77s, 9:16) | `renders/sol/sol-receptionist-showdown-v2-9x16.mp4` | Instagram Reel + YouTube Shorts + TikTok |
 | (v1, babble, 42s: superseded) | `renders/sol/sol-receptionist-showdown-9x16-42s.mp4` | |
 | Sol explains: speed to lead, with voice (66s, 9:16) | `renders/sol/sol-speed-to-lead-9x16.mp4` | Instagram Reel + YouTube Shorts + TikTok |
-| Portfolio Stories: 5 website previews (20s each, 9:16) | `renders/stories/0N-*.mp4` + `renders/stories/thumbs/` | Instagram Story → "Our Work" highlight, or Reel |
+| Portfolio Stories: website previews (20s each, 9:16) | `renders/stories/0N-*.mp4` + `renders/stories/thumbs/` | Instagram Story → "Our Work" highlight, or Reel |
 
 Every claim below comes from esolutify.com.
 
@@ -706,6 +706,7 @@ One Story per website preview, saved to a highlight called **"Our Work"**. Each 
 | Samantha Beauty Salon | `renders/stories/03-samantha.mp4` | `renders/stories/thumbs/03-samantha-thumbnail.jpg` |
 | Crown | `renders/stories/04-crown.mp4` | `renders/stories/thumbs/04-crown-thumbnail.jpg` |
 | Riel Build | `renders/stories/05-riel-build.mp4` | `renders/stories/thumbs/05-riel-build-thumbnail.jpg` |
+| National Aluminium (Ginco) | `renders/stories/06-national-aluminium.mp4` | `renders/stories/thumbs/06-national-aluminium-thumbnail.jpg` |
 
 The thumbnails are 1080×1920, with everything important inside the 4:5 area the profile grid shows. **As a Story** there is no caption: add the link sticker `esolutify.com/free-demo`, labelled **"See your site free"**, in the space under "Tap the link" on the end card, and paste the alt text. **As a Reel**, use the caption. Every fact below was read off the live site.
 
@@ -813,6 +814,27 @@ Contractors: want a website that earns trust before the first call? We build you
 ```
 
 **Alt text:** "A website preview by eSolutify for Riel Build, a Toronto renovation company. A plumb bob swings and settles, a phone plays a scroll film of a house at dusk, and a cursor presses and holds a button until four written promises light up. Text: Let's build your website right. Get your free demo at esolutify.com/free-demo."
+
+### National Aluminium (Ginco)
+
+**Caption:**
+
+```
+A website for the people who build the skyline. 🏙️
+
+Scroll and you drop from a tower above the clouds, past the Dubai skyline, into the lobby. A website preview we built for National Aluminium, façade contractors in the UAE since 1983:
+
+▸ A scroll film that tells the story in five chapters
+▸ "Hold to build a unit": engineer, fabricate, test, install
+▸ 15 façade and glazing systems, filtered in a tap
+▸ 200+ projects and 600+ people, in numbers
+
+B2B, industrial, engineering: your website can look this good too. We build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#webdesign #construction #facade #uaebusiness #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for National Aluminium, a UAE façade contractor. The Story is framed like a curtain wall: through aluminium mullions, a scroll film flies from a tower above the clouds to the Dubai skyline. A laptop shows the same film, a cursor holds a button that assembles a curtain wall unit, and a tablet filters 15 systems. Text: Your website, engineered. Get your free demo at esolutify.com/free-demo."
 
 **Highlight:** save all of them to **"Our Work"**. A free-demo Story (section 4) at the end of the highlight gives viewers the next step.
 
