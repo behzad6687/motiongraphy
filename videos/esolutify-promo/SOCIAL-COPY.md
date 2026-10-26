@@ -708,6 +708,7 @@ One Story per website preview, saved to a highlight called **"Our Work"**. Each 
 | Riel Build | `renders/stories/05-riel-build.mp4` | `renders/stories/thumbs/05-riel-build-thumbnail.jpg` |
 | National Aluminium (Ginco) | `renders/stories/06-national-aluminium.mp4` | `renders/stories/thumbs/06-national-aluminium-thumbnail.jpg` |
 | HB Developments | `renders/stories/07-hb-developments.mp4` | `renders/stories/thumbs/07-hb-developments-thumbnail.jpg` |
+| Coldloop | `renders/stories/08-coldloop.mp4` | `renders/stories/thumbs/08-coldloop-thumbnail.jpg` |
 
 The thumbnails are 1080×1920, with everything important inside the 4:5 area the profile grid shows. **As a Story** there is no caption: add the link sticker `esolutify.com/free-demo`, labelled **"See your site free"**, in the space under "Tap the link" on the end card, and paste the alt text. **As a Reel**, use the caption. Every fact below was read off the live site.
 
@@ -857,6 +858,27 @@ Builders and developers: want a website that sells the vision? We build your dem
 ```
 
 **Alt text:** "A website preview by eSolutify for HB Developments, a Toronto design-build firm. Full screen, a construction site with wood framing turns into the finished house as the site scrolls, with chapter numbers 00, 01, 02. Then a cursor drags a before and after slider on a laptop, a tablet switches between mid-range and luxury finishes, and a phone taps through four projects. Text: See what your website could become. Get your free demo at esolutify.com/free-demo."
+
+### Coldloop
+
+**Caption:**
+
+```
+This PC website scrolls like a product launch. 💧
+
+Scroll and the camera moves through a water-cooled build: the studio, the loop, a brushed block on the GPU, then the chip pulls apart layer by layer. A website preview we built for Coldloop, a custom PC studio:
+
+▸ A scroll film through the whole build
+▸ Touch and hold to pull the stack apart, layer by layer
+▸ Quiet, in numbers: 800 rpm, 31 dBA, CPU 61 °C at load
+▸ Clear pricing: Loop One from $3,600 to Workstation from $9,200
+
+Selling a premium product? Your website should feel like one. We build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#custompc #pcbuild #watercooling #webdesign #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for Coldloop, a custom water-cooled PC studio. Boot lines type out, then a laptop plays the site's scroll film through a glowing cyan PC build. A coolant wave rises into a phone where a finger holds a button and a chip stack pulls apart into layers. A read-out compares a big-box prebuilt with a Coldloop build: fans 2100 to 800 rpm, noise 41 to 31 dBA, CPU 84 to 61 °C. Text: Your website, built one at a time. Get your free demo at esolutify.com/free-demo."
 
 **Highlight:** save all of them to **"Our Work"**. A free-demo Story (section 4) at the end of the highlight gives viewers the next step.
 

@@ -61,6 +61,14 @@ Am9-Fmaj7-C-G6, warm and minimal, a soft deep-house pulse.
                         round bass, chord stabs
   10 s       bar 5      a lift for the finish studio
   17 s       beat 34    the end card: the beat drops out, piano rings to 20 s
+
+coolant (Coldloop, 20 s): 108 BPM (a beat is 16.7 frames), E minor,
+Em-Cmaj7-Am-B, dark synthwave.
+  0-5.56 s   intro      boot blips, then a pad swell and a filtered arp
+  5.56 s     beat 10    DROP (frame 167): kick, gated snare, octave bass,
+                        16th saw arp
+  11.67 s    beat 21    a lift for the numbers (frame 350)
+  17.22 s    beat 31    the end card (frame 517): the beat stops, pad rings
 """
 
 import sys
@@ -653,7 +661,77 @@ def verdant():
     print("wrote story-verdant.wav")
 
 
+def blip(n, dur=0.07):
+    t = t_axis(dur)
+    sq = np.sign(np.sin(2 * np.pi * midi(n) * t))
+    return lp(sq, 5000) * np.exp(-t / 0.03) * 0.25
+
+
+def gated_snare(dur=0.3):
+    t = t_axis(dur)
+    n = bp(g.RNG.standard_normal(len(t)), 900, 7000)
+    body = np.sin(2 * np.pi * 200 * t) * np.exp(-t / 0.03) * 0.5
+    gate = (t < 0.18).astype(float) * np.exp(-t / 0.4)
+    return (n * 0.7 + body) * gate
+
+
+def coolant():
+    bpm, total = 108, 20.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s16 = beat / 4
+    drop, lift, end = 10 * beat, 21 * beat, 31 * beat
+    g.RNG = np.random.default_rng(151)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (40, [52, 55, 59, 64], [64, 67, 71, 76]),  # Em
+        (36, [52, 55, 59, 60], [60, 64, 67, 71]),  # Cmaj7
+        (45, [52, 57, 60, 64], [64, 69, 72, 76]),  # Am
+        (47, [51, 54, 59, 63], [63, 66, 71, 75]),  # B
+    ]
+    # boot blips over the first 1.5 s
+    for i in range(14):
+        place(buf, blip(84 + (i * 7) % 12), 0.1 + i * 0.1, 0.5, pan=-0.4 + 0.8 * ((i * 3) % 5) / 4)
+    for b in range(int(np.ceil(total / bar))):
+        root, pad, arp = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        place(buf, g.pad_chord(pad, bar + 0.4, bright=1200 + 2200 * min(1, t0 / drop)), t0, 1.0 if t0 < drop else 0.34)
+        for i in range(16):
+            at = t0 + i * s16
+            if at < 1.6 or at >= end:
+                continue
+            n = arp[(i * 3) % 4] + (12 if i % 8 == 7 else 0)
+            cut = 700 + 3000 * min(1, at / drop) if at < drop else 4000
+            place(buf, g.pluck(n, 0.18, cutoff=cut), at, 0.6 if at < drop else 0.2, pan=-0.35 + 0.7 * (i % 2))
+        for k in range(4):
+            at = t0 + k * beat
+            if not (drop <= at < end):
+                continue
+            place(buf, g.kick(0.4, 150, 45, punch=1.0), at, 0.7)
+            if k in (1, 3):
+                place(buf, gated_snare(), at, 0.42, pan=0.05)
+            place(buf, g.hat(0.04), at + beat / 2, 0.7, pan=0.3)
+            for j in range(2):
+                place(buf, g.bass_note(root - 12 + (12 if j else 0), beat * 0.42, cutoff=600), at + j * beat / 2, 0.42)
+    place(buf, g.riser(2.2) * 0.45, drop - 2.2, 0.55)
+    place(buf, g.crash(2.4), drop, 0.45)
+    place(buf, g.riser(1.0) * 0.32, lift - 1.0, 0.5)
+    place(buf, g.crash(1.8), lift, 0.28)
+    place(buf, g.pad_chord([40, 52, 55, 59, 64, 71], total - end, bright=2600), end, 1.3)
+    place(buf, g.crash(2.6), end, 0.3)
+    buf = reverb(buf, 0.24)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.35) / np.tanh(1.35)
+    fade = int(0.6 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-coolant.wav", buf, -1.5)
+    print("wrote story-coolant.wav")
+
+
 PRESETS = {
+    "coolant": coolant,
     "verdant": verdant,
     "skyline": skyline,
     "dawn": dawn,

@@ -202,6 +202,24 @@ export const THUMBS = {
     laptop: { src: "stories/hb/desktop-compare.mp4", frame: 130 },
     phone: { src: "stories/hb/mobile-projects.mp4", frame: 100 },
   },
+  newpc: {
+    name: "Coldloop",
+    hook: "Water-cooled PCs, built one at a time.",
+    look: {
+      bg: "#061015",
+      glow: "rgba(31,182,193,0.26)",
+      ink: "#E6F4F6",
+      accent: "#5CE1E6",
+      muted: "#7C949B",
+      titleFont: display,
+      hookFont: display,
+      labelFont: mono,
+      pattern:
+        "repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 4px)",
+    },
+    laptop: { src: "stories/newpc/desktop-film.mp4", frame: 100 },
+    phone: { src: "stories/newpc/mobile-layers.mp4", frame: 60 },
+  },
 } satisfies Record<string, Thumb>;
 
 export type ThumbSite = keyof typeof THUMBS;
@@ -213,6 +231,7 @@ export const THUMB_ORDER: ThumbSite[] = [
   "rielbuild",
   "gincoaluminium",
   "hb",
+  "newpc",
 ];
 
 export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({
