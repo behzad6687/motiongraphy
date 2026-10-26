@@ -17,6 +17,7 @@ import { CROWN_DURATION, CrownStory } from "./portfolio/stories/Crown";
 import { RIEL_DURATION, RielBuildStory } from "./portfolio/stories/RielBuild";
 import { StoryThumb, THUMB_ORDER } from "./portfolio/StoryThumbs";
 import { GINCO_DURATION, GincoStory } from "./portfolio/stories/Ginco";
+import { HB_DURATION, HBStory } from "./portfolio/stories/HB";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
 import { SeoReel } from "./seo/SeoReel";
@@ -242,6 +243,23 @@ export const RemotionRoot: React.FC = () => {
           id="Story-gincoaluminium-SZ"
           component={GincoStory}
           durationInFrames={GINCO_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+        <Composition
+          id="Story-hb"
+          component={HBStory}
+          durationInFrames={HB_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="Story-hb-SZ"
+          component={HBStory}
+          durationInFrames={HB_DURATION}
           fps={30}
           width={1080}
           height={1920}

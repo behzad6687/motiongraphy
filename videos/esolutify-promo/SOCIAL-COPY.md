@@ -707,6 +707,7 @@ One Story per website preview, saved to a highlight called **"Our Work"**. Each 
 | Crown | `renders/stories/04-crown.mp4` | `renders/stories/thumbs/04-crown-thumbnail.jpg` |
 | Riel Build | `renders/stories/05-riel-build.mp4` | `renders/stories/thumbs/05-riel-build-thumbnail.jpg` |
 | National Aluminium (Ginco) | `renders/stories/06-national-aluminium.mp4` | `renders/stories/thumbs/06-national-aluminium-thumbnail.jpg` |
+| HB Developments | `renders/stories/07-hb-developments.mp4` | `renders/stories/thumbs/07-hb-developments-thumbnail.jpg` |
 
 The thumbnails are 1080×1920, with everything important inside the 4:5 area the profile grid shows. **As a Story** there is no caption: add the link sticker `esolutify.com/free-demo`, labelled **"See your site free"**, in the space under "Tap the link" on the end card, and paste the alt text. **As a Reel**, use the caption. Every fact below was read off the live site.
 
@@ -835,6 +836,27 @@ B2B, industrial, engineering: your website can look this good too. We build your
 ```
 
 **Alt text:** "A website preview by eSolutify for National Aluminium, a UAE façade contractor. The Story is framed like a curtain wall: through aluminium mullions, a scroll film flies from a tower above the clouds to the Dubai skyline. A laptop shows the same film, a cursor holds a button that assembles a curtain wall unit, and a tablet filters 15 systems. Text: Your website, engineered. Get your free demo at esolutify.com/free-demo."
+
+### HB Developments
+
+**Caption:**
+
+```
+Scroll, and the house builds itself. 🏡
+
+This design-build website starts on a real job site, framing and mud, and scrolls into the architect's finished render. A website preview we built for HB Developments, Toronto:
+
+▸ "Scroll to build": the actual site becomes the finished home
+▸ A before & after slider: the site today, the render tomorrow
+▸ Mid-range or luxury finishes, one tap to compare
+▸ Enter your address and lot size to start your project
+
+Builders and developers: want a website that sells the vision? We build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#customhomes #designbuild #webdesign #torontobusiness #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for HB Developments, a Toronto design-build firm. Full screen, a construction site with wood framing turns into the finished house as the site scrolls, with chapter numbers 00, 01, 02. Then a cursor drags a before and after slider on a laptop, a tablet switches between mid-range and luxury finishes, and a phone taps through four projects. Text: See what your website could become. Get your free demo at esolutify.com/free-demo."
 
 **Highlight:** save all of them to **"Our Work"**. A free-demo Story (section 4) at the end of the highlight gives viewers the next step.
 

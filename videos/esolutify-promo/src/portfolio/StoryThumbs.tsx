@@ -178,6 +178,30 @@ export const THUMBS = {
     laptop: { src: "stories/gincoaluminium/desktop-film.mp4", frame: 40 },
     phone: { src: "stories/gincoaluminium/mobile-film.mp4", frame: 200 },
   },
+  hb: {
+    name: "HB Developments",
+    hook: "Scroll, and it's built.",
+    look: {
+      bg: "#1E2B22",
+      glow: "rgba(201,207,196,0.16)",
+      ink: "#FFFFFF",
+      accent: "#C9CFC4",
+      muted: "#C9CFC4",
+      titleFont: {
+        fontFamily: theme.fonts.body,
+        fontWeight: 300,
+        letterSpacing: "-0.045em",
+      },
+      hookFont: {
+        fontFamily: theme.fonts.body,
+        fontWeight: 300,
+        letterSpacing: "-0.04em",
+      },
+      labelFont: body,
+    },
+    laptop: { src: "stories/hb/desktop-compare.mp4", frame: 130 },
+    phone: { src: "stories/hb/mobile-projects.mp4", frame: 100 },
+  },
 } satisfies Record<string, Thumb>;
 
 export type ThumbSite = keyof typeof THUMBS;
@@ -188,6 +212,7 @@ export const THUMB_ORDER: ThumbSite[] = [
   "crown",
   "rielbuild",
   "gincoaluminium",
+  "hb",
 ];
 
 export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({

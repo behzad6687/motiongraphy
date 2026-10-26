@@ -53,6 +53,14 @@ then a four-on-the-floor pulse with metallic hits.
   5.63 s     bar 3      DROP: kick, sub pulse, claps, hats, a metal clang
   13.1 s     bar 7      a lift for the tablet
   16.9 s     bar 9      the end card: the beat stops, pad and a last clang
+
+verdant (HB Developments, 20 s): 120 BPM (a bar is 60 frames), A minor,
+Am9-Fmaj7-C-G6, warm and minimal, a soft deep-house pulse.
+  0-5 s      intro      felt piano chords and a rising filtered pad
+  5 s        beat 10    DROP as the house is finished: kick, rim, shaker,
+                        round bass, chord stabs
+  10 s       bar 5      a lift for the finish studio
+  17 s       beat 34    the end card: the beat drops out, piano rings to 20 s
 """
 
 import sys
@@ -587,7 +595,66 @@ def skyline():
     print("wrote story-skyline.wav")
 
 
+def verdant():
+    bpm, total = 120, 20.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s8 = beat / 2
+    drop, lift, end = 5.0, 10.0, 17.0
+    g.RNG = np.random.default_rng(131)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (45, [55, 60, 64, 67, 71]),  # Am9
+        (41, [53, 57, 60, 64]),  # Fmaj7
+        (36, [52, 55, 60, 64]),  # C
+        (43, [52, 55, 59, 62]),  # G6
+    ]
+    for b in range(int(np.ceil(total / bar))):
+        root, ch = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        # pad under everything; brighter as the house is built
+        bright = 700 + 1500 * min(1, t0 / drop)
+        place(buf, warm_pad(ch[:4], bar + 0.5, bright=bright), t0, 0.32)
+        for k in range(4):
+            at = t0 + k * beat
+            if at >= total:
+                break
+            if at < drop:
+                if k in (0, 2):  # felt piano chords on 1 and 3
+                    for j, n in enumerate(ch):
+                        place(buf, soft_piano(n, 1.8, bright=2200), at + j * 0.012, 0.16, pan=-0.2 + 0.1 * j)
+            elif at < end:
+                place(buf, g.kick(0.34, 130, 48, punch=0.6), at, 0.6)
+                place(buf, g.hat(0.05), at + s8, 0.7, pan=0.3)
+                if k in (1, 3):
+                    place(buf, rim(), at, 0.32, pan=0.15)
+                for j in range(2):
+                    place(buf, shaker(), at + j * s8 + s8 / 2, 0.35, pan=-0.3)
+                # chord stab on the off-beat
+                st = g.pad_chord(ch[1:5], 0.32, bright=2600)
+                st *= np.exp(-np.arange(st.shape[1]) / SR / 0.12)
+                place(buf, st, at + s8, 0.55)
+                place(buf, g.bass_note(root - 12 + (7 if k == 3 else 0), beat * 0.7, cutoff=420), at, 0.5)
+    place(buf, g.riser(2.0) * 0.4, drop - 2.0, 0.5)
+    place(buf, g.crash(2.2), drop, 0.4)
+    place(buf, g.riser(1.0) * 0.3, lift - 1.0, 0.5)
+    place(buf, g.crash(1.6), lift, 0.25)
+    for j, n in enumerate([57, 60, 64, 67, 71, 76]):
+        place(buf, soft_piano(n, total - end, bright=2400), end + j * 0.06, 0.24, pan=-0.25 + 0.1 * j)
+    place(buf, warm_pad([45, 57, 60, 64, 71], total - end, bright=1600), end, 0.4)
+    buf = reverb(buf, 0.24)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.3) / np.tanh(1.3)
+    fade = int(0.6 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-verdant.wav", buf, -1.5)
+    print("wrote story-verdant.wav")
+
+
 PRESETS = {
+    "verdant": verdant,
     "skyline": skyline,
     "dawn": dawn,
     "polish": polish,
