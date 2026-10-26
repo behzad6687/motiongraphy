@@ -709,6 +709,7 @@ One Story per website preview, saved to a highlight called **"Our Work"**. Each 
 | National Aluminium (Ginco) | `renders/stories/06-national-aluminium.mp4` | `renders/stories/thumbs/06-national-aluminium-thumbnail.jpg` |
 | HB Developments | `renders/stories/07-hb-developments.mp4` | `renders/stories/thumbs/07-hb-developments-thumbnail.jpg` |
 | Coldloop | `renders/stories/08-coldloop.mp4` | `renders/stories/thumbs/08-coldloop-thumbnail.jpg` |
+| N.H.F Clinics | `renders/stories/09-nhf-clinics.mp4` | `renders/stories/thumbs/09-nhf-clinics-thumbnail.jpg` |
 
 The thumbnails are 1080×1920, with everything important inside the 4:5 area the profile grid shows. **As a Story** there is no caption: add the link sticker `esolutify.com/free-demo`, labelled **"See your site free"**, in the space under "Tap the link" on the end card, and paste the alt text. **As a Reel**, use the caption. Every fact below was read off the live site.
 
@@ -879,6 +880,29 @@ Selling a premium product? Your website should feel like one. We build your demo
 ```
 
 **Alt text:** "A website preview by eSolutify for Coldloop, a custom water-cooled PC studio. Boot lines type out, then a laptop plays the site's scroll film through a glowing cyan PC build. A coolant wave rises into a phone where a finger holds a button and a chip stack pulls apart into layers. A read-out compares a big-box prebuilt with a Coldloop build: fans 2100 to 800 rpm, noise 41 to 31 dBA, CPU 84 to 61 °C. Text: Your website, built one at a time. Get your free demo at esolutify.com/free-demo."
+
+### N.H.F Clinics
+
+**Caption:**
+
+```
+A clinic website with a bedside manner. 🩺
+
+Calm, clear and physician-led, like the clinic itself. A website we built for N.H.F Clinics, medical aesthetics in Newmarket, Ontario:
+
+▸ Current promotions up front, prices shown
+▸ 36 treatments in six clear groups, one tap each
+▸ "Nobody gets treated before they get explained to", in five steps
+▸ An AI assistant on every page, plus 0% financing explained
+
+Clinics and med spas: your website should earn trust before the first visit. We build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#medspa #medicalaesthetics #webdesign #newmarket #esolutify
+```
+
+**Alt text:** "A website by eSolutify for N.H.F Clinics, a physician-led medical aesthetics clinic in Newmarket, Ontario. A phone scrolls the home page, an ECG heartbeat line sweeps across to a laptop clicking through current promotions, then to a tablet switching between six treatment groups. Text: Your website, held to a higher standard. Get your free demo at esolutify.com/free-demo."
+
+N.H.F Clinics is a live client site (nhfclinics.com), so its caption says "a website we built", not "a preview". The promotions on screen are seasonal; re-record them if the Story is reposted after the season.
 
 **Highlight:** save all of them to **"Our Work"**. A free-demo Story (section 4) at the end of the highlight gives viewers the next step.
 

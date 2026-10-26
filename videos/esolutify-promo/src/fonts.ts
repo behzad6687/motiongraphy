@@ -56,3 +56,15 @@ loadFont({
   url: staticFile("fonts/DMMono-Regular.woff2"),
   weight: "400",
 });
+// Newsreader (SIL OFL, latin subset): the N.H.F Clinics Story.
+loadFont({
+  family: theme.fonts.news,
+  url: staticFile("fonts/Newsreader-Variable.woff2"),
+  weight: "300 700",
+});
+loadFont({
+  family: theme.fonts.news,
+  url: staticFile("fonts/Newsreader-Italic-Variable.woff2"),
+  weight: "300 700",
+  style: "italic",
+});

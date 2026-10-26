@@ -41,6 +41,7 @@ export const theme = {
     garamond: "Cormorant Garamond", // the Samantha Story
     script: "Pinyon Script", // script accents (Samantha Story)
     mono: "DM Mono", // spec labels (Crown Story)
+    news: "Newsreader", // the N.H.F Clinics Story
   },
   // THE easing curves. Linear is forbidden.
   ease: {

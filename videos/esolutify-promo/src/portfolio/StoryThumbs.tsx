@@ -22,6 +22,7 @@ type Look = {
 
 type Thumb = {
   name: string;
+  label?: string; // defaults to "Website preview"
   hook: string;
   look: Look;
   laptop: { src: string; frame: number };
@@ -220,6 +221,31 @@ export const THUMBS = {
     laptop: { src: "stories/newpc/desktop-film.mp4", frame: 100 },
     phone: { src: "stories/newpc/mobile-layers.mp4", frame: 60 },
   },
+  nhfclinics: {
+    name: "N.H.F Clinics",
+    label: "Client website",
+    hook: "A clinic website with a bedside manner.",
+    look: {
+      bg: "#F3F6F2",
+      glow: "rgba(94,156,103,0.22)",
+      ink: "#16211C",
+      accent: "#2F6B3A",
+      muted: "#6B7A72",
+      titleFont: {
+        fontFamily: theme.fonts.news,
+        fontWeight: 400,
+        letterSpacing: "-0.015em",
+      },
+      hookFont: {
+        fontFamily: theme.fonts.news,
+        fontWeight: 400,
+        fontStyle: "italic",
+      },
+      labelFont: mono,
+    },
+    laptop: { src: "stories/nhfclinics/desktop-promos.mp4", frame: 36 },
+    phone: { src: "stories/nhfclinics/mobile-tour.mp4", frame: 0 },
+  },
 } satisfies Record<string, Thumb>;
 
 export type ThumbSite = keyof typeof THUMBS;
@@ -232,6 +258,7 @@ export const THUMB_ORDER: ThumbSite[] = [
   "gincoaluminium",
   "hb",
   "newpc",
+  "nhfclinics",
 ];
 
 export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({
@@ -273,7 +300,7 @@ export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({
           color: L.accent,
         }}
       >
-        Website preview
+        {t.label ?? "Website preview"}
       </div>
       {/* name + hook */}
       <div
@@ -340,7 +367,12 @@ export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({
           style={{
             padding: "10px 16px",
             borderRadius: 12,
-            background: L.bg === "#F6F3EE" ? "#151A3D" : "transparent",
+            background:
+              L.bg === "#F6F3EE"
+                ? "#151A3D"
+                : L.bg === "#F3F6F2"
+                  ? "#132530"
+                  : "transparent",
           }}
         >
           <Img

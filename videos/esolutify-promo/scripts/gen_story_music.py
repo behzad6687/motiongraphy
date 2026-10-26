@@ -69,6 +69,14 @@ Em-Cmaj7-Am-B, dark synthwave.
                         16th saw arp
   11.67 s    beat 21    a lift for the numbers (frame 350)
   17.22 s    beat 31    the end card (frame 517): the beat stops, pad rings
+
+pulse (N.H.F Clinics, 20 s): 92 BPM (a beat is 19.6 frames), D major,
+Dmaj9-Bm7-Gmaj7-A6, calm and clinical: glassy bells, a soft heartbeat.
+  0-5.2 s    intro      bells and a warm pad, one heartbeat per bar
+  5.2 s      beat 8     the heartbeat settles into a pulse (frame 157): lub-dub
+                        kick, shaker, round bass, bell arp in 8ths
+  11.1 s     beat 17    a lift (frame 333)
+  16.3 s     beat 25    the end card (frame 489): the pulse stops, bells ring
 """
 
 import sys
@@ -730,7 +738,80 @@ def coolant():
     print("wrote story-coolant.wav")
 
 
+def bell(n, dur=1.6):
+    """Glassy FM bell."""
+    t = t_axis(dur)
+    f = midi(n)
+    mod = np.sin(2 * np.pi * f * 3.5 * t) * 2.2 * np.exp(-t * 3)
+    sig = np.sin(2 * np.pi * f * t + mod) * np.exp(-t * 2.4)
+    return sig * np.minimum(1, t / 0.002) * 0.5
+
+
+def heartbeat(gain=1.0):
+    """lub-dub: two soft low thumps."""
+    out = np.zeros(int(0.5 * SR))
+    for off, a in ((0.0, 1.0), (0.17, 0.7)):
+        k = g.kick(0.3, 90, 42, punch=0.2) * a
+        i = int(off * SR)
+        out[i:i + len(k)] += k[: len(out) - i]
+    return lp(out, 900) * gain
+
+
+def pulse():
+    bpm, total = 92, 20.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s8 = beat / 2
+    drop, lift, end = 8 * beat, 17 * beat, 25 * beat
+    g.RNG = np.random.default_rng(173)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (38, [54, 57, 61, 64], [66, 69, 73, 76]),  # Dmaj9
+        (35, [54, 57, 59, 62], [62, 66, 69, 74]),  # Bm7
+        (43, [54, 59, 62, 66], [62, 66, 71, 74]),  # Gmaj7
+        (45, [54, 57, 61, 64], [64, 69, 73, 76]),  # A6
+    ]
+    for b in range(int(np.ceil(total / bar))):
+        root, pad, arp = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        place(buf, warm_pad(pad, bar + 0.6, bright=1500), t0, 0.5 if t0 < drop else 0.36)
+        if t0 < drop:
+            place(buf, heartbeat(0.9), t0, 1.0)
+            for k, i in enumerate((0, 3, 5)):
+                place(buf, bell(arp[(b + k) % 4], 2.0), t0 + i * s8, 0.5, pan=-0.3 + 0.3 * k)
+        elif t0 < end:
+            for k in range(4):
+                at = t0 + k * beat
+                if at >= end:
+                    break
+                if k in (0, 2):
+                    place(buf, heartbeat(1.0), at, 0.9)
+                place(buf, shaker(), at + s8, 0.6, pan=0.3)
+                place(buf, g.bass_note(root - 12 + (7 if k == 3 else 0), beat * 0.8, cutoff=380), at, 0.45)
+            for i in range(8):
+                at = t0 + i * s8
+                if at >= end:
+                    break
+                place(buf, bell(arp[(i * 3) % 4] + (12 if i == 7 else 0), 1.2), at, 0.32, pan=-0.35 + 0.7 * (i % 2))
+    place(buf, g.riser(1.6) * 0.3, drop - 1.6, 0.5)
+    place(buf, g.crash(2.0), drop, 0.3)
+    place(buf, g.riser(1.0) * 0.25, lift - 1.0, 0.5)
+    for k, n in enumerate([62, 66, 69, 73, 78]):
+        place(buf, bell(n, total - end), end + k * 0.09, 1.0, pan=-0.3 + 0.15 * k)
+    place(buf, warm_pad([38, 54, 57, 61, 64], total - end, bright=1800), end, 1.1)
+    buf = reverb(buf, 0.28)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.3) / np.tanh(1.3)
+    fade = int(0.6 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-pulse.wav", buf, -1.5)
+    print("wrote story-pulse.wav")
+
+
 PRESETS = {
+    "pulse": pulse,
     "coolant": coolant,
     "verdant": verdant,
     "skyline": skyline,

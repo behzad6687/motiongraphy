@@ -23,7 +23,8 @@
 //   finger can be drawn over them; range drags log the knob every frame.
 //   env: CHROME, CCR_PROXY, CCR_SPKI (cloud sandbox proxy), SETTLE (ms, default 90),
 //        DPR (override the device pixel ratio, e.g. 2 for a sharp desktop zoom),
-//        PRELOAD_MAX (preload only above this y, so reveals below still play)
+//        PRELOAD_MAX (preload only above this y, so reveals below still play),
+//        HIDE (extra css selectors to hide, e.g. a chat greeting bubble)
 // Writes public/stories/<slug>/<device>-<name>.mp4 (30 fps, H.264).
 import { chromium } from "playwright";
 import { execFileSync } from "node:child_process";
@@ -116,7 +117,8 @@ for (let i = 0; i < 4; i++) {
 await page.addStyleTag({
   content: `html{scroll-behavior:auto!important}
     [id*="cookie" i],[class*="cookie" i],[id*="consent" i],[class*="consent" i],
-    iframe[src*="chat" i],[class*="tawk" i],[id*="tawk" i],.grecaptcha-badge{display:none!important}`,
+    iframe[src*="chat" i],[class*="tawk" i],[id*="tawk" i],.grecaptcha-badge{display:none!important}
+    ${process.env.HIDE ? `${process.env.HIDE}{display:none!important}` : ""}`,
 });
 // preload: walk the page once so images and film frames are cached
 await page.evaluate(async (max) => {
