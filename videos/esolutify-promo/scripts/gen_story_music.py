@@ -29,6 +29,14 @@ groove: electric piano, vinyl crackle, swung brushes-and-kick, round sub.
   5.71 s     bar 2      DROP as the camera pulls back from the mirror
   11.4 s     bar 4      a lift as the camera flies to the tablet
   17.1 s     bar 6      the end card: drums out, a rolled Dm9 rings to 20 s
+
+atelier (Crown, 20 s): 106.7 BPM (a bar is 67.5 frames), E minor,
+Em-Cmaj7-Am9-Bsus, dark and precise like a watch movement.
+  0-4.5 s    bars 0-1   tick-tock clockwork, a low drone, sparse piano
+  4.5 s      bar 2      DROP into the 3D studio: boom, low drums, a pulsing
+                        sub and a 16th pluck arpeggio
+  13.5 s     bar 6      a lift for the tablet and phone
+  16.9 s     bar 7.5    the end card: drums out, piano and drone ring to 20 s
 """
 
 import sys
@@ -294,7 +302,103 @@ def silk():
     print("wrote story-silk.wav")
 
 
-PRESETS = {"dawn": dawn, "polish": polish, "silk": silk}
+def tick(hi=True, dur=0.05):
+    t = t_axis(dur)
+    f = 3400 if hi else 2500
+    tone = np.sin(2 * np.pi * f * t) * np.exp(-t / 0.004)
+    click = bp(g.RNG.standard_normal(len(t)), 4000, 12000) * np.exp(-t / 0.002)
+    return (tone * 0.6 + click * 0.5) * 0.5
+
+
+def low_drum(dur=0.6):
+    t = t_axis(dur)
+    f = 55 + 70 * np.exp(-t / 0.05)
+    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.25)
+    skin = bp(g.RNG.standard_normal(len(t)), 150, 1200) * np.exp(-t / 0.04) * 0.4
+    return np.tanh((body + skin) * 1.5)
+
+
+def boom(dur=3.0):
+    t = t_axis(dur)
+    f = 32 + 60 * np.exp(-t / 0.12)
+    sub = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.9)
+    air = lp(g.RNG.standard_normal(len(t)), 900) * np.exp(-t / 0.3) * 0.3
+    return np.tanh((sub + air) * 1.4)
+
+
+def atelier():
+    bpm, total = 320 / 3, 20.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s16 = beat / 4
+    drop, lift, end = 2 * bar, 6 * bar, 7.5 * bar
+    g.RNG = np.random.default_rng(79)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (40, [52, 55, 59, 64], [64, 67, 71, 74]),  # Em(add9-ish)
+        (36, [52, 55, 59, 60], [60, 64, 67, 71]),  # Cmaj7
+        (45, [55, 57, 60, 64], [69, 71, 72, 76]),  # Am9
+        (47, [54, 59, 64, 66], [66, 71, 73, 76]),  # Bsus
+    ]
+    motif = [76, 74, 71, 67]
+    nb = int(np.ceil(total / bar))
+    for b in range(nb):
+        root, pad, arp = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        tail = t0 >= end - bar / 2
+        # the drone: dark strings, always
+        place(buf, warm_pad([root, root + 12] + pad[:2], bar + 0.8, bright=900 if t0 < drop else 1100), t0, 0.48 if t0 < drop else 0.32)
+        # clockwork: tick-tock on 8ths until the end card
+        if t0 < end:
+            for i in range(8):
+                at = t0 + i * beat / 2
+                if at < end:
+                    place(buf, tick(i % 2 == 0), at, 0.36 if t0 < drop else 0.2, pan=-0.4 + 0.8 * (i % 2))
+        # piano: one note per beat in the intro, the motif on bar starts later
+        if t0 < drop:
+            for k in (0, 2, 3):
+                place(buf, soft_piano(motif[(b * 3 + k) % 4], 2.4, bright=2400), t0 + k * beat, 0.32, pan=0.2)
+        elif t0 < end:
+            place(buf, soft_piano(motif[b % 4] + 12, 2.0, bright=3000), t0, 0.12, pan=0.3)
+            for i in range(16):
+                at = t0 + i * s16
+                if at >= end:
+                    break
+                place(buf, g.pluck(arp[(i * 3) % 4] - 12 + (12 if i % 8 == 7 else 0), 0.22, cutoff=2400 + 1200 * (b % 2)), at, 0.16 if i % 2 else 0.22, pan=-0.3 + 0.6 * (i % 2))
+            for k in range(4):
+                at = t0 + k * beat
+                if at >= end:
+                    break
+                if k in (0, 2):
+                    place(buf, low_drum(), at, 0.6)
+                if k in (1, 3):
+                    place(buf, g.clap(), at, 0.22, pan=0.1)
+                for j in range(2):  # pulsing sub on 8ths
+                    place(buf, g.bass_note(root - 12, beat * 0.42, cutoff=260), at + j * beat / 2, 0.5)
+            if b % 2 == 1:  # a small fill into the next pair of bars
+                for j in range(3):
+                    place(buf, low_drum(0.4), t0 + 3 * beat + j * s16 + s16, 0.35)
+    place(buf, boom(), drop, 0.85)
+    place(buf, g.riser(1.4) * 0.4, drop - 1.4, 0.5)
+    place(buf, g.riser(0.9) * 0.3, lift - 0.9, 0.5)
+    place(buf, g.crash(1.8), lift, 0.28)
+    # end card: boom, a held Em(add9) and the motif once more, slowly
+    place(buf, boom(3.2), end, 0.6)
+    place(buf, warm_pad([40, 52, 55, 59, 66], total - end, bright=1400), end, 0.36)
+    for k, n in enumerate([76, 71, 67, 64]):
+        place(buf, soft_piano(n, 3.0, bright=2600), end + 0.15 + k * beat, 0.2, pan=-0.2 + 0.13 * k)
+    buf = reverb(buf, 0.26)
+    buf = hp(buf, 28)
+    buf = np.tanh(buf * 1.35) / np.tanh(1.35)
+    fade = int(0.6 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-atelier.wav", buf, -1.5)
+    print("wrote story-atelier.wav")
+
+
+PRESETS = {"dawn": dawn, "polish": polish, "silk": silk, "atelier": atelier}
 
 if __name__ == "__main__":
     PRESETS[sys.argv[1]]()

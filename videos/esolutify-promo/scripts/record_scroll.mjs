@@ -13,6 +13,10 @@
 //               `every` frames, so the page's own animations keep pace)
 //             {"range":"[data-ba] input","to":90,"frames":40,"ease":"inOut"}
 //               drags a range input (e.g. a before/after slider) to a value
+//             {"drag":[x0,y0,x1,y1],"frames":30,"ease":"inOut"}
+//               drags the mouse (e.g. turns a 3D model), css px in the viewport
+//             {"type":"input[aria-label='Letter 1']","text":"L","hold":12}
+//               types into a field
 //   Taps are logged to <device>-<name>.json ({frame, x, y} in css px) so a
 //   finger can be drawn over them; range drags log the knob every frame.
 //   env: CHROME, CCR_PROXY, CCR_SPKI (cloud sandbox proxy), SETTLE (ms, default 90),
@@ -97,6 +101,16 @@ page = fresh;
 await page.goto(url, { waitUntil: "domcontentloaded", timeout: 90000 });
 await passChallenge();
 await page.waitForLoadState("networkidle", { timeout: 45000 }).catch(() => {});
+// the proxy sometimes drops a stylesheet: reload until the page is styled
+for (let i = 0; i < 4; i++) {
+  const styled = await page.evaluate(
+    () => !/times/i.test(getComputedStyle(document.body).fontFamily),
+  );
+  if (styled) break;
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await passChallenge();
+  await page.waitForLoadState("networkidle", { timeout: 45000 }).catch(() => {});
+}
 await page.addStyleTag({
   content: `html{scroll-behavior:auto!important}
     [id*="cookie" i],[class*="cookie" i],[id*="consent" i],[class*="consent" i],
@@ -150,7 +164,7 @@ const glide = async (to, frames, ease) => {
   maxY = Math.max(maxY, y);
 };
 for (const step of plan) {
-  if (step.hold && !step.click) {
+  if (step.hold && !step.click && !step.type) {
     for (let i = 0; i < step.hold; i++) await shot();
   } else if (step.to !== undefined && !step.range) {
     await glide(step.to, step.frames, step.ease);
@@ -176,6 +190,33 @@ for (const step of plan) {
       await shot(Math.min(every, (step.hold ?? 20) - i));
     // the page may scroll itself (e.g. focus); keep our idea of y honest
     y = await page.evaluate(() => Math.round(window.scrollY));
+  } else if (step.drag) {
+    const e = EASE[step.ease ?? "inOut"];
+    const [x0, y0, x1, y1] = step.drag;
+    await page.mouse.move(x0, y0);
+    await page.mouse.down();
+    for (let i = 1; i <= step.frames; i++) {
+      const k = e(i / step.frames);
+      const x = Math.round(x0 + (x1 - x0) * k);
+      const yy = Math.round(y0 + (y1 - y0) * k);
+      await page.mouse.move(x, yy);
+      drags.push({ frame: n, x, y: yy });
+      await page.waitForTimeout(30);
+      await shot();
+    }
+    await page.mouse.up();
+  } else if (step.type) {
+    const el = page.locator(step.type).first();
+    const box = await el.boundingBox();
+    taps.push({
+      frame: n,
+      x: Math.round(box.x + box.width / 2),
+      y: Math.round(box.y + box.height / 2),
+    });
+    await el.fill(step.text);
+    const every = step.every ?? 2;
+    for (let i = 0; i < (step.hold ?? 12); i += every)
+      await shot(Math.min(every, (step.hold ?? 12) - i));
   } else if (step.range) {
     const e = EASE[step.ease ?? "inOut"];
     const v0 = await page.$eval(step.range, (el) => Number(el.value));

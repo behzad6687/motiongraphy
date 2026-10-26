@@ -13,11 +13,13 @@ const Rec: React.FC<{
   from: number; // composition frame the recording starts on
   trim?: number; // recording frames to skip
   hold?: boolean; // show the first frame before `from` instead of black
-}> = ({ src, width, height, from, trim = 0, hold = false }) => {
+  rate?: number; // playback rate
+}> = ({ src, width, height, from, trim = 0, hold = false, rate = 1 }) => {
   const video = (
     <OffthreadVideo
       src={staticFile(src)}
       trimBefore={trim}
+      playbackRate={rate}
       muted
       style={{ width, height, display: "block", objectFit: "cover" }}
     />
@@ -146,7 +148,8 @@ export const LaptopRec: React.FC<{
   from: number;
   trim?: number;
   hold?: boolean;
-}> = ({ src, width, from, trim, hold }) => {
+  rate?: number;
+}> = ({ src, width, from, trim, hold, rate }) => {
   const h = Math.round((width * 900) / 1440);
   const bezel = Math.round(width * 0.022);
   const top = Math.round(width * 0.03);
@@ -192,6 +195,7 @@ export const LaptopRec: React.FC<{
             from={from}
             trim={trim}
             hold={hold}
+            rate={rate}
           />
         </div>
       </div>

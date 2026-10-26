@@ -50,3 +50,9 @@ loadFont({
   url: staticFile("fonts/PinyonScript-Regular.woff2"),
   weight: "400",
 });
+// DM Mono (SIL OFL, latin subset): the Crown Story's spec labels.
+loadFont({
+  family: theme.fonts.mono,
+  url: staticFile("fonts/DMMono-Regular.woff2"),
+  weight: "400",
+});

@@ -40,6 +40,7 @@ export const theme = {
     serif: "Bodoni Moda", // editorial Stories (beauty sites)
     garamond: "Cormorant Garamond", // the Samantha Story
     script: "Pinyon Script", // script accents (Samantha Story)
+    mono: "DM Mono", // spec labels (Crown Story)
   },
   // THE easing curves. Linear is forbidden.
   ease: {
