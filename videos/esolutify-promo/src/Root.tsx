@@ -14,6 +14,7 @@ import {
 import { PN_DURATION, PediNNailsStory } from "./portfolio/stories/PediNNails";
 import { SAM_DURATION, SamanthaStory } from "./portfolio/stories/Samantha";
 import { CROWN_DURATION, CrownStory } from "./portfolio/stories/Crown";
+import { RIEL_DURATION, RielBuildStory } from "./portfolio/stories/RielBuild";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
 import { SeoReel } from "./seo/SeoReel";
@@ -205,6 +206,23 @@ export const RemotionRoot: React.FC = () => {
           id="Story-crown-SZ"
           component={CrownStory}
           durationInFrames={CROWN_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+        <Composition
+          id="Story-rielbuild"
+          component={RielBuildStory}
+          durationInFrames={RIEL_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="Story-rielbuild-SZ"
+          component={RielBuildStory}
+          durationInFrames={RIEL_DURATION}
           fps={30}
           width={1080}
           height={1920}

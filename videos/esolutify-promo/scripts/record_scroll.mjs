@@ -17,6 +17,8 @@
 //               drags the mouse (e.g. turns a 3D model), css px in the viewport
 //             {"type":"input[aria-label='Letter 1']","text":"L","hold":12}
 //               types into a field
+//             {"press":".hold__btn","hold":60,"every":1}
+//               presses and holds the mouse on an element for `hold` frames
 //   Taps are logged to <device>-<name>.json ({frame, x, y} in css px) so a
 //   finger can be drawn over them; range drags log the knob every frame.
 //   env: CHROME, CCR_PROXY, CCR_SPKI (cloud sandbox proxy), SETTLE (ms, default 90),
@@ -164,7 +166,7 @@ const glide = async (to, frames, ease) => {
   maxY = Math.max(maxY, y);
 };
 for (const step of plan) {
-  if (step.hold && !step.click && !step.type) {
+  if (step.hold && !step.click && !step.type && !step.press) {
     for (let i = 0; i < step.hold; i++) await shot();
   } else if (step.to !== undefined && !step.range) {
     await glide(step.to, step.frames, step.ease);
@@ -190,6 +192,17 @@ for (const step of plan) {
       await shot(Math.min(every, (step.hold ?? 20) - i));
     // the page may scroll itself (e.g. focus); keep our idea of y honest
     y = await page.evaluate(() => Math.round(window.scrollY));
+  } else if (step.press) {
+    const box = await page.locator(step.press).first().boundingBox();
+    const x = Math.round(box.x + box.width / 2);
+    const yy = Math.round(box.y + box.height / 2);
+    taps.push({ frame: n, x, y: yy, hold: step.hold });
+    await page.mouse.move(x, yy);
+    await page.mouse.down();
+    const every = step.every ?? 1;
+    for (let i = 0; i < step.hold; i += every)
+      await shot(Math.min(every, step.hold - i));
+    await page.mouse.up();
   } else if (step.drag) {
     const e = EASE[step.ease ?? "inOut"];
     const [x0, y0, x1, y1] = step.drag;

@@ -37,6 +37,14 @@ Em-Cmaj7-Am9-Bsus, dark and precise like a watch movement.
                         sub and a 16th pluck arpeggio
   13.5 s     bar 6      a lift for the tablet and phone
   16.9 s     bar 7.5    the end card: drums out, piano and drone ring to 20 s
+
+workshop (Riel Build, 20 s): 96 BPM (a bar is 75 frames), G major,
+G-Em7-Cmaj7-D, warm and handmade: picked guitar, upright bass, woodblock.
+  0-5 s      bars 0-1   picked guitar alone over a soft pad; a low knock
+                        when the plumb bob settles (1.9 s)
+  5 s        bar 2      DROP into the laptop: kick, woodblock, shaker, bass
+  10 s       bar 4      a lift for the tablet
+  16.2 s     bar 6.5    the end card: band out, a slow strum rings to 20 s
 """
 
 import sys
@@ -398,7 +406,112 @@ def atelier():
     print("wrote story-atelier.wav")
 
 
-PRESETS = {"dawn": dawn, "polish": polish, "silk": silk, "atelier": atelier}
+def guitar(n, dur=1.6, bright=0.5):
+    """Karplus-Strong plucked string."""
+    f = midi(n)
+    period = int(SR / f)
+    total = int(dur * SR)
+    buf = g.RNG.uniform(-1, 1, period)
+    out = np.empty(total)
+    decay = 0.996
+    for i in range(total):
+        out[i] = buf[i % period]
+        nxt = buf[(i + 1) % period]
+        buf[i % period] = decay * (bright * buf[i % period] + (1 - bright) * nxt)
+    t = t_axis(dur)[:total]
+    return lp(out, 4200) * np.minimum(1, t / 0.002) * 0.6
+
+
+def woodblock(dur=0.12):
+    t = t_axis(dur)
+    tone = np.sin(2 * np.pi * 900 * t) * np.exp(-t / 0.02) + 0.5 * np.sin(2 * np.pi * 1450 * t) * np.exp(-t / 0.012)
+    return tone * 0.45
+
+
+def knock(dur=0.35):
+    t = t_axis(dur)
+    body = np.sin(2 * np.pi * 120 * t) * np.exp(-t / 0.07)
+    wood = bp(g.RNG.standard_normal(len(t)), 300, 2500) * np.exp(-t / 0.02) * 0.6
+    return (body + wood) * 0.7
+
+
+def upright(n, dur):
+    t = t_axis(dur)
+    f = midi(n)
+    sig = np.sin(2 * np.pi * f * t) + 0.3 * np.sin(2 * np.pi * 2 * f * t) * np.exp(-t * 4)
+    thump = lp(g.RNG.standard_normal(len(t)), 400) * np.exp(-t / 0.015) * 0.3
+    return (sig * np.exp(-t * 2.2) + thump) * np.minimum(1, t / 0.004)
+
+
+def workshop():
+    bpm, total = 96, 20.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s8 = beat / 2
+    drop, lift, end = 2 * bar, 4 * bar, 6.5 * bar
+    g.RNG = np.random.default_rng(97)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (43, [55, 59, 62, 67]),  # G
+        (40, [52, 55, 59, 62]),  # Em7
+        (36, [52, 55, 59, 64]),  # Cmaj7
+        (38, [54, 57, 62, 66]),  # D
+    ]
+    pick = [0, 2, 1, 3, 2, 1, 3, 2]  # travis-ish 8ths
+    for b in range(int(np.ceil(total / bar))):
+        root, ch = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        place(buf, warm_pad(ch[:3], bar + 0.5, bright=900), t0, 0.26 if t0 < drop else 0.12)
+        if t0 < end:
+            for i, k in enumerate(pick):
+                at = t0 + i * s8
+                if at >= end:
+                    break
+                n = ch[k] if i % 4 else root + 12  # thumb on the beat
+                lift_g = 3.4 if t0 < drop else 1.5
+                place(buf, guitar(n, 1.4), at, (0.32 if i % 4 == 0 else 0.24) * lift_g, pan=-0.25 + 0.5 * (k / 3))
+        if drop <= t0 < end:
+            for k in range(4):
+                at = t0 + k * beat
+                if at >= end:
+                    break
+                if k in (0, 2):
+                    place(buf, g.kick(0.4, 120, 48, punch=0.5), at, 0.5)
+                if k in (1, 3):
+                    place(buf, woodblock(), at, 0.4, pan=0.2)
+                    place(buf, g.clap(), at, 0.12, pan=-0.1)
+                for j in range(2):
+                    place(buf, shaker(), at + j * s8, 0.55 if j else 0.35, pan=0.35)
+            place(buf, upright(root - 12, beat * 1.8), t0, 0.55)
+            place(buf, upright(root - 12 + 7, beat * 0.9), t0 + 2 * beat, 0.45)
+            place(buf, upright(root - 12 + 12, beat * 0.9), t0 + 3 * beat, 0.4)
+    place(buf, knock(), 1.9, 0.9)  # the bob settles
+    place(buf, g.riser(1.4) * 0.35, drop - 1.4, 0.5)
+    place(buf, g.crash(2.0), drop, 0.4)
+    place(buf, g.riser(0.9) * 0.28, lift - 0.9, 0.5)
+    place(buf, g.crash(1.6), lift, 0.25)
+    # end card: a slow G strum
+    for k, n in enumerate([43, 50, 55, 59, 62, 67]):
+        place(buf, guitar(n, total - end), end + k * 0.045, 1.1, pan=-0.3 + 0.12 * k)
+    place(buf, warm_pad([43, 55, 59, 62], total - end, bright=1200), end, 0.4)
+    buf = reverb(buf, 0.2)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.3) / np.tanh(1.3)
+    fade = int(0.6 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-workshop.wav", buf, -1.5)
+    print("wrote story-workshop.wav")
+
+
+PRESETS = {
+    "dawn": dawn,
+    "polish": polish,
+    "silk": silk,
+    "atelier": atelier,
+    "workshop": workshop,
+}
 
 if __name__ == "__main__":
     PRESETS[sys.argv[1]]()
