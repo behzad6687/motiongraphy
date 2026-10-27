@@ -711,6 +711,7 @@ One Story per website preview, saved to a highlight called **"Our Work"**. Each 
 | Coldloop (24s) | `renders/stories/08-coldloop.mp4` | `renders/stories/thumbs/08-coldloop-thumbnail.jpg` |
 | N.H.F Clinics | `renders/stories/09-nhf-clinics.mp4` | `renders/stories/thumbs/09-nhf-clinics-thumbnail.jpg` |
 | Masera Dentistry | `renders/stories/10-masera.mp4` | `renders/stories/thumbs/10-masera-thumbnail.jpg` |
+| Baron Luxury Holidays | `renders/stories/11-baron.mp4` | `renders/stories/thumbs/11-baron-thumbnail.jpg` |
 
 The thumbnails are 1080×1920, with everything important inside the 4:5 area the profile grid shows. **As a Story** there is no caption: add the link sticker `esolutify.com/free-demo`, labelled **"See your site free"**, in the space under "Tap the link" on the end card, and paste the alt text. **As a Reel**, use the caption. Every fact below was read off the live site.
 
@@ -925,6 +926,27 @@ Dentists and family practices: we build your demo free. See it before you pay a 
 ```
 
 **Alt text:** "A website preview by eSolutify for Masera Dentistry, a family dental practice in Houston. Each scene drops onto a warm table like a photo print, with handwritten notes. A phone plays a sunlit scroll film of the treatment room with patient quotes, a laptop shows a cursor tapping 'A tooth hurts', 'I get anxious' and 'Straighter teeth' as the site suggests the right visit, and a tablet scrolls 583 five-star reviews. Text: Make your website feel like home. Get your free demo at esolutify.com/free-demo."
+
+### Baron Luxury Holidays
+
+**Caption:**
+
+```
+A travel website that takes you somewhere. ✈️
+
+A website preview we built for Baron Luxury Holidays, escorted tours from Dubai since 1993:
+
+▸ A 3D globe: tap Scandinavia, Far East or the Americas and it flies there
+▸ Filter journeys by fixed dates, weekly escapes or your own dates
+▸ Tour of the Month, with the price, days and countries up front
+▸ English and Arabic, with WhatsApp one tap away
+
+Travel agencies and tour operators: we build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#travelagency #dubaibusiness #webdesign #tourism #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for Baron Luxury Holidays, escorted tours from Dubai, in navy and gold. A laptop shows a 3D globe that turns to each region as a cursor taps Scandinavia, Far East and The Americas, while an airport departure board below flips to the same region. A gold plane flies across each cut. A phone taps the Weekly Escapes and Grand Journeys filters and scrolls the tour cards, and a tablet shows the Tour of the Month, Heart of Scandinavia, from €2,970 for 14 days. The end card is a boarding pass: Give your business a first-class website. Get your free demo at esolutify.com/free-demo."
 
 **Highlight:** save all of them to **"Our Work"**. A free-demo Story (section 4) at the end of the highlight gives viewers the next step.
 

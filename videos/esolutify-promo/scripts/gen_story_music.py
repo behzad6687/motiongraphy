@@ -86,6 +86,14 @@ F-Dm7-Bbmaj7-C, warm and playful: kalimba, handclaps, upright bass.
                         upright bass
   12 s       beat 20    a lift (frame 360)
   16.2 s     beat 27    the end card (frame 486): a kalimba roll rings out
+voyage (Baron, 20 s): 90 BPM (a beat is 20 frames), D Hijaz (D Eb F# G A
+Bb C), warm and travelling: oud-like plucks, a frame-drum groove, a drone.
+  0-5.3 s    intro      drone, a slow oud phrase, a string swell
+  5.3 s      beat 8     the groove comes in (frame 160): dum-tek darbuka,
+                        frame drum, bass, oud riff in 8ths
+  11.3 s     beat 17    a lift (frame 340)
+  16 s       beat 24    the end card (frame 480): the drums stop, an oud
+                        tremolo on D rings out over the drone
 """
 
 import sys
@@ -880,7 +888,93 @@ def hearth():
     print("wrote story-hearth.wav")
 
 
+def oud(n, dur=1.2):
+    """A short, woody plucked string (Karplus-Strong, darker and damped)."""
+    return lp(guitar(n, dur, bright=0.35), 2600) * np.exp(-t_axis(dur)[: int(dur * SR)] * 1.6)
+
+
+def darbuka(kind, dur=0.25):
+    """dum: low, round; tek: a sharp rim slap."""
+    t = t_axis(dur)
+    if kind == "dum":
+        body = np.sin(2 * np.pi * (90 + 60 * np.exp(-t / 0.02)) * t) * np.exp(-t / 0.12)
+        return body * 0.9
+    slap = bp(g.RNG.standard_normal(len(t)), 1800, 6500) * np.exp(-t / 0.018)
+    ring = np.sin(2 * np.pi * 620 * t) * np.exp(-t / 0.03) * 0.3
+    return (slap + ring) * 0.5
+
+
+def voyage():
+    bpm, total = 90, 20.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s8 = beat / 2
+    s16 = beat / 4
+    drop, lift, end = 8 * beat, 17 * beat, 24 * beat
+    g.RNG = np.random.default_rng(1993)
+    buf = np.zeros((2, int(total * SR)))
+    # D Hijaz: D Eb F# G A Bb C
+    prog = [
+        (38, [50, 54, 57], [62, 63, 66, 67, 69, 67, 66, 63]),  # D
+        (43, [50, 55, 58], [67, 66, 63, 62, 63, 66, 67, 70]),  # Gm
+        (36, [48, 51, 55], [72, 70, 69, 67, 66, 67, 69, 70]),  # Cm
+        (38, [50, 54, 57], [69, 67, 66, 63, 62, 63, 66, 62]),  # D
+    ]
+    t = t_axis(total)
+    drone = (np.sin(2 * np.pi * midi(38) * t) + 0.4 * np.sin(2 * np.pi * midi(45) * t)) * 0.12
+    drone *= np.minimum(1, t / 2.0)
+    buf += np.stack([drone, drone])
+    # intro: a slow oud phrase
+    phrase = [(62, 0), (63, 1), (66, 1.5), (67, 2), (66, 3), (63, 3.5), (62, 4), (69, 5), (67, 6), (66, 6.5), (63, 7), (62, 7.5)]
+    for n, b in phrase:
+        place(buf, oud(n, 1.6), b * beat, 1.6, pan=-0.15)
+    place(buf, warm_pad([50, 54, 57, 62], drop, bright=900), 0, 0.7)
+    for b in range(int(np.ceil(total / bar))):
+        root, pad, riff = prog[b % 4]
+        t0 = b * bar
+        if t0 < drop or t0 >= total:
+            continue
+        place(buf, warm_pad(pad, bar + 0.5, bright=1300), t0, 0.2)
+        for i, n in enumerate(riff):
+            at = t0 + i * s8
+            if at >= end:
+                break
+            place(buf, oud(n, 0.9), at, 0.5, pan=0.2 if i % 2 else -0.2)
+        # maqsum: dum tek - tek dum - tek -
+        for at_16, kind in [(0, "dum"), (2, "tek"), (6, "tek"), (8, "dum"), (12, "tek"), (14, "tek"), (15, "tek")]:
+            at = t0 + at_16 * s16
+            if at >= end:
+                continue
+            place(buf, darbuka(kind), at, 0.7 if kind == "dum" else 0.45, pan=0.15)
+        for k in range(4):
+            at = t0 + k * beat
+            if at >= end:
+                break
+            if k in (0, 2):
+                place(buf, low_drum(0.6), at, 0.5)
+            place(buf, shaker(), at + s8, 0.35, pan=-0.35)
+            place(buf, upright(root - 12 + (7 if k == 3 else 0), beat * 0.9), at, 0.5)
+    place(buf, g.riser(1.4) * 0.3, drop - 1.4, 0.5)
+    place(buf, g.crash(1.8), drop, 0.3)
+    place(buf, g.riser(0.9) * 0.25, lift - 0.9, 0.5)
+    place(buf, g.crash(1.4), lift, 0.2)
+    # end card: an oud tremolo on D over the drone
+    for k in range(int((total - end - 1.5) / s16)):
+        n = [62, 69][k // 16 % 2] if k < 32 else 62
+        place(buf, oud(n, 0.5), end + k * s16, 0.9 * (1 - k / 80), pan=-0.1 + 0.2 * (k % 2))
+    place(buf, oud(50, total - end), end, 1.8)
+    place(buf, warm_pad([38, 50, 54, 57], total - end, bright=1100), end, 1.8)
+    buf = reverb(buf, 0.24)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.3) / np.tanh(1.3)
+    fade = int(0.6 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-voyage.wav", buf, -1.5)
+    print("wrote story-voyage.wav")
+
+
 PRESETS = {
+    "voyage": voyage,
     "hearth": hearth,
     "pulse": pulse,
     "coolant": coolant,

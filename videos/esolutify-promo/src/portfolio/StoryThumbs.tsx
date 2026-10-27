@@ -269,6 +269,30 @@ export const THUMBS = {
     laptop: { src: "stories/masera/desktop-picker.mp4", frame: 66 },
     phone: { src: "stories/masera/mobile-film.mp4", frame: 70 },
   },
+  baron: {
+    name: "Baron Luxury Holidays",
+    hook: "Tap a region. The globe flies there.",
+    look: {
+      bg: "#0A1326",
+      glow: "rgba(201,162,74,0.22)",
+      ink: "#F3EBDD",
+      accent: "#C9A24A",
+      muted: "#8C97AE",
+      titleFont: {
+        fontFamily: theme.fonts.garamond,
+        fontWeight: 500,
+        letterSpacing: "-0.01em",
+      },
+      hookFont: {
+        fontFamily: theme.fonts.garamond,
+        fontWeight: 500,
+        fontStyle: "italic",
+      },
+      labelFont: mono,
+    },
+    laptop: { src: "stories/baron/desktop-globe.mp4", frame: 84 },
+    phone: { src: "stories/baron/mobile-journeys.mp4", frame: 76 },
+  },
 } satisfies Record<string, Thumb>;
 
 export type ThumbSite = keyof typeof THUMBS;
@@ -283,6 +307,7 @@ export const THUMB_ORDER: ThumbSite[] = [
   "newpc",
   "nhfclinics",
   "masera",
+  "baron",
 ];
 
 export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({
