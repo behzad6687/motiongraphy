@@ -21,6 +21,10 @@ import { HB_DURATION, HBStory } from "./portfolio/stories/HB";
 import { NHF_DURATION, NHFStory } from "./portfolio/stories/NHF";
 import { MASERA_DURATION, MaseraStory } from "./portfolio/stories/Masera";
 import { BARON_DURATION, BaronStory } from "./portfolio/stories/Baron";
+import {
+  INFOTOUCH_DURATION,
+  InfotouchStory,
+} from "./portfolio/stories/Infotouch";
 import { COLDLOOP_DURATION, ColdloopStory } from "./portfolio/stories/Coldloop";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
@@ -332,6 +336,23 @@ export const RemotionRoot: React.FC = () => {
           id="Story-baron-SZ"
           component={BaronStory}
           durationInFrames={BARON_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+        <Composition
+          id="Story-infotouch"
+          component={InfotouchStory}
+          durationInFrames={INFOTOUCH_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="Story-infotouch-SZ"
+          component={InfotouchStory}
+          durationInFrames={INFOTOUCH_DURATION}
           fps={30}
           width={1080}
           height={1920}

@@ -94,6 +94,16 @@ Bb C), warm and travelling: oud-like plucks, a frame-drum groove, a drone.
   11.3 s     beat 17    a lift (frame 340)
   16 s       beat 24    the end card (frame 480): the drums stop, an oud
                         tremolo on D rings out over the drone
+signal (Infotouch, 22 s): 120 BPM (a beat is 15 frames), C# minor,
+C#m-A-E-B, cinematic and digital: sonar pings, a pulsing 8th bass, an arp
+whose filter opens as the desktop film scrolls from dusk to the green dawn.
+  0-1 s      intro      two sonar pings over a pad
+  1 s        beat 2     the pulse starts as the page starts to scroll (frame
+                        30): kick, 8th bass, hats; the arp filter opens slowly
+                        to the end of the film
+  11 s       beat 22    a lift for the phone (frame 330)
+  15 s       beat 30    a lift for the tablet (frame 450)
+  18.5 s     beat 37    the end card (frame 555): the beat stops, pad + ping
 """
 
 import sys
@@ -973,7 +983,77 @@ def voyage():
     print("wrote story-voyage.wav")
 
 
+def ping(n, dur=2.0):
+    """A sonar ping: a pure tone with a soft echo."""
+    t = t_axis(dur)
+    tone = np.sin(2 * np.pi * midi(n) * t) * np.exp(-t * 2.4) * np.minimum(1, t / 0.003)
+    echo = np.zeros_like(tone)
+    d = int(0.32 * SR)
+    echo[d:] = tone[:-d] * 0.35
+    return (tone + echo) * 0.5
+
+
+def signal():
+    bpm, total = 120, 22.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s16 = beat / 4
+    drop, lift, lift2, end = 2 * beat, 22 * beat, 30 * beat, 37 * beat
+    g.RNG = np.random.default_rng(2007)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (37, [49, 52, 56, 61], [61, 64, 68, 73]),  # C#m
+        (33, [49, 52, 57, 61], [61, 64, 69, 73]),  # A
+        (40, [52, 56, 59, 64], [64, 68, 71, 76]),  # E
+        (35, [51, 54, 59, 63], [63, 66, 71, 75]),  # B
+    ]
+    place(buf, ping(85), 0.0, 0.9, pan=-0.2)
+    place(buf, ping(80), 0.5, 0.7, pan=0.2)
+    for b in range(int(np.ceil(total / bar))):
+        root, pad, arp = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        place(buf, g.pad_chord(pad, bar + 0.4, bright=1400 + 1800 * min(1, t0 / lift)), t0, 0.9 if t0 < drop else 0.32)
+        for i in range(16):
+            at = t0 + i * s16
+            if at < drop or at >= end:
+                continue
+            n = arp[[0, 2, 1, 3][i % 4]] + (12 if i % 8 >= 6 else 0)
+            cut = 600 + 3600 * min(1, (at - drop) / (lift - drop))
+            place(buf, g.pluck(n, 0.2, cutoff=cut), at, 0.24, pan=-0.4 + 0.8 * ((i * 5) % 7) / 6)
+        for k in range(4):
+            at = t0 + k * beat
+            if not (drop <= at < end):
+                continue
+            place(buf, g.kick(0.38, 140, 44, punch=0.8), at, 0.62)
+            if k in (1, 3) and at >= lift:
+                place(buf, g.clap(), at, 0.3, pan=0.05)
+            place(buf, g.hat(0.035), at + beat / 2, 0.6, pan=0.3)
+            place(buf, g.hat(0.02), at + 3 * beat / 4, 0.3, pan=-0.3)
+            for j in range(2):
+                place(buf, g.bass_note(root - 12, beat * 0.4, cutoff=520), at + j * beat / 2, 0.45)
+        if drop <= t0 < end and b % 2 == 0:
+            place(buf, ping(arp[3] + 12, 1.6), t0, 0.35, pan=0.4)
+    place(buf, g.riser(0.9) * 0.4, drop - 0.9, 0.5)
+    place(buf, g.crash(2.4), drop, 0.4)
+    for lf in (lift, lift2):
+        place(buf, g.riser(1.0) * 0.32, lf - 1.0, 0.5)
+        place(buf, g.crash(1.8), lf, 0.28)
+    place(buf, g.pad_chord([37, 49, 52, 56, 61, 68], total - end, bright=2600), end, 1.6)
+    place(buf, ping(85, 3.0), end, 1.0)
+    place(buf, ping(80, 2.5), end + 0.75, 0.7, pan=0.3)
+    buf = reverb(buf, 0.26)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.35) / np.tanh(1.35)
+    fade = int(0.6 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-signal.wav", buf, -1.5)
+    print("wrote story-signal.wav")
+
+
 PRESETS = {
+    "signal": signal,
     "voyage": voyage,
     "hearth": hearth,
     "pulse": pulse,

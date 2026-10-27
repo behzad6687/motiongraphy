@@ -712,6 +712,7 @@ One Story per website preview, saved to a highlight called **"Our Work"**. Each 
 | N.H.F Clinics | `renders/stories/09-nhf-clinics.mp4` | `renders/stories/thumbs/09-nhf-clinics-thumbnail.jpg` |
 | Masera Dentistry | `renders/stories/10-masera.mp4` | `renders/stories/thumbs/10-masera-thumbnail.jpg` |
 | Baron Luxury Holidays | `renders/stories/11-baron.mp4` | `renders/stories/thumbs/11-baron-thumbnail.jpg` |
+| Infotouch (22s) | `renders/stories/12-infotouch.mp4` | `renders/stories/thumbs/12-infotouch-thumbnail.jpg` |
 
 The thumbnails are 1080×1920, with everything important inside the 4:5 area the profile grid shows. **As a Story** there is no caption: add the link sticker `esolutify.com/free-demo`, labelled **"See your site free"**, in the space under "Tap the link" on the end card, and paste the alt text. **As a Reel**, use the caption. Every fact below was read off the live site.
 
@@ -947,6 +948,27 @@ Travel agencies and tour operators: we build your demo free. See it before you p
 ```
 
 **Alt text:** "A website preview by eSolutify for Baron Luxury Holidays, escorted tours from Dubai, in navy and gold. A laptop shows a 3D globe that turns to each region as a cursor taps Scandinavia, Far East and The Americas, while an airport departure board below flips to the same region. A gold plane flies across each cut. A phone taps the Weekly Escapes and Grand Journeys filters and scrolls the tour cards, and a tablet shows the Tour of the Month, Heart of Scandinavia, from €2,970 for 14 days. The end card is a boarding pass: Give your business a first-class website. Get your free demo at esolutify.com/free-demo."
+
+### Infotouch
+
+**Caption:**
+
+```
+Scroll the page. Fly over Dubai. 🌆
+
+A website preview we built for Infotouch, a Dubai digital innovation and IT R&D company. The homepage is a drone film that plays as you scroll, from dusk to a green dawn:
+
+▸ Four chapters: Signal, Build, Intelligence, Horizon
+▸ Five verticals, from blockchain to ESG NetZero
+▸ The numbers up front: founded in the UAE in 2007, 6 global locations, ISO certified
+▸ Trusted by governments and enterprise, client names on a live ticker
+
+Tech, B2B and enterprise teams: we build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#webdesign #dubaibusiness #techcompany #b2bmarketing #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for Infotouch, a Dubai digital innovation company, in deep navy with mint and copper accents. A large desktop browser window scrolls the homepage, a drone film over Dubai at night that changes with the scroll, while a scrubber bar below names each chapter as it is reached: Signal, Build, Intelligence, Horizon, then the company numbers, with a scroll counter in pixels. A phone scrolls the five verticals beside the stats 2007, 06, 2014 and ISO, and a tablet shows the ESG section and the client list with a ticker of client names. Text: Make your website impossible to scroll past. Get your free demo at esolutify.com/free-demo."
 
 **Highlight:** save all of them to **"Our Work"**. A free-demo Story (section 4) at the end of the highlight gives viewers the next step.
 
