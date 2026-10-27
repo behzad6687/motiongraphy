@@ -246,6 +246,29 @@ export const THUMBS = {
     laptop: { src: "stories/nhfclinics/desktop-promos.mp4", frame: 36 },
     phone: { src: "stories/nhfclinics/mobile-tour.mp4", frame: 0 },
   },
+  masera: {
+    name: "Masera Dentistry",
+    hook: "Gentle dentistry, gentle website.",
+    look: {
+      bg: "#FBF7F0",
+      glow: "rgba(62,140,134,0.18)",
+      ink: "#1F2A2A",
+      accent: "#1F5E5B",
+      muted: "#6F7B78",
+      titleFont: {
+        fontFamily: theme.fonts.news,
+        fontWeight: 500,
+        letterSpacing: "-0.015em",
+      },
+      hookFont: {
+        fontFamily: theme.fonts.hand,
+        fontWeight: 600,
+      },
+      labelFont: mono,
+    },
+    laptop: { src: "stories/masera/desktop-picker.mp4", frame: 66 },
+    phone: { src: "stories/masera/mobile-film.mp4", frame: 70 },
+  },
 } satisfies Record<string, Thumb>;
 
 export type ThumbSite = keyof typeof THUMBS;
@@ -259,6 +282,7 @@ export const THUMB_ORDER: ThumbSite[] = [
   "hb",
   "newpc",
   "nhfclinics",
+  "masera",
 ];
 
 export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({
@@ -326,7 +350,7 @@ export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({
           right: 50,
           top: long ? 500 : 530,
           textAlign: "center",
-          fontSize: site === "samantha" ? 84 : 58,
+          fontSize: site === "samantha" ? 84 : site === "masera" ? 74 : 58,
           lineHeight: 1.15,
           color: L.accent,
         }}
@@ -372,7 +396,9 @@ export const StoryThumb: React.FC<{ readonly site: ThumbSite }> = ({
                 ? "#151A3D"
                 : L.bg === "#F3F6F2"
                   ? "#132530"
-                  : "transparent",
+                  : L.bg === "#FBF7F0"
+                    ? "#1F5E5B"
+                    : "transparent",
           }}
         >
           <Img

@@ -78,6 +78,14 @@ Dmaj9-Bm7-Gmaj7-A6, calm and clinical: glassy bells, a soft heartbeat.
                         kick, shaker, round bass, bell arp in 8ths
   11.1 s     beat 17    a lift (frame 333)
   16.3 s     beat 25    the end card (frame 489): the pulse stops, bells ring
+
+hearth (Masera, 20 s): 100 BPM (a beat is 18 frames), F major,
+F-Dm7-Bbmaj7-C, warm and playful: kalimba, handclaps, upright bass.
+  0-6 s      intro      kalimba and a soft pad
+  6 s        beat 10    the band comes in (frame 180): kick, claps, shaker,
+                        upright bass
+  12 s       beat 20    a lift (frame 360)
+  16.2 s     beat 27    the end card (frame 486): a kalimba roll rings out
 """
 
 import sys
@@ -812,7 +820,68 @@ def pulse():
     print("wrote story-pulse.wav")
 
 
+def kalimba(n, dur=1.2):
+    t = t_axis(dur)
+    f = midi(n)
+    sig = np.sin(2 * np.pi * f * t) + 0.3 * np.sin(2 * np.pi * f * 5.4 * t) * np.exp(-t * 25)
+    tine = bp(g.RNG.standard_normal(len(t)), 2500, 7000) * np.exp(-t / 0.004) * 0.3
+    return (sig * np.exp(-t * 3.2) + tine) * np.minimum(1, t / 0.0015) * 0.5
+
+
+def hearth():
+    bpm, total = 100, 20.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s8 = beat / 2
+    drop, lift, end = 10 * beat, 20 * beat, 27 * beat
+    g.RNG = np.random.default_rng(191)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (41, [57, 60, 65], [65, 69, 72, 77]),  # F
+        (38, [57, 62, 65], [62, 65, 69, 74]),  # Dm7
+        (46, [58, 62, 65], [62, 65, 70, 74]),  # Bbmaj7
+        (48, [55, 60, 64], [64, 67, 72, 76]),  # C
+    ]
+    riff = [0, 2, 1, 3, 2, 0, 3, 1]
+    for b in range(int(np.ceil(total / bar))):
+        root, pad, arp = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        place(buf, warm_pad(pad, bar + 0.5, bright=1600), t0, 0.4 if t0 < drop else 0.26)
+        for i, k in enumerate(riff):
+            at = t0 + i * s8
+            if at >= end:
+                break
+            place(buf, kalimba(arp[k] + (12 if (b % 2 and i == 7) else 0)), at, 0.6 if at < drop else 0.42, pan=-0.3 + 0.6 * (k / 3))
+        for k in range(4):
+            at = t0 + k * beat
+            if not (drop <= at < end):
+                continue
+            if k in (0, 2):
+                place(buf, g.kick(0.36, 120, 50, punch=0.5), at, 0.55)
+            if k in (1, 3):
+                place(buf, g.clap(), at, 0.38, pan=0.1)
+                place(buf, g.clap(), at + 0.012, 0.2, pan=-0.2)
+            place(buf, shaker(), at + s8, 0.5, pan=0.3)
+            place(buf, upright(root - 12 + (7 if k == 2 else 0), beat * 0.9), at, 0.5)
+    place(buf, g.riser(1.4) * 0.3, drop - 1.4, 0.5)
+    place(buf, g.crash(1.8), drop, 0.3)
+    place(buf, g.riser(0.9) * 0.25, lift - 0.9, 0.5)
+    for k, n in enumerate([65, 69, 72, 77, 81]):
+        place(buf, kalimba(n, total - end), end + k * 0.08, 1.6, pan=-0.3 + 0.15 * k)
+    place(buf, warm_pad([41, 57, 60, 65], total - end, bright=1800), end, 1.4)
+    buf = reverb(buf, 0.22)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.3) / np.tanh(1.3)
+    fade = int(0.6 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-hearth.wav", buf, -1.5)
+    print("wrote story-hearth.wav")
+
+
 PRESETS = {
+    "hearth": hearth,
     "pulse": pulse,
     "coolant": coolant,
     "verdant": verdant,

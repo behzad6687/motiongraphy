@@ -710,6 +710,7 @@ One Story per website preview, saved to a highlight called **"Our Work"**. Each 
 | HB Developments | `renders/stories/07-hb-developments.mp4` | `renders/stories/thumbs/07-hb-developments-thumbnail.jpg` |
 | Coldloop (24s) | `renders/stories/08-coldloop.mp4` | `renders/stories/thumbs/08-coldloop-thumbnail.jpg` |
 | N.H.F Clinics | `renders/stories/09-nhf-clinics.mp4` | `renders/stories/thumbs/09-nhf-clinics-thumbnail.jpg` |
+| Masera Dentistry | `renders/stories/10-masera.mp4` | `renders/stories/thumbs/10-masera-thumbnail.jpg` |
 
 The thumbnails are 1080×1920, with everything important inside the 4:5 area the profile grid shows. **As a Story** there is no caption: add the link sticker `esolutify.com/free-demo`, labelled **"See your site free"**, in the space under "Tap the link" on the end card, and paste the alt text. **As a Reel**, use the caption. Every fact below was read off the live site.
 
@@ -903,6 +904,27 @@ Clinics and med spas: your website should earn trust before the first visit. We 
 **Alt text:** "A website by eSolutify for N.H.F Clinics, a physician-led medical aesthetics clinic in Newmarket, Ontario. A phone scrolls the home page, an ECG heartbeat line sweeps across to a laptop clicking through current promotions, then to a tablet switching between six treatment groups. Text: Your website, held to a higher standard. Get your free demo at esolutify.com/free-demo."
 
 N.H.F Clinics is a live client site (nhfclinics.com), so its caption says "a website we built", not "a preview". The promotions on screen are seasonal; re-record them if the Story is reposted after the season.
+
+### Masera Dentistry
+
+**Caption:**
+
+```
+Gentle dentistry deserves a gentle website. 🦷
+
+Warm, calm and easy to use, like a visit with Dr. Masera. A website preview we built for Masera Dentistry, a family practice in Houston:
+
+▸ A sunlit scroll film with patients' own words
+▸ "Tell us what's going on": tap what hurts, it points you to the right visit
+▸ 583 Google reviews, all five stars, right on the page
+▸ Book online in about a minute
+
+Dentists and family practices: we build your demo free. See it before you pay a dollar. Link in bio 🔗
+
+#dentist #dentalmarketing #webdesign #houstonbusiness #esolutify
+```
+
+**Alt text:** "A website preview by eSolutify for Masera Dentistry, a family dental practice in Houston. Each scene drops onto a warm table like a photo print, with handwritten notes. A phone plays a sunlit scroll film of the treatment room with patient quotes, a laptop shows a cursor tapping 'A tooth hurts', 'I get anxious' and 'Straighter teeth' as the site suggests the right visit, and a tablet scrolls 583 five-star reviews. Text: Make your website feel like home. Get your free demo at esolutify.com/free-demo."
 
 **Highlight:** save all of them to **"Our Work"**. A free-demo Story (section 4) at the end of the highlight gives viewers the next step.
 

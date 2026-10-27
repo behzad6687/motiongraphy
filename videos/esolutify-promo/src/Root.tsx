@@ -19,6 +19,7 @@ import { StoryThumb, THUMB_ORDER } from "./portfolio/StoryThumbs";
 import { GINCO_DURATION, GincoStory } from "./portfolio/stories/Ginco";
 import { HB_DURATION, HBStory } from "./portfolio/stories/HB";
 import { NHF_DURATION, NHFStory } from "./portfolio/stories/NHF";
+import { MASERA_DURATION, MaseraStory } from "./portfolio/stories/Masera";
 import { COLDLOOP_DURATION, ColdloopStory } from "./portfolio/stories/Coldloop";
 import { VoiceReel } from "./voice/VoiceReel";
 import { AppReel } from "./app/AppReel";
@@ -296,6 +297,23 @@ export const RemotionRoot: React.FC = () => {
           id="Story-nhfclinics-SZ"
           component={NHFStory}
           durationInFrames={NHF_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+        <Composition
+          id="Story-masera"
+          component={MaseraStory}
+          durationInFrames={MASERA_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="Story-masera-SZ"
+          component={MaseraStory}
+          durationInFrames={MASERA_DURATION}
           fps={30}
           width={1080}
           height={1920}
