@@ -708,7 +708,7 @@ One Story per website preview, saved to a highlight called **"Our Work"**. Each 
 | Riel Build | `renders/stories/05-riel-build.mp4` | `renders/stories/thumbs/05-riel-build-thumbnail.jpg` |
 | National Aluminium (Ginco) | `renders/stories/06-national-aluminium.mp4` | `renders/stories/thumbs/06-national-aluminium-thumbnail.jpg` |
 | HB Developments | `renders/stories/07-hb-developments.mp4` | `renders/stories/thumbs/07-hb-developments-thumbnail.jpg` |
-| Coldloop | `renders/stories/08-coldloop.mp4` | `renders/stories/thumbs/08-coldloop-thumbnail.jpg` |
+| Coldloop (22s) | `renders/stories/08-coldloop.mp4` | `renders/stories/thumbs/08-coldloop-thumbnail.jpg` |
 | N.H.F Clinics | `renders/stories/09-nhf-clinics.mp4` | `renders/stories/thumbs/09-nhf-clinics-thumbnail.jpg` |
 
 The thumbnails are 1080×1920, with everything important inside the 4:5 area the profile grid shows. **As a Story** there is no caption: add the link sticker `esolutify.com/free-demo`, labelled **"See your site free"**, in the space under "Tap the link" on the end card, and paste the alt text. **As a Reel**, use the caption. Every fact below was read off the live site.
@@ -879,7 +879,7 @@ Selling a premium product? Your website should feel like one. We build your demo
 #custompc #pcbuild #watercooling #webdesign #esolutify
 ```
 
-**Alt text:** "A website preview by eSolutify for Coldloop, a custom water-cooled PC studio. Boot lines type out, then a laptop plays the site's scroll film through a glowing cyan PC build. A coolant wave rises into a phone where a finger holds a button and a chip stack pulls apart into layers. A read-out compares a big-box prebuilt with a Coldloop build: fans 2100 to 800 rpm, noise 41 to 31 dBA, CPU 84 to 61 °C. Text: Your website, built one at a time. Get your free demo at esolutify.com/free-demo."
+**Alt text:** "A website preview by eSolutify for Coldloop, a custom water-cooled PC studio. Boot lines type out, then a desktop browser window scrolls the whole 14,400-pixel scroll film, all nine chapters of a glowing cyan PC build, with a scrollbar, a mouse wheel and a scroll counter on screen. A coolant wave rises into a phone where a finger holds a button and a chip stack pulls apart into layers. A read-out compares a big-box prebuilt with a Coldloop build: fans 2100 to 800 rpm, noise 41 to 31 dBA, CPU 84 to 61 °C. Text: Your website, built one at a time. Get your free demo at esolutify.com/free-demo."
 
 ### N.H.F Clinics
 

@@ -3,6 +3,8 @@ import { Audio } from "@remotion/media";
 import {
   AbsoluteFill,
   Img,
+  OffthreadVideo,
+  Sequence,
   interpolate,
   spring,
   staticFile,
@@ -15,28 +17,29 @@ import { SafeZones } from "../../components/SafeZones";
 import { Sfx } from "../../components/Sfx";
 import { ease } from "../../reel/kit";
 import { clamp, theme } from "../../theme";
-import { LaptopRec, PhoneRec, TabletRec } from "../kit";
+import { PhoneRec, TabletRec } from "../kit";
 import layers from "../../../public/stories/newpc/mobile-layers.json";
 
-// Story: Coldloop (esolutify.com/demo/pc), 20 s, 9:16. A hardware HUD in
+// Story: Coldloop (esolutify.com/demo/pc), 22 s, 9:16. A hardware HUD in
 // the site's black and coolant cyan: it boots like a machine, and scenes
-// change on a rising wave of coolant.
-//   0–48     boot lines type themselves out
-//   40–167   laptop: the 14,400 px desktop scroll film, studio to exploded
-//            chip, under HUD brackets
-//   167–350  phone: "touch and hold to pull the stack apart", with the
+// change on a rising wave of coolant. The desktop scroll film is the heart of
+// this demo, so it gets most of the Story.
+//   0–34     boot lines type themselves out
+//   30–350   desktop: the whole 14,400 px scroll film, all nine chapters, in a
+//            browser window with the scroll made visible
+//   350–467  phone: "touch and hold to pull the stack apart", with the
 //            layers listed beside it
-//   350–517  the site's own numbers, big-box prebuilt vs a Coldloop build,
+//   467–567  the site's own numbers, big-box prebuilt vs a Coldloop build,
 //            as a HUD read-out; the pricing tiers on a tablet
-//   517–600  end card: "Your website, built one at a time."
-// Music: story-coolant.wav (scripts/gen_story_music.py coolant): drop 167,
-// lift 350, end card 517.
+//   567–660  end card: "Your website, built one at a time."
+// Music: story-coolant.wav (scripts/gen_story_music.py coolant): drop 33,
+// lifts 350 and 467, end card 567.
 
-export const COLDLOOP_DURATION = 600;
-const FILM = 40;
-const A2 = 167;
-const A3 = 350;
-const END = 517;
+export const COLDLOOP_DURATION = 660;
+const FILM = 30;
+const A2 = 350;
+const A3 = 467;
+const END = 567;
 const SRC = "stories/newpc";
 
 const CL = {
@@ -257,17 +260,19 @@ const Caption: React.FC<{
 };
 
 // ---------------------------------------------------------------- act 1
+// The desktop site is the point of this demo: one 14,400 px scroll that
+// films the build chapter by chapter. It plays in a desktop browser window,
+// the whole way through, with the scroll made visible: a mouse wheel, a
+// scrollbar, and a read-out of the scroll position and chapter.
 const BOOT = [
   "> coldloop build studio",
-  "> loop fill .............. ok",
   "> leak test 24h .......... pass",
-  "> one builder ............ assigned",
-  "> loading the film_",
+  "> loading the desktop site_",
 ];
 const Boot: React.FC = () => {
   const frame = useCurrentFrame();
-  if (frame > 56) return null;
-  const out = ease(frame, 44, 54, theme.ease.in);
+  if (frame > FILM + 6) return null;
+  const out = ease(frame, FILM - 6, FILM + 4, theme.ease.in);
   return (
     <div
       style={{
@@ -281,7 +286,7 @@ const Boot: React.FC = () => {
       {BOOT.map((line, i) => {
         const start = i * 7;
         const n = Math.floor(
-          interpolate(frame, [start, start + 9], [0, line.length], clamp),
+          interpolate(frame, [start, start + 8], [0, line.length], clamp),
         );
         if (frame < start) return null;
         return (
@@ -304,80 +309,273 @@ const Boot: React.FC = () => {
     </div>
   );
 };
-const LAP_W = 1000;
-const LAP = { x: 540 - (LAP_W * 1.16) / 2, y: 700 };
-const LSCREEN = {
-  x: LAP.x + (LAP_W * 1.16 - LAP_W * 1.044) / 2 + LAP_W * 0.022,
-  y: LAP.y + LAP_W * 0.03,
-  w: LAP_W,
-  h: LAP_W * 0.625,
+
+// the recording (scripts/record_scroll.mjs, DPR 2): 4 still frames, then a
+// linear scroll 0 → 13,500 px over 300 frames, then 12 still frames
+const SCROLL_FROM = FILM + 4;
+const scrollY = (frame: number) =>
+  interpolate(frame - SCROLL_FROM, [4, 304], [0, 13500], clamp);
+const PAGE_H = 14400;
+const CHAPTERS = 9;
+const WIN = { x: 40, y: 600, w: 1000, bar: 54 };
+const WIN_H = (WIN.w * 900) / 1440;
+
+const Wheel: React.FC = () => {
+  const frame = useCurrentFrame();
+  const t = (frame % 18) / 18;
+  return (
+    <svg width={44} height={64} viewBox="0 0 44 64">
+      <rect
+        x={3}
+        y={3}
+        width={38}
+        height={58}
+        rx={19}
+        fill="rgba(6,16,21,0.75)"
+        stroke={CL.cyan}
+        strokeWidth={3}
+      />
+      <line
+        x1={22}
+        y1={13}
+        x2={22}
+        y2={30}
+        stroke="rgba(92,225,230,0.25)"
+        strokeWidth={4}
+        strokeLinecap="round"
+      />
+      <circle
+        cx={22}
+        cy={15 + t * 14}
+        r={4}
+        fill={CL.cyan}
+        opacity={1 - t * 0.6}
+      />
+    </svg>
+  );
 };
-const FACTS = ["Leak tested 24 h", "One builder", "Shipped across N. America"];
+
 const Act1: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const rise = spring({
-    frame: frame - FILM,
+    frame: frame - FILM + 6,
     fps,
     config: theme.spring.smooth,
   });
+  const push = 1 + 0.03 * ease(frame, FILM + 20, A2, theme.ease.soft);
+  const y = scrollY(frame);
+  const chapter = Math.min(CHAPTERS, Math.floor(y / 1500) + 1);
+  const progress = (y + 900) / PAGE_H;
+  const thumbH = WIN_H * (900 / PAGE_H);
+  const hud = ease(frame, FILM + 14, FILM + 26);
+  const ticking = frame - SCROLL_FROM < 304;
   return (
     <AbsoluteFill>
       <Backdrop />
       <Boot />
-      {frame >= FILM - 2 ? (
-        <>
+      {frame >= FILM - 8 ? (
+        <AbsoluteFill style={{ scale: push, transformOrigin: "50% 48%" }}>
+          {/* a desktop browser window */}
           <div
             style={{
               position: "absolute",
-              left: LAP.x,
-              top: LAP.y + (1 - rise) * 200,
-              opacity: interpolate(rise, [0, 0.4], [0, 1], clamp),
+              left: WIN.x,
+              top: WIN.y + (1 - rise) * 260,
+              width: WIN.w,
+              opacity: interpolate(rise, [0, 0.35], [0, 1], clamp),
+              borderRadius: 16,
+              overflow: "hidden",
+              background: "#0E161B",
+              boxShadow:
+                "0 60px 120px -30px rgba(0,0,0,0.9), 0 0 0 1px rgba(92,225,230,0.25), 0 0 80px rgba(31,182,193,0.25)",
             }}
           >
-            <LaptopRec
-              src={`${SRC}/desktop-film.mp4`}
-              width={LAP_W}
-              from={FILM}
-              rate={1.6}
-            />
-          </div>
-          <Brackets
-            x={LSCREEN.x}
-            y={LSCREEN.y}
-            w={LSCREEN.w}
-            h={LSCREEN.h}
-            at={FILM + 12}
-          />
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              right: 0,
-              top: 1420,
-              display: "flex",
-              justifyContent: "center",
-              gap: 18,
-            }}
-          >
-            {FACTS.map((f, i) => (
+            <div
+              style={{
+                height: WIN.bar,
+                display: "flex",
+                alignItems: "center",
+                gap: 10,
+                padding: "0 20px",
+                background: "#121D23",
+                borderBottom: "1px solid rgba(255,255,255,0.06)",
+              }}
+            >
+              {["#FF5F57", "#FEBC2E", "#28C840"].map((c) => (
+                <div
+                  key={c}
+                  style={{
+                    width: 14,
+                    height: 14,
+                    borderRadius: "50%",
+                    background: c,
+                  }}
+                />
+              ))}
               <div
-                key={f}
                 style={{
+                  marginLeft: 22,
+                  flex: 1,
+                  height: 32,
+                  borderRadius: 8,
+                  background: "rgba(255,255,255,0.06)",
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "0 16px",
                   ...mono,
-                  fontSize: 19,
-                  padding: "10px 16px",
-                  border: `1px solid rgba(92,225,230,0.45)`,
-                  color: CL.text,
-                  background: "rgba(6,16,21,0.7)",
-                  opacity: ease(frame, FILM + 24 + i * 6, FILM + 34 + i * 6),
+                  fontSize: 18,
+                  letterSpacing: "0.04em",
+                  textTransform: "none",
+                  color: CL.muted,
                 }}
               >
-                {f}
+                esolutify.com/demo/pc
               </div>
-            ))}
+              <div style={{ ...mono, fontSize: 16, color: CL.cyan }}>
+                Desktop
+              </div>
+            </div>
+            <div
+              style={{
+                position: "relative",
+                width: WIN.w,
+                height: WIN_H,
+                overflow: "hidden",
+              }}
+            >
+              <Sequence from={SCROLL_FROM} layout="none">
+                <OffthreadVideo
+                  src={staticFile(`${SRC}/desktop-scroll.mp4`)}
+                  muted
+                  style={{ width: WIN.w, height: WIN_H, display: "block" }}
+                />
+              </Sequence>
+              {/* scrollbar */}
+              <div
+                style={{
+                  position: "absolute",
+                  right: 4,
+                  top: 4,
+                  bottom: 4,
+                  width: 8,
+                  borderRadius: 4,
+                  background: "rgba(255,255,255,0.08)",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 0,
+                    right: 0,
+                    top: `${(y / PAGE_H) * 100}%`,
+                    height: Math.max(26, thumbH),
+                    borderRadius: 4,
+                    background: CL.cyan,
+                    boxShadow: "0 0 12px rgba(92,225,230,0.9)",
+                  }}
+                />
+              </div>
+              {/* the hand on the mouse */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: WIN.w * 0.66,
+                  top: WIN_H * 0.58,
+                  opacity: hud,
+                }}
+              >
+                <svg
+                  width={38}
+                  height={46}
+                  viewBox="0 0 22 26"
+                  style={{ filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.6))" }}
+                >
+                  <path
+                    d="M2 2 L2 20 L7 15.5 L10.5 23.5 L13.5 22.2 L10 14.5 L17 14.5 Z"
+                    fill="#fff"
+                    stroke="#111"
+                    strokeWidth={1.4}
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <div style={{ position: "absolute", left: 40, top: 6 }}>
+                  {ticking ? <Wheel /> : null}
+                </div>
+              </div>
+            </div>
           </div>
-        </>
+          <Brackets
+            x={WIN.x}
+            y={WIN.y}
+            w={WIN.w}
+            h={WIN.bar + WIN_H}
+            at={FILM + 10}
+          />
+          {/* scroll read-out */}
+          <div
+            style={{
+              position: "absolute",
+              left: 70,
+              right: 70,
+              top: WIN.y + WIN.bar + WIN_H + 70,
+              opacity: hud,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+              }}
+            >
+              <div style={{ ...mono, fontSize: 22, color: CL.cyan }}>
+                ▼ Scroll
+              </div>
+              <div style={{ ...mono, fontSize: 22, color: CL.muted }}>
+                Chapter{" "}
+                <span style={{ color: CL.text, fontSize: 34 }}>
+                  {String(chapter).padStart(2, "0")}
+                </span>{" "}
+                / 09
+              </div>
+            </div>
+            <div
+              style={{
+                marginTop: 14,
+                height: 8,
+                background: "rgba(255,255,255,0.08)",
+              }}
+            >
+              <div
+                style={{
+                  width: `${Math.min(100, progress * 100)}%`,
+                  height: 8,
+                  background: `linear-gradient(90deg, ${CL.cyanDeep}, ${CL.cyan})`,
+                  boxShadow: "0 0 16px rgba(92,225,230,0.7)",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                marginTop: 14,
+                display: "flex",
+                justifyContent: "space-between",
+                ...mono,
+                fontSize: 20,
+                color: CL.muted,
+              }}
+            >
+              <span>
+                <span style={{ color: CL.text }}>
+                  {Math.round(y).toLocaleString("en-US")}
+                </span>{" "}
+                px
+              </span>
+              <span>14,400 px of scroll film</span>
+            </div>
+          </div>
+        </AbsoluteFill>
       ) : null}
     </AbsoluteFill>
   );
@@ -812,11 +1010,12 @@ export const ColdloopStory: React.FC<{
     <WaveLine at={END} />
     <Caption
       from={FILM + 8}
-      to={A2 - 10}
-      eyebrow="Coldloop · custom water-cooled PCs"
-      a="Built one"
-      b="at a time."
+      to={190}
+      eyebrow="Coldloop · the desktop site"
+      a="Scroll the page."
+      b="Watch the build."
     />
+    <Caption from={196} to={A2 - 10} a="One scroll." b="Nine chapters." />
     <Caption
       from={A2 + 10}
       to={A3 - 8}

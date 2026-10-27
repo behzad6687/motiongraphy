@@ -62,13 +62,14 @@ Am9-Fmaj7-C-G6, warm and minimal, a soft deep-house pulse.
   10 s       bar 5      a lift for the finish studio
   17 s       beat 34    the end card: the beat drops out, piano rings to 20 s
 
-coolant (Coldloop, 20 s): 108 BPM (a beat is 16.7 frames), E minor,
+coolant (Coldloop, 22 s): 108 BPM (a beat is 16.7 frames), E minor,
 Em-Cmaj7-Am-B, dark synthwave.
-  0-5.56 s   intro      boot blips, then a pad swell and a filtered arp
-  5.56 s     beat 10    DROP (frame 167): kick, gated snare, octave bass,
-                        16th saw arp
-  11.67 s    beat 21    a lift for the numbers (frame 350)
-  17.22 s    beat 31    the end card (frame 517): the beat stops, pad rings
+  0-1.1 s    intro      boot blips over a pad
+  1.1 s      beat 2     DROP as the desktop page starts to scroll (frame 33):
+                        kick, gated snare, octave bass, 16th saw arp
+  11.67 s    beat 21    a lift for the phone (frame 350)
+  15.56 s    beat 28    a lift for the numbers (frame 467)
+  18.89 s    beat 34    the end card (frame 567): the beat stops, pad rings
 
 pulse (N.H.F Clinics, 20 s): 92 BPM (a beat is 19.6 frames), D major,
 Dmaj9-Bm7-Gmaj7-A6, calm and clinical: glassy bells, a soft heartbeat.
@@ -684,11 +685,11 @@ def gated_snare(dur=0.3):
 
 
 def coolant():
-    bpm, total = 108, 20.0
+    bpm, total = 108, 22.0
     beat = 60 / bpm
     bar = 4 * beat
     s16 = beat / 4
-    drop, lift, end = 10 * beat, 21 * beat, 31 * beat
+    drop, lift, lift2, end = 2 * beat, 21 * beat, 28 * beat, 34 * beat
     g.RNG = np.random.default_rng(151)
     buf = np.zeros((2, int(total * SR)))
     prog = [
@@ -697,9 +698,9 @@ def coolant():
         (45, [52, 57, 60, 64], [64, 69, 72, 76]),  # Am
         (47, [51, 54, 59, 63], [63, 66, 71, 75]),  # B
     ]
-    # boot blips over the first 1.5 s
-    for i in range(14):
-        place(buf, blip(84 + (i * 7) % 12), 0.1 + i * 0.1, 0.5, pan=-0.4 + 0.8 * ((i * 3) % 5) / 4)
+    # boot blips over the first second
+    for i in range(9):
+        place(buf, blip(84 + (i * 7) % 12), 0.05 + i * 0.1, 0.5, pan=-0.4 + 0.8 * ((i * 3) % 5) / 4)
     for b in range(int(np.ceil(total / bar))):
         root, pad, arp = prog[b % 4]
         t0 = b * bar
@@ -708,7 +709,7 @@ def coolant():
         place(buf, g.pad_chord(pad, bar + 0.4, bright=1200 + 2200 * min(1, t0 / drop)), t0, 1.0 if t0 < drop else 0.34)
         for i in range(16):
             at = t0 + i * s16
-            if at < 1.6 or at >= end:
+            if at < drop or at >= end:
                 continue
             n = arp[(i * 3) % 4] + (12 if i % 8 == 7 else 0)
             cut = 700 + 3000 * min(1, at / drop) if at < drop else 4000
@@ -723,10 +724,11 @@ def coolant():
             place(buf, g.hat(0.04), at + beat / 2, 0.7, pan=0.3)
             for j in range(2):
                 place(buf, g.bass_note(root - 12 + (12 if j else 0), beat * 0.42, cutoff=600), at + j * beat / 2, 0.42)
-    place(buf, g.riser(2.2) * 0.45, drop - 2.2, 0.55)
+    place(buf, g.riser(1.0) * 0.45, drop - 1.0, 0.55)
     place(buf, g.crash(2.4), drop, 0.45)
-    place(buf, g.riser(1.0) * 0.32, lift - 1.0, 0.5)
-    place(buf, g.crash(1.8), lift, 0.28)
+    for lf in (lift, lift2):
+        place(buf, g.riser(1.0) * 0.32, lf - 1.0, 0.5)
+        place(buf, g.crash(1.8), lf, 0.28)
     place(buf, g.pad_chord([40, 52, 55, 59, 64, 71], total - end, bright=2600), end, 1.3)
     place(buf, g.crash(2.6), end, 0.3)
     buf = reverb(buf, 0.24)
