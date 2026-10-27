@@ -62,14 +62,14 @@ Am9-Fmaj7-C-G6, warm and minimal, a soft deep-house pulse.
   10 s       bar 5      a lift for the finish studio
   17 s       beat 34    the end card: the beat drops out, piano rings to 20 s
 
-coolant (Coldloop, 22 s): 108 BPM (a beat is 16.7 frames), E minor,
+coolant (Coldloop, 24.2 s): 108 BPM (a beat is 16.7 frames), E minor,
 Em-Cmaj7-Am-B, dark synthwave.
   0-1.1 s    intro      boot blips over a pad
   1.1 s      beat 2     DROP as the desktop page starts to scroll (frame 33):
                         kick, gated snare, octave bass, 16th saw arp
-  11.67 s    beat 21    a lift for the phone (frame 350)
-  15.56 s    beat 28    a lift for the numbers (frame 467)
-  18.89 s    beat 34    the end card (frame 567): the beat stops, pad rings
+  13.89 s    beat 25    a lift for the phone (frame 417)
+  17.78 s    beat 32    a lift for the numbers (frame 533)
+  21.11 s    beat 38    the end card (frame 633): the beat stops, pad rings
 
 pulse (N.H.F Clinics, 20 s): 92 BPM (a beat is 19.6 frames), D major,
 Dmaj9-Bm7-Gmaj7-A6, calm and clinical: glassy bells, a soft heartbeat.
@@ -685,11 +685,11 @@ def gated_snare(dur=0.3):
 
 
 def coolant():
-    bpm, total = 108, 22.0
+    bpm, total = 108, 24.2
     beat = 60 / bpm
     bar = 4 * beat
     s16 = beat / 4
-    drop, lift, lift2, end = 2 * beat, 21 * beat, 28 * beat, 34 * beat
+    drop, lift, lift2, end = 2 * beat, 25 * beat, 32 * beat, 38 * beat
     g.RNG = np.random.default_rng(151)
     buf = np.zeros((2, int(total * SR)))
     prog = [

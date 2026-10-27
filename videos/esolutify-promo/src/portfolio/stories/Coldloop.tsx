@@ -20,26 +20,28 @@ import { clamp, theme } from "../../theme";
 import { PhoneRec, TabletRec } from "../kit";
 import layers from "../../../public/stories/newpc/mobile-layers.json";
 
-// Story: Coldloop (esolutify.com/demo/pc), 22 s, 9:16. A hardware HUD in
+// Story: Coldloop (esolutify.com/demo/pc), 24 s, 9:16. A hardware HUD in
 // the site's black and coolant cyan: it boots like a machine, and scenes
 // change on a rising wave of coolant. The desktop scroll film is the heart of
 // this demo, so it gets most of the Story.
 //   0–34     boot lines type themselves out
-//   30–350   desktop: the whole 14,400 px scroll film, all nine chapters, in a
-//            browser window with the scroll made visible
-//   350–467  phone: "touch and hold to pull the stack apart", with the
+//   30–417   desktop: the site's scroll film (the client's own HD clips, the
+//            footage the 14,400 px hero scrubs through) in a browser window,
+//            under the site's nav and its nine chapter captions, with the
+//            scroll made visible
+//   417–533  phone: "touch and hold to pull the stack apart", with the
 //            layers listed beside it
-//   467–567  the site's own numbers, big-box prebuilt vs a Coldloop build,
+//   533–633  the site's own numbers, big-box prebuilt vs a Coldloop build,
 //            as a HUD read-out; the pricing tiers on a tablet
-//   567–660  end card: "Your website, built one at a time."
+//   633–726  end card: "Your website, built one at a time."
 // Music: story-coolant.wav (scripts/gen_story_music.py coolant): drop 33,
-// lifts 350 and 467, end card 567.
+// lifts 417 and 533, end card 633.
 
-export const COLDLOOP_DURATION = 660;
+export const COLDLOOP_DURATION = 726;
 const FILM = 30;
-const A2 = 350;
-const A3 = 467;
-const END = 567;
+const A2 = 417;
+const A3 = 533;
+const END = 633;
 const SRC = "stories/newpc";
 
 const CL = {
@@ -310,11 +312,43 @@ const Boot: React.FC = () => {
   );
 };
 
-// the recording (scripts/record_scroll.mjs, DPR 2): 4 still frames, then a
-// linear scroll 0 → 13,500 px over 300 frames, then 12 still frames
+// The film behind the desktop hero: the client's four HD clips joined in
+// order (desktop-film-hd.mp4, 25.2 s at 24 fps), played at 2x. Scrolling
+// the page scrubs this film, so the scroll position follows film time.
 const SCROLL_FROM = FILM + 4;
-const scrollY = (frame: number) =>
-  interpolate(frame - SCROLL_FROM, [4, 304], [0, 13500], clamp);
+const FILM_RATE = 2;
+const FILM_LEN = 25.17; // seconds
+const filmTime = (frame: number) =>
+  Math.min(FILM_LEN, Math.max(0, ((frame - SCROLL_FROM) / 30) * FILM_RATE));
+const scrollY = (frame: number) => (filmTime(frame) / FILM_LEN) * 13500;
+// the site's nine chapters (its own captions), by film time
+const FILM_CHAPTERS = [
+  { t: 0, a: "A few machines a month.", b: "Every one of them by hand." },
+  { t: 2.6, a: "Glass, chrome, coolant.", b: "Parts you would pick yourself." },
+  {
+    t: 4.4,
+    a: "Hard-line runs, bent by hand.",
+    b: "Lined up to the millimeter.",
+  },
+  {
+    t: 9.0,
+    a: "Sleeved cables, routed once.",
+    b: "As clean behind as in front.",
+  },
+  { t: 11.0, a: "A brushed block on the GPU.", b: "Leak tested for 24 hours." },
+  {
+    t: 13.6,
+    a: "Under load, you hear nothing.",
+    b: "That is the point of water.",
+  },
+  {
+    t: 16.8,
+    a: "One block, four fittings.",
+    b: "One builder. You get the name.",
+  },
+  { t: 21.6, a: "The block lifts away.", b: "Every one chosen on purpose." },
+  { t: 23.8, a: "Custom water-cooled PCs,", b: "built one at a time." },
+];
 const PAGE_H = 14400;
 const CHAPTERS = 9;
 const WIN = { x: 40, y: 600, w: 1000, bar: 54 };
@@ -365,11 +399,15 @@ const Act1: React.FC = () => {
   });
   const push = 1 + 0.03 * ease(frame, FILM + 20, A2, theme.ease.soft);
   const y = scrollY(frame);
-  const chapter = Math.min(CHAPTERS, Math.floor(y / 1500) + 1);
+  const ft = filmTime(frame);
+  const chIndex = FILM_CHAPTERS.filter((c) => ft >= c.t).length - 1;
+  const chapter = Math.min(CHAPTERS, chIndex + 1);
+  const ch = FILM_CHAPTERS[chIndex];
+  const chIn = ease(ft, ch.t, ch.t + 0.5);
   const progress = (y + 900) / PAGE_H;
   const thumbH = WIN_H * (900 / PAGE_H);
   const hud = ease(frame, FILM + 14, FILM + 26);
-  const ticking = frame - SCROLL_FROM < 304;
+  const ticking = ft < FILM_LEN;
   return (
     <AbsoluteFill>
       <Backdrop />
@@ -446,11 +484,92 @@ const Act1: React.FC = () => {
             >
               <Sequence from={SCROLL_FROM} layout="none">
                 <OffthreadVideo
-                  src={staticFile(`${SRC}/desktop-scroll.mp4`)}
+                  src={staticFile(`${SRC}/desktop-film-hd.mp4`)}
+                  playbackRate={FILM_RATE}
                   muted
-                  style={{ width: WIN.w, height: WIN_H, display: "block" }}
+                  style={{
+                    width: WIN.w,
+                    height: WIN_H,
+                    display: "block",
+                    objectFit: "cover",
+                  }}
                 />
               </Sequence>
+              {/* the site's own nav bar, from the live page */}
+              <Img
+                src={staticFile(`${SRC}/desktop-nav.png`)}
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  width: WIN.w,
+                  height: (WIN.w * 52) / 1440,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background:
+                    "linear-gradient(90deg, rgba(4,10,13,0.55), transparent 55%)",
+                }}
+              />
+              {/* the chapter caption, as the site sets it */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: 36,
+                  top: WIN_H * 0.3,
+                  width: WIN.w * 0.5,
+                  opacity: chIn,
+                  translate: `0px ${(1 - chIn) * 14}px`,
+                }}
+              >
+                <div
+                  style={{
+                    ...mono,
+                    fontSize: 15,
+                    color: CL.cyan,
+                    marginBottom: 12,
+                  }}
+                >
+                  ● {String(chapter).padStart(2, "0")}
+                </div>
+                <div
+                  style={{
+                    ...heavy,
+                    fontSize: 38,
+                    lineHeight: 1.08,
+                    color: "#fff",
+                    textShadow: "0 2px 18px rgba(0,0,0,0.6)",
+                  }}
+                >
+                  {ch.a}
+                </div>
+                <div
+                  style={{
+                    ...heavy,
+                    fontSize: 38,
+                    lineHeight: 1.08,
+                    color: "rgba(255,255,255,0.72)",
+                    textShadow: "0 2px 18px rgba(0,0,0,0.6)",
+                  }}
+                >
+                  {ch.b}
+                </div>
+              </div>
+              <div
+                style={{
+                  position: "absolute",
+                  left: 36,
+                  bottom: 22,
+                  ...mono,
+                  fontSize: 14,
+                  color: "rgba(255,255,255,0.7)",
+                }}
+              >
+                {String(chapter).padStart(2, "0")} / 09
+              </div>
               {/* scrollbar */}
               <div
                 style={{
@@ -1010,12 +1129,12 @@ export const ColdloopStory: React.FC<{
     <WaveLine at={END} />
     <Caption
       from={FILM + 8}
-      to={190}
+      to={220}
       eyebrow="Coldloop · the desktop site"
       a="Scroll the page."
       b="Watch the build."
     />
-    <Caption from={196} to={A2 - 10} a="One scroll." b="Nine chapters." />
+    <Caption from={226} to={A2 - 10} a="One scroll." b="Nine chapters." />
     <Caption
       from={A2 + 10}
       to={A3 - 8}
