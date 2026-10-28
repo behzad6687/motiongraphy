@@ -68,3 +68,26 @@ loadFont({
   weight: "300 700",
   style: "italic",
 });
+// Archivo, Figtree and Bangers (SIL OFL, latin subset): the Dental Defenders
+// before/after, set in the new site's own type.
+loadFont({
+  family: theme.fonts.archivo,
+  url: staticFile("fonts/Archivo-Variable.woff2"),
+  weight: "400 900",
+});
+loadFont({
+  family: theme.fonts.archivo,
+  url: staticFile("fonts/Archivo-Italic-Variable.woff2"),
+  weight: "700 900",
+  style: "italic",
+});
+loadFont({
+  family: theme.fonts.figtree,
+  url: staticFile("fonts/Figtree-Variable.woff2"),
+  weight: "400 700",
+});
+loadFont({
+  family: theme.fonts.comic,
+  url: staticFile("fonts/Bangers-Regular.woff2"),
+  weight: "400",
+});

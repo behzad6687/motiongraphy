@@ -42,6 +42,9 @@ export const theme = {
     script: "Pinyon Script", // script accents (Samantha Story)
     mono: "DM Mono", // spec labels (Crown Story)
     news: "Newsreader", // the N.H.F Clinics Story
+    archivo: "Archivo", // the Dental Defenders before/after (the site's own type)
+    figtree: "Figtree", // body copy in the Dental Defenders chat
+    comic: "Bangers", // comic accents (Dental Defenders)
   },
   // THE easing curves. Linear is forbidden.
   ease: {

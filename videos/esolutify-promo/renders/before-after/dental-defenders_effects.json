@@ -1,0 +1,4 @@
+{"effects": [
+  {"fx": "reject-stamp", "start": 2.6, "end": 4.6, "text": "BEFORE", "y": 0.47, "angle": -8, "color": "#E3242F"},
+  {"fx": "reject-stamp", "start": 8.15, "end": 9.9, "text": "AFTER", "y": 0.47, "angle": 8, "color": "#FFC93C"}
+]}

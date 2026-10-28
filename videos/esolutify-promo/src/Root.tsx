@@ -22,6 +22,10 @@ import { NHF_DURATION, NHFStory } from "./portfolio/stories/NHF";
 import { MASERA_DURATION, MaseraStory } from "./portfolio/stories/Masera";
 import { BARON_DURATION, BaronStory } from "./portfolio/stories/Baron";
 import {
+  DD_BA_DURATION,
+  DDBeforeAfter,
+} from "./portfolio/stories/DDBeforeAfter";
+import {
   INFOTOUCH_DURATION,
   InfotouchStory,
 } from "./portfolio/stories/Infotouch";
@@ -353,6 +357,23 @@ export const RemotionRoot: React.FC = () => {
           id="Story-infotouch-SZ"
           component={InfotouchStory}
           durationInFrames={INFOTOUCH_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ safeZones: true }}
+        />
+        <Composition
+          id="BeforeAfter-dentaldefenders"
+          component={DDBeforeAfter}
+          durationInFrames={DD_BA_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="BeforeAfter-dentaldefenders-SZ"
+          component={DDBeforeAfter}
+          durationInFrames={DD_BA_DURATION}
           fps={30}
           width={1080}
           height={1920}

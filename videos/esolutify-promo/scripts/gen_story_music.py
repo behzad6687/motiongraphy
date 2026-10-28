@@ -104,6 +104,17 @@ whose filter opens as the desktop film scrolls from dusk to the green dawn.
   11 s       beat 22    a lift for the phone (frame 330)
   15 s       beat 30    a lift for the tablet (frame 450)
   18.5 s     beat 37    the end card (frame 555): the beat stops, pad + ping
+defenders (Dental Defenders before/after, 35.5 s): 120 BPM (a beat is 15
+frames), D major. The old site gets a dull, muffled lounge loop; the swipe
+to the new site hits like a comic panel and turns into a heroic groove with
+brass stabs.
+  0-7.5 s    beats 0-15   muffled e-piano lounge, crackle (the old site)
+  7.5 s      beat 15      a snare roll and riser into the swipe
+  8 s        beat 16      HIT (frame 240): boom, crash, brass, the band
+  14 s       beat 28      a lift for the AI agent (frame 420)
+  24 s       beat 48      a lift for the comic panels (frame 720)
+  27.5 s     beat 55      a lift for the before/after scorecard (frame 825)
+  31.5 s     beat 63      the end card (frame 945): one big brass chord rings
 """
 
 import sys
@@ -1052,7 +1063,111 @@ def signal():
     print("wrote story-signal.wav")
 
 
+def brass(notes, dur, bright=3200):
+    """A synth brass stab: detuned saws, a fast swell and a filter blip."""
+    t = t_axis(dur)
+    out = np.zeros((2, len(t)))
+    for n in notes:
+        f = midi(n)
+        for k, d in enumerate([-0.004, 0.0, 0.005]):
+            w = 2 * ((f * (1 + d) * t + g.RNG.random()) % 1.0) - 1
+            out[k % 2] += w
+            out[(k + 1) % 2] += w * 0.5
+    env = np.minimum(1, t / 0.025) * (0.55 + 0.45 * np.exp(-t * 6)) * np.minimum(1, np.maximum(0, (dur - t) / 0.08))
+    cut = lp(out[0], bright), lp(out[1], bright)
+    return np.stack(cut) * env / (len(notes) * 2.2)
+
+
+def snare_hit(dur=0.25):
+    t = t_axis(dur)
+    n = bp(g.RNG.standard_normal(len(t)), 1200, 8000) * np.exp(-t / 0.06)
+    body = np.sin(2 * np.pi * 190 * t) * np.exp(-t / 0.04) * 0.6
+    return (n * 0.8 + body) * 0.8
+
+
+def defenders():
+    bpm, total = 120, 35.5
+    beat = 60 / bpm
+    bar = 4 * beat
+    s8 = beat / 2
+    hit, lifts, end = 16 * beat, (28 * beat, 48 * beat, 55 * beat), 63 * beat
+    g.RNG = np.random.default_rng(6777)
+    buf = np.zeros((2, int(total * SR)))
+    # the old site: a muffled lounge loop, slightly flat and wobbly
+    lounge = [[50, 53, 57, 60], [55, 58, 62, 65], [48, 52, 55, 59], [53, 57, 60, 64]]
+    old = np.zeros_like(buf)
+    for b in range(4):
+        ch = lounge[b % 4]
+        for k in range(4):
+            at = b * bar + k * beat
+            if at >= hit - beat:
+                break
+            for n in ch:
+                place(old, epiano(n - 0.15, 1.2, bright=1400), at + (0.02 if k % 2 else 0), 0.11, pan=-0.2 + 0.1 * k)
+        place(old, upright(ch[0] - 12, bar * 0.9), b * bar, 0.4)
+    old = lp(old, 1800)
+    buf += old
+    cr = crackle(hit)
+    buf[:, : len(cr)] += np.stack([cr, cr]) * 0.6
+    # a snare roll and riser into the swipe
+    for i in range(16):
+        at = hit - beat * 1.0 + i * beat / 16
+        place(buf, snare_hit(0.12), at, 0.25 + 0.5 * i / 16, pan=0.1)
+    place(buf, g.riser(1.2) * 0.45, hit - 1.2, 0.6)
+    # the hero groove
+    prog = [
+        (38, [62, 66, 69]),  # D
+        (34, [62, 65, 70]),  # Bb
+        (36, [60, 64, 67]),  # C
+        (38, [62, 66, 69]),  # D
+    ]
+    stab = [0, 0.75, 1.5, 2.5, 3.0]  # beats in the bar
+    for b in range(int(np.ceil((end - hit) / bar))):
+        t0 = hit + b * bar
+        root, ch = prog[b % 4]
+        place(buf, g.pad_chord([n - 12 for n in ch], bar + 0.3, bright=1600), t0, 0.22)
+        for sb in stab:
+            at = t0 + sb * beat
+            if at >= end:
+                break
+            place(buf, brass(ch + [ch[0] + 12], beat * (0.7 if sb != 2.5 else 0.45)), at, 0.55)
+        for k in range(4):
+            at = t0 + k * beat
+            if at >= end:
+                break
+            place(buf, g.kick(0.4, 150, 46, punch=1.0), at, 0.7)
+            if k in (1, 3):
+                place(buf, snare_hit(), at, 0.55, pan=0.05)
+                place(buf, g.clap(), at, 0.2, pan=-0.1)
+            place(buf, g.hat(0.04), at + s8, 0.55, pan=0.3)
+            for j in range(2):
+                place(buf, g.bass_note(root - 12 + (12 if j else 0), beat * 0.42, cutoff=700), at + j * s8, 0.5)
+        for i in range(8):
+            at = t0 + i * s8
+            if at >= end:
+                break
+            place(buf, g.pluck(ch[i % 3] + 12, 0.18, cutoff=4200), at, 0.16, pan=-0.3 + 0.6 * (i % 2))
+    place(buf, boom(2.4), hit, 0.9)
+    place(buf, g.crash(2.6), hit, 0.5)
+    for lf in lifts:
+        place(buf, g.riser(1.0) * 0.32, lf - 1.0, 0.5)
+        place(buf, g.crash(1.8), lf, 0.3)
+    # the end card: one big chord
+    place(buf, brass([50, 62, 66, 69, 74], total - end, bright=2600), end, 1.2)
+    place(buf, g.pad_chord([38, 50, 57, 62, 66], total - end, bright=2200), end, 1.0)
+    place(buf, boom(3.0), end, 0.7)
+    place(buf, g.crash(3.0), end, 0.45)
+    buf = reverb(buf, 0.2)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.35) / np.tanh(1.35)
+    fade = int(0.8 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-defenders.wav", buf, -1.5)
+    print("wrote story-defenders.wav")
+
+
 PRESETS = {
+    "defenders": defenders,
     "signal": signal,
     "voyage": voyage,
     "hearth": hearth,

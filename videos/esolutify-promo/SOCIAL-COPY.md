@@ -974,6 +974,33 @@ Tech, B2B and enterprise teams: we build your demo free. See it before you pay a
 
 ---
 
+## 17. Before → after: Dental Defenders (35s)
+
+**Video:** `renders/before-after/dental-defenders-before-after.mp4` (9:16, works as a Reel or a Story; the end card leaves room for the link sticker)
+**Effects plan:** `renders/before-after/dental-defenders_effects.json` (the BEFORE / AFTER stamps, added with the `effects` skill on top of the Remotion render)
+
+What it shows, in order: their old homepage (dentaldefendershouston.com) scrolling, with what it could not do; the new site wiping across the same laptop; "Tell us what's going on. We'll point the way." with three taps; Shield, the AI agent, answering a Medicaid question, finding after-school times and booking the visit (a real conversation on the live demo, redrawn word for word), then answering in Spanish; the visit as a comic; a before vs after scorecard.
+
+**Caption (Reel):**
+
+```
+Same dentist. Brand new website. 🦸‍♂️
+
+Before: a busy homepage, and "Schedule appointment" sent parents to a request form on another site.
+
+After, for Dental Defenders in Houston:
+▸ Shield, an AI agent that answers Medicaid and insurance questions and books the visit right in the chat, 24/7
+▸ It speaks English, Spanish and more
+▸ "Not sure where to start?" Tap what's going on, see the right visit
+▸ The visit as a comic, so kids know what's coming
+
+Is your website booking patients, or just sitting there? We'll build your new one free. See it before you pay a dollar. Link in bio 🔗
+
+#dentalmarketing #pediatricdentist #webdesign #aiagent #esolutify
+```
+
+**Alt text:** "A before and after of the Dental Defenders website in Houston. The old homepage scrolls on a laptop under a red BEFORE stamp, with notes that its appointment button opens a request form on another site and that it has no chat. The new site wipes across the same laptop with a gold AFTER stamp: a cursor taps My child's first dental visit, My child is scared of the dentist and We have Medicaid or CHIP. On a phone, the AI agent Shield answers that they take Texas Medicaid and CHIP, offers after-school times and books a kids check-up for Thursday at 2:45 PM with a booking card, then replies in Spanish. A scorecard compares before and after. Text: Give your website a superhero upgrade. Get your free demo at esolutify.com/free-demo."
+
 ## Posting order
 
 1. YouTube main promo first, so the Shorts can link to it as the related video.

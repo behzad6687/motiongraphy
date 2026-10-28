@@ -46,6 +46,8 @@ const URLS = {
   masera: "https://esolutify.com/demo/masera/",
   baron: "https://esolutify.com/demo/baron/",
   infotouch: "https://esolutify.com/demo/infotouch/",
+  ddold: "https://www.dentaldefendershouston.com/",
+  ddnew: "https://esolutify.com/demo/dentaldefenders/",
 };
 const url = process.env.URL ?? URLS[slug];
 const plan = JSON.parse(planJson);
