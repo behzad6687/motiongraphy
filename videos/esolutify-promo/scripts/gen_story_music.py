@@ -104,17 +104,17 @@ whose filter opens as the desktop film scrolls from dusk to the green dawn.
   11 s       beat 22    a lift for the phone (frame 330)
   15 s       beat 30    a lift for the tablet (frame 450)
   18.5 s     beat 37    the end card (frame 555): the beat stops, pad + ping
-defenders (Dental Defenders before/after, 35.5 s): 120 BPM (a beat is 15
+defenders (Dental Defenders before/after, 43 s): 120 BPM (a beat is 15
 frames), D major. The old site gets a dull, muffled lounge loop; the swipe
 to the new site hits like a comic panel and turns into a heroic groove with
-brass stabs.
-  0-7.5 s    beats 0-15   muffled e-piano lounge, crackle (the old site)
-  7.5 s      beat 15      a snare roll and riser into the swipe
-  8 s        beat 16      HIT (frame 240): boom, crash, brass, the band
-  14 s       beat 28      a lift for the AI agent (frame 420)
-  24 s       beat 48      a lift for the comic panels (frame 720)
-  27.5 s     beat 55      a lift for the before/after scorecard (frame 825)
-  31.5 s     beat 63      the end card (frame 945): one big brass chord rings
+brass stabs. The video ducks it under the narrator.
+  0-9 s      beats 0-18   muffled e-piano lounge, crackle (the old site)
+  9 s        beat 18      a snare roll and riser into the swipe
+  9.5 s      beat 19      HIT (frame 285): boom, crash, brass, the band
+  15 s       beat 30      a lift for the AI agent (frame 450)
+  29 s       beat 58      a lift for the comic panels (frame 870)
+  33 s       beat 66      a lift for the before/after scorecard (frame 990)
+  38 s       beat 76      the end card (frame 1140): one big brass chord rings
 """
 
 import sys
@@ -1086,17 +1086,17 @@ def snare_hit(dur=0.25):
 
 
 def defenders():
-    bpm, total = 120, 35.5
+    bpm, total = 120, 43.0
     beat = 60 / bpm
     bar = 4 * beat
     s8 = beat / 2
-    hit, lifts, end = 16 * beat, (28 * beat, 48 * beat, 55 * beat), 63 * beat
+    hit, lifts, end = 19 * beat, (30 * beat, 58 * beat, 66 * beat), 76 * beat
     g.RNG = np.random.default_rng(6777)
     buf = np.zeros((2, int(total * SR)))
     # the old site: a muffled lounge loop, slightly flat and wobbly
     lounge = [[50, 53, 57, 60], [55, 58, 62, 65], [48, 52, 55, 59], [53, 57, 60, 64]]
     old = np.zeros_like(buf)
-    for b in range(4):
+    for b in range(5):
         ch = lounge[b % 4]
         for k in range(4):
             at = b * bar + k * beat

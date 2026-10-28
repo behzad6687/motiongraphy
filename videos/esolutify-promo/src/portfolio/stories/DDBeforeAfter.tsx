@@ -3,6 +3,7 @@ import { Audio } from "@remotion/media";
 import {
   AbsoluteFill,
   Img,
+  Sequence,
   interpolate,
   spring,
   staticFile,
@@ -17,35 +18,38 @@ import { ease } from "../../reel/kit";
 import { clamp, theme } from "../../theme";
 import { LaptopRec, PhoneRec } from "../kit";
 import picker from "../../../public/stories/ddnew/desktop-picker.json";
+import words from "./ddba-words.json";
 
 // Before and after: Dental Defenders, Houston. The office's old website
 // (dentaldefendershouston.com) next to the one we built
-// (esolutify.com/demo/dentaldefenders), 35.5 s, 9:16, set in the new site's
-// own comic-book look: Archivo italic, navy, hero red and gold.
-//   0–60      hook: "Same dentist. New website." over the old homepage
-//   60–225    before: the old page scrolls; what it could not do
-//   225–255   the swipe: the new site wipes across the same laptop, POW
-//   255–420   after: "Tell us what's going on. We'll point the way.", three taps
-//   420–720   Shield, the AI agent, on a phone: a real conversation from the
-//             live demo (Medicaid question, after-school times, booked with a
-//             reference), then the same agent answering in Spanish
-//   720–825   the visit as a comic, the hero film on the phone
-//   825–945   the scorecard, before vs after
-//   945–1065  end card
+// (esolutify.com/demo/dentaldefenders), 43 s, 9:16, set in the new site's
+// own comic-book look: Archivo italic, navy, hero red and gold. A narrator
+// carries it (public/audio/ddba/v1-v8.wav), with word-by-word subtitles for
+// people watching muted; every scene is timed to its line.
+//   0–75       hook: "Same dentist. Brand-new website."
+//   75–270     before: the old homepage scrolls
+//   270–285    the swipe: the new site wipes across the same laptop, POW
+//   285–450    after: "Tell us what's going on. We'll point the way.", three taps
+//   450–870    Shield, the AI agent, on a phone: a real conversation from the
+//              live demo (Medicaid question, after-school times, booked with a
+//              reference), then the same agent answering in Spanish
+//   870–990    the visit as a comic, the hero film on the phone
+//   990–1140   the scorecard, before vs after
+//   1140–1290  end card
 // The chat is redrawn from the real session, word for word, with the site's
 // own chat header and input bar (screenshots of it) so it types smoothly.
 // Music: story-defenders.wav (scripts/gen_story_music.py defenders): a dull
-// lounge loop for the old site, the hit at 240, lifts at 420, 720 and 825,
-// the end card at 945.
+// lounge loop for the old site, the hit at 285, lifts at 450, 870 and 990,
+// the end card at 1140; it ducks under the narrator.
 
-export const DD_BA_DURATION = 1065;
-const BEF = 60;
-const SWIPE = 225;
-const HIT = 240;
-const CHAT = 420;
-const KIDS = 720;
-const SCORE = 825;
-const END = 945;
+export const DD_BA_DURATION = 1290;
+const BEF = 75;
+const SWIPE = 270;
+const HIT = 285;
+const CHAT = 450;
+const KIDS = 870;
+const SCORE = 990;
+const END = 1140;
 
 const DD = {
   navy: "#0B1638",
@@ -380,17 +384,7 @@ const LSCREEN = {
 };
 const OLD_FROM = BEF - 4;
 const PICK_FROM = HIT - 4;
-const BEFORE_NOTES = [
-  {
-    at: BEF + 40,
-    t: "“Schedule appointment” opens a request form on another site",
-  },
-  { at: BEF + 72, t: "No chat on the site, and it is in English only" },
-  {
-    at: BEF + 104,
-    t: "Seasonal banners and long blocks of text on the homepage",
-  },
-];
+const BEFORE_NOTES: { at: number; t: string }[] = [];
 const PICKED = [
   "My child’s first dental visit",
   "My child is scared of the dentist",
@@ -617,25 +611,12 @@ const LaptopAct: React.FC = () => {
                 </div>
               );
             })}
-        {frame >= PICK_FROM + picker.taps[0].frame + 10 && frame < CHAT ? (
-          <div
-            style={{
-              ...body,
-              fontSize: 30,
-              color: DD.muted,
-              marginTop: 8,
-              opacity: ease(frame, PICK_FROM + 80, PICK_FROM + 92),
-            }}
-          >
-            One tap shows the right visit and what happens next.
-          </div>
-        ) : null}
       </div>
     </>
   );
 };
 
-// ---------------------------------------------------------------- the chat (420–720)
+// ---------------------------------------------------------------- the chat (450–870)
 // The real conversation with Shield on the live demo, 28 Oct 2026. Two turns
 // where the server hiccuped are left out; the contact details given were
 // made-up test details.
@@ -655,11 +636,11 @@ const T5 = "¿Hablan español? Mi hija tiene dolor de muela";
 const TYPE_RATE = 3; // characters per frame
 const typeEnd = (start: number, t: string) =>
   start + Math.ceil(t.length / TYPE_RATE);
-const U1 = C(18);
-const U2 = C(78);
-const U3 = C(132);
-const U4 = C(178);
-const U5 = C(232);
+const U1 = C(14);
+const U2 = C(100);
+const U3 = C(170);
+const U4 = C(215);
+const U5 = C(292);
 const MSGS: Msg[] = [
   { k: "u", at: typeEnd(U1, T1) + 3, t: T1, typed: true },
   {
@@ -763,8 +744,9 @@ const pop = (frame: number, at: number): React.CSSProperties => {
   return { opacity: p, translate: `0px ${(1 - p) * 10}px` };
 };
 
-const ChatScreen: React.FC = () => {
-  const frame = useCurrentFrame();
+const ChatScreen: React.FC<{ at?: number }> = ({ at }) => {
+  const now = useCurrentFrame();
+  const frame = at ?? now;
   const shown = MSGS.filter((m) => frame >= m.at);
   const typing = TYPING.some(([a, b]) => frame >= a && frame < b);
   const chips = CHIPS.find((c) => frame >= c.from && frame < c.to);
@@ -1343,7 +1325,7 @@ const KidsAct: React.FC = () => (
         hold
       />
     </div>
-    <div style={{ position: "absolute", left: 700, top: 900, rotate: "4deg" }}>
+    <div style={{ position: "absolute", left: 700, top: 740, rotate: "4deg" }}>
       <PhoneRec
         src="stories/ddnew/mobile-film.mp4"
         width={300}
@@ -1400,7 +1382,7 @@ const ScoreAct: React.FC = () => {
           <span style={{ color: DD.gold }}>After</span>
         </div>
         {ROWS.map((r, i) => {
-          const at = SCORE + 14 + i * 14;
+          const at = SCORE + 14 + i * 22;
           const p = ease(frame, at, at + 10);
           return (
             <div
@@ -1614,6 +1596,125 @@ const EndCard: React.FC = () => {
   );
 };
 
+// ---------------------------------------------------------------- narrator
+// One line per scene. "on" is where the speech starts in the file (s), so
+// the first word's subtitle lands on it; word times come from a Whisper pass
+// over each line (src/portfolio/stories/ddba-words.json).
+const VO = [
+  { f: "v1.wav", at: 8, on: 0.26 },
+  { f: "v2.wav", at: BEF + 6, on: 0.25 },
+  { f: "v3.wav", at: HIT + 10, on: 0.25 },
+  { f: "v4.wav", at: CHAT + 8, on: 0.29 },
+  { f: "v5.wav", at: CHAT + 296, on: 0.11 },
+  { f: "v6.wav", at: KIDS + 8, on: 0.49 },
+  { f: "v7.wav", at: SCORE + 12, on: 0.41 },
+  { f: "v8.wav", at: END + 12, on: 0.28 },
+];
+type Word = { w: string; s: number; e: number };
+const WORDS = words as Record<string, Word[]>;
+const SUBS = VO.flatMap((v) => {
+  const ws = WORDS[v.f].map((w) => ({
+    w: w.w,
+    s: v.at + Math.round(Math.max(w.s, v.on) * 30),
+    e: v.at + Math.round(w.e * 30),
+  }));
+  // chunks of up to four words, broken after punctuation
+  const chunks: (typeof ws)[] = [];
+  let cur: typeof ws = [];
+  for (const w of ws) {
+    cur.push(w);
+    if (cur.length >= 4 || /[,.?!:]$/.test(w.w)) {
+      chunks.push(cur);
+      cur = [];
+    }
+  }
+  if (cur.length) chunks.push(cur);
+  // never leave one word on its own: fold it into the chunk before
+  for (let k = chunks.length - 1; k > 0; k--) {
+    if (chunks[k].length === 1 && chunks[k - 1].length <= 4) {
+      chunks[k - 1] = [...chunks[k - 1], ...chunks[k]];
+      chunks.splice(k, 1);
+    }
+  }
+  if (chunks.length > 1 && chunks[0].length === 1) {
+    chunks[1] = [...chunks[0], ...chunks[1]];
+    chunks.shift();
+  }
+  return chunks;
+});
+const SPEECH = VO.map((v) => {
+  const ws = WORDS[v.f];
+  return [
+    v.at + Math.round(v.on * 30),
+    v.at + Math.round(ws[ws.length - 1].e * 30),
+  ];
+});
+const musicVolume = (f: number) => {
+  let duck = 0;
+  for (const [a, b] of SPEECH) {
+    duck = Math.max(
+      duck,
+      interpolate(f, [a - 8, a, b, b + 10], [0, 1, 1, 0], clamp),
+    );
+  }
+  return 0.85 - 0.5 * duck;
+};
+
+const Subtitles: React.FC = () => {
+  const frame = useCurrentFrame();
+  const i = SUBS.findIndex((c, k) => {
+    const next = SUBS[k + 1];
+    const end =
+      next && next[0].s - c[c.length - 1].e < 20
+        ? next[0].s - 1
+        : c[c.length - 1].e + 8;
+    return frame >= c[0].s - 2 && frame <= end;
+  });
+  if (i < 0) return null;
+  const c = SUBS[i];
+  const p = ease(frame, c[0].s - 2, c[0].s + 4);
+  const y = frame >= END ? 1110 : 1530;
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 80,
+        right: 80,
+        top: y,
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: "0px 16px",
+        zIndex: 40,
+        scale: 0.9 + 0.1 * p,
+        opacity: p,
+      }}
+    >
+      {c.map((w, k) => {
+        const on = frame >= w.s - 1;
+        const now = on && (k === c.length - 1 || frame < c[k + 1].s - 1);
+        return (
+          <span
+            key={k}
+            style={{
+              ...head,
+              fontSize: 64,
+              lineHeight: 1.12,
+              color: now ? DD.gold : "#fff",
+              opacity: on ? 1 : 0.55,
+              WebkitTextStroke: `12px ${DD.navy}`,
+              paintOrder: "stroke fill",
+              textShadow: "0 6px 0 rgba(0,0,0,0.35)",
+            }}
+          >
+            {w.w}
+          </span>
+        );
+      })}
+    </div>
+  );
+};
+
 export const DDBeforeAfter: React.FC<{ readonly safeZones?: boolean }> = ({
   safeZones = false,
 }) => {
@@ -1644,7 +1745,16 @@ export const DDBeforeAfter: React.FC<{ readonly safeZones?: boolean }> = ({
       {[CHAT, KIDS, SCORE, END].map((c) => (
         <PanelEdge key={c} at={c} />
       ))}
-      <Audio src={staticFile("audio/story-defenders.wav")} volume={0.85} />
+      <Audio
+        src={staticFile("audio/story-defenders.wav")}
+        volume={musicVolume}
+      />
+      {VO.map((v) => (
+        <Sequence key={v.f} from={v.at} layout="none">
+          <Audio src={staticFile(`audio/ddba/${v.f}`)} volume={1} />
+        </Sequence>
+      ))}
+      <Subtitles />
       <Sfx name="whoosh" at={SWIPE} volume={0.35} />
       <Sfx name="impact" at={HIT} volume={0.45} />
       {[CHAT, KIDS, SCORE, END].map((c) => (
@@ -1666,3 +1776,112 @@ export const DDBeforeAfter: React.FC<{ readonly safeZones?: boolean }> = ({
     </AbsoluteFill>
   );
 };
+
+// ---------------------------------------------------------------- thumbnail
+// The cover: old site up top (greyed, BEFORE), the new one below (AFTER),
+// and Shield's booking card on a phone. Key content sits inside the 4:5 crop
+// the profile grid shows (y 285–1635).
+const Stamp: React.FC<{ text: string; color: string; rot: number }> = ({
+  text,
+  color,
+  rot,
+}) => (
+  <div
+    style={{
+      padding: "4px 26px",
+      border: `8px solid ${color}`,
+      borderRadius: 14,
+      color,
+      ...head,
+      fontStyle: "normal",
+      fontSize: 92,
+      lineHeight: 1,
+      rotate: `${rot}deg`,
+      background: "rgba(11,22,56,0.35)",
+      boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
+    }}
+  >
+    {text}
+  </div>
+);
+
+export const DDBeforeAfterThumb: React.FC = () => (
+  <AbsoluteFill style={{ backgroundColor: DD.navy }}>
+    <Halftone />
+    <div style={{ position: "absolute", left: 50, right: 50, top: 300 }}>
+      <div style={{ ...mono, color: DD.red, marginBottom: 14 }}>
+        /// Before → after · Dental Defenders
+      </div>
+      <div style={{ ...head, fontSize: 132, lineHeight: 0.92, color: DD.text }}>
+        Same dentist.
+      </div>
+      <div style={{ ...head, fontSize: 132, lineHeight: 0.98, color: DD.gold }}>
+        New website.
+      </div>
+    </div>
+    {/* before */}
+    <div
+      style={{
+        position: "absolute",
+        left: 30,
+        top: 640,
+        rotate: "-4deg",
+        filter: "saturate(0.6) brightness(0.9)",
+      }}
+    >
+      <LaptopRec
+        src="stories/ddold/desktop-scroll.mp4"
+        width={560}
+        from={0}
+        trim={2}
+      />
+    </div>
+    <div style={{ position: "absolute", left: 120, top: 740 }}>
+      <Stamp text="Before" color={DD.red} rot={-10} />
+    </div>
+    {/* after */}
+    <div style={{ position: "absolute", left: 300, top: 1010, rotate: "3deg" }}>
+      <LaptopRec
+        src="stories/ddnew/desktop-picker.mp4"
+        width={640}
+        from={0}
+        trim={6}
+      />
+    </div>
+    <div style={{ position: "absolute", left: 360, top: 1200 }}>
+      <Stamp text="After" color={DD.gold} rot={8} />
+    </div>
+    {/* Shield's booking card, on a phone */}
+    <div
+      style={{
+        position: "absolute",
+        left: 760,
+        top: 640,
+        scale: 0.6,
+        transformOrigin: "0 0",
+        rotate: "6deg",
+      }}
+    >
+      <Phone>
+        <ChatScreen at={U4 + 60} />
+      </Phone>
+    </div>
+    <Burst at={-30} x={300} y={1080} word="POW!" size={200} rot={-12} />
+    <div
+      style={{
+        position: "absolute",
+        left: 50,
+        top: 1490,
+        padding: "16px 26px",
+        background: DD.red,
+        color: "#fff",
+        ...head,
+        fontSize: 44,
+        boxShadow: "6px 6px 0 rgba(0,0,0,0.4)",
+        rotate: "-2deg",
+      }}
+    >
+      + an AI agent that books the visit
+    </div>
+  </AbsoluteFill>
+);

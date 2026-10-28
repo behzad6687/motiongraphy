@@ -974,10 +974,21 @@ Tech, B2B and enterprise teams: we build your demo free. See it before you pay a
 
 ---
 
-## 17. Before → after: Dental Defenders (35s)
+## 17. Before → after: Dental Defenders (43s)
 
-**Video:** `renders/before-after/dental-defenders-before-after.mp4` (9:16, works as a Reel or a Story; the end card leaves room for the link sticker)
-**Effects plan:** `renders/before-after/dental-defenders_effects.json` (the BEFORE / AFTER stamps, added with the `effects` skill on top of the Remotion render)
+**Video:** `renders/before-after/dental-defenders-before-after.mp4` (9:16, works as a Reel or a Story; the end card leaves room for the link sticker). Narrated, with word-by-word subtitles for muted viewing; the music ducks under the voice.
+**Thumbnail / Reel cover:** `renders/before-after/dental-defenders-thumbnail.jpg`
+**Effects plan:** `renders/before-after/dental-defenders_effects.json` (the BEFORE / AFTER stamps, added with the `effects` skill on top of the Remotion render, through `scripts/fx_screen.py` so the stamps are never cut around people in the website photos)
+
+**Voiceover script:**
+1. Same dentist. Brand-new website.
+2. Before: a busy homepage. And booking meant filling out a form on another site, then waiting.
+3. After: parents just tap what's going on, and the site points them to the right visit.
+4. Then there's Shield, their AI agent. It answers Medicaid questions, finds an after-school time, and books the visit, right in the chat.
+5. Day or night, in English, Spanish and more.
+6. Kids even get the visit as a comic, so they know what's coming.
+7. Same dentist. A website that actually books patients.
+8. Want a website like this? We'll build yours free. Tap the link.
 
 What it shows, in order: their old homepage (dentaldefendershouston.com) scrolling, with what it could not do; the new site wiping across the same laptop; "Tell us what's going on. We'll point the way." with three taps; Shield, the AI agent, answering a Medicaid question, finding after-school times and booking the visit (a real conversation on the live demo, redrawn word for word), then answering in Spanish; the visit as a comic; a before vs after scorecard.
 

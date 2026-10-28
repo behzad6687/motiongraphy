@@ -24,6 +24,7 @@ import { BARON_DURATION, BaronStory } from "./portfolio/stories/Baron";
 import {
   DD_BA_DURATION,
   DDBeforeAfter,
+  DDBeforeAfterThumb,
 } from "./portfolio/stories/DDBeforeAfter";
 import {
   INFOTOUCH_DURATION,
@@ -378,6 +379,14 @@ export const RemotionRoot: React.FC = () => {
           width={1080}
           height={1920}
           defaultProps={{ safeZones: true }}
+        />
+        <Composition
+          id="Thumb-BeforeAfter-dentaldefenders"
+          component={DDBeforeAfterThumb}
+          durationInFrames={1}
+          fps={30}
+          width={1080}
+          height={1920}
         />
         {THUMB_ORDER.map((site) => (
           // a 30 fps composition, not a Still (1 fps), so the recordings' frame
