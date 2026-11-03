@@ -19,4 +19,6 @@
 - The scroll animation is the point of these sites: play it at reading pace, never skip or speed through it. Record the scroll linearly and let the shot length set the pace.
 - Hands and rooms: Seedance image-to-video from a start frame with flat #00FF00 screens; then scripts/pin_screens.py (keys, fits screen edges per frame, crops each recording to the screen's proportions, hand-driven scroll with --mix for how much the hand nudges it).
 - Phone + desktop together must show the same section at the same moment: record both with the same frame schedule between matching section anchors; record the monitor at its own aspect (VW/VH in record_scroll.mjs).
+- Where a scroll film pins a frame (nothing changes while you scroll), skip that stretch in the recording; a hand scrolling over a frozen page looks broken. Check per-frame change of each recording.
+- Phone thumb shots: let the thumb drive the scroll (--mix 0.85 --momentum 0.92) so the page moves on every flick and coasts after it.
 - Cut to the music: find the drop and breaks and put the scene changes on them.
