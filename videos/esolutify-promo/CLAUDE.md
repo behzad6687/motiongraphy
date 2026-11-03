@@ -21,4 +21,7 @@
 - Phone + desktop together must show the same section at the same moment: record both with the same frame schedule between matching section anchors; record the monitor at its own aspect (VW/VH in record_scroll.mjs).
 - Where a scroll film pins a frame (nothing changes while you scroll), skip that stretch in the recording; a hand scrolling over a frozen page looks broken. Check per-frame change of each recording.
 - Phone thumb shots: let the thumb drive the scroll (--mix 0.85 --momentum 0.92) so the page moves on every flick and coasts after it.
+- The recorder's first frames are a warm-up (the page jumps to the start position and a scroll film takes ~6 frames to catch up): trim them (pin_screens.py screen spec pick:rec:grow:trim) or the cut shows a flash of the wrong section.
+- Trackpad hands: Kling 3.0 (pro) kept the hand planted with only the fingers swiping; frame the laptop close (screen filling most of the width). When nothing covers a screen, use :solid so uneven green or specks never show.
+- After rendering, scan frame-to-frame change for spikes: only the planned cuts should show up.
 - Cut to the music: find the drop and breaks and put the scene changes on them.

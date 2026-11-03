@@ -25,10 +25,10 @@ import { clamp, theme } from "../../theme";
 //   451–693  on the drop: a thumb scrolls the phone in front of the monitor
 //            and both carry the film on from there, on the same frame
 //   693–875  the break: "Want a website like this? Comment the word below"
-// The hand clips are generated (public/stories/reel-dd/gen-*2.mp4, green
+// The hand clips are generated (public/stories/reel-dd/gen-a3.mp4 and gen-b2.mp4, green
 // screens); scripts/pin_screens.py fits each screen's edges, pins the real
 // recordings in at the screen's own proportions, and lets the hand's motion
-// nudge the steady scroll (*2-comp.mp4).
+// nudge the steady scroll (*-comp.mp4).
 
 export const DEMO_REEL_DD_DURATION = 875;
 const B = 451;
@@ -186,7 +186,7 @@ export const DemoReelDD: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
       {frame < B ? (
-        <Shot src={`${SRC}/gen-a2-comp.mp4`} from={0} to={B} />
+        <Shot src={`${SRC}/gen-a3-comp.mp4`} from={0} to={B} />
       ) : null}
       {frame >= B && frame < END + 8 ? (
         <Shot src={`${SRC}/gen-b2-comp.mp4`} from={B} to={END} push={0.03} />

@@ -150,7 +150,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("gen")
     ap.add_argument("out")
-    ap.add_argument("--screen", action="append", required=True, help="pick:recording.mp4[:grow], pick = largest|top|bottom")
+    ap.add_argument("--screen", action="append", required=True, help="pick:recording.mp4[:grow[:trim[:solid]]], pick = largest|top|bottom; trim = recording frames to skip at the start (the recorder's warm-up); solid = fill the whole screen, not just where it's green (when nothing covers it and the green isn't perfectly flat)")
     ap.add_argument("--drive", help="x0,y0,x1,y1 box (fractions) where the scrolling finger/thumb is")
     ap.add_argument("--grow", type=float, default=1.02)
     ap.add_argument("--momentum", type=float, default=0.86)
@@ -163,8 +163,10 @@ def main():
         parts = s.split(":")
         pick, rec = parts[0], parts[1]
         g = float(parts[2]) if len(parts) > 2 else a.grow
+        trim = int(parts[3]) if len(parts) > 3 else 0
+        solid = len(parts) > 4 and parts[4] == "solid"
         rn, _, rw, rh = info(rec)
-        screens.append(dict(pick=pick, rec=rec, n=rn, w=rw, h=rh, grow=g))
+        screens.append(dict(pick=pick, rec=rec, n=rn, w=rw, h=rh, grow=g, trim=trim, solid=solid))
     n, fps, W, H = info(a.gen)
     k = len(screens)
 
@@ -263,7 +265,7 @@ def main():
         gf[:] = np.minimum(gf, np.maximum(rf, bf) + 6)
         layer = np.zeros_like(out)
         for i, sc in enumerate(screens):
-            idx = int(round(prog[t] * (sc["n"] - 1)))
+            idx = sc["trim"] + int(round(prog[t] * (sc["n"] - 1 - sc["trim"])))
             img = rec_frame(i, idx)
             if img is None:
                 continue
@@ -287,6 +289,10 @@ def main():
             warped = cv2.warpPerspective(img, M, (W, H), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_CONSTANT)
             region = cv2.warpPerspective(np.ones((sc["h"], sc["w"]), np.float32), M, (W, H), borderMode=cv2.BORDER_CONSTANT)[..., None]
             layer = layer * (1 - region) + warped.astype(np.float32) * 0.96 * region
+            if sc["solid"]:
+                inner = np.zeros((H, W), np.float32)
+                cv2.fillConvexPoly(inner, grow(qd, 1.004).astype(np.int32), 1.0, lineType=cv2.LINE_AA)
+                alpha = np.maximum(alpha, cv2.GaussianBlur(inner, (3, 3), 0)[..., None])
         comp = out * (1 - alpha) + layer * alpha
         frame = np.clip(comp, 0, 255).astype(np.uint8)
         if stills is not None:
