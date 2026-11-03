@@ -1065,13 +1065,13 @@ Before posting option B, fill in the date and where it's open, and decide what "
 
 **Alt text:** "A website demo reel for Coldloop, a custom PC builder, made by eSolutify. A laptop on a bright wooden desk plays the site's scroll animation, building a water-cooled PC part by part as the camera pushes in. Then, in a dark room lit by cyan neon, an ultrawide monitor shows the desktop site while a hand holds a phone showing the mobile site. The end card asks: Want a website like this? Comment the word below, as an Instagram comment types DEMO."
 
-## 19. Website demo reel: Downtown Dentists, hand scrolling (18s)
+## 19. Website demo reel: Downtown Dentists, hand scrolling (29s)
 
-**Video:** `renders/reels/downtowndentists-website-demo-reel.mp4` (9:16, no voice; looks like a phone filming someone using the site)
+**Video:** `renders/reels/downtowndentists-website-demo-reel.mp4` (9:16, no voice; cut to "Make Your First Impression", `public/audio/make-your-first-impression.wav`)
 **Thumbnail / Reel cover:** `renders/reels/downtowndentists-website-demo-thumbnail.jpg`
 **Effects plan:** `renders/reels/downtowndentists-demo_effects.json` (the comment box typing DEMO on the end card)
 
-What it shows: a hand two-finger scrolls a laptop trackpad and the Downtown Dentists sunrise film plays down the page; then a thumb scrolls the phone while the monitor behind it shows the desktop site, both moving through the same sections together (workday, the visit picker, care, same-day crowns, the team); then "Want a website like this? Comment the word below" and a comment types DEMO. The hands and rooms are generated clips with green screens (`public/stories/reel-dd/gen-*.mp4`); `scripts/pin_screens.py` tracks the screens, pins in the real recordings and lets the hand's own motion drive the scroll.
+What it shows: the site's scroll film is the star, played at reading pace, never skipped. A hand slowly two-finger scrolls a laptop trackpad through the first chapters of the sunrise film ("Downtown Dentists", "Clean teeth. Back at your desk by nine", "1 visit, your crown", "Patients for 30 years"); on the drop (15 s) a thumb scrolls the phone in front of an ultrawide monitor and both carry the film on from there on the same frame ("No surprises", "Your chair is ready", then the workday planner); on the break (23 s) "Want a website like this? Comment the word below" and a comment types DEMO. The hands and rooms are generated clips with green screens (`public/stories/reel-dd/gen-*2.mp4`); `scripts/pin_screens.py` fits each screen's edges (a thumb over a corner doesn't skew it), pins the real recordings in at the screen's own proportions (the monitor gets the site at an ultrawide viewport), and lets the hand nudge a steady scroll.
 
 Same keyword, DEMO, for both offers; set up an auto-reply DM for it (the end card says "Sent you a DM").
 

@@ -14,3 +14,9 @@
 ## Effects skill (~/.claude/skills/effects)
 - On screen recordings run it through scripts/fx_screen.py, which turns off the skill's person masking (it cuts effects around any photo of a person on a website) and lets an effect pin its anchor with "anchor": [x, y, width] (fractions of the frame), since there is no face to track.
 - Some effects carry the skill author's branding by default (comment-box: handle, reply, chip); always set our own.
+
+## Website demo reels (hand scrolling, phone + desktop)
+- The scroll animation is the point of these sites: play it at reading pace, never skip or speed through it. Record the scroll linearly and let the shot length set the pace.
+- Hands and rooms: Seedance image-to-video from a start frame with flat #00FF00 screens; then scripts/pin_screens.py (keys, fits screen edges per frame, crops each recording to the screen's proportions, hand-driven scroll with --mix for how much the hand nudges it).
+- Phone + desktop together must show the same section at the same moment: record both with the same frame schedule between matching section anchors; record the monitor at its own aspect (VW/VH in record_scroll.mjs).
+- Cut to the music: find the drop and breaks and put the scene changes on them.

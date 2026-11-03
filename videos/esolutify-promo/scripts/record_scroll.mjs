@@ -24,7 +24,8 @@
 //   env: CHROME, CCR_PROXY, CCR_SPKI (cloud sandbox proxy), SETTLE (ms, default 90),
 //        DPR (override the device pixel ratio, e.g. 2 for a sharp desktop zoom),
 //        PRELOAD_MAX (preload only above this y, so reveals below still play),
-//        HIDE (extra css selectors to hide, e.g. a chat greeting bubble)
+//        HIDE (extra css selectors to hide, e.g. a chat greeting bubble),
+//        VW/VH (a custom viewport size, e.g. an ultrawide monitor)
 // Writes public/stories/<slug>/<device>-<name>.mp4 (30 fps, H.264).
 import { chromium } from "playwright";
 import { execFileSync } from "node:child_process";
@@ -90,6 +91,10 @@ const browser = await chromium.launch({
   args,
   proxy: process.env.CCR_PROXY ? { server: process.env.CCR_PROXY } : undefined,
 });
+// VW/VH: a custom viewport, e.g. an ultrawide monitor (VW=2100 VH=900)
+if (process.env.VW && process.env.VH) {
+  DEVICES[device].viewport = { width: Number(process.env.VW), height: Number(process.env.VH) };
+}
 const ctx = await browser.newContext(DEVICES[device]);
 let page = await ctx.newPage();
 const passChallenge = async () => {

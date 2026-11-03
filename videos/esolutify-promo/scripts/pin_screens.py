@@ -66,11 +66,67 @@ def regions(dom, k):
     return [(lab == i, cents[i]) for i in order]
 
 
+RNG = np.random.default_rng(7)
+
+
+def ransac_line(u, v, tol=2.5, iters=300):
+    """Fit v = a*u + b to the points most of which lie on one straight edge.
+    A thumb or finger over the screen bends part of the edge; RANSAC keeps the
+    straight, visible part and ignores the rest."""
+    if len(u) < 2:
+        return None
+    best, best_in = None, 0
+    for _ in range(iters):
+        i, j = RNG.choice(len(u), 2, replace=False)
+        if u[i] == u[j]:
+            continue
+        a = (v[j] - v[i]) / (u[j] - u[i])
+        b = v[i] - a * u[i]
+        inl = np.abs(v - (a * u + b)) < tol
+        n = inl.sum()
+        if n > best_in:
+            best, best_in = inl, n
+    if best is None:
+        return None
+    a, b = np.polyfit(u[best], v[best], 1)
+    return a, b
+
+
 def corners(mask):
-    pts = cv2.findNonZero(mask.astype(np.uint8))
-    hull = cv2.convexHull(pts).reshape(-1, 2).astype(np.float64)
-    s, d = hull.sum(1), hull[:, 0] - hull[:, 1]
-    return np.array([hull[s.argmin()], hull[d.argmax()], hull[s.argmax()], hull[d.argmin()]])  # tl tr br bl
+    """Screen corners as the crossings of its four fitted edges (so rounded
+    corners and a thumb over one corner don't pull them in)."""
+    m = mask.astype(bool)
+    ys, xs = np.nonzero(m)
+    x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
+    cols = np.arange(x0, x1 + 1)
+    rows = np.arange(y0, y1 + 1)
+    sub = m[y0:y1 + 1, x0:x1 + 1]
+    has_c, has_r = sub.any(0), sub.any(1)
+    top = np.where(has_c, sub.argmax(0), -1) + y0
+    bot = np.where(has_c, sub.shape[0] - 1 - sub[::-1].argmax(0), -1) + y0
+    lef = np.where(has_r, sub.argmax(1), -1) + x0
+    rig = np.where(has_r, sub.shape[1] - 1 - sub[:, ::-1].argmax(1), -1) + x0
+    # skip the rounded ends of each edge
+    cw, rh = len(cols), len(rows)
+    cm = has_c & (np.arange(cw) > cw * 0.1) & (np.arange(cw) < cw * 0.9)
+    rm = has_r & (np.arange(rh) > rh * 0.08) & (np.arange(rh) < rh * 0.92)
+    lt = ransac_line(cols[cm].astype(float), top[cm].astype(float))  # y = a x + b
+    lb = ransac_line(cols[cm].astype(float), bot[cm].astype(float))
+    ll = ransac_line(rows[rm].astype(float), lef[rm].astype(float))  # x = a y + b
+    lr = ransac_line(rows[rm].astype(float), rig[rm].astype(float))
+    if None in (lt, lb, ll, lr):
+        pts = cv2.findNonZero(m.astype(np.uint8))
+        hull = cv2.convexHull(pts).reshape(-1, 2).astype(np.float64)
+        s_, d_ = hull.sum(1), hull[:, 0] - hull[:, 1]
+        return np.array([hull[s_.argmin()], hull[d_.argmax()], hull[s_.argmax()], hull[d_.argmin()]])
+
+    def cross(h, v):  # h: y = a x + b, v: x = c y + d
+        a, b = h
+        c, d = v
+        y = (a * d + b) / (1 - a * c)
+        return np.array([c * y + d, y])
+
+    return np.array([cross(lt, ll), cross(lt, lr), cross(lb, lr), cross(lb, ll)])  # tl tr br bl
 
 
 def grow(q, k):
@@ -94,7 +150,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("gen")
     ap.add_argument("out")
-    ap.add_argument("--screen", action="append", required=True, help="pick:recording.mp4, pick = largest|top|bottom")
+    ap.add_argument("--screen", action="append", required=True, help="pick:recording.mp4[:grow], pick = largest|top|bottom")
     ap.add_argument("--drive", help="x0,y0,x1,y1 box (fractions) where the scrolling finger/thumb is")
     ap.add_argument("--grow", type=float, default=1.02)
     ap.add_argument("--momentum", type=float, default=0.86)
@@ -104,9 +160,11 @@ def main():
 
     screens = []
     for s in a.screen:
-        pick, rec = s.split(":", 1)
+        parts = s.split(":")
+        pick, rec = parts[0], parts[1]
+        g = float(parts[2]) if len(parts) > 2 else a.grow
         rn, _, rw, rh = info(rec)
-        screens.append(dict(pick=pick, rec=rec, n=rn, w=rw, h=rh))
+        screens.append(dict(pick=pick, rec=rec, n=rn, w=rw, h=rh, grow=g))
     n, fps, W, H = info(a.gen)
     k = len(screens)
 
@@ -209,11 +267,25 @@ def main():
             img = rec_frame(i, idx)
             if img is None:
                 continue
-            q = grow(quads[i][t], a.grow).astype(np.float32)
-            src = np.float32([[0, 0], [sc["w"], 0], [sc["w"], sc["h"]], [0, sc["h"]]])
+            qd = quads[i][t]
+            q = grow(qd, sc["grow"]).astype(np.float32)
+            # keep the page's proportions: crop the recording to the screen's
+            # shape (top-aligned) instead of stretching it
+            sw_ = (np.linalg.norm(qd[1] - qd[0]) + np.linalg.norm(qd[2] - qd[3])) / 2
+            sh_ = (np.linalg.norm(qd[3] - qd[0]) + np.linalg.norm(qd[2] - qd[1])) / 2
+            asp = sw_ / sh_
+            if asp > sc["w"] / sc["h"]:
+                cw_, ch_ = sc["w"], sc["w"] / asp
+                ox, oy = 0, 0
+            else:
+                cw_, ch_ = sc["h"] * asp, sc["h"]
+                ox, oy = (sc["w"] - cw_) / 2, 0
+            # the grown quad shows a little more than the screen: widen the crop to match
+            gx, gy = cw_ * (sc["grow"] - 1) / 2, ch_ * (sc["grow"] - 1) / 2
+            src = np.float32([[ox - gx, oy - gy], [ox + cw_ + gx, oy - gy], [ox + cw_ + gx, oy + ch_ + gy], [ox - gx, oy + ch_ + gy]])
             M = cv2.getPerspectiveTransform(src, q)
             warped = cv2.warpPerspective(img, M, (W, H), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_CONSTANT)
-            region = cv2.warpPerspective(np.ones((sc["h"], sc["w"]), np.float32), M, (W, H))[..., None]
+            region = cv2.warpPerspective(np.ones((sc["h"], sc["w"]), np.float32), M, (W, H), borderMode=cv2.BORDER_CONSTANT)[..., None]
             layer = layer * (1 - region) + warped.astype(np.float32) * 0.96 * region
         comp = out * (1 - alpha) + layer * alpha
         frame = np.clip(comp, 0, 255).astype(np.uint8)

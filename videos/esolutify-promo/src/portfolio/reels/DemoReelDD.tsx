@@ -15,21 +15,24 @@ import { ease } from "../../reel/kit";
 import { clamp, theme } from "../../theme";
 
 // Website demo reel, hand-scroll: Downtown Dentists
-// (esolutify.com/demo/downtowndentists), 18 s, 9:16. Looks like a phone
-// filming someone using the site:
-//   0–210    a hand two-finger scrolls a laptop's trackpad and the site's
-//            sunrise film plays down the page
-//   210–450  a thumb scrolls the phone in front of the monitor; the desktop
-//            and mobile sites move through the same sections together
-//   450–540  end card: "Want a website like this? Comment the word below"
-// The hand clips are generated (public/stories/reel-dd/gen-*.mp4, green
-// screens); scripts/pin_screens.py keys them, tracks the screens and pins the
-// real recordings in, with the scroll driven by the hand's own motion
-// (*-comp.mp4). Music: story-showcase-dd.wav.
+// (esolutify.com/demo/downtowndentists), 29 s, 9:16, cut to the client's
+// track "Make Your First Impression" (public/audio/make-your-first-impression
+// .wav: drop at 15.05 s, break at 23.1 s, last hit at 27.6 s). Looks like a
+// phone filming someone using the site, and the site's scroll film is the
+// star, so it plays at reading pace, never skipped:
+//   0–451    a hand slowly two-finger scrolls a laptop's trackpad through the
+//            first chapters of the sunrise film
+//   451–693  on the drop: a thumb scrolls the phone in front of the monitor
+//            and both carry the film on from there, on the same frame
+//   693–875  the break: "Want a website like this? Comment the word below"
+// The hand clips are generated (public/stories/reel-dd/gen-*2.mp4, green
+// screens); scripts/pin_screens.py fits each screen's edges, pins the real
+// recordings in at the screen's own proportions, and lets the hand's motion
+// nudge the steady scroll (*2-comp.mp4).
 
-export const DEMO_REEL_DD_DURATION = 540;
-const B = 210;
-const END = 450;
+export const DEMO_REEL_DD_DURATION = 875;
+const B = 451;
+const END = 693;
 const SRC = "stories/reel-dd";
 
 const Credit: React.FC<{ from: number; to: number; dark?: boolean }> = ({
@@ -65,9 +68,11 @@ const Shot: React.FC<{
   push?: number;
 }> = ({ src, from, to, push = 0 }) => {
   const frame = useCurrentFrame();
-  const inn = from === 0 ? 1 : ease(frame, from - 8, from + 4);
-  const blur = from === 0 ? 0 : 1 - ease(frame, from - 8, from + 6);
-  const z = 1 + push * ease(frame, from, to, theme.ease.inOut);
+  // a hard cut on the beat, with a small punch-in that settles
+  const inn = from === 0 || frame >= from ? 1 : 0;
+  const blur = 0;
+  const punch = from === 0 ? 0 : 0.06 * (1 - ease(frame, from, from + 10, theme.ease.out));
+  const z = 1 + punch + push * ease(frame, from, to, theme.ease.inOut);
   return (
     <AbsoluteFill style={{ opacity: inn, overflow: "hidden" }}>
       <AbsoluteFill
@@ -76,7 +81,7 @@ const Shot: React.FC<{
           filter: blur > 0 ? `blur(${blur * 12}px)` : undefined,
         }}
       >
-        <Sequence from={from - (from === 0 ? 0 : 8)} layout="none">
+        <Sequence from={from} layout="none">
           <OffthreadVideo
             src={staticFile(src)}
             muted
@@ -180,16 +185,16 @@ export const DemoReelDD: React.FC = () => {
   const frame = useCurrentFrame();
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      {frame < B + 8 ? (
-        <Shot src={`${SRC}/gen-a-comp.mp4`} from={0} to={B} />
+      {frame < B ? (
+        <Shot src={`${SRC}/gen-a2-comp.mp4`} from={0} to={B} />
       ) : null}
-      {frame >= B - 8 && frame < END + 8 ? (
-        <Shot src={`${SRC}/gen-b-comp.mp4`} from={B} to={END} push={0.03} />
+      {frame >= B && frame < END + 8 ? (
+        <Shot src={`${SRC}/gen-b2-comp.mp4`} from={B} to={END} push={0.03} />
       ) : null}
       <Credit from={30} to={B - 10} dark />
       <Credit from={B + 30} to={END - 8} />
       {frame >= END - 4 ? <EndCard /> : null}
-      <Audio src={staticFile("audio/story-showcase-dd.wav")} volume={0.9} />
+      <Audio src={staticFile("audio/make-your-first-impression.wav")} volume={1} />
     </AbsoluteFill>
   );
 };
@@ -199,8 +204,8 @@ export const DemoReelDD: React.FC = () => {
 // section), with the offer on top. Key content inside the 4:5 grid crop.
 export const DemoReelDDThumb: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: "#000" }}>
-    <Sequence from={-(B + 120)} layout="none">
-      <Shot src={`${SRC}/gen-b-comp.mp4`} from={B} to={END} />
+    <Sequence from={-(B + 160)} layout="none">
+      <Shot src={`${SRC}/gen-b2-comp.mp4`} from={B} to={END} />
     </Sequence>
     <AbsoluteFill
       style={{
