@@ -1065,6 +1065,57 @@ Before posting option B, fill in the date and where it's open, and decide what "
 
 **Alt text:** "A website demo reel for Coldloop, a custom PC builder, made by eSolutify. A laptop on a bright wooden desk plays the site's scroll animation, building a water-cooled PC part by part as the camera pushes in. Then, in a dark room lit by cyan neon, an ultrawide monitor shows the desktop site while a hand holds a phone showing the mobile site. The end card asks: Want a website like this? Comment the word below, as an Instagram comment types DEMO."
 
+## 19. Website demo reel: Downtown Dentists, hand scrolling (18s)
+
+**Video:** `renders/reels/downtowndentists-website-demo-reel.mp4` (9:16, no voice; looks like a phone filming someone using the site)
+**Thumbnail / Reel cover:** `renders/reels/downtowndentists-website-demo-thumbnail.jpg`
+**Effects plan:** `renders/reels/downtowndentists-demo_effects.json` (the comment box typing DEMO on the end card)
+
+What it shows: a hand two-finger scrolls a laptop trackpad and the Downtown Dentists sunrise film plays down the page; then a thumb scrolls the phone while the monitor behind it shows the desktop site, both moving through the same sections together (workday, the visit picker, care, same-day crowns, the team); then "Want a website like this? Comment the word below" and a comment types DEMO. The hands and rooms are generated clips with green screens (`public/stories/reel-dd/gen-*.mp4`); `scripts/pin_screens.py` tracks the screens, pins in the real recordings and lets the hand's own motion drive the scroll.
+
+Same keyword, DEMO, for both offers; set up an auto-reply DM for it (the end card says "Sent you a DM").
+
+**Caption, option A: 5 free demos**
+
+```
+Want a website like this? Comment DEMO 👇
+
+Scroll it on a laptop or a phone, it feels made for both. We're building 5 free website demos this month, for businesses that actually need a new site.
+
+How it works:
+▸ Comment DEMO and we'll DM you
+▸ Tell us about your business
+▸ We design your homepage as a live demo, free
+▸ Love it? We finish the build. Don't? You pay nothing
+
+5 spots only, real businesses only.
+
+#webdesign #smallbusiness #dentalmarketing #freedemo #esolutify
+```
+
+**Caption, option B: win a free website**
+
+```
+Want a website like this, for free? 👇
+
+GIVEAWAY: we're building one business a complete website, free.
+
+To enter:
+1. Like this post
+2. Comment DEMO
+3. Follow @esolutify
+
+We'll pick 1 winner at random from the comments on [DATE] and announce it in our Stories.
+
+The winner brings their own domain and hosting; we design and build the website.
+
+Open to businesses in [COUNTRIES], 18+. One entry per account. This giveaway is not sponsored, endorsed or administered by, or associated with, Instagram or Meta.
+
+#giveaway #webdesign #smallbusiness #freewebsite #esolutify
+```
+
+**Alt text:** "A website demo reel for Downtown Dentists in Houston, made by eSolutify. A hand scrolls a laptop's trackpad on a bright wooden desk while the site's sunrise film over downtown plays down the page. Then, in a cozy room at dusk, a thumb scrolls the site on a phone while the monitor behind shows the desktop version moving through the same sections at the same time. The end card asks: Want a website like this? Comment the word below, as an Instagram comment types DEMO."
+
 ## Posting order
 
 1. YouTube main promo first, so the Shorts can link to it as the related video.

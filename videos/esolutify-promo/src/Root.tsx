@@ -22,6 +22,11 @@ import { NHF_DURATION, NHFStory } from "./portfolio/stories/NHF";
 import { MASERA_DURATION, MaseraStory } from "./portfolio/stories/Masera";
 import { BARON_DURATION, BaronStory } from "./portfolio/stories/Baron";
 import {
+  DEMO_REEL_DD_DURATION,
+  DemoReelDD,
+  DemoReelDDThumb,
+} from "./portfolio/reels/DemoReelDD";
+import {
   DEMO_REEL_PC_DURATION,
   DemoReelPC,
   DemoReelPCThumb,
@@ -404,6 +409,22 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="Thumb-DemoReel-pc"
           component={DemoReelPCThumb}
+          durationInFrames={1}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="DemoReel-dd"
+          component={DemoReelDD}
+          durationInFrames={DEMO_REEL_DD_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="Thumb-DemoReel-dd"
+          component={DemoReelDDThumb}
           durationInFrames={1}
           fps={30}
           width={1080}

@@ -120,6 +120,8 @@ F#m-D-A-E, a sleek tech-house loop for the photoreal demo reels.
   0-7 s      beats 0-14   filtered kick, hats, bass, a plucked arp opening up
   7 s        beat 14      the second shot (frame 210): claps, open hats, full
   13 s       beat 26      the end card (frame 390): the beat stops, a chord rings
+showcase-dd: the same loop at 18 s for the Downtown Dentists reel: the phone
+shot at 7 s (beat 14), the end card at 15 s (beat 30).
 """
 
 import sys
@@ -1171,12 +1173,12 @@ def defenders():
     print("wrote story-defenders.wav")
 
 
-def showcase():
-    bpm, total = 120, 16.0
+def showcase(total=16.0, lift_beat=14, end_beat=26, name="story-showcase.wav"):
+    bpm = 120
     beat = 60 / bpm
     bar = 4 * beat
     s16 = beat / 4
-    lift, end = 14 * beat, 26 * beat
+    lift, end = lift_beat * beat, end_beat * beat
     g.RNG = np.random.default_rng(1440)
     buf = np.zeros((2, int(total * SR)))
     prog = [
@@ -1220,12 +1222,14 @@ def showcase():
     buf = np.tanh(buf * 1.35) / np.tanh(1.35)
     fade = int(0.6 * SR)
     buf[:, -fade:] *= np.linspace(1, 0, fade)
-    write_wav(OUT / "story-showcase.wav", buf, -1.5)
-    print("wrote story-showcase.wav")
+    write_wav(OUT / name, buf, -1.5)
+    print("wrote", name)
 
 
 PRESETS = {
     "showcase": showcase,
+    # the Downtown Dentists hand-scroll reel: 18 s, phone shot at 7 s, end card at 15 s
+    "showcase-dd": lambda: showcase(18.0, 14, 30, "story-showcase-dd.wav"),
     "defenders": defenders,
     "signal": signal,
     "voyage": voyage,
