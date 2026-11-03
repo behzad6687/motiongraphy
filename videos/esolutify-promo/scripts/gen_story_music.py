@@ -115,6 +115,11 @@ brass stabs. The video ducks it under the narrator.
   29 s       beat 58      a lift for the comic panels (frame 870)
   33 s       beat 66      a lift for the before/after scorecard (frame 990)
   38 s       beat 76      the end card (frame 1140): one big brass chord rings
+showcase (website demo reel, 16 s): 120 BPM (a beat is 15 frames), F# minor,
+F#m-D-A-E, a sleek tech-house loop for the photoreal demo reels.
+  0-7 s      beats 0-14   filtered kick, hats, bass, a plucked arp opening up
+  7 s        beat 14      the second shot (frame 210): claps, open hats, full
+  13 s       beat 26      the end card (frame 390): the beat stops, a chord rings
 """
 
 import sys
@@ -1166,7 +1171,61 @@ def defenders():
     print("wrote story-defenders.wav")
 
 
+def showcase():
+    bpm, total = 120, 16.0
+    beat = 60 / bpm
+    bar = 4 * beat
+    s16 = beat / 4
+    lift, end = 14 * beat, 26 * beat
+    g.RNG = np.random.default_rng(1440)
+    buf = np.zeros((2, int(total * SR)))
+    prog = [
+        (42, [54, 57, 61, 64], [66, 69, 73, 76]),  # F#m
+        (38, [54, 57, 62, 66], [62, 66, 69, 74]),  # D
+        (45, [52, 57, 61, 64], [64, 69, 73, 76]),  # A
+        (40, [52, 56, 59, 64], [64, 68, 71, 76]),  # E
+    ]
+    for b in range(int(np.ceil(total / bar))):
+        root, pad, arp = prog[b % 4]
+        t0 = b * bar
+        if t0 >= total:
+            break
+        place(buf, g.pad_chord(pad, bar + 0.4, bright=1200 + 1800 * min(1, t0 / lift)), t0, 0.5 if t0 < end else 0)
+        for i in range(16):
+            at = t0 + i * s16
+            if at >= end:
+                break
+            n = arp[[0, 2, 1, 3][i % 4]] + (12 if i % 8 == 6 else 0)
+            cut = 900 + 3000 * min(1, at / lift)
+            place(buf, g.pluck(n, 0.2, cutoff=cut), at, 0.22, pan=-0.35 + 0.7 * ((i * 3) % 5) / 4)
+        for k in range(4):
+            at = t0 + k * beat
+            if at >= end:
+                break
+            place(buf, g.kick(0.38, 140, 44, punch=0.8), at, 0.6 if at >= 1.0 else 0.35)
+            place(buf, g.hat(0.035), at + beat / 2, 0.5, pan=0.3)
+            if at >= lift:
+                if k in (1, 3):
+                    place(buf, g.clap(), at, 0.32, pan=0.05)
+                place(buf, g.hat(0.12, open_=True), at + beat / 2, 0.22, pan=-0.25)
+            for j in (0.5, 0.75):
+                place(buf, g.bass_note(root - 12, beat * 0.22, cutoff=650), at + j * beat, 0.5)
+    place(buf, g.riser(1.0) * 0.35, lift - 1.0, 0.5)
+    place(buf, g.crash(2.0), lift, 0.32)
+    place(buf, g.pad_chord([42, 54, 61, 66, 69], total - end, bright=2400), end, 1.4)
+    place(buf, g.crash(2.6), end, 0.35)
+    place(buf, boom(2.4), end, 0.6)
+    buf = reverb(buf, 0.22)
+    buf = hp(buf, 30)
+    buf = np.tanh(buf * 1.35) / np.tanh(1.35)
+    fade = int(0.6 * SR)
+    buf[:, -fade:] *= np.linspace(1, 0, fade)
+    write_wav(OUT / "story-showcase.wav", buf, -1.5)
+    print("wrote story-showcase.wav")
+
+
 PRESETS = {
+    "showcase": showcase,
     "defenders": defenders,
     "signal": signal,
     "voyage": voyage,

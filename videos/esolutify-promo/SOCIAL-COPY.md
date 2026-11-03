@@ -1012,6 +1012,59 @@ Is your website booking patients, or just sitting there? We'll build your new on
 
 **Alt text:** "A before and after of the Dental Defenders website in Houston. The old homepage scrolls on a laptop under a red BEFORE stamp, with notes that its appointment button opens a request form on another site and that it has no chat. The new site wipes across the same laptop with a gold AFTER stamp: a cursor taps My child's first dental visit, My child is scared of the dentist and We have Medicaid or CHIP. On a phone, the AI agent Shield answers that they take Texas Medicaid and CHIP, offers after-school times and books a kids check-up for Thursday at 2:45 PM with a booking card, then replies in Spanish. A scorecard compares before and after. Text: Give your website a superhero upgrade. Get your free demo at esolutify.com/free-demo."
 
+## 18. Website demo reel: Coldloop, photoreal (16s)
+
+**Video:** `renders/reels/coldloop-website-demo-reel.mp4` (9:16, no voice, no captions on screen; made to look like a phone filming real screens)
+**Thumbnail / Reel cover:** `renders/reels/coldloop-website-demo-thumbnail.jpg`
+**Effects plan:** `renders/reels/coldloop-demo_effects.json` (the Instagram comment box typing DEMO on the end card, from the `effects` skill through `scripts/fx_screen.py`)
+
+What it shows: a laptop on a bright desk, the camera slowly pushing into the screen while Coldloop's scroll film builds the PC; then a dark room in Coldloop's cyan, the ultrawide showing the desktop site and a hand holding the phone with the mobile site; then "Want a website like this? Comment the word below" with a comment typing DEMO. The rooms are generated photos; everything on the screens is the real site.
+
+Both offers below use the same keyword, DEMO, so the video works for either. Set up an auto-reply DM for the keyword (ManyChat or Instagram's own automations) or reply to every comment by hand, since the end card says "Sent you a DM".
+
+**Caption, option A: 5 free demos (recommended for real leads)**
+
+```
+Want a website like this? Comment DEMO 👇
+
+We're building 5 free website demos this month, for businesses that actually need a new site.
+
+Here's how it works:
+▸ Comment DEMO and we'll DM you
+▸ Tell us about your business
+▸ We design your homepage as a live demo, free
+▸ Love it? We finish the build. Don't? You pay nothing
+
+5 spots only. First come, first served, real businesses only.
+
+#webdesign #smallbusiness #websitedesign #freedemo #esolutify
+```
+
+**Caption, option B: win a free website (more reach)**
+
+```
+Want a website like this, for free? 👇
+
+GIVEAWAY: we're building one business a complete website, free.
+
+To enter:
+1. Like this post
+2. Comment DEMO
+3. Follow @esolutify
+
+We'll pick 1 winner at random from the comments on [DATE] and announce it in our Stories.
+
+The winner brings their own domain and hosting; we design and build the website.
+
+Open to businesses in [COUNTRIES], 18+. One entry per account. This giveaway is not sponsored, endorsed or administered by, or associated with, Instagram or Meta.
+
+#giveaway #webdesign #smallbusiness #freewebsite #esolutify
+```
+
+Before posting option B, fill in the date and where it's open, and decide what "a complete website" covers (how many pages, which features) so the winner knows what they get; put that in a pinned comment or Story highlight.
+
+**Alt text:** "A website demo reel for Coldloop, a custom PC builder, made by eSolutify. A laptop on a bright wooden desk plays the site's scroll animation, building a water-cooled PC part by part as the camera pushes in. Then, in a dark room lit by cyan neon, an ultrawide monitor shows the desktop site while a hand holds a phone showing the mobile site. The end card asks: Want a website like this? Comment the word below, as an Instagram comment types DEMO."
+
 ## Posting order
 
 1. YouTube main promo first, so the Shorts can link to it as the related video.

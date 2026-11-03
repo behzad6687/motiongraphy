@@ -12,4 +12,5 @@
 - Transcribe each line (faster-whisper) and check it against the script: the TTS sometimes garbles a line; re-record those.
 
 ## Effects skill (~/.claude/skills/effects)
-- On screen recordings run it through scripts/fx_screen.py, which turns off the skill's person masking (it cuts effects around any photo of a person on a website).
+- On screen recordings run it through scripts/fx_screen.py, which turns off the skill's person masking (it cuts effects around any photo of a person on a website) and lets an effect pin its anchor with "anchor": [x, y, width] (fractions of the frame), since there is no face to track.
+- Some effects carry the skill author's branding by default (comment-box: handle, reply, chip); always set our own.

@@ -22,6 +22,11 @@ import { NHF_DURATION, NHFStory } from "./portfolio/stories/NHF";
 import { MASERA_DURATION, MaseraStory } from "./portfolio/stories/Masera";
 import { BARON_DURATION, BaronStory } from "./portfolio/stories/Baron";
 import {
+  DEMO_REEL_PC_DURATION,
+  DemoReelPC,
+  DemoReelPCThumb,
+} from "./portfolio/reels/DemoReelPC";
+import {
   DD_BA_DURATION,
   DDBeforeAfter,
   DDBeforeAfterThumb,
@@ -383,6 +388,22 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="Thumb-BeforeAfter-dentaldefenders"
           component={DDBeforeAfterThumb}
+          durationInFrames={1}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="DemoReel-pc"
+          component={DemoReelPC}
+          durationInFrames={DEMO_REEL_PC_DURATION}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="Thumb-DemoReel-pc"
+          component={DemoReelPCThumb}
           durationInFrames={1}
           fps={30}
           width={1080}
